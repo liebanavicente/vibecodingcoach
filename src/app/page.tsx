@@ -16,6 +16,8 @@ import {
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import { BrandLogo } from "@/components/BrandLogo";
+import { CountUp } from "@/components/CountUp";
+import { HERO_SCRIPT, HeroAnimator } from "@/components/HeroAnimator";
 import { HowItWorks } from "@/components/HowItWorks";
 import { IntroVideo } from "@/components/IntroVideo";
 import { INTRO_SCRIPT } from "@/lib/intro";
@@ -150,6 +152,7 @@ export default function Home() {
   return (
     <main className="main" id="contenido" tabIndex={-1}>
       <script dangerouslySetInnerHTML={{ __html: INTRO_SCRIPT }} />
+      <script dangerouslySetInnerHTML={{ __html: HERO_SCRIPT }} />
       <IntroVideo />
       <div className="container">
         <section className="hero">
@@ -182,10 +185,10 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="hero-media">
+          <HeroAnimator>
             <HeroVisual />
             <HowItWorks />
-          </div>
+          </HeroAnimator>
         </section>
 
         <div className="perks">
@@ -383,15 +386,15 @@ export default function Home() {
             <div className="about-facts">
               <MlLogo className="about-logo" title="Miguel Liébana" />
               <div>
-                <strong className="grad-text">14</strong>
+                <CountUp className="grad-text" value={14} />
                 <span className="muted">años como maestro</span>
               </div>
               <div>
-                <strong className="grad-text">+5</strong>
+                <CountUp className="grad-text" prefix="+" value={5} />
                 <span className="muted">aplicaciones publicadas</span>
               </div>
               <div>
-                <strong className="grad-text">4</strong>
+                <CountUp className="grad-text" value={4} />
                 <span className="muted">idiomas: es, ca, de, en</span>
               </div>
             </div>
