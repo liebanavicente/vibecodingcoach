@@ -348,6 +348,15 @@ kbd { display: inline-block; border: 1px solid rgba(20, 23, 34, 0.14); border-bo
 .aside-glossary .label { margin: 0; }
 .aside-glossary strong { color: var(--accent-ink); }
 .aside-glossary:hover { transform: translateY(-2px); }
+.booking-card { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 36px; border-radius: var(--radius-xl); padding: 40px; }
+.booking-text { max-width: 52ch; margin-top: 12px; color: var(--text-2); font-size: 1.08rem; line-height: 1.6; }
+.booking-alt { margin-top: 18px; color: var(--muted); font-size: 0.95rem; }
+.booking-alt a { color: var(--accent-ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.booking-prepare { display: grid; align-content: start; gap: 6px; border-left: 1px solid rgba(20, 23, 34, 0.08); padding-left: 32px; }
+.booking-prepare .label { display: inline-flex; align-items: center; gap: 6px; }
+.check-list { display: grid; gap: 10px; margin: 6px 0 0; padding: 0; list-style: none; }
+.check-list li { position: relative; padding-left: 28px; color: var(--text-2); line-height: 1.5; }
+.check-list li::before { position: absolute; top: 0.15em; left: 0; display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: var(--grad); color: white; content: "✓"; font-size: 0.7rem; font-weight: 800; }
 .checklist-done { margin-top: 14px; border-radius: 14px; background: rgba(40, 180, 120, 0.1); color: #12805c; font-weight: 700; padding: 12px 16px; }
 .aside-cta p:not(.label) { margin-bottom: 14px; color: var(--text-2); line-height: 1.5; }
 .aside-cta .button { width: 100%; }
@@ -506,6 +515,8 @@ a.module-card:hover .step-mark { transform: rotate(-10deg) scale(1.06); }
   .page-head { align-items: flex-start; flex-direction: column; }
   .grid, .offer-grid, .about, .article-layout { grid-template-columns: minmax(0, 1fr); }
   .course-stats { width: 100%; }
+  .booking-card { grid-template-columns: minmax(0, 1fr); padding: 26px; }
+  .booking-prepare { border-top: 1px solid rgba(20, 23, 34, 0.08); border-left: 0; padding: 22px 0 0; }
   .offer-grid { gap: 22px; }
   .about-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); border-right: 0; border-bottom: 1px solid rgba(20, 23, 34, 0.06); }
   .article-aside { position: static; order: -1; }

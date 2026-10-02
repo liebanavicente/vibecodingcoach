@@ -719,7 +719,10 @@ export const resources: Resource[] = [
       {
         type: "links",
         title: "Y si quieres, sígueme",
-        items: [{ label: "Miguel Liébana en LinkedIn", href: site.linkedin, note: "Comparto lo que voy aprendiendo y los proyectos que construyo." }],
+        items: [
+          { label: `${site.instagramHandle} en Instagram`, href: site.instagram, note: "Reels cortos con trucos, palabras del día y el detector de vendehumos." },
+          { label: "Miguel Liébana en LinkedIn", href: site.linkedin, note: "Comparto lo que voy aprendiendo y los proyectos que construyo." },
+        ],
       },
     ],
   },

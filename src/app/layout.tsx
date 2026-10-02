@@ -41,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </p>
           </div>
           <span className="site-footer-links">
+            <a href={site.instagram}>Instagram</a>
             <a href={site.linkedin}>LinkedIn</a>
             <a href={site.github}>GitHub</a>
             <a href={`mailto:${site.email}`}>Email</a>

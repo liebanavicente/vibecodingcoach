@@ -54,9 +54,9 @@ export function Header() {
                 </li>
               ))}
               <li>
-                <a className="button primary" href={contactHref}>
-                  Contacto
-                </a>
+                <Link className="button primary" href={contactHref}>
+                  Reservar
+                </Link>
               </li>
             </ul>
           </nav>
