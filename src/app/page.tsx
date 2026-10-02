@@ -155,7 +155,7 @@ export default function Home() {
       <script dangerouslySetInnerHTML={{ __html: HERO_SCRIPT }} />
       <IntroVideo />
       <div className="container">
-        <section className="hero">
+        <HeroAnimator>
           <div className="hero-copy">
             <p className="eyebrow">
               <GraduationCap aria-hidden size={18} weight="fill" />
@@ -185,11 +185,11 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <HeroAnimator>
+          <div className="hero-media">
             <HeroVisual />
             <HowItWorks />
-          </HeroAnimator>
-        </section>
+          </div>
+        </HeroAnimator>
 
         <div className="perks">
           {perks.map(({ Icon, text }) => (
