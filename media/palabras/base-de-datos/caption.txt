@@ -1,0 +1,11 @@
+Palabra del día: Base de datos.
+
+Donde se guarda la información de forma ordenada: usuarios, reservas, pedidos.
+
+Ejemplo: Supabase te da una base de datos sin montar ningún servidor.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #programacion #desarrolloweb #tecnologia

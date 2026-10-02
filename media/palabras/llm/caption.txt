@@ -1,0 +1,11 @@
+Palabra del día: LLM (Modelo de lenguaje grande).
+
+El tipo de IA que hay detrás de Claude o ChatGPT. Ha aprendido de enormes cantidades de texto a predecir qué viene después, y eso le permite conversar, explicar y escribir código.
+
+Ejemplo: Claude es un LLM.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #claudeai #chatgpt #tecnologia

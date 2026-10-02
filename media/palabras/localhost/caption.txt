@@ -1,0 +1,11 @@
+Palabra del día: Localhost.
+
+Tu web funcionando solo en tu ordenador mientras la construyes. Nadie más la ve.
+
+Ejemplo: localhost:3000
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #programacion #desarrolloweb #tecnologia

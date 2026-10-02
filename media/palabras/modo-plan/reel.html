@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Palabra del día · Modo plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../../kit/kit.css" rel="stylesheet">
+<script src="../../kit/icons.js"></script>
+<style>
+  .slide { background-image: url("../../../public/fondo-azul.webp"); }
+  .slide.warm { background-image: url("../../../public/fondo-burbujas.webp"); }
+  .word { margin: 50px 0 0; font-size: 300px; font-weight: 800; letter-spacing: -0.055em; line-height: 0.98; }
+  .alias { margin-top: 26px; color: var(--muted); font-size: 44px; font-weight: 650; }
+  .def { position: absolute; top: 330px; left: 70px; right: 70px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .def-card { margin-top: 50px; border-radius: 48px; padding: 52px 54px; text-align: left; }
+  .def-card p { margin: 0; font-size: 52px; font-weight: 650; letter-spacing: -0.02em; line-height: 1.36; }
+  .topic { margin-top: 40px; }
+  .ex-card { margin-top: 50px; border-radius: 48px; padding: 48px 54px; text-align: left; }
+  .ex-card .label { display: block; margin-bottom: 18px; color: var(--accent-ink); font-size: 36px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+  .ex-card p { margin: 0; font-size: 54px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.32; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="13.4">
+
+  <section class="scene slide warm" data-start="0" data-end="2.8">
+    <div class="brand-top" data-fx="fade" data-in="0"><svg class="ml" data-ml width="92"></svg><span class="wm">vibe<span>coding</span>coach</span></div>
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.15"><span data-icon="book"></span>Palabra del día</span>
+      <p class="word grad" data-fx="bounce" data-in="0.45" data-dur="0.8">Modo plan</p>
+      
+      <p class="body-l" data-fx="up" data-in="1.4" style="margin-top:44px">Te la explico en segundos.</p>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="2.8" data-end="9.6">
+    <div class="def">
+      <p class="h-m" data-fx="up" data-in="0.1">¿Qué es <span class="grad">Modo plan</span>?</p>
+      <div class="def-card glass" data-fx="up" data-in="0.5"><p>Un modo de Claude Code en el que piensa y te propone un plan sin tocar ningún archivo. Se activa con Shift + Tab.</p></div>
+      <span class="pill topic" data-fx="pop" data-in="1.4"><span data-icon="sparkle"></span>Herramientas</span>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="9.6" data-end="13.4">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="280"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.6">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.1" data-dur="0.6"><div class="cta-btn" data-pulse="1.8"><span data-icon="book"></span>Todo el glosario, gratis</div></div>
+      <p class="cta-sec" data-fx="up" data-in="1.6">48 palabras explicadas sin jerga en</p>
+      <div class="cta-url glass" data-fx="up" data-in="1.9">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../../kit/engine.js"></script>
+</body>
+</html>

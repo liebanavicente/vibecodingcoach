@@ -1,0 +1,9 @@
+Palabra del día: Producción y vista previa.
+
+Producción es la web real que ve todo el mundo; una vista previa (preview) es una copia con su propio enlace para probar cambios antes de publicarlos.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #github #desarrolloweb #tecnologia

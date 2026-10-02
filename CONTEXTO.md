@@ -89,6 +89,11 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   (pit stop) + «trabajar en equipo: Google Flow + Claude», con el sonido del clip
   (`data-audio` en `#stage`). Textos de publicación,
   bio y calendario en `media/instagram.md`.
+- Generador «Palabra del día»: `npm run reels:palabras` lee `src/content/glosario.ts`, crea
+  `media/palabras/<id>/reel.html` + `caption.txt` por término (salvo token y mcp, hechos a mano),
+  junta todos los textos en `media/palabras/captions.md` y renderiza los vídeos que falten.
+  Opciones: `--only rag,git`, `--no-render`, `--force`. Publicación: programada a mano en
+  Meta Business Suite (sin API de Instagram por ahora).
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
   módulo, rellenar `objectives`, `sections`, `exercise`, `checklist` y poner
   `available: true`.

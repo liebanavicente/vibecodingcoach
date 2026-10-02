@@ -1,0 +1,11 @@
+Palabra del día: Comando.
+
+Una orden que escribes en la terminal.
+
+Ejemplo: npm run dev arranca tu web en tu ordenador.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #claudecode #herramientasia #tecnologia

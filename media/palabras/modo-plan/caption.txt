@@ -1,0 +1,9 @@
+Palabra del día: Modo plan.
+
+Un modo de Claude Code en el que piensa y te propone un plan sin tocar ningún archivo. Se activa con Shift + Tab.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #claudecode #herramientasia #tecnologia

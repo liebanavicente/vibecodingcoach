@@ -1,0 +1,11 @@
+Palabra del día: RAG (Generación aumentada por recuperación).
+
+Una técnica para que la IA responda usando tus propios documentos: primero busca los fragmentos que importan y después los usa para contestar. Así puede hablar de información que no estaba en su entrenamiento y decirte de dónde la ha sacado.
+
+Ejemplo: Un chat que responde dudas de las familias usando el PDF del reglamento del cole.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #claudeai #chatgpt #tecnologia

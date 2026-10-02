@@ -1,0 +1,9 @@
+Palabra del día: API.
+
+La puerta por la que un programa habla con otro. Las webs usan APIs para pedir datos, cobrar, enviar emails o usar una IA.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #claudecode #herramientasia #tecnologia

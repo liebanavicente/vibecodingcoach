@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "reel": "node media/render.mjs"
+    "reel": "node media/render.mjs",
+    "reels:palabras": "node --no-warnings media/palabras/generate.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

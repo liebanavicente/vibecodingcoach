@@ -1,8 +1,8 @@
 // Renders a reel folder (media/<name>/reel.html) frame by frame with the local Chrome and encodes it with ffmpeg.
-// Usage: npm run reel -- <name> [--stills 1.2,5,9.4]   e.g. npm run reel -- reel-02
+// Usage: npm run reel -- <name> [--stills 1.2,5,9.4]   e.g. npm run reel -- reel-02 (or palabras/llm)
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, rmSync } from "node:fs";
-import { dirname, join } from "node:path";
+import { basename, dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import puppeteer from "puppeteer-core";
 
@@ -54,7 +54,7 @@ for (let f = 0; f < frames; f++) {
 }
 await browser.close();
 
-const video = join(out, `${name}.mp4`);
+const video = join(out, `${basename(name)}.mp4`);
 const encode = ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "+faststart"];
 // Optional soundtrack: data-audio on #stage points to a clip (relative to the reel folder) that starts at 0 s.
 const sound = audio

@@ -1,0 +1,9 @@
+Palabra del día: Clave de API (API key).
+
+Una contraseña que identifica a tu programa ante un servicio. Si alguien la consigue, puede usar ese servicio a tu nombre y a tu cuenta.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #claudecode #herramientasia #tecnologia

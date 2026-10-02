@@ -1,0 +1,9 @@
+Palabra del día: Variables de entorno (.env).
+
+Ajustes y claves secretas que el proyecto lee de un archivo aparte (.env) para no escribirlas en el código. Nunca se suben a GitHub.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #programacion #desarrolloweb #tecnologia

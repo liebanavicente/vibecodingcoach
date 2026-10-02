@@ -1,0 +1,9 @@
+Palabra del día: CLAUDE.md.
+
+Un archivo con lo que Claude debe saber de tu proyecto. Lo lee siempre al empezar: es su memoria del proyecto.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+48 palabras explicadas sin jerga en el glosario gratuito (enlace en el perfil).
+
+#vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #claudecode #herramientasia #tecnologia
