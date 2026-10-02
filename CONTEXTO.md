@@ -72,8 +72,12 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   `/curso/recursos/[slug]`. Para añadir un recurso, añadir un objeto al array.
 - Progreso del alumno: las checklists de cada módulo se guardan en el navegador
   (localStorage, `src/components/Progress.tsx`); la página del curso muestra el % por módulo.
-- Vídeo «Mira cómo funciona»: botón sobre la ilustración del hero que abre
-  `public/videos/como-funciona.mp4` (versión web del reel) en un diálogo.
+- Vídeo de entrada: en la portada, `IntroVideo` reproduce `public/videos/como-funciona.mp4`
+  a pantalla completa (silenciado, con «Saltar» y barra de progreso) solo en la primera
+  visita de cada navegador y nunca con «reducir movimiento» (`src/lib/intro.ts`).
+  El botón «Mira cómo funciona» del hero lo vuelve a abrir en un diálogo.
+- Sección «Buen uso vs mal uso» en `/curso`: sale de los recursos de categoría «Buen uso»
+  (ventana de contexto, orden de carpetas, Git y GitHub, despliegues en Vercel).
 - Reel 01: fuente en `media/reel-01/` (`reel.html` = montaje, `clips/` = clips de Flow,
   `npm run reel` lo renderiza en `media/reel-01/out/reel-01.mp4`, ignorado por git).
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un

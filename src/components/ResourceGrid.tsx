@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Asterisk, ImageSquare, MagicWand, PuzzlePiece, Scales } from "@phosphor-icons/react";
+import { ArrowRight, Asterisk, ImageSquare, ListChecks, MagicWand, PuzzlePiece, Scales } from "@phosphor-icons/react";
 import { categories, type Category } from "@/content/recursos";
 
 type Item = { slug: string; category: Category; title: string; summary: string; minutes: number };
 
 const categoryIcon: Record<Category, typeof PuzzlePiece> = {
   Claude: Asterisk,
+  "Buen uso": ListChecks,
   Skills: PuzzlePiece,
   Revisión: Scales,
   Imágenes: ImageSquare,

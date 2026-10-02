@@ -8,9 +8,11 @@ export type Block =
   | { type: "tools"; title: string; items: string[] }
   | { type: "compare"; bad: string; good: string }
   | { type: "cards"; items: { title: string; text: string }[] }
-  | { type: "keys"; title: string; items: { key: string; text: string }[] };
+  | { type: "keys"; title: string; items: { key: string; text: string }[] }
+  | { type: "dodont"; title: string; items: { bad: string; good: string }[] }
+  | { type: "code"; title: string; text: string };
 
-export const categories = ["Claude", "Skills", "Revisión", "Imágenes", "Truquillos"] as const;
+export const categories = ["Claude", "Buen uso", "Skills", "Revisión", "Imágenes", "Truquillos"] as const;
 export type Category = (typeof categories)[number];
 
 export type Resource = {
@@ -184,6 +186,192 @@ export const resources: Resource[] = [
       {
         type: "warning",
         text: "Conecta solo lo que necesites y revisa qué permisos das. Un conector con acceso a tu correo puede leer tu correo.",
+      },
+    ],
+  },
+  {
+    slug: "ventana-de-contexto",
+    category: "Buen uso",
+    title: "La ventana de contexto: la memoria de trabajo de la IA",
+    summary: "Por qué la IA «se olvida» de lo que le dijiste hace un rato y cómo evitarlo.",
+    minutes: 5,
+    blocks: [
+      {
+        type: "text",
+        text: "La IA no lo recuerda todo para siempre. Trabaja con una «ventana de contexto», que es como una mesa de tamaño fijo: todo lo que hay en la conversación (tus mensajes, sus respuestas, los archivos que lee) ocupa sitio. Cuando la mesa se llena, lo más antiguo se resume o se pierde, y empieza a olvidar detalles.",
+      },
+      {
+        type: "dodont",
+        title: "Mal uso vs buen uso",
+        items: [
+          { bad: "Una sola conversación eterna para todo el proyecto.", good: "Una conversación por tarea. Al terminar, /clear o conversación nueva." },
+          { bad: "Pegar archivos enteros «por si acaso».", good: "Darle solo lo que necesita: el archivo o la parte concreta." },
+          { bad: "Repetir las mismas instrucciones en cada sesión.", good: "Guardarlas en CLAUDE.md o en un Proyecto de claude.ai: se cargan solas." },
+          { bad: "Seguir adelante cuando ya no se acuerda de lo que pediste.", good: "Pedir un resumen, guardarlo y empezar limpio a partir de él." },
+        ],
+      },
+      {
+        type: "steps",
+        title: "Señales de que la mesa está llena",
+        items: [
+          "Repite errores que ya habíais corregido.",
+          "Se olvida de decisiones que tomasteis hace un rato.",
+          "Sus respuestas se vuelven más genéricas o más lentas.",
+        ],
+      },
+      {
+        type: "keys",
+        title: "En Claude Code",
+        items: [
+          { key: "/context", text: "Muestra cuánto espacio de la ventana estás usando." },
+          { key: "/compact", text: "Resume la conversación para liberar sitio sin perder el hilo." },
+          { key: "/clear", text: "Vacía la mesa y empieza de cero." },
+        ],
+      },
+      {
+        type: "tip",
+        text: "Al empezar una tarea grande, pídele que lea solo los archivos que importan y que te cuente qué ha entendido antes de tocar nada. Así no llena la mesa leyendo de más.",
+      },
+    ],
+  },
+  {
+    slug: "orden-de-carpetas",
+    category: "Buen uso",
+    title: "Ordena tus proyectos (y la IA te lo agradecerá)",
+    summary: "La IA trabaja dentro de la carpeta en la que la abres. Si todo está mezclado, ella también mezcla.",
+    minutes: 4,
+    blocks: [
+      {
+        type: "text",
+        text: "Cuando abres Claude Code o Cursor, la IA ve todo lo que hay en esa carpeta. Si ahí conviven tres proyectos, fotos de las vacaciones y una carpeta llamada «nueva carpeta (2)», se confundirá, leerá de más y llenará su ventana de contexto con cosas que no tocan.",
+      },
+      {
+        type: "dodont",
+        title: "Mal uso vs buen uso",
+        items: [
+          { bad: "Proyectos sueltos en el Escritorio o en Descargas.", good: "Una carpeta madre (por ejemplo, Proyectos) y una subcarpeta por proyecto." },
+          { bad: "Nombres como «web final DEFINITIVA 2».", good: "Nombres cortos, en minúsculas y sin espacios: peluqueria-web." },
+          { bad: "Abrir la IA en tu carpeta de usuario, con todo tu ordenador a la vista.", good: "Abrirla siempre dentro de la carpeta del proyecto." },
+          { bad: "Hacer copias de seguridad duplicando carpetas.", good: "Guardar versiones con Git (mira la guía de Git y GitHub)." },
+        ],
+      },
+      {
+        type: "code",
+        title: "Una estructura que funciona",
+        text: "Proyectos/\n├── peluqueria-web/\n│   ├── CLAUDE.md      ← lo que la IA debe saber\n│   ├── README.md      ← qué es y cómo arrancarlo\n│   ├── .env           ← tus claves (nunca a GitHub)\n│   └── src/           ← el código\n└── web-del-cole/\n    └── ...",
+      },
+      {
+        type: "prompt",
+        title: "Pídele que ordene por ti",
+        text: "Revisa esta carpeta y propón una estructura ordenada. Explícame qué va en cada sitio y qué moverías, y espera a que te diga que sí antes de mover nada.",
+      },
+      {
+        type: "warning",
+        text: "Las contraseñas y claves van en un archivo .env, y ese archivo debe estar en el .gitignore para que nunca se suba a GitHub.",
+      },
+    ],
+  },
+  {
+    slug: "git-y-github",
+    category: "Buen uso",
+    title: "Git y GitHub en 5 minutos",
+    summary: "La máquina del tiempo de tu proyecto, explicada sin tecnicismos.",
+    minutes: 6,
+    blocks: [
+      {
+        type: "text",
+        text: "Git es una máquina del tiempo para tu proyecto: guarda fotos de cómo estaba en cada momento, y puedes volver a cualquiera de ellas. GitHub es la nube donde guardas esas fotos para no perderlas, compartirlas y publicar tu web desde ahí.",
+      },
+      { type: "tools", title: "Lo que vas a usar", items: ["GitHub", "Claude Code"] },
+      {
+        type: "cards",
+        items: [
+          { title: "Repositorio", text: "La carpeta de tu proyecto junto con todo su historial." },
+          { title: "Commit", text: "Una foto del proyecto con un mensaje: «añado el formulario de contacto»." },
+          { title: "Push", text: "Subir tus commits a GitHub." },
+          { title: "Pull", text: "Bajar a tu ordenador los cambios que hay en GitHub." },
+          { title: "Rama", text: "Una copia paralela para probar algo sin romper lo que ya funciona." },
+          { title: ".gitignore", text: "La lista de archivos que Git no debe guardar nunca, como tu .env." },
+        ],
+      },
+      {
+        type: "steps",
+        title: "Tu primer repositorio, con ayuda de la IA",
+        items: [
+          "Crea una cuenta gratuita en github.com.",
+          "Dentro de tu proyecto, pide: «inicializa Git, haz el primer commit y súbelo a un repositorio nuevo de GitHub».",
+          "Cada vez que algo funcione: «haz commit de esto con un mensaje claro».",
+          "Para volver atrás: «enséñame los últimos commits y vuelve al que funcionaba».",
+        ],
+      },
+      {
+        type: "dodont",
+        title: "Mal uso vs buen uso",
+        items: [
+          { bad: "Un único commit gigante al final del día.", good: "Commits pequeños cada vez que algo funciona." },
+          { bad: "Mensajes como «cambios» o «arreglo».", good: "Mensajes que dicen qué y por qué: «arreglo el botón de reservar en móvil»." },
+          { bad: "Subir el archivo .env con tus claves.", good: "Comprobar que .env aparece en el .gitignore antes del primer push." },
+        ],
+      },
+      {
+        type: "keys",
+        title: "Los comandos que verás pasar (no hace falta memorizarlos)",
+        items: [
+          { key: "git status", text: "Qué ha cambiado desde la última foto." },
+          { key: "git add .", text: "Prepara los cambios para la foto." },
+          { key: "git commit -m", text: "Hace la foto con su mensaje." },
+          { key: "git push", text: "Sube las fotos a GitHub." },
+          { key: "git log", text: "Muestra el historial de fotos." },
+        ],
+      },
+      {
+        type: "warning",
+        text: "Si la IA va a ejecutar algo con «reset --hard» o «--force», pregúntale antes qué se va a perder. Son los comandos de Git que pueden borrar trabajo de verdad.",
+      },
+    ],
+  },
+  {
+    slug: "despliegues-vercel",
+    category: "Buen uso",
+    title: "Publica en Vercel sin sustos",
+    summary: "De tu ordenador a una web con dirección propia, y qué hacer cuando algo falla.",
+    minutes: 5,
+    blocks: [
+      {
+        type: "text",
+        text: "Vercel convierte tu proyecto en una web con dirección propia. Lo más cómodo es conectarlo a tu repositorio de GitHub: cada vez que subes cambios, la web se actualiza sola. Así se publica esta misma web.",
+      },
+      { type: "tools", title: "La cadena completa", items: ["GitHub", "Vercel", "Next.js"] },
+      {
+        type: "steps",
+        title: "La primera vez",
+        items: [
+          "Sube tu proyecto a GitHub (mira la guía de Git y GitHub).",
+          "Entra en vercel.com con tu cuenta de GitHub y pulsa Add New → Project.",
+          "Elige tu repositorio y pulsa Deploy. En un par de minutos tendrás un enlace .vercel.app.",
+          "Para usar tu propio dominio: en el proyecto, Settings → Domains.",
+        ],
+      },
+      {
+        type: "text",
+        text: "Cada push a la rama principal publica la web «de verdad» (producción). Las demás ramas crean una vista previa con su propio enlace: perfecta para enseñar un cambio antes de publicarlo.",
+      },
+      {
+        type: "dodont",
+        title: "Mal uso vs buen uso",
+        items: [
+          { bad: "Publicar sin haberlo probado en tu ordenador.", good: "Probar antes con npm run dev, y npm run build para detectar errores." },
+          { bad: "Escribir las claves dentro del código.", good: "Guardarlas en Settings → Environment Variables de Vercel." },
+          { bad: "Agobiarse cuando el despliegue falla.", good: "Abrir el registro del despliegue, copiar el error y pegárselo a la IA." },
+        ],
+      },
+      {
+        type: "tip",
+        text: "Si algo se rompe en la web publicada, en Vercel puedes volver al despliegue anterior en un clic mientras lo arreglas con calma.",
+      },
+      {
+        type: "warning",
+        text: "El plan gratuito (Hobby) es para proyectos personales y no comerciales. Si vas a cobrar a través de tu web, revisa el plan Pro.",
       },
     ],
   },

@@ -20,7 +20,7 @@ export const viewport: Viewport = { themeColor: "#fdf7f3" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html className={inter.variable} lang="es">
+    <html className={inter.variable} lang="es" suppressHydrationWarning>
       <body>
         <div aria-hidden className="page-bg" />
         <Header />

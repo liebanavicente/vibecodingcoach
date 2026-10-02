@@ -102,6 +102,43 @@ function BlockView({ block }: { block: Block }) {
           </dl>
         </div>
       );
+    case "dodont":
+      return (
+        <div className="block-dodont">
+          <h3>{block.title}</h3>
+          <div className="dodont-head" aria-hidden>
+            <span className="is-bad">
+              <XCircle size={16} weight="fill" /> Mal uso
+            </span>
+            <span className="is-good">
+              <CheckCircle size={16} weight="fill" /> Buen uso
+            </span>
+          </div>
+          <ul>
+            {block.items.map((item) => (
+              <li key={item.bad}>
+                <p className="is-bad">
+                  <span className="visually-hidden">Mal uso: </span>
+                  {item.bad}
+                </p>
+                <p className="is-good">
+                  <span className="visually-hidden">Buen uso: </span>
+                  {item.good}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    case "code":
+      return (
+        <div className="code-block">
+          <div className="code-bar">
+            <span>{block.title}</span>
+          </div>
+          <pre>{block.text}</pre>
+        </div>
+      );
     case "cards":
       return (
         <ul className="block-cards">

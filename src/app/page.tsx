@@ -17,6 +17,8 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { BrandLogo } from "@/components/BrandLogo";
 import { HowItWorks } from "@/components/HowItWorks";
+import { IntroVideo } from "@/components/IntroVideo";
+import { INTRO_SCRIPT } from "@/lib/intro";
 import { MlLogo } from "@/components/MlLogo";
 import { ResourceMarquee } from "@/components/ResourceMarquee";
 import { availableModules, modules } from "@/content/curso";
@@ -146,6 +148,8 @@ function HeroVisual() {
 export default function Home() {
   return (
     <main className="main" id="contenido" tabIndex={-1}>
+      <script dangerouslySetInnerHTML={{ __html: INTRO_SCRIPT }} />
+      <IntroVideo />
       <div className="container">
         <section className="hero">
           <div className="hero-copy">

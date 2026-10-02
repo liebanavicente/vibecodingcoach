@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, Lock } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, CheckCircle, Clock, Lock, XCircle } from "@phosphor-icons/react/dist/ssr";
 import { CourseProgress, ModuleProgress } from "@/components/Progress";
 import { ResourceGrid } from "@/components/ResourceGrid";
 import { availableModules, modules } from "@/content/curso";
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   description:
     "Vibe Coding desde Cero: curso gratuito para aprender a construir webs con IA sin experiencia previa, con módulos, recursos y truquillos.",
 };
+
+const goodUse = resources
+  .filter((r) => r.category === "Buen uso")
+  .map((r) => {
+    const pair = r.blocks.find((b) => b.type === "dodont");
+    return { slug: r.slug, title: r.title, minutes: r.minutes, pair: pair?.type === "dodont" ? pair.items[0] : null };
+  });
 
 export default function CursoPage() {
   const first = availableModules[0];
@@ -99,6 +106,47 @@ export default function CursoPage() {
               </li>
             ))}
           </ol>
+        </section>
+
+        <section aria-labelledby="buen-uso" className="section" id="buen-uso-vs-mal-uso">
+          <div className="section-head">
+            <div>
+              <p className="label">Lo que nadie te cuenta</p>
+              <h2 className="section-title" id="buen-uso">
+                <span className="grad-text">Buen uso</span> <span className="muted-x">vs</span> mal uso
+              </h2>
+            </div>
+          </div>
+          <ul className="usage-grid">
+            {goodUse.map((g) => (
+              <li key={g.slug}>
+                <Link className="usage-card glass" href={`/curso/recursos/${g.slug}`}>
+                  <h3>{g.title}</h3>
+                  {g.pair ? (
+                    <div className="usage-pair">
+                      <p className="is-bad">
+                        <XCircle aria-hidden size={18} weight="fill" />
+                        <span>
+                          <span className="visually-hidden">Mal uso: </span>
+                          {g.pair.bad}
+                        </span>
+                      </p>
+                      <p className="is-good">
+                        <CheckCircle aria-hidden size={18} weight="fill" />
+                        <span>
+                          <span className="visually-hidden">Buen uso: </span>
+                          {g.pair.good}
+                        </span>
+                      </p>
+                    </div>
+                  ) : null}
+                  <span className="res-go">
+                    Ver la guía · {g.minutes} min <ArrowRight aria-hidden size={16} weight="bold" />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section aria-labelledby="recursos-title" className="section" id="recursos">
