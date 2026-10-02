@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 01 · vibecodingcoach</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<script src="icons.js"></script>
+<style>
+  :root {
+    --ink: #141722; --muted: #5d6272; --orange: #ff6a2c; --accent-ink: #df4f1c;
+    --grad: linear-gradient(120deg, #ff9440 0%, #ff6a2c 45%, #f2452f 100%);
+    --ml-blue: #1f66ff; --ml-ink: #111;
+    --glass: rgba(255, 255, 255, 0.66); --rim: rgba(255, 255, 255, 0.92);
+    --shadow: 0 2px 0 rgba(255, 255, 255, 0.9) inset, 0 40px 90px rgba(60, 80, 140, 0.16), 0 6px 18px rgba(20, 23, 34, 0.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #000; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #eef3f9; font-family: Inter, system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .scene { position: absolute; inset: 0; opacity: 0; will-change: opacity, transform; }
+  .scene video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  [data-fx] { opacity: 0; }
+
+  .slide { background: url("../../public/fondo-azul.webp") center / cover no-repeat; }
+  .slide::before { position: absolute; inset: 0; background-image: linear-gradient(rgba(31, 102, 255, 0.07) 2px, transparent 2px), linear-gradient(90deg, rgba(31, 102, 255, 0.07) 2px, transparent 2px); background-size: 72px 72px; content: ""; -webkit-mask-image: radial-gradient(70% 60% at 50% 45%, #000 30%, transparent 85%); mask-image: radial-gradient(70% 60% at 50% 45%, #000 30%, transparent 85%); }
+  .slide::after { position: absolute; inset: 0; background: radial-gradient(60% 45% at 50% 46%, rgba(250, 251, 253, 0.85), rgba(250, 251, 253, 0)); content: ""; }
+  .slide > * { position: relative; z-index: 1; }
+
+  .center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .glass { border: 2px solid var(--rim); background: var(--glass); box-shadow: var(--shadow); -webkit-backdrop-filter: blur(26px) saturate(160%); backdrop-filter: blur(26px) saturate(160%); }
+  .ml { display: block; height: auto; overflow: visible; }
+
+  /* 1 · hook */
+  .hook-q { margin: 70px 0 0; font-size: 92px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.04; }
+  .hook-a { margin: 26px 0 0; font-size: 210px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+
+  /* 3 · paradigm */
+  .flow { position: absolute; top: 300px; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+  .flow-card { display: flex; width: 780px; align-items: center; gap: 40px; border-radius: 48px; padding: 38px 44px; }
+  .flow-icon svg { display: block; }
+  .flow-icon { display: grid; width: 140px; height: 140px; flex: none; place-items: center; border-radius: 40px; background: var(--grad); box-shadow: 0 24px 50px rgba(242, 69, 47, 0.32); color: white; font-size: 76px; }
+  .flow-card strong { display: block; font-size: 78px; font-weight: 800; letter-spacing: 0.02em; line-height: 1; }
+  .flow-card div > span { display: block; margin-top: 10px; color: var(--muted); font-size: 36px; font-weight: 500; }
+  .flow-arrow { color: var(--orange); font-size: 64px; line-height: 0; }
+  .flow-sub { position: absolute; bottom: 330px; left: 90px; right: 90px; font-size: 64px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; text-align: center; }
+
+  /* 5 · editorial */
+  .editorial { position: absolute; top: 330px; left: 110px; right: 110px; }
+  .ed-num { display: block; font-size: 470px; font-weight: 800; letter-spacing: -0.07em; line-height: 0.82; transform-origin: left bottom; }
+  .ed-years { margin-top: 26px; font-size: 118px; font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
+  .ed-line { width: 220px; height: 10px; margin: 70px 0 64px; border-radius: 10px; background: var(--grad); transform-origin: left; }
+  .ed-now { font-size: 92px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.06; }
+  .signature { position: absolute; left: 110px; bottom: 300px; display: flex; align-items: center; gap: 28px; }
+  .signature p { margin: 0; font-size: 38px; font-weight: 600; line-height: 1.35; color: var(--muted); }
+  .signature strong { color: var(--ink); font-weight: 800; }
+  .wm span { color: var(--orange); }
+
+  /* 7 · cta */
+  .cta-word { margin: 64px 0 0; font-size: 100px; font-weight: 800; letter-spacing: -0.045em; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 22px; margin-top: 80px; border-radius: 999px; background: var(--grad); box-shadow: 0 30px 60px rgba(242, 69, 47, 0.35), 0 2px 0 rgba(255, 255, 255, 0.4) inset; color: white; font-size: 50px; font-weight: 750; padding: 38px 58px; }
+  .cta-btn svg { font-size: 54px; }
+  .cta-sec { margin: 50px 0 0; color: var(--muted); font-size: 44px; font-weight: 600; }
+  .cta-url { margin-top: 34px; border-radius: 999px; font-size: 38px; font-weight: 700; padding: 20px 40px; }
+
+  /* overlays on clips */
+  .caption { position: absolute; left: 70px; right: 70px; border-radius: 52px; padding: 46px 52px; text-align: center; font-size: 76px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.08; }
+  .cap-a { top: 1230px; }
+  .words { position: absolute; left: 60px; right: 60px; top: 1430px; display: flex; justify-content: center; gap: 16px; border-radius: 999px; padding: 34px 24px; }
+  .words span { font-size: 50px; font-weight: 800; letter-spacing: -0.035em; }
+  .cover { position: absolute; left: 138px; top: 894px; display: flex; width: 780px; height: 146px; align-items: center; gap: 20px; border-radius: 999px; background: rgba(255, 255, 255, 0.97); box-shadow: 0 0 0 2px rgba(20, 23, 34, 0.1), 0 20px 50px rgba(60, 50, 40, 0.18); padding: 0 22px 0 40px; }
+  .cover .ico { color: #8b8f99; font-size: 48px; line-height: 0; }
+  .cover .typed { flex: 1; overflow: hidden; color: var(--ink); font-size: 35px; font-weight: 600; white-space: nowrap; }
+  .cover .caret { display: inline-block; width: 4px; height: 46px; margin-left: 4px; background: var(--orange); vertical-align: -8px; }
+  .cover .send { display: grid; width: 100px; height: 100px; flex: none; place-items: center; border-radius: 50%; background: var(--grad); color: white; font-size: 46px; }
+  .cap-c { position: absolute; top: 240px; left: 60px; right: 60px; text-align: center; font-size: 104px; font-weight: 800; letter-spacing: -0.045em; line-height: 1.06; text-shadow: 0 0 40px rgba(255, 255, 255, 0.9); }
+  .cap-c .grad { text-shadow: none; filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.8)); }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <section class="scene slide" data-start="0" data-end="3">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="320"></svg></div>
+      <p class="hook-q" data-fx="up" data-in="0.75">¿Nunca has<br>programado?</p>
+      <p class="hook-a grad" data-fx="pop" data-in="1.55" data-dur="0.6">Mejor.</p>
+    </div>
+  </section>
+
+  <section class="scene" data-start="3" data-end="7" data-video="clips/a.mp4">
+    <video muted playsinline preload="auto"></video>
+    <div class="caption glass cap-a" data-fx="up" data-in="1.5">No necesitas empezar<br><span class="grad">por el código.</span></div>
+  </section>
+
+  <section class="scene slide" data-start="7" data-end="12">
+    <div class="flow">
+      <div data-float="0"><div class="flow-card glass" data-fx="up" data-in="0.3"><span class="flow-icon" data-icon="idea"></span><div><strong>IDEA</strong><span>Lo que tienes en la cabeza</span></div></div></div>
+      <div class="flow-arrow" data-fx="up" data-in="0.85" data-icon="down"></div>
+      <div data-float="1.3"><div class="flow-card glass" data-fx="up" data-in="1.05"><span class="flow-icon" data-icon="prompt"></span><div><strong>PROMPT</strong><span>Se lo explicas a la IA</span></div></div></div>
+      <div class="flow-arrow" data-fx="up" data-in="1.6" data-icon="down"></div>
+      <div data-float="2.6"><div class="flow-card glass" data-fx="up" data-in="1.8"><span class="flow-icon" data-icon="web"></span><div><strong>WEB</strong><span>Tu proyecto, funcionando</span></div></div></div>
+    </div>
+    <p class="flow-sub" data-fx="up" data-in="2.6">Explícale a la IA <span class="grad">lo que quieres construir.</span></p>
+  </section>
+
+  <section class="scene" data-start="12" data-end="18" data-video="clips/b.mp4">
+    <video muted playsinline preload="auto"></video>
+    <div class="cover" data-track="[[0,0,0,1,1],[2.0,0,0,1,1],[2.15,-3,23,0.909,1],[2.3,-9,76,0.687,1],[2.45,-13,134,0.455,0.35],[2.55,-14,150,0.42,0]]">
+      <span class="ico" data-icon="search"></span>
+      <span class="typed"><span data-type="Crea una web para mi negocio" data-in="0.25" data-dur="1.5"></span><i class="caret" data-blink></i></span>
+      <span class="send" data-icon="send"></span>
+    </div>
+    <div class="words glass" data-fx="fade" data-in="2.7" data-dur="0.4">
+      <span data-fx="pop" data-in="2.9">Prueba.</span>
+      <span data-fx="pop" data-in="3.35">Cambia.</span>
+      <span data-fx="pop" data-in="3.8">Aprende.</span>
+      <span class="grad" data-fx="pop" data-in="4.25">Publica.</span>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="18" data-end="23">
+    <div class="editorial">
+      <span class="ed-num grad" data-fx="pop" data-in="0.2" data-dur="0.7">14</span>
+      <p class="ed-years" data-fx="up" data-in="0.65">años enseñando.</p>
+      <div class="ed-line" data-fx="grow" data-in="1.3" data-dur="0.6"></div>
+      <p class="ed-now" data-fx="up" data-in="1.6">Ahora enseño<br>a construir <span class="grad">con IA.</span></p>
+    </div>
+    <div class="signature" data-fx="up" data-in="2.6">
+      <svg class="ml" data-ml width="150"></svg>
+      <p><strong>Miguel Liébana</strong><br><span class="wm">vibe<span>coding</span>coach</span></p>
+    </div>
+  </section>
+
+  <section class="scene" data-start="23" data-end="27" data-video="clips/c.mp4">
+    <video muted playsinline preload="auto"></video>
+    <p class="cap-c"><span data-fx="up" data-in="0.5" style="display:block">Tu primera web.</span><span class="grad" data-fx="up" data-in="1.25" style="display:block">Hecha por ti.</span></p>
+  </section>
+
+  <section class="scene slide" data-start="27" data-end="31.5">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="330"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.7">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.25" data-dur="0.6"><div class="cta-btn" data-pulse="2.0"><span data-icon="calendar"></span>Reserva una clase de prueba gratis</div></div>
+      <p class="cta-sec" data-fx="up" data-in="1.85">Curso gratuito disponible</p>
+      <div class="cta-url glass" data-fx="up" data-in="2.25">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script>
+const FPS = 30;
+const FADE = 0.35;
+const TOTAL = 31.5;
+const ML = `<rect fill="var(--ml-blue)" height="74" rx="14" width="118" x="11.5" y="10.5"/><rect fill="white" height="74" rx="14" stroke="var(--ml-ink)" stroke-width="3" width="118" x="1.5" y="1.5"/><g fill="none" stroke="var(--ml-ink)" stroke-width="5.2"><path d="M19.6 59V36"/><path d="M19.6 38.5c0-3.2 2.4-4.9 5.45-4.9s5.45 1.7 5.45 4.9V59"/><path d="M30.5 38.5c0-3.2 2.4-4.9 5.45-4.9s5.45 1.7 5.45 4.9V59"/><path d="M46.8 23.9h13.6v28.5a4 4 0 0 0 4 4h11.3"/></g><rect data-blink fill="var(--ml-blue)" height="4.6" width="25.3" x="79.3" y="54.3"/>`;
+
+document.querySelectorAll("[data-ml]").forEach((svg) => { svg.setAttribute("viewBox", "0 0 132 86"); svg.innerHTML = ML; });
+document.querySelectorAll("[data-icon]").forEach((el) => { el.innerHTML = window.ICONS[el.dataset.icon]; });
+
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const easeOut = (p) => 1 - Math.pow(1 - p, 3);
+const easeBack = (p, s = 1.9) => 1 + (s + 1) * Math.pow(p - 1, 3) + s * Math.pow(p - 1, 2);
+
+const scenes = [...document.querySelectorAll(".scene")].map((el) => ({
+  el,
+  start: +el.dataset.start,
+  end: +el.dataset.end,
+  video: el.querySelector("video"),
+  src: el.dataset.video,
+}));
+
+function applyFx(root, lt) {
+  root.querySelectorAll("[data-fx]").forEach((el) => {
+    const p = clamp((lt - +el.dataset.in) / +(el.dataset.dur || 0.6));
+    const fx = el.dataset.fx;
+    let o = easeOut(p), tf = "";
+    if (fx === "up") tf = `translateY(${(1 - easeOut(p)) * 50}px)`;
+    if (fx === "pop") { tf = `scale(${0.7 + 0.3 * easeBack(p, 1.6)})`; }
+    if (fx === "bounce") { o = clamp(p * 3); tf = `scale(${0.35 + 0.65 * easeBack(p, 2.6)}) rotate(${(1 - easeOut(p)) * -10}deg)`; }
+    if (fx === "grow") tf = `scaleX(${easeOut(p)})`;
+    el.style.opacity = o;
+    el.style.transform = tf;
+  });
+  root.querySelectorAll("[data-float]").forEach((el) => {
+    el.style.transform = `translateY(${Math.sin((lt + +el.dataset.float) * 1.6) * 10}px)`;
+  });
+  root.querySelectorAll("[data-blink]").forEach((el) => {
+    el.style.opacity = Math.floor(lt / 0.55) % 2 === 0 ? 1 : 0;
+  });
+  root.querySelectorAll("[data-type]").forEach((el) => {
+    const text = el.dataset.type;
+    const p = clamp((lt - +el.dataset.in) / +el.dataset.dur);
+    el.textContent = text.slice(0, Math.round(p * text.length));
+  });
+  root.querySelectorAll("[data-hold]").forEach((el) => {
+    const [from, to, fade] = el.dataset.hold.split(",").map(Number);
+    el.style.opacity = lt < from ? 0 : lt <= to ? 1 : clamp(1 - (lt - to) / fade);
+  });
+  root.querySelectorAll("[data-track]").forEach((el) => {
+    const keys = JSON.parse(el.dataset.track);
+    let k = keys.findIndex((key) => key[0] > lt);
+    if (k === -1) k = keys.length - 1;
+    const a = keys[Math.max(0, k - 1)], b = keys[k];
+    const p = b[0] === a[0] ? 1 : clamp((lt - a[0]) / (b[0] - a[0]));
+    const [, x, y, sc, o] = a.map((v, i) => v + (b[i] - v) * p);
+    el.style.transform = `translate(${x}px, ${y}px) scale(${sc})`;
+    el.style.opacity = o;
+  });
+  root.querySelectorAll("[data-pulse]").forEach((el) => {
+    const since = lt - +el.dataset.pulse;
+    el.style.transform = since > 0 ? `scale(${1 + Math.sin(since * 4.2) * 0.025})` : "";
+  });
+}
+
+function seek(video, time) {
+  return new Promise((resolve) => {
+    if (Math.abs(video.currentTime - time) < 0.001) return resolve();
+    video.addEventListener("seeked", () => resolve(), { once: true });
+    video.currentTime = time;
+  });
+}
+
+window.renderAt = async (t) => {
+  const waits = [];
+  scenes.forEach((s, i) => {
+    const visible = t >= s.start && t < s.end + FADE;
+    s.el.style.visibility = visible ? "visible" : "hidden";
+    if (!visible) return;
+    const lt = t - s.start;
+    const fadeIn = i === 0 ? 1 : easeOut(clamp(lt / FADE));
+    const fadeOut = i === scenes.length - 1 ? clamp((TOTAL - t) / 0.5) : 1;
+    s.el.style.opacity = fadeIn * fadeOut;
+    s.el.style.transform = s.video ? "" : `scale(${1.035 - 0.035 * easeOut(clamp(lt / 0.8))})`;
+    applyFx(s.el, lt);
+    if (s.video) waits.push(seek(s.video, Math.min(lt, s.video.duration - 0.05)));
+  });
+  await Promise.all(waits);
+  await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+};
+
+window.ready = (async () => {
+  await Promise.all(scenes.filter((s) => s.video).map((s) => new Promise((resolve) => {
+    s.video.addEventListener("loadeddata", resolve, { once: true });
+    s.video.src = s.src;
+    s.video.load();
+  })));
+  await document.fonts.ready;
+  window.FRAMES = Math.round(TOTAL * FPS);
+  window.FPS = FPS;
+  await window.renderAt(0);
+  return true;
+})();
+</script>
+</body>
+</html>

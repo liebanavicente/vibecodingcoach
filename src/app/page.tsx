@@ -16,6 +16,7 @@ import {
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import { BrandLogo } from "@/components/BrandLogo";
+import { HowItWorks } from "@/components/HowItWorks";
 import { MlLogo } from "@/components/MlLogo";
 import { ResourceMarquee } from "@/components/ResourceMarquee";
 import { availableModules, modules } from "@/content/curso";
@@ -176,7 +177,10 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <HeroVisual />
+          <div className="hero-media">
+            <HeroVisual />
+            <HowItWorks />
+          </div>
         </section>
 
         <div className="perks">

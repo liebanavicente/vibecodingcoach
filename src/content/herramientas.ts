@@ -42,3 +42,5 @@ export const resources: { name: string; kind: string; logo: Logo }[] = [
   { name: "ChatGPT", kind: "IA", logo: { src: "/logos/openai.webp" } },
   { name: "Kimi", kind: "IA", logo: { icon: siKimi } },
 ];
+
+export const logoFor = (name: string) => [...tools, ...resources].find((item) => item.name === name)?.logo;

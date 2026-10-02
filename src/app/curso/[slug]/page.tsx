@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { CopyButton } from "@/components/CopyButton";
 import { LessonPlayer } from "@/components/LessonPlayer";
+import { Checklist } from "@/components/Progress";
 import { availableModules, getModule, slidesFor } from "@/content/curso";
+import { resources } from "@/content/recursos";
 import { contactHref } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -87,16 +89,7 @@ export default async function ModulePage(props: PageProps<"/curso/[slug]">) {
             {mod.checklist ? (
               <section>
                 <h2 id="checklist">Comprueba lo que has aprendido</h2>
-                <ul className="task-list">
-                  {mod.checklist.map((item) => (
-                    <li key={item}>
-                      <label>
-                        <input type="checkbox" />
-                        <span>{item}</span>
-                      </label>
-                    </li>
-                  ))}
-                </ul>
+                <Checklist items={mod.checklist} slug={mod.slug} />
               </section>
             ) : null}
           </article>
@@ -123,6 +116,16 @@ export default async function ModulePage(props: PageProps<"/curso/[slug]">) {
                     <a href="#checklist">Checklist final</a>
                   </li>
                 ) : null}
+              </ol>
+            </nav>
+            <nav aria-label="Recursos útiles" className="glass toc">
+              <p className="label">Recursos útiles</p>
+              <ol>
+                {resources.map((r) => (
+                  <li key={r.slug}>
+                    <Link href={`/curso/recursos/${r.slug}`}>{r.title}</Link>
+                  </li>
+                ))}
               </ol>
             </nav>
           </aside>

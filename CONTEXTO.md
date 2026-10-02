@@ -66,6 +66,16 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   Logos: los que existen en `simple-icons` se importan de ahí; Codex, OpenAI/ChatGPT,
   Antigravity, Higgsfield y Google Flow son imágenes que pasó Miguel, recortadas en
   `public/logos/`. El pie lleva la nota de marcas «sin afiliación».
+- `src/content/recursos.ts`: recursos del curso (skills, otra IA como revisora, fondos e
+  imágenes, truquillos), escritos como bloques (`text`, `steps`, `prompt`, `tip`, `warning`,
+  `tools`, `compare`, `cards`) que pinta `src/components/Blocks.tsx`. Páginas en
+  `/curso/recursos/[slug]`. Para añadir un recurso, añadir un objeto al array.
+- Progreso del alumno: las checklists de cada módulo se guardan en el navegador
+  (localStorage, `src/components/Progress.tsx`); la página del curso muestra el % por módulo.
+- Vídeo «Mira cómo funciona»: botón sobre la ilustración del hero que abre
+  `public/videos/como-funciona.mp4` (versión web del reel) en un diálogo.
+- Reel 01: fuente en `media/reel-01/` (`reel.html` = montaje, `clips/` = clips de Flow,
+  `npm run reel` lo renderiza en `media/reel-01/out/reel-01.mp4`, ignorado por git).
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
   módulo, rellenar `objectives`, `sections`, `exercise`, `checklist` y poner
   `available: true`.
