@@ -2,24 +2,20 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import {
   ArrowRight,
-  Asterisk,
   CalendarBlank,
   ChartBar,
   Chalkboard,
   Code,
-  Cube,
-  CodeBlock,
   CursorClick,
   GraduationCap,
   Hammer,
   Lightbulb,
   Lightning,
-  Planet,
   Play,
   Sparkle,
-  TerminalWindow,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
+import { BrandLogo } from "@/components/BrandLogo";
 import { MlLogo } from "@/components/MlLogo";
 import { ResourceMarquee } from "@/components/ResourceMarquee";
 import { availableModules, modules } from "@/content/curso";
@@ -89,7 +85,7 @@ const offers = [
   },
 ];
 
-const toolIcons = [Asterisk, TerminalWindow, CodeBlock, Cube, Planet];
+const tilePositions = ["t1", "t3", "t4", "t2", "t5"];
 
 const codeLines = ["62%", "44%", "78%", "36%", "58%", "70%", "30%", "52%"];
 
@@ -135,26 +131,12 @@ function HeroVisual() {
           </div>
         </div>
       </div>
-      <div className="float-tile t1">
-        <Asterisk className="t-orange" size={30} weight="bold" />
-        Claude
-      </div>
-      <div className="float-tile t3">
-        <TerminalWindow className="t-orange" size={28} weight="fill" />
-        Claude Code
-      </div>
-      <div className="float-tile t4">
-        <CodeBlock size={28} weight="bold" />
-        Codex
-      </div>
-      <div className="float-tile t2">
-        <Cube size={28} weight="fill" />
-        Cursor
-      </div>
-      <div className="float-tile t5">
-        <Planet className="t-orange" size={28} weight="fill" />
-        Antigravity
-      </div>
+      {tools.map((tool, i) => (
+        <div className={`float-tile ${tilePositions[i]}`} key={tool.name}>
+          <BrandLogo logo={tool.logo} size={"icon" in tool.logo ? 30 : 38} />
+          {tool.name}
+        </div>
+      ))}
       <CursorClick className="float-cursor" size={56} weight="fill" />
     </div>
   );
@@ -218,19 +200,16 @@ export default function Home() {
             </div>
           </div>
           <ol className="tool-grid">
-            {tools.map((tool, i) => {
-              const Icon = toolIcons[i];
-              return (
-                <li className="tool-card" key={tool.name}>
-                  <span className="tool-rank">{i + 1}</span>
-                  <span className="tool-icon">
-                    <Icon aria-hidden size={24} weight="bold" />
-                  </span>
-                  <h3>{tool.name}</h3>
-                  <p>{tool.text}</p>
-                </li>
-              );
-            })}
+            {tools.map((tool, i) => (
+              <li className="tool-card" key={tool.name}>
+                <span className="tool-rank">{i + 1}</span>
+                <span className="tool-logo">
+                  <BrandLogo logo={tool.logo} size={"icon" in tool.logo ? 30 : 56} />
+                </span>
+                <h3>{tool.name}</h3>
+                <p>{tool.text}</p>
+              </li>
+            ))}
           </ol>
           <p className="label marquee-label">Y todo lo que lo rodea</p>
           <ResourceMarquee />

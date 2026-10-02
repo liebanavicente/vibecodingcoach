@@ -1,25 +1,44 @@
+import {
+  siClaude,
+  siCursor,
+  siFigma,
+  siFramer,
+  siGithub,
+  siGooglegemini,
+  siKimi,
+  siNextdotjs,
+  siResend,
+  siStripe,
+  siSupabase,
+  siVercel,
+  type SimpleIcon,
+} from "simple-icons";
+
+/** A brand mark: a Simple Icons path, or an official image in public/logos ("fill" = app icon that fills its tile). */
+export type Logo = { icon: SimpleIcon } | { src: string; fill?: boolean };
+
 /** Main tools, in the order Miguel uses them most. */
-export const tools = [
-  { name: "Claude", text: "Mi compañero para pensar: ideas, planes, textos y explicaciones paso a paso." },
-  { name: "Claude Code", text: "Un agente que construye proyectos completos directamente sobre tus archivos." },
-  { name: "Codex", text: "El agente de programación de OpenAI, para encargar tareas y revisar código." },
-  { name: "Cursor", text: "Un editor de código con la IA integrada, para ver y tocar cada archivo." },
-  { name: "Antigravity", text: "El entorno de desarrollo de Google pensado para trabajar con agentes." },
-] as const;
+export const tools: { name: string; text: string; logo: Logo }[] = [
+  { name: "Claude", logo: { icon: siClaude }, text: "Mi compañero para pensar: ideas, planes, textos y explicaciones paso a paso." },
+  { name: "Claude Code", logo: { icon: siClaude }, text: "Un agente que construye proyectos completos directamente sobre tus archivos." },
+  { name: "Codex", logo: { src: "/logos/codex.webp" }, text: "El agente de programación de OpenAI, para encargar tareas y revisar código." },
+  { name: "Cursor", logo: { icon: siCursor }, text: "Un editor de código con la IA integrada, para ver y tocar cada archivo." },
+  { name: "Antigravity", logo: { src: "/logos/antigravity.webp", fill: true }, text: "El entorno de desarrollo de Google pensado para trabajar con agentes." },
+];
 
 /** Everything around the main tools, shown in the moving banner. */
-export const resources = [
-  { name: "Higgsfield", kind: "Imagen y vídeo con IA" },
-  { name: "Google Flow", kind: "Vídeo con IA" },
-  { name: "Vercel", kind: "Publicar webs" },
-  { name: "Supabase", kind: "Base de datos" },
-  { name: "GitHub", kind: "Código" },
-  { name: "Figma", kind: "Diseño" },
-  { name: "Framer", kind: "Webs visuales" },
-  { name: "Stripe", kind: "Pagos" },
-  { name: "Resend", kind: "Emails" },
-  { name: "Next.js", kind: "Framework" },
-  { name: "Gemini", kind: "IA" },
-  { name: "ChatGPT", kind: "IA" },
-  { name: "Kimi", kind: "IA" },
+export const resources: { name: string; kind: string; logo: Logo }[] = [
+  { name: "Higgsfield", kind: "Imagen y vídeo con IA", logo: { src: "/logos/higgsfield.webp", fill: true } },
+  { name: "Google Flow", kind: "Vídeo con IA", logo: { src: "/logos/google-flow.webp", fill: true } },
+  { name: "Vercel", kind: "Publicar webs", logo: { icon: siVercel } },
+  { name: "Supabase", kind: "Base de datos", logo: { icon: siSupabase } },
+  { name: "GitHub", kind: "Código", logo: { icon: siGithub } },
+  { name: "Figma", kind: "Diseño", logo: { icon: siFigma } },
+  { name: "Framer", kind: "Webs visuales", logo: { icon: siFramer } },
+  { name: "Stripe", kind: "Pagos", logo: { icon: siStripe } },
+  { name: "Resend", kind: "Emails", logo: { icon: siResend } },
+  { name: "Next.js", kind: "Framework", logo: { icon: siNextdotjs } },
+  { name: "Gemini", kind: "IA", logo: { icon: siGooglegemini } },
+  { name: "ChatGPT", kind: "IA", logo: { src: "/logos/openai.webp" } },
+  { name: "Kimi", kind: "IA", logo: { icon: siKimi } },
 ];

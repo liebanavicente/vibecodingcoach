@@ -160,8 +160,13 @@ h3 { font-size: 1.08rem; font-weight: 700; letter-spacing: -0.01em; line-height:
 .tool-card:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
 .tool-card:first-child { border: 1.5px solid rgba(255, 112, 52, 0.45); background: rgba(255, 255, 255, 0.72); }
 .tool-rank { position: absolute; top: 14px; right: 18px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-.tool-icon { display: grid; width: 48px; height: 48px; place-items: center; margin-bottom: 8px; border-radius: 15px; background: var(--grad); box-shadow: var(--shadow-orange); color: white; transition: transform 260ms var(--ease-out); }
-.tool-card:hover .tool-icon { transform: rotate(-8deg); }
+.tool-logo { display: grid; width: 56px; height: 56px; place-items: center; margin-bottom: 8px; overflow: hidden; border: 1px solid var(--rim); border-radius: 16px; background: white; box-shadow: 0 8px 20px rgba(210, 90, 40, 0.12); transition: transform 260ms var(--ease-out); }
+.tool-card:hover .tool-logo { transform: rotate(-8deg); }
+.tool-logo .brand-img:not(.is-fill) { width: 42px; height: 42px; }
+.brand-svg { display: block; flex: none; }
+.brand-img { display: block; flex: none; object-fit: contain; }
+.brand-img.is-fill { border-radius: 22%; }
+.tool-logo .brand-img.is-fill { width: 100%; height: 100%; border-radius: 0; }
 .tool-card h3 { font-size: 1.15rem; }
 .tool-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.5; }
 
@@ -173,7 +178,8 @@ h3 { font-size: 1.08rem; font-weight: 700; letter-spacing: -0.01em; line-height:
 .marquee-pill { display: flex; align-items: baseline; gap: 9px; border-radius: 999px; padding: 12px 20px; white-space: nowrap; }
 .marquee-pill strong { font-size: 1.02rem; font-weight: 750; letter-spacing: -0.02em; }
 .marquee-pill span { color: var(--muted); font-size: 0.82rem; }
-.marquee-pill::before { width: 8px; height: 8px; align-self: center; border-radius: 50%; background: var(--grad); content: ""; }
+.marquee-pill { align-items: center; }
+.marquee-pill .brand-img.is-fill { border-radius: 6px; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ---------- Page head (inner pages) ---------- */
@@ -312,6 +318,7 @@ a.module-card:hover .step-mark { transform: rotate(-10deg) scale(1.06); }
 .site-footer strong span { color: var(--orange); }
 .footer-brand { display: flex; align-items: center; gap: 14px; }
 .footer-logo { width: 58px; }
+.footer-note { font-size: 0.75rem; opacity: 0.8; }
 .about-logo { width: 96px; margin-bottom: 4px; }
 .site-footer-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .site-footer a { color: var(--text-2); font-size: 0.88rem; font-weight: 600; }

@@ -63,6 +63,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - `src/content/herramientas.ts`: herramientas principales por orden de uso (Claude,
   Claude Code, Codex, Cursor, Antigravity) y recursos del banner en movimiento
   (Higgsfield, Google Flow, Vercel, Supabase…). Para cambiarlos, editar solo ese archivo.
+  Logos: los que existen en `simple-icons` se importan de ahí; Codex, OpenAI/ChatGPT,
+  Antigravity, Higgsfield y Google Flow son imágenes que pasó Miguel, recortadas en
+  `public/logos/`. El pie lleva la nota de marcas «sin afiliación».
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
   módulo, rellenar `objectives`, `sections`, `exercise`, `checklist` y poner
   `available: true`.

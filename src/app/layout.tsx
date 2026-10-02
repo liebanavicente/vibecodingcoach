@@ -34,6 +34,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               </strong>{" "}
               by {site.author}
               <br />© {new Date().getFullYear()} · Maestro y desarrollador web
+              <br />
+              <span className="footer-note">
+                Las marcas y logotipos citados pertenecen a sus respectivos propietarios. Sin afiliación ni patrocinio.
+              </span>
             </p>
           </div>
           <span className="site-footer-links">
