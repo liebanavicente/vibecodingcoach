@@ -87,7 +87,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   vendehumos; 03 = así no / así sí; 04 = palabra del día (token); 05 = palabra del día (MCP,
   con logos reales de `media/kit/logos.js`); 06 = truco «pide un plan»; 07 = mito del ordenador caro; 08 = escena de acción de Flow
   (pit stop) + «trabajar en equipo: Google Flow + Claude», con el sonido del clip
-  (`data-audio` en `#stage`). Textos de publicación,
+  (`data-audio` en `#stage`); 09 = meme «y yo pagando» (clip de Flow con desenfoques que
+  siguen logos reales: `data-box` en `engine.js`). Textos de publicación,
   bio y calendario en `media/instagram.md`.
 - Generador «Palabra del día»: `npm run reels:palabras` lee `src/content/glosario.ts`, crea
   `media/palabras/<id>/reel.html` + `caption.txt` por término (salvo token y mcp, hechos a mano),

@@ -150,6 +150,20 @@ Y yo he puesto la idea. Esto es lo que se llama trabajar en equipo.
 #vibecoding #googleflow #claudeai #inteligenciaartificial #ia #videoia #creatividad #aprenderaprogramar
 ```
 
+## Reel 09 · «Y yo pagando» (meme de fútbol)
+
+Humor de actualidad: ni nombres ni escudos en pantalla (se desenfocaron un banderín de club y el logo del portátil que Flow dibujó). Sube con el audio original.
+
+```
+Cuando por fin descubres lo que se puede hacer con IA… 😅
+
+Moraleja: una web así ya no se paga. Se aprende.
+
+Te enseño a hacerla tú, aunque nunca hayas programado. Curso gratuito en el enlace del perfil.
+
+#vibecoding #inteligenciaartificial #ia #humor #futbol #memes #aprenderaprogramar #googleflow
+```
+
 ---
 
 ## Próximos reels (misma plantilla)

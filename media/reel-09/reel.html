@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 09 · «Y yo pagando»</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<style>
+  .scene video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  /* Blurs over real brand marks Flow drew anyway (a club pennant and the laptop logo). */
+  .blur { position: absolute; border-radius: 30px; -webkit-backdrop-filter: blur(26px) saturate(0.6); backdrop-filter: blur(26px) saturate(0.6); }
+  .meme-top { position: absolute; top: 150px; left: 50px; right: 50px; margin: 0; color: white; font-size: 66px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; text-align: center; text-shadow: 0 4px 24px rgba(0, 0, 0, 0.75), 0 0 2px rgba(0, 0, 0, 0.9); }
+  .subtitle { position: absolute; top: 180px; left: 70px; right: 70px; display: flex; justify-content: center; }
+  .subtitle span { border-radius: 20px; background: rgba(10, 12, 18, 0.78); color: white; font-size: 70px; font-weight: 800; letter-spacing: -0.03em; padding: 16px 30px; }
+  .moral .pill { margin-bottom: 50px; }
+  .moral .h-l + .h-l { margin-top: 30px; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="16.5" data-audio="clips/a.mp4" data-audio-fadeout="7.0">
+
+  <section class="scene" data-start="0" data-end="7.3" data-video="clips/a.mp4">
+    <video muted playsinline preload="auto"></video>
+    <div class="blur" data-box='[[0,195,645,198,258,1],[1.5,177,627,198,249,1],[3,165,609,189,256,1],[4,96,585,219,280,1],[4.5,96,567,219,288,1],[5,54,549,222,318,1],[5.5,54,558,228,322,1],[6.5,39,555,255,322,1],[7.3,39,555,255,322,1]]'></div>
+    <div class="blur" data-box='[[0,117,1208,111,142,1],[1.5,54,1252,132,135,1],[2.6,0,1275,135,135,1],[3.2,0,1275,90,135,0]]'></div>
+    <div class="blur" data-box='[[3.6,430,1650,160,75,0],[3.9,430,1660,160,75,1],[4.2,430,1668,160,70,1],[5,430,1778,160,70,1],[5.8,430,1925,160,70,1]]'></div>
+    <p class="meme-top" data-fx="up" data-in="0.2" data-out="3.4">Cuando por fin descubres lo que se puede hacer con IA…</p>
+    <div class="subtitle" data-fx="pop" data-in="6.45" data-dur="0.3"><span>«Hostia… y yo pagando.»</span></div>
+  </section>
+
+  <section class="scene slide" data-start="7.3" data-end="12.2">
+    <div class="center moral">
+      <span class="pill" data-fx="pop" data-in="0.2"><span data-icon="idea"></span>Moraleja</span>
+      <p class="h-l" data-fx="up" data-in="0.5">Una web así ya no se paga.</p>
+      <p class="h-l grad" data-fx="pop" data-in="1.4">Se aprende.</p>
+      <p class="body-l" data-fx="up" data-in="2.3" style="margin-top:60px">Con IA, aunque nunca hayas programado.</p>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="12.2" data-end="16.5">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="280"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.6">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.1" data-dur="0.6"><div class="cta-btn" data-pulse="1.8"><span data-icon="book"></span>Curso gratuito</div></div>
+      <p class="cta-sec" data-fx="up" data-in="1.6">Y sin pagar a nadie, en</p>
+      <div class="cta-url glass" data-fx="up" data-in="1.9">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>

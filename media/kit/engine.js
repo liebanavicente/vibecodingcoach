@@ -76,6 +76,17 @@
       const [from, to, fade] = el.dataset.hold.split(",").map(Number);
       el.style.opacity = lt < from - fade ? 0 : lt < from ? (lt - from + fade) / fade : lt <= to ? 1 : clamp(1 - (lt - to) / fade);
     });
+    // Moving box (e.g. a blur over a logo): keys [time, x, y, width, height, opacity], interpolated.
+    root.querySelectorAll("[data-box]").forEach((el) => {
+      const keys = JSON.parse(el.dataset.box);
+      let k = keys.findIndex((key) => key[0] > lt);
+      if (k === -1) k = keys.length - 1;
+      const a = keys[Math.max(0, k - 1)];
+      const b = keys[k];
+      const p = b[0] === a[0] ? 1 : clamp((lt - a[0]) / (b[0] - a[0]));
+      const [, x, y, w, h, o] = a.map((v, i) => v + (b[i] - v) * p);
+      Object.assign(el.style, { left: `${x}px`, top: `${y}px`, width: `${w}px`, height: `${h}px`, opacity: String(o) });
+    });
     root.querySelectorAll("[data-pulse]").forEach((el) => {
       const since = lt - +el.dataset.pulse;
       el.style.transform = since > 0 ? `scale(${1 + Math.sin(since * 4.2) * 0.025})` : "";
