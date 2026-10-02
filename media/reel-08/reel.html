@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 08 · Trabajar en equipo: Google Flow + Claude</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<script src="../kit/logos.js"></script>
+<style>
+  .scene video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  /* Hides the made-up lettering Flow drew on the pit garage between 1.9 s and 2.5 s. */
+  .sign-blur { position: absolute; top: 0; left: 0; right: 0; height: 230px; -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px); -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent); }
+  .timer { position: absolute; top: 240px; left: 50%; display: flex; align-items: baseline; gap: 18px; border: 2px solid rgba(255, 255, 255, 0.35); border-radius: 999px; background: rgba(10, 14, 24, 0.55); color: white; padding: 18px 42px; transform: translateX(-50%); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+  .timer-wrap { position: absolute; inset: 0; }
+  .timer .label { color: #ff9a62; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .timer strong { font-family: "SFMono-Regular", Menlo, monospace; font-size: 84px; font-weight: 800; letter-spacing: -0.02em; }
+  .timer span.unit { font-size: 48px; font-weight: 700; opacity: 0.8; }
+  .peli { position: absolute; top: 420px; left: 0; right: 0; margin: 0; color: white; font-size: 150px; font-weight: 800; letter-spacing: -0.05em; text-align: center; text-shadow: 0 10px 50px rgba(0, 0, 0, 0.6); }
+  .no { margin: 0; font-size: 300px; font-weight: 800; letter-spacing: -0.07em; line-height: 0.9; }
+  .team { position: absolute; top: 300px; left: 70px; right: 70px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .team .h-m { color: var(--muted); }
+  .duo { display: flex; flex-direction: column; align-items: stretch; gap: 18px; width: 100%; margin-top: 60px; }
+  .member { display: flex; align-items: center; gap: 30px; border-radius: 44px; padding: 30px 36px; text-align: left; }
+  .member .logo { display: grid; width: 130px; height: 130px; flex: none; place-items: center; overflow: hidden; border-radius: 36px; background: white; box-shadow: 0 14px 34px rgba(20, 23, 34, 0.1); font-size: 84px; }
+  .member .logo img { width: 100%; height: 100%; object-fit: cover; }
+  .member strong { display: block; font-size: 60px; font-weight: 800; letter-spacing: -0.03em; }
+  .member span.role { display: block; margin-top: 6px; color: var(--muted); font-size: 38px; font-weight: 600; }
+  .plus { color: var(--orange); font-size: 90px; font-weight: 800; line-height: 1; }
+  .backstage { width: 100%; margin-top: 40px; border-radius: 30px; background: #1f1b26; box-shadow: inset 6px 0 0 var(--orange), 0 20px 40px rgba(31, 27, 38, 0.25); color: #f1edf7; font-family: "SFMono-Regular", Menlo, monospace; font-size: 30px; line-height: 1.5; padding: 26px 30px; text-align: left; }
+  .backstage b { color: #ff9a62; font-weight: 700; }
+  .caret { display: inline-block; width: 4px; height: 0.95em; margin-left: 3px; background: var(--orange); vertical-align: -0.12em; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="24.5" data-audio="clips/a.mp4" data-audio-fadeout="10.2">
+
+  <section class="scene" data-start="0" data-end="11.2" data-video="clips/a.mp4">
+    <video muted playsinline preload="auto"></video>
+    <div class="sign-blur" data-hold="1.9,2.5,0.12"></div>
+    <div class="timer-wrap" data-hold="3.0,7.6,0.25">
+      <div class="timer"><span class="label">Pit stop</span><strong data-count="0,2.4" data-in="3.0" data-dur="4.4">0,00</strong><span class="unit">s</span></div>
+    </div>
+    <p class="peli" data-fx="up" data-in="8.9">¿Una peli?</p>
+  </section>
+
+  <section class="scene slide" data-start="11.2" data-end="13.6">
+    <div class="center">
+      <p class="no grad" data-fx="stamp" data-in="0.1" data-dur="0.45">No.</p>
+      <p class="h-m" data-fx="up" data-in="0.7" style="margin-top:50px">Es un reel hecho entre dos&nbsp;IA.</p>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="13.6" data-end="20.6">
+    <div class="team">
+      <p class="h-m" data-fx="up" data-in="0.1">Y esto es lo que se llama</p>
+      <p class="h-l grad" data-fx="pop" data-in="0.6" style="margin-top:14px">trabajar en equipo</p>
+      <div class="duo">
+        <div class="member glass" data-fx="left" data-in="1.5"><span class="logo"><img alt="" src="../../public/logos/google-flow.webp"></span><div><strong>Google Flow</strong><span class="role">La imagen y el movimiento</span></div></div>
+        <span class="plus" data-fx="pop" data-in="2.1">+</span>
+        <div class="member glass" data-fx="left" data-in="2.4"><span class="logo" data-logo="claude"></span><div><strong>Claude</strong><span class="role">El guion, el montaje y la edición</span></div></div>
+      </div>
+      <div class="backstage" data-fx="up" data-in="3.4"><b>prompt ›</b> <span data-type="Vertical 9:16 cinematic action sequence, at night on a wet racetrack. A sleek white race car with coral-orange accents…" data-in="3.7" data-dur="2.6"></span><i class="caret" data-blink></i></div>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="20.6" data-end="24.5">
+    <div class="center">
+      <p class="h-l" data-fx="up" data-in="0.1">Tú pones <span class="grad">la idea.</span></p>
+      <div data-fx="bounce" data-in="0.7" data-dur="0.85" style="margin-top:70px"><svg class="ml" data-ml width="250"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="1.2">vibe<span>coding</span>coach</p>
+      <div class="cta-url glass" data-fx="up" data-in="1.7">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>

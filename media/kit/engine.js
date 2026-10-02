@@ -67,6 +67,15 @@
       const p = clamp((lt - +el.dataset.in) / +el.dataset.dur);
       el.textContent = text.slice(0, Math.round(p * text.length));
     });
+    root.querySelectorAll("[data-count]").forEach((el) => {
+      const [from, to] = el.dataset.count.split(",").map(Number);
+      const p = clamp((lt - +el.dataset.in) / +el.dataset.dur);
+      el.textContent = (from + (to - from) * p).toFixed(+(el.dataset.decimals ?? 2)).replace(".", ",");
+    });
+    root.querySelectorAll("[data-hold]").forEach((el) => {
+      const [from, to, fade] = el.dataset.hold.split(",").map(Number);
+      el.style.opacity = lt < from - fade ? 0 : lt < from ? (lt - from + fade) / fade : lt <= to ? 1 : clamp(1 - (lt - to) / fade);
+    });
     root.querySelectorAll("[data-pulse]").forEach((el) => {
       const since = lt - +el.dataset.pulse;
       el.style.transform = since > 0 ? `scale(${1 + Math.sin(since * 4.2) * 0.025})` : "";

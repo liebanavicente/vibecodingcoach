@@ -41,7 +41,12 @@ if (stills) {
 
 rmSync(framesDir, { recursive: true, force: true });
 mkdirSync(framesDir, { recursive: true });
-const { frames, fps } = await page.evaluate(() => ({ frames: window.FRAMES, fps: window.FPS }));
+const { frames, fps, audio, fadeAt } = await page.evaluate(() => ({
+  frames: window.FRAMES,
+  fps: window.FPS,
+  audio: document.getElementById("stage").dataset.audio ?? null,
+  fadeAt: document.getElementById("stage").dataset.audioFadeout ?? null,
+}));
 for (let f = 0; f < frames; f++) {
   await page.evaluate((s) => window.renderAt(s), f / fps);
   await stage.screenshot({ path: join(framesDir, `${String(f).padStart(5, "0")}.jpg`), type: "jpeg", quality: 94 });
@@ -50,10 +55,11 @@ for (let f = 0; f < frames; f++) {
 await browser.close();
 
 const video = join(out, `${name}.mp4`);
-execFileSync(
-  "ffmpeg",
-  ["-v", "error", "-y", "-framerate", String(fps), "-i", join(framesDir, "%05d.jpg"), "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "+faststart", video],
-  { stdio: "inherit" },
-);
+const encode = ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "+faststart"];
+// Optional soundtrack: data-audio on #stage points to a clip (relative to the reel folder) that starts at 0 s.
+const sound = audio
+  ? ["-i", join(here, audio), "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k", ...(fadeAt ? ["-af", `afade=t=out:st=${fadeAt}:d=0.8`] : [])]
+  : [];
+execFileSync("ffmpeg", ["-v", "error", "-y", "-framerate", String(fps), "-i", join(framesDir, "%05d.jpg"), ...sound, ...encode, video], { stdio: "inherit" });
 rmSync(framesDir, { recursive: true, force: true });
 console.log(`video written to ${video}`);

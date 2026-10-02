@@ -133,6 +133,23 @@ Guía completa con precios y qué instalar, gratis en el enlace del perfil.
 #vibecoding #inteligenciaartificial #ia #ordenadores #aprenderaprogramar #tecnologia #mac #windows
 ```
 
+## Reel 08 · Trabajar en equipo: Google Flow + Claude
+
+Rompe el patrón: arranca como una peli de acción, con sonido. Publícalo con su audio original (o baja el volumen si añades música).
+
+```
+¿Una peli? No. Un reel hecho entre dos IA.
+
+Google Flow ha generado la escena: el coche, la lluvia, el pit stop y el sonido.
+Claude ha escrito el guion, ha montado el vídeo y ha puesto cada texto y cada animación.
+
+Y yo he puesto la idea. Esto es lo que se llama trabajar en equipo.
+
+¿Quieres aprender a hacerlo tú? Curso gratuito en el enlace del perfil.
+
+#vibecoding #googleflow #claudeai #inteligenciaartificial #ia #videoia #creatividad #aprenderaprogramar
+```
+
 ---
 
 ## Próximos reels (misma plantilla)

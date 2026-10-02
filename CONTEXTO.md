@@ -85,7 +85,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   `npm run reel -- reel-02` renderiza a `media/reel-02/out/reel-02.mp4` (ignorado por git).
   Reel 01 = presentación con clips de Flow (`media/reel-01/clips/`); 02 = detector de
   vendehumos; 03 = así no / así sí; 04 = palabra del día (token); 05 = palabra del día (MCP,
-  con logos reales de `media/kit/logos.js`); 06 = truco «pide un plan»; 07 = mito del ordenador caro. Textos de publicación,
+  con logos reales de `media/kit/logos.js`); 06 = truco «pide un plan»; 07 = mito del ordenador caro; 08 = escena de acción de Flow
+  (pit stop) + «trabajar en equipo: Google Flow + Claude», con el sonido del clip
+  (`data-audio` en `#stage`). Textos de publicación,
   bio y calendario en `media/instagram.md`.
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
   módulo, rellenar `objectives`, `sections`, `exercise`, `checklist` y poner
