@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 06 · Truco: pide un plan antes del código</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<style>
+  .paths { position: absolute; top: 300px; left: 70px; right: 70px; display: grid; gap: 34px; }
+  .path { border-radius: 44px; padding: 36px 40px; }
+  .tag { display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; font-size: 38px; font-weight: 800; letter-spacing: 0.05em; padding: 14px 28px; text-transform: uppercase; }
+  .tag svg { font-size: 44px; }
+  .tag.bad { background: var(--red-soft); color: var(--red); }
+  .tag.good { background: var(--green-soft); color: var(--green); }
+  .path .ask { margin: 26px 0 22px; font-size: 46px; font-weight: 700; letter-spacing: -0.02em; }
+  .chips { display: flex; flex-wrap: wrap; gap: 14px; }
+  .chip { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; font-size: 36px; font-weight: 700; padding: 12px 24px; }
+  .chip svg { font-size: 40px; }
+  .chip.bad { background: var(--red-soft); color: var(--red); }
+  .chip.good { background: var(--green-soft); color: var(--green); }
+  .result { margin-top: 26px; font-size: 54px; font-weight: 800; letter-spacing: -0.03em; }
+  .result.bad { color: var(--red); }
+  .result.good { color: var(--green); }
+  .prompt-wrap { position: absolute; top: 380px; left: 70px; right: 70px; }
+  .prompt-wrap h2 { margin: 0 0 40px; text-align: center; }
+  .prompt-card { border-radius: 44px; padding: 44px 48px; }
+  .prompt-card .bar { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; color: var(--muted); font-size: 32px; font-weight: 700; }
+  .prompt-card .bar svg { color: var(--orange); font-size: 38px; }
+  .prompt-text { margin: 0; min-height: 4.2em; font-size: 54px; font-weight: 650; letter-spacing: -0.02em; line-height: 1.32; }
+  .caret { display: inline-block; width: 5px; height: 0.95em; margin-left: 4px; background: var(--orange); vertical-align: -0.12em; }
+  .prompt-wrap .body-l { margin-top: 50px; text-align: center; }
+  kbd { display: inline-block; border: 3px solid rgba(20, 23, 34, 0.16); border-bottom-width: 10px; border-radius: 28px; background: white; color: var(--ink); font-family: "SFMono-Regular", Menlo, monospace; font-size: 96px; font-weight: 800; padding: 22px 44px; }
+  .keys { display: flex; align-items: center; gap: 30px; margin-top: 60px; }
+  .keys .plus { color: var(--muted); font-size: 80px; font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="21.5">
+
+  <section class="scene slide warm" data-start="0" data-end="3">
+    <div class="brand-top" data-fx="fade" data-in="0"><svg class="ml" data-ml width="92"></svg><span class="wm">vibe<span>coding</span>coach</span></div>
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.15"><span data-icon="sparkle"></span>Truco rápido</span>
+      <p class="h-l" data-fx="up" data-in="0.45" style="margin-top:60px">El truco que más tiempo me ahorra con la IA</p>
+      <p class="h-m grad" data-fx="pop" data-in="1.5" style="margin-top:44px">Y casi nadie lo usa.</p>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="3" data-end="9.2">
+    <div class="paths">
+      <div class="path glass" data-fx="up" data-in="0.2">
+        <span class="tag bad"><span data-icon="x"></span>Sin plan</span>
+        <p class="ask">«Hazme la web»</p>
+        <div class="chips">
+          <span class="chip bad" data-fx="pop" data-in="1.0"><span data-icon="warning"></span>Algo que no querías</span>
+          <span class="chip bad" data-fx="pop" data-in="1.4"><span data-icon="warning"></span>Errores</span>
+          <span class="chip bad" data-fx="pop" data-in="1.8"><span data-icon="warning"></span>Vuelta a empezar</span>
+        </div>
+        <p class="result bad" data-fx="up" data-in="2.2">Horas de vueltas</p>
+      </div>
+      <div class="path glass" data-fx="up" data-in="2.8">
+        <span class="tag good"><span data-icon="check"></span>Con plan</span>
+        <p class="ask">«Primero, explícame cómo lo harías»</p>
+        <div class="chips">
+          <span class="chip good" data-fx="pop" data-in="3.6"><span data-icon="check"></span>Corriges el plan</span>
+          <span class="chip good" data-fx="pop" data-in="4.0"><span data-icon="check"></span>Apruebas</span>
+          <span class="chip good" data-fx="pop" data-in="4.4"><span data-icon="check"></span>Construye</span>
+        </div>
+        <p class="result good" data-fx="up" data-in="4.8">Directo al grano</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="9.2" data-end="14.6">
+    <div class="prompt-wrap">
+      <h2 class="h-m" data-fx="up" data-in="0.1">Cópiate <span class="grad">esta frase</span></h2>
+      <div class="prompt-card glass" data-fx="up" data-in="0.3">
+        <div class="bar"><span data-icon="sparkle"></span>Tu mensaje a la IA</div>
+        <p class="prompt-text"><span data-type="Antes de escribir nada, explícame cómo lo harías por pasos y espera a que te diga que sí." data-in="0.6" data-dur="2.6"></span><i class="caret" data-blink></i></p>
+      </div>
+      <p class="body-l" data-fx="up" data-in="3.4">Corregir un plan es gratis. <strong style="color:var(--ink)">Corregir código, no.</strong></p>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="14.6" data-end="18">
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.1"><span data-icon="idea"></span>En Claude Code, aún más fácil</span>
+      <div class="keys">
+        <kbd data-fx="pop" data-in="0.5">Shift</kbd>
+        <span class="plus" data-fx="pop" data-in="0.8">+</span>
+        <kbd data-fx="pop" data-in="1.0">Tab</kbd>
+      </div>
+      <p class="h-l grad" data-fx="up" data-in="1.5" style="margin-top:70px">Modo plan</p>
+      <p class="body-l" data-fx="up" data-in="2.0" style="margin-top:30px">Piensa y te propone un plan sin tocar ningún archivo.</p>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="18" data-end="21.5">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="280"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.6">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.1" data-dur="0.6"><div class="cta-btn" data-pulse="1.8"><span data-icon="sparkle"></span>Más trucos, gratis</div></div>
+      <p class="cta-sec" data-fx="up" data-in="1.6">En el curso gratuito de</p>
+      <div class="cta-url glass" data-fx="up" data-in="1.9">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>

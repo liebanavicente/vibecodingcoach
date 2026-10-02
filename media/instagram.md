@@ -81,14 +81,66 @@ Es el trocito en el que la IA divide el texto. Su memoria (la ventana de context
 #vibecoding #inteligenciaartificial #ia #glosario #aprenderaprogramar #claudeai #tecnologia #educacion
 ```
 
+## Reel 05 · Palabra del día: MCP
+
+```
+Palabra del día: MCP (Model Context Protocol).
+
+Suena a chino, pero es fácil: es darle llaves a la IA para que use tus aplicaciones. Con tu permiso, puede publicar tu web en Vercel, mirar tus reservas en Supabase o ponerte una clase en el calendario.
+
+Ojo: conecta solo lo que necesites. Un conector con acceso a tu correo puede leer tu correo.
+
+¿Qué palabra explico en el próximo? Te leo en comentarios.
+
+Glosario gratuito con 48 palabras, en el enlace del perfil.
+
+#vibecoding #mcp #inteligenciaartificial #claudeai #ia #automatizacion #aprenderaprogramar #tecnologia
+```
+
+## Reel 06 · Truco: pide un plan antes del código
+
+```
+El truco que más tiempo me ahorra con la IA:
+
+«Antes de escribir nada, explícame cómo lo harías por pasos y espera a que te diga que sí.»
+
+Corregir un plan es gratis. Corregir código, no.
+
+En Claude Code es aún más fácil: Shift + Tab y entras en modo plan.
+
+Guárdalo y pruébalo en tu próximo proyecto. Más trucos gratis en el enlace del perfil.
+
+#vibecoding #claudecode #inteligenciaartificial #productividad #prompts #ia #aprenderaprogramar #trucos
+```
+
+## Reel 07 · Mito: ¿necesitas un ordenador de 2.000 €?
+
+```
+¿Necesitas un ordenador de 2.000 € para crear webs con IA?
+
+No. La IA trabaja en la nube, no en tu ordenador.
+
+Lo que de verdad importa:
+· 8 GB de RAM para empezar (16 GB, lo ideal)
+· Un disco SSD
+· Buena conexión a internet
+· Una gráfica gaming… no hace falta
+
+¿Mac o Windows? Los dos sirven. Si ya tienes ordenador, empieza con él.
+
+Guía completa con precios y qué instalar, gratis en el enlace del perfil.
+
+#vibecoding #inteligenciaartificial #ia #ordenadores #aprenderaprogramar #tecnologia #mac #windows
+```
+
 ---
 
 ## Próximos reels (misma plantilla)
 
-- Palabra del día: MCP, ventana de contexto, alucinación, commit, deploy, RAG.
+- Palabra del día: ventana de contexto, alucinación, commit, deploy, RAG.
 - Así no / Así sí: pedir un fondo («hazme un fondo bonito»), arreglar un error («arréglalo»).
-- Trucos: pide un plan antes del código, Git es tu botón de deshacer, una captura vale más que mil palabras.
-- Mito: «¿Necesito un ordenador de 2.000 €?» (guía «Qué necesitas»).
+- Trucos: Git es tu botón de deshacer, una captura vale más que mil palabras.
+- Mitos: «La IA te va a quitar el trabajo de aprender», «Hay que saber inglés».
 - Errores de principiante: pegar claves en el chat, conversaciones eternas.
 
 Cómo crear uno nuevo: copia la carpeta de un reel parecido en `media/`, cambia los textos y tiempos de su `reel.html` y ejecuta `npm run reel -- <carpeta>`.

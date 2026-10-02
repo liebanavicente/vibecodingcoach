@@ -15,6 +15,9 @@
   document.querySelectorAll("[data-icon]").forEach((el) => {
     el.innerHTML = window.ICONS[el.dataset.icon];
   });
+  document.querySelectorAll("[data-logo]").forEach((el) => {
+    el.innerHTML = window.LOGOS?.[el.dataset.logo] ?? "";
+  });
 
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const easeOut = (p) => 1 - Math.pow(1 - p, 3);

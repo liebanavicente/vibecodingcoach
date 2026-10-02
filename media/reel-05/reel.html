@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 05 · Palabra del día: MCP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<script src="../kit/logos.js"></script>
+<style>
+  .word { margin: 50px 0 0; font-size: 300px; font-weight: 800; letter-spacing: -0.06em; line-height: 0.95; }
+  .keys-title { position: absolute; top: 300px; left: 70px; right: 70px; text-align: center; }
+  .hub { position: absolute; left: 410px; top: 850px; display: grid; width: 260px; height: 260px; place-items: center; border-radius: 50%; font-size: 130px; }
+  .hub-label { position: absolute; left: 0; right: 0; top: 1125px; text-align: center; font-size: 36px; font-weight: 800; }
+  .spoke { position: absolute; left: 540px; top: 980px; width: 0; height: 0; }
+  .spoke i { position: absolute; left: 130px; top: -5px; width: 170px; height: 10px; border-radius: 10px; background: repeating-linear-gradient(90deg, #ff6a2c 0 22px, transparent 22px 34px); transform-origin: left center; }
+  .app { position: absolute; display: grid; width: 210px; justify-items: center; gap: 16px; }
+  .app .tile { display: grid; width: 190px; height: 190px; place-items: center; border-radius: 52px; font-size: 96px; }
+  .app span.name { font-size: 34px; font-weight: 750; }
+  .a1 { left: 125px; top: 600px; } .a2 { left: 745px; top: 600px; } .a3 { left: 125px; top: 1130px; } .a4 { left: 745px; top: 1130px; }
+  .keys-sub { position: absolute; top: 1480px; left: 90px; right: 90px; text-align: center; }
+  .examples { position: absolute; top: 330px; left: 70px; right: 70px; display: flex; flex-direction: column; gap: 26px; }
+  .examples h2 { margin: 0 0 18px; text-align: center; }
+  .ex { display: flex; align-items: center; gap: 30px; border-radius: 40px; padding: 28px 34px; }
+  .ex .tile { display: grid; width: 110px; height: 110px; flex: none; place-items: center; border-radius: 32px; background: white; box-shadow: 0 12px 30px rgba(20, 23, 34, 0.08); font-size: 64px; }
+  .ex p { margin: 0; font-size: 46px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; }
+  .warn { display: flex; align-items: center; gap: 22px; margin-top: 20px; border: 2px solid rgba(214, 150, 0, 0.35); border-radius: 36px; background: rgba(255, 196, 0, 0.16); padding: 26px 32px; }
+  .warn svg { flex: none; color: #c98a00; font-size: 60px; }
+  .warn p { margin: 0; font-size: 40px; font-weight: 650; line-height: 1.3; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="21">
+
+  <section class="scene slide warm" data-start="0" data-end="2.8">
+    <div class="brand-top" data-fx="fade" data-in="0"><svg class="ml" data-ml width="92"></svg><span class="wm">vibe<span>coding</span>coach</span></div>
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.15"><span data-icon="book"></span>Palabra del día</span>
+      <p class="word grad" data-fx="bounce" data-in="0.45" data-dur="0.8">MCP</p>
+      <p class="body-l" data-fx="up" data-in="1.3" style="margin-top:50px">Model Context Protocol. Suena raro, pero es muy fácil.</p>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="2.8" data-end="10.2">
+    <p class="keys-title h-m" data-fx="up" data-in="0.1">Es darle <span class="grad">llaves</span> a la IA</p>
+    <div class="spoke" style="transform: rotate(-140deg)"><i data-fx="grow" data-in="1.3"></i></div>
+    <div class="spoke" style="transform: rotate(-40deg)"><i data-fx="grow" data-in="1.9"></i></div>
+    <div class="spoke" style="transform: rotate(140deg)"><i data-fx="grow" data-in="2.5"></i></div>
+    <div class="spoke" style="transform: rotate(40deg)"><i data-fx="grow" data-in="3.1"></i></div>
+    <div class="hub glass" data-fx="bounce" data-in="0.5" data-dur="0.8" data-logo="claude"></div>
+    <p class="hub-label" data-fx="up" data-in="0.9">La IA</p>
+    <div class="app a1" data-fx="pop" data-in="1.5"><span class="tile glass" data-logo="vercel"></span><span class="name">Vercel</span></div>
+    <div class="app a2" data-fx="pop" data-in="2.1"><span class="tile glass" data-logo="github"></span><span class="name">GitHub</span></div>
+    <div class="app a3" data-fx="pop" data-in="2.7"><span class="tile glass" data-logo="supabase"></span><span class="name">Supabase</span></div>
+    <div class="app a4" data-fx="pop" data-in="3.3"><span class="tile glass" data-logo="calendar"></span><span class="name">Calendario</span></div>
+    <p class="keys-sub body-l" data-fx="up" data-in="4.2">Un estándar para conectarla con tus aplicaciones. <strong style="color:var(--ink)">Siempre con tu permiso.</strong></p>
+  </section>
+
+  <section class="scene slide warm" data-start="10.2" data-end="17.4">
+    <div class="examples">
+      <h2 class="h-m" data-fx="up" data-in="0.1">Y entonces le pides…</h2>
+      <div class="ex glass" data-fx="left" data-in="0.6"><span class="tile" data-logo="vercel"></span><p>«Publica esta web»</p></div>
+      <div class="ex glass" data-fx="left" data-in="1.5"><span class="tile" data-logo="supabase"></span><p>«¿Cuántas reservas tengo hoy?»</p></div>
+      <div class="ex glass" data-fx="left" data-in="2.4"><span class="tile" data-logo="calendar"></span><p>«Ponme la clase del martes a las 18:00»</p></div>
+      <div class="warn" data-fx="up" data-in="3.8"><span data-icon="warning"></span><p>Conecta solo lo que necesites: un conector con acceso a tu correo puede leer tu correo.</p></div>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="17.4" data-end="21">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="280"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.6">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.1" data-dur="0.6"><div class="cta-btn" data-pulse="1.8"><span data-icon="book"></span>Todo el glosario, gratis</div></div>
+      <p class="cta-sec" data-fx="up" data-in="1.6">48 palabras explicadas sin jerga en</p>
+      <div class="cta-url glass" data-fx="up" data-in="1.9">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>
