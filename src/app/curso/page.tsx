@@ -42,6 +42,9 @@ export default function CursoPage() {
               <Link className="button primary" href={`/curso/${first.slug}`}>
                 Empezar por el Módulo {first.number} <ArrowRight aria-hidden size={18} weight="bold" />
               </Link>
+              <Link className="button" href="/curso/recursos/que-necesitas">
+                ¿Qué necesito?
+              </Link>
               <a className="button" href="#recursos">
                 Ver recursos
               </a>

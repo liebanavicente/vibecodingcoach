@@ -67,8 +67,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   Antigravity, Higgsfield y Google Flow son imágenes que pasó Miguel, recortadas en
   `public/logos/`. El pie lleva la nota de marcas «sin afiliación».
 - `src/content/recursos.ts`: recursos del curso (skills, otra IA como revisora, fondos e
-  imágenes, truquillos), escritos como bloques (`text`, `steps`, `prompt`, `tip`, `warning`,
-  `tools`, `compare`, `cards`) que pinta `src/components/Blocks.tsx`. Páginas en
+  imágenes, truquillos, empezar…), escritos como bloques (`text`, `steps`, `prompt`, `tip`,
+  `warning`, `tools`, `compare`, `cards`, `keys`, `dodont`, `code`, `links`, `table`) que pinta `src/components/Blocks.tsx`. Páginas en
   `/curso/recursos/[slug]`. Para añadir un recurso, añadir un objeto al array.
 - Progreso del alumno: las checklists de cada módulo se guardan en el navegador
   (localStorage, `src/components/Progress.tsx`); la página del curso muestra el % por módulo.

@@ -13,9 +13,10 @@ export type Block =
   | { type: "keys"; title: string; items: { key: string; text: string }[] }
   | { type: "dodont"; title: string; labels?: [string, string]; items: { bad: string; good: string }[] }
   | { type: "code"; title: string; text: string }
-  | { type: "links"; title: string; items: { label: string; href: string; note: string }[] };
+  | { type: "links"; title: string; items: { label: string; href: string; note: string }[] }
+  | { type: "table"; title: string; head: string[]; rows: string[][] };
 
-export const categories = ["Claude", "Buen uso", "Skills", "Revisión", "Imágenes", "Truquillos"] as const;
+export const categories = ["Empezar", "Claude", "Buen uso", "Skills", "Revisión", "Imágenes", "Truquillos"] as const;
 export type Category = (typeof categories)[number];
 
 export type Resource = {
@@ -28,6 +29,98 @@ export type Resource = {
 };
 
 export const resources: Resource[] = [
+  {
+    slug: "que-necesitas",
+    category: "Empezar",
+    title: "Qué necesitas: ordenador y herramientas",
+    summary: "Cuánta RAM, Mac o Windows, y qué programas y cuentas te hacen falta. Spoiler: menos de lo que crees.",
+    minutes: 6,
+    blocks: [
+      {
+        type: "text",
+        text: "La buena noticia: la IA no trabaja en tu ordenador, sino en la nube. Claude, Codex o Gemini piensan en servidores enormes; tu ordenador solo tiene que mover el navegador, el editor y la web que estás construyendo. No necesitas un ordenador de gamer ni gastarte una fortuna.",
+      },
+      {
+        type: "table",
+        title: "¿Cuánta memoria RAM?",
+        head: ["RAM", "Para qué te llega"],
+        rows: [
+          ["8 GB", "Funciona para empezar: navegador, editor y una web sencilla. Notarás tirones con muchas pestañas abiertas."],
+          ["16 GB", "Lo ideal. Editor, navegador lleno de pestañas, tu web en marcha y la IA trabajando, todo a la vez y sin esperas."],
+          ["32 GB o más", "Solo si quieres ejecutar modelos de IA en tu propio ordenador o editas vídeo a menudo."],
+        ],
+      },
+      {
+        type: "table",
+        title: "¿Mac, Windows o Linux?",
+        head: ["", "Mac", "Windows", "Linux"],
+        rows: [
+          ["Terminal", "La misma que usan los servidores y casi todos los tutoriales.", "Funciona. Con WSL tienes además la de Linux dentro de Windows.", "La de los servidores, de serie."],
+          ["Herramientas de IA", "Funcionan sin complicaciones.", "Funcionan. Si alguna da guerra, pruébala dentro de WSL.", "Funcionan sin complicaciones."],
+          ["Precio", "Más caro de entrada, pero aguanta muchos años.", "Hay de todos los precios.", "Gratis: puede revivir un portátil viejo."],
+          ["Para quién", "Si vas a comprar y te lo puedes permitir.", "Si ya lo tienes o buscas buen precio.", "Si te gusta trastear."],
+        ],
+      },
+      {
+        type: "cards",
+        items: [
+          {
+            title: "Si vas a comprar",
+            text: "Un MacBook Air con chip de Apple (M2 o posterior) y 16 GB de RAM: silencioso, con batería para todo el día y para muchos años. Yo trabajo en Mac.",
+          },
+          {
+            title: "Si ya tienes ordenador",
+            text: "No compres nada todavía. Si tiene 8 GB o más y un disco SSD, empieza con él y cámbialo cuando de verdad se te quede corto.",
+          },
+          {
+            title: "Lo que sí marca la diferencia",
+            text: "Una buena conexión a internet y, si puedes, un segundo monitor: la IA a un lado y tu web al otro.",
+          },
+        ],
+      },
+      {
+        type: "dodont",
+        title: "En qué no gastar y en qué sí",
+        labels: ["No hace falta", "Sí importa"],
+        items: [
+          { bad: "Una tarjeta gráfica potente.", good: "Un disco SSD: todo arranca y se abre mucho más rápido." },
+          { bad: "El procesador más caro de la tienda.", good: "16 GB de RAM, si puedes elegir." },
+          { bad: "Un portátil «gaming» con luces.", good: "Internet estable: sin conexión, la IA no funciona." },
+        ],
+      },
+      {
+        type: "steps",
+        title: "Lo que tienes que instalar (solo una vez)",
+        items: [
+          "Un navegador moderno: Chrome, Edge, Firefox o Safari.",
+          "Un editor de código: VS Code (gratis), Cursor o Antigravity.",
+          "Node.js en su versión LTS: lo necesitan casi todas las webs modernas. Se descarga de nodejs.org.",
+          "Git, para guardar versiones. En Mac se ofrece a instalarse solo la primera vez que lo usas; en Windows, desde git-scm.com.",
+          "Claude Code u otro agente, siguiendo su guía oficial.",
+        ],
+      },
+      { type: "tools", title: "Cuentas gratuitas que vas a necesitar", items: ["Claude", "GitHub", "Vercel", "Supabase"] },
+      {
+        type: "table",
+        title: "¿Cuánto cuesta?",
+        head: ["Nivel", "Qué incluye", "Precio orientativo"],
+        rows: [
+          ["Empezar gratis", "Claude gratis en el navegador, VS Code o Antigravity, GitHub, Vercel Hobby y Supabase gratis.", "0 €"],
+          ["Lo que recomiendo", "Claude Pro: mucho más uso de Claude y Claude Code incluido.", "Unos 20 € al mes"],
+          ["Si vas en serio", "Claude Max para uso intensivo, o Claude Pro más ChatGPT Plus para tener también Codex como revisor.", "Unos 40-100 € al mes"],
+        ],
+      },
+      {
+        type: "warning",
+        text: "Los precios y los planes cambian a menudo: compruébalos en la web de cada herramienta antes de pagar. Y empieza siempre por el plan gratuito o el mensual, nunca por el anual.",
+      },
+      {
+        type: "prompt",
+        title: "Pregúntale a Claude por tu ordenador",
+        text: "Tengo este ordenador: [modelo, sistema operativo, RAM y disco]. Quiero aprender a crear webs con IA. ¿Me sirve? ¿Qué debería instalar y qué no? Dame los pasos para mi sistema.",
+      },
+    ],
+  },
   {
     slug: "hablar-con-claude",
     category: "Claude",

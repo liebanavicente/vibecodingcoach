@@ -158,6 +158,40 @@ function BlockView({ block }: { block: Block }) {
           </ul>
         </div>
       );
+    case "table":
+      return (
+        <div className="block-table">
+          <h3>{block.title}</h3>
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  {block.head.map((cell, i) => (
+                    <th key={i} scope="col">
+                      {cell}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {block.rows.map((row) => (
+                  <tr key={row[0]}>
+                    {row.map((cell, i) =>
+                      i === 0 ? (
+                        <th key={i} scope="row">
+                          {cell}
+                        </th>
+                      ) : (
+                        <td key={i}>{cell}</td>
+                      ),
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      );
     case "cards":
       return (
         <ul className="block-cards">
