@@ -1,11 +1,35 @@
 import Link from "next/link";
-import { availableModules } from "@/content/curso";
+import type { CSSProperties } from "react";
+import {
+  ArrowRight,
+  Asterisk,
+  CalendarBlank,
+  ChartBar,
+  Chalkboard,
+  Code,
+  Cube,
+  CursorClick,
+  GraduationCap,
+  Hammer,
+  Lightbulb,
+  Lightning,
+  Play,
+  Sparkle,
+  UsersThree,
+} from "@phosphor-icons/react/dist/ssr";
+import { availableModules, modules } from "@/content/curso";
 import { contactHref } from "@/lib/site";
+
+const perks = [
+  { Icon: Lightning, text: "Sin experiencia previa" },
+  { Icon: UsersThree, text: "Acompañamiento personalizado" },
+  { Icon: ChartBar, text: "Resultados desde el primer día" },
+];
 
 const audiences = [
   {
     title: "Empiezas de cero",
-    text: "Nunca has escrito una línea de código y la palabra \"terminal\" te da respeto. Perfecto: por ahí empezamos.",
+    text: "Nunca has escrito una línea de código y la palabra «terminal» te da respeto. Perfecto: por ahí empezamos.",
   },
   {
     title: "Tienes un pequeño negocio",
@@ -19,14 +43,17 @@ const audiences = [
 
 const method = [
   {
+    Icon: Chalkboard,
     title: "Pedagogía, no jerga",
     text: "14 años como maestro me han enseñado a explicar lo difícil de forma sencilla y a adaptarme a tu ritmo.",
   },
   {
+    Icon: Hammer,
     title: "Aprender haciendo",
     text: "Cada sesión termina con algo tuyo funcionando. Nada de teoría sin práctica.",
   },
   {
+    Icon: Lightbulb,
     title: "Entender, no copiar",
     text: "Usamos la IA para construir, pero aprendes lo suficiente para no depender de ella a ciegas.",
   },
@@ -56,153 +83,273 @@ const offers = [
   },
 ];
 
+const codeLines = ["62%", "44%", "78%", "36%", "58%", "70%", "30%", "52%"];
+
+function HeroVisual() {
+  return (
+    <div aria-hidden className="hero-visual">
+      <div className="mock-window">
+        <div className="mock-bar">
+          <i />
+          <i />
+          <i />
+        </div>
+        <div className="mock-body">
+          <div className="mock-side">
+            <span className="tile">
+              <Code size={20} weight="bold" />
+            </span>
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="mock-main">
+            <div className="mock-prompt">
+              <Sparkle size={16} weight="fill" />
+              <p>Crea una web para mi negocio…</p>
+              <span className="mock-send">
+                <ArrowRight size={16} weight="bold" />
+              </span>
+            </div>
+            <div className="mock-stage">
+              <div className="mock-code">
+                {codeLines.map((width, i) => (
+                  <span key={i} style={{ width, "--i": i } as CSSProperties} />
+                ))}
+              </div>
+              <div className="mock-preview">
+                <div className="art" />
+                <div className="bar" />
+                <div className="bar short" />
+                <div className="pill" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="float-tile t1">
+        <Asterisk className="t-orange" size={30} weight="bold" />
+        Claude Code
+      </div>
+      <div className="float-tile t2">
+        <Cube size={30} weight="fill" />
+        Cursor
+      </div>
+      <div className="float-tile t3">
+        <Sparkle className="t-orange" size={30} weight="fill" />
+      </div>
+      <CursorClick className="float-cursor" size={56} weight="fill" />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <>
-      <section className="mx-auto max-w-5xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
-        <p className="mb-4 inline-block rounded-full bg-accent-soft px-3 py-1 text-sm font-medium text-accent">
-          Clases de vibe coding para principiantes
-        </p>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
-          Construye tu primera web con IA, aunque nunca hayas programado.
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted">
-          Te enseño a usar herramientas como Claude Code y Cursor con la
-          pedagogía de 14 años como maestro, no con jerga de programador.
-        </p>
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <a
-            href={contactHref}
-            className="rounded-full bg-accent px-6 py-3 text-center font-medium text-white hover:opacity-90"
-          >
-            Reserva una clase de prueba gratis
-          </a>
-          <Link
-            href="/curso"
-            className="rounded-full border border-border px-6 py-3 text-center font-medium hover:border-accent hover:text-accent"
-          >
-            Empieza el curso gratuito
-          </Link>
-        </div>
-      </section>
+    <main className="main" id="contenido" tabIndex={-1}>
+      <div className="container">
+        <section className="hero">
+          <div className="hero-copy">
+            <p className="eyebrow">
+              <GraduationCap aria-hidden size={18} weight="fill" />
+              Clases de vibe coding para principiantes
+            </p>
+            <h1>
+              Construye tu primera web <span className="grad-text">con IA</span>, aunque nunca hayas programado.
+            </h1>
+            <p className="page-intro">
+              Te enseño a usar herramientas como <strong>Claude Code</strong> y <strong>Cursor</strong> con la
+              pedagogía de 14 años como maestro, no con jerga de programador.
+            </p>
+            <div className="actions">
+              <a className="button primary lg" href={contactHref}>
+                <CalendarBlank aria-hidden size={22} weight="bold" />
+                Reserva una clase de prueba gratis
+                <span className="btn-dot arrow">
+                  <ArrowRight aria-hidden size={18} weight="bold" />
+                </span>
+              </a>
+              <Link className="button lg" href="/curso">
+                <span className="btn-dot">
+                  <Play aria-hidden size={16} weight="fill" />
+                </span>
+                Empieza el curso gratuito
+                <ArrowRight aria-hidden size={18} weight="bold" />
+              </Link>
+            </div>
+          </div>
+          <HeroVisual />
+        </section>
 
-      <section className="border-y border-border bg-surface">
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            ¿Para quién es?
-          </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            {audiences.map((a) => (
-              <div key={a.title}>
-                <h3 className="font-semibold">{a.title}</h3>
-                <p className="mt-2 text-muted">{a.text}</p>
+        <div className="perks">
+          {perks.map(({ Icon, text }) => (
+            <div className="perk" key={text}>
+              <span className="perk-icon">
+                <Icon aria-hidden size={22} weight="fill" />
+              </span>
+              {text}
+            </div>
+          ))}
+        </div>
+
+        <section aria-labelledby="para-quien">
+          <div className="section-head">
+            <h2 className="section-title" id="para-quien">
+              ¿Para quién es?
+            </h2>
+          </div>
+          <div className="grid">
+            {audiences.map((a, i) => (
+              <div className="panel" key={a.title}>
+                <span className="panel-num">0{i + 1}</span>
+                <h3>{a.title}</h3>
+                <p>{a.text}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Cómo enseño
-        </h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-3">
-          {method.map((m, i) => (
-            <div key={m.title} className="rounded-2xl border border-border p-6">
-              <span className="font-mono text-sm text-accent">0{i + 1}</span>
-              <h3 className="mt-2 font-semibold">{m.title}</h3>
-              <p className="mt-2 text-muted">{m.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-accent-soft">
-        <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-16 sm:px-6 md:flex-row md:items-center md:justify-between">
-          <div className="max-w-xl">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-              Curso gratuito: Vibe Coding desde Cero
+        <section aria-labelledby="como-enseno" className="section">
+          <div className="section-head">
+            <h2 className="section-title" id="como-enseno">
+              Cómo enseño
             </h2>
-            <p className="mt-3 text-muted">
-              Empieza hoy por tu cuenta. Lecciones con ejercicios prácticos y
-              una checklist para comprobar lo que has aprendido.{" "}
-              {availableModules.length} módulos ya disponibles.
-            </p>
           </div>
-          <Link
-            href="/curso"
-            className="shrink-0 rounded-full bg-accent px-6 py-3 text-center font-medium text-white hover:opacity-90"
-          >
-            Ver el curso
-          </Link>
-        </div>
-      </section>
+          <div className="grid">
+            {method.map(({ Icon, title, text }) => (
+              <div className="panel" key={title}>
+                <span className="panel-icon">
+                  <Icon aria-hidden size={24} weight="bold" />
+                </span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-      <section id="oferta" className="mx-auto max-w-5xl scroll-mt-8 px-4 py-16 sm:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Clases
-        </h2>
-        <p className="mt-3 text-muted">
-          Precios de lanzamiento mientras formo a mis primeros alumnos.
-        </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {offers.map((o) => (
-            <div
-              key={o.name}
-              className={`flex flex-col rounded-2xl border p-6 ${
-                o.featured ? "border-accent bg-surface" : "border-border"
-              }`}
-            >
-              <h3 className="font-semibold">{o.name}</h3>
-              <p className="mt-4 text-3xl font-semibold">{o.price}</p>
-              <p className="text-sm text-muted">{o.detail}</p>
-              <p className="mt-4 flex-1 text-muted">{o.text}</p>
-              <a
-                href={contactHref}
-                className={`mt-6 rounded-full px-4 py-2 text-center font-medium ${
-                  o.featured
-                    ? "bg-accent text-white hover:opacity-90"
-                    : "border border-border hover:border-accent hover:text-accent"
-                }`}
-              >
-                Quiero esta
-              </a>
+        <section aria-labelledby="curso" className="section">
+          <div className="section-head">
+            <div>
+              <p className="label">Curso gratuito</p>
+              <h2 className="section-title" id="curso">
+                Vibe Coding <span className="grad-text">desde Cero</span>
+              </h2>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-t border-border bg-surface">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            Sobre mí
-          </h2>
-          <div className="mt-6 space-y-4 text-muted">
-            <p>
-              Soy Miguel Liébana. Durante 14 años fui maestro de primaria y
-              coordinador TIC, formando a alumnos y a otros profesores en el
-              uso de la tecnología. Tengo un máster en TIC aplicadas a la
-              educación.
-            </p>
-            <p>
-              Hoy me estoy formando como desarrollador full-stack con IA y
-              construyo aplicaciones reales: un portal para empleados, una
-              plataforma de gestión para bandas de música, una tienda online
-              con pagos… Casi todo con ayuda de la IA.
-            </p>
-            <p>
-              Sé lo que es empezar desde cero porque lo estoy viviendo. Y sé
-              enseñarlo porque es lo que he hecho toda mi vida.
-            </p>
+            <Link className="button" href="/curso">
+              Ver el curso <ArrowRight aria-hidden size={18} weight="bold" />
+            </Link>
           </div>
-          <a
-            href={contactHref}
-            className="mt-8 inline-block rounded-full bg-accent px-6 py-3 font-medium text-white hover:opacity-90"
-          >
-            Escríbeme y empezamos
-          </a>
-        </div>
-      </section>
-    </>
+          <ol className="module-list">
+            {modules.slice(0, 3).map((m) => (
+              <li key={m.slug}>
+                {m.available ? (
+                  <Link className="module-card" href={`/curso/${m.slug}`}>
+                    <span className="step-mark">{m.number}</span>
+                    <div>
+                      <span className="label">{m.duration}</span>
+                      <h3>{m.title}</h3>
+                    </div>
+                    <span className="badge">Gratis</span>
+                  </Link>
+                ) : (
+                  <div className="module-card is-locked">
+                    <span className="step-mark">{m.number}</span>
+                    <div>
+                      <span className="label">Próximamente</span>
+                      <h3>{m.title}</h3>
+                    </div>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ol>
+          <p className="muted" style={{ marginTop: 14 }}>
+            {availableModules.length} de {modules.length} módulos disponibles · lecciones en diapositivas y vídeo, con
+            ejercicios y checklist.
+          </p>
+        </section>
+
+        <section aria-labelledby="clases-title" className="section" id="clases">
+          <div className="section-head">
+            <div>
+              <p className="label">Precios de lanzamiento</p>
+              <h2 className="section-title" id="clases-title">
+                Clases
+              </h2>
+            </div>
+          </div>
+          <div className="offer-grid">
+            {offers.map((o) => (
+              <div className={`offer-card${o.featured ? " is-featured" : ""}`} key={o.name}>
+                {o.featured ? <span className="offer-tag">Más elegida</span> : null}
+                <p className="label">{o.detail}</p>
+                <h3>{o.name}</h3>
+                <p className={`offer-price${o.featured ? " grad-text" : ""}`}>{o.price}</p>
+                <p className="offer-text">{o.text}</p>
+                <a className={`button${o.featured ? " primary" : ""}`} href={contactHref}>
+                  Quiero esta
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="sobre-mi" className="section">
+          <div className="section-head">
+            <h2 className="section-title" id="sobre-mi">
+              Sobre mí
+            </h2>
+          </div>
+          <div className="about">
+            <div className="about-facts">
+              <div>
+                <strong className="grad-text">14</strong>
+                <span className="muted">años como maestro</span>
+              </div>
+              <div>
+                <strong className="grad-text">+5</strong>
+                <span className="muted">aplicaciones publicadas</span>
+              </div>
+              <div>
+                <strong className="grad-text">4</strong>
+                <span className="muted">idiomas: es, ca, de, en</span>
+              </div>
+            </div>
+            <div className="about-copy">
+              <p>
+                Soy Miguel Liébana. Durante 14 años fui maestro de primaria y coordinador TIC, formando a alumnos y a
+                otros profesores en el uso de la tecnología. Tengo un máster en TIC aplicadas a la educación.
+              </p>
+              <p>
+                Hoy me estoy formando como desarrollador full-stack con IA y construyo aplicaciones reales: un portal
+                para empleados, una plataforma de gestión para bandas de música, una tienda online con pagos… Casi
+                todo con ayuda de la IA.
+              </p>
+              <p>
+                <strong>
+                  Sé lo que es empezar desde cero porque lo estoy viviendo. Y sé enseñarlo porque es lo que he hecho
+                  toda mi vida.
+                </strong>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="cta-band">
+            <div>
+              <h2 className="section-title">¿Empezamos?</h2>
+              <p>Escríbeme, cuéntame qué quieres construir y reservamos tu clase de prueba gratuita.</p>
+            </div>
+            <a className="button lg" href={contactHref}>
+              Escríbeme
+              <span className="btn-dot arrow">
+                <ArrowRight aria-hidden size={18} weight="bold" />
+              </span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }

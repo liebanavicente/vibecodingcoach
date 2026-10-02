@@ -1,5 +1,7 @@
 export type Section = {
   title: string;
+  /** Short key ideas shown on the slide; the body is the full text of the lesson. */
+  points: string[];
   body: string[];
   prompt?: string;
   tip?: string;
@@ -16,6 +18,17 @@ export type Module = {
   sections: Section[];
   exercise?: { title: string; steps: string[] };
   checklist?: string[];
+  /** Recorded lesson: cues[i] is the second at which slide i starts. */
+  video?: { src: string; poster?: string; cues: number[] };
+};
+
+export type Slide = {
+  kind: "cover" | "list" | "prompt";
+  eyebrow?: string;
+  title: string;
+  text?: string;
+  items?: string[];
+  prompt?: string;
 };
 
 export const modules: Module[] = [
@@ -35,6 +48,11 @@ export const modules: Module[] = [
     sections: [
       {
         title: "¿Qué es el vibe coding?",
+        points: [
+          "Describes lo que quieres en lenguaje natural",
+          "La IA escribe la mayor parte del código",
+          "Tú pones la idea, el criterio y las correcciones",
+        ],
         body: [
           "Vibe coding es construir software describiendo lo que quieres en lenguaje natural y dejando que una IA escriba la mayor parte del código. Tú pones la idea, el criterio y las correcciones; la IA pone la velocidad.",
           "No es magia ni sustituye aprender. Es como tener un compañero muy rápido que nunca se cansa, pero que a veces se equivoca con total seguridad. Tu trabajo es dirigirlo y revisar lo que hace.",
@@ -42,6 +60,11 @@ export const modules: Module[] = [
       },
       {
         title: "Lo que la IA hace bien (y lo que no)",
+        points: [
+          "Bien: estructura, estilos, explicar código y proponer arreglos",
+          "Mal: adivinar lo que no le dices y ver sus propios errores",
+          "Ahí entras tú: dirigir y revisar",
+        ],
         body: [
           "Hace bien: generar estructura de páginas, escribir estilos, explicar código que no entiendes, proponer soluciones a errores y repetir tareas tediosas.",
           "Hace mal: adivinar lo que no le has dicho, saber si algo es lo que tu cliente o tú queréis de verdad, y detectar sola que se ha equivocado. Ahí entras tú.",
@@ -50,6 +73,11 @@ export const modules: Module[] = [
       },
       {
         title: "Elige tu herramienta",
+        points: [
+          "Cursor: editor con IA, ves todos los archivos",
+          "Claude Code: desde la terminal, para proyectos completos",
+          "Kimi Pages o Framer: sin instalar nada",
+        ],
         body: [
           "Para empezar te basta con una. Cursor es un editor de código con IA integrada, cómodo si te gusta ver los archivos. Claude Code trabaja desde la terminal y es muy potente para proyectos completos. Si prefieres no instalar nada aún, herramientas web como Kimi Pages o Framer te dejan crear páginas desde el navegador.",
           "En este curso usaremos ejemplos con Claude Code y Cursor, pero los principios valen para cualquiera.",
@@ -57,6 +85,11 @@ export const modules: Module[] = [
       },
       {
         title: "Tu primer contacto",
+        points: [
+          "Crea una carpeta llamada mi-primera-web",
+          "Ábrela con tu herramienta y pega el prompt",
+          "Abre el index.html en el navegador",
+        ],
         body: [
           "Crea una carpeta vacía en tu ordenador llamada mi-primera-web, ábrela con tu herramienta y pídele lo siguiente:",
         ],
@@ -96,6 +129,11 @@ export const modules: Module[] = [
     sections: [
       {
         title: "La estructura de un buen prompt",
+        points: [
+          "Contexto: qué construyes y para quién",
+          "Objetivo: qué quieres ahora mismo",
+          "Restricciones: estilo, tecnología y lo que no debe hacer",
+        ],
         body: [
           "Un buen prompt tiene tres partes: contexto (qué estás construyendo y para quién), objetivo (qué quieres ahora mismo) y restricciones (lo que no debe hacer, el estilo, la tecnología).",
           "Compara \"hazme una web\" con esto:",
@@ -105,6 +143,11 @@ export const modules: Module[] = [
       },
       {
         title: "Pasos pequeños, siempre",
+        points: [
+          "Una tarea, comprobar, siguiente tarea",
+          "Estructura → estilos → contenido → detalles",
+          "Si algo falla, corrige antes de añadir nada",
+        ],
         body: [
           "El error más común de quien empieza es pedir la web entera en un solo mensaje. La IA genera mucho código de golpe y, cuando algo falla, no sabes dónde.",
           "Trabaja como en clase: una tarea, comprobar, siguiente tarea. Primero la estructura, luego los estilos, luego el contenido, luego los detalles.",
@@ -113,6 +156,11 @@ export const modules: Module[] = [
       },
       {
         title: "Cómo pedir cambios",
+        points: [
+          "Señala qué parte quieres cambiar",
+          "«Mejóralo» no es una instrucción",
+          "Di qué no te gusta y por qué",
+        ],
         body: [
           "Sé concreto y señala qué parte quieres cambiar. \"Mejóralo\" no es una instrucción; \"haz el botón de llamar el doble de grande y de color verde\" sí lo es.",
           "Si el resultado no te gusta, di qué no te gusta y por qué. La IA aprende de tu feedback dentro de la conversación.",
@@ -120,6 +168,11 @@ export const modules: Module[] = [
       },
       {
         title: "Cuando algo se rompe",
+        points: [
+          "Los errores son normales: no empieces de cero",
+          "Pega el mensaje de error completo",
+          "Pide que te lo explique, no solo que lo arregle",
+        ],
         body: [
           "Los errores son normales. No borres todo ni empieces de cero: copia el mensaje de error completo y pégalo a la IA.",
         ],
@@ -190,4 +243,18 @@ export const availableModules = modules.filter((m) => m.available);
 
 export function getModule(slug: string) {
   return availableModules.find((m) => m.slug === slug);
+}
+
+export function slidesFor(mod: Module): Slide[] {
+  const slides: Slide[] = [
+    { kind: "cover", eyebrow: `Módulo ${mod.number} · ${mod.duration}`, title: mod.title, text: mod.summary },
+    { kind: "list", eyebrow: "Objetivos", title: "Al terminar podrás…", items: mod.objectives },
+  ];
+  for (const section of mod.sections) {
+    slides.push({ kind: "list", title: section.title, items: section.points, text: section.tip });
+    if (section.prompt) slides.push({ kind: "prompt", eyebrow: "Pruébalo", title: section.title, prompt: section.prompt });
+  }
+  if (mod.exercise) slides.push({ kind: "list", eyebrow: "Ejercicio", title: mod.exercise.title, items: mod.exercise.steps });
+  if (mod.checklist) slides.push({ kind: "list", eyebrow: "Repaso", title: "Comprueba lo que has aprendido", items: mod.checklist });
+  return slides;
 }

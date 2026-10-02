@@ -1,18 +1,10 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
-import { contactHref, site } from "@/lib/site";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
+import { Header } from "@/components/Header";
+import { site } from "@/lib/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
 export const metadata: Metadata = {
   title: {
@@ -20,55 +12,27 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description:
-    "Aprende a construir tu primera web o app con IA, sin experiencia previa. Clases y material gratuito de un maestro con 14 años de experiencia.",
+    "Aprende a construir tu primera web con IA, sin experiencia previa. Clases y curso gratuito de un maestro con 14 años de experiencia.",
 };
+
+export const viewport: Viewport = { themeColor: "#fdf7f3" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <header className="border-b border-border">
-          <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
-            <Link href="/" className="font-semibold tracking-tight">
-              vibe<span className="text-accent">coding</span>coach
-            </Link>
-            <div className="flex items-center gap-4 text-sm sm:gap-6">
-              <Link href="/curso" className="hover:text-accent">
-                Curso gratis
-              </Link>
-              <Link href="/#oferta" className="hidden hover:text-accent sm:inline">
-                Clases
-              </Link>
-              <a
-                href={contactHref}
-                className="rounded-full bg-accent px-4 py-2 font-medium text-white hover:opacity-90"
-              >
-                Contacto
-              </a>
-            </div>
-          </nav>
-        </header>
-        <main className="flex-1">{children}</main>
-        <footer className="border-t border-border">
-          <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-8 text-sm text-muted sm:flex-row sm:justify-between sm:px-6">
-            <p>
-              © {new Date().getFullYear()} {site.author}
-            </p>
-            <div className="flex gap-4">
-              <a href={site.linkedin} className="hover:text-accent">
-                LinkedIn
-              </a>
-              <a href={site.github} className="hover:text-accent">
-                GitHub
-              </a>
-              <a href={`mailto:${site.email}`} className="hover:text-accent">
-                Email
-              </a>
-            </div>
-          </div>
+    <html className={inter.variable} lang="es">
+      <body>
+        <div aria-hidden className="page-bg" />
+        <Header />
+        {children}
+        <footer className="container site-footer">
+          <p>
+            © {new Date().getFullYear()} {site.author} · Maestro y desarrollador web
+          </p>
+          <span className="site-footer-links">
+            <a href={site.linkedin}>LinkedIn</a>
+            <a href={site.github}>GitHub</a>
+            <a href={`mailto:${site.email}`}>Email</a>
+          </span>
         </footer>
       </body>
     </html>

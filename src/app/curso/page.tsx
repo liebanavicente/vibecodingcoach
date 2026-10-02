@@ -11,64 +11,60 @@ export const metadata: Metadata = {
 
 export default function CursoPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <p className="text-sm font-medium text-accent">Curso gratuito</p>
-      <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-5xl">
-        Vibe Coding desde Cero
-      </h1>
-      <p className="mt-4 text-lg text-muted">
-        Aprende a construir y publicar tu primera web con IA. Cada módulo tiene
-        objetivos claros, ejemplos de prompts que puedes copiar, un ejercicio
-        práctico y una checklist para comprobar lo que has aprendido.
-      </p>
+    <main className="main" id="contenido" tabIndex={-1}>
+      <div aria-hidden className="page-bg calm" />
+      <div className="container">
+        <div className="page-head">
+          <div>
+            <p className="eyebrow">Curso gratuito</p>
+            <h1>
+              Vibe Coding <span className="grad-text">desde Cero</span>
+            </h1>
+            <p className="page-intro">
+              Aprende a construir y publicar tu primera web con IA. Cada módulo es una lección en diapositivas y vídeo,
+              con el texto completo, prompts que puedes copiar, un ejercicio práctico y una checklist para comprobar lo
+              que has aprendido.
+            </p>
+          </div>
+        </div>
 
-      <ol className="mt-12 space-y-4">
-        {modules.map((m) => {
-          const content = (
-            <>
-              <div className="flex items-baseline justify-between gap-4">
-                <span className="font-mono text-sm text-accent">
-                  Módulo {m.number}
-                </span>
-                <span className="text-sm text-muted">{m.duration}</span>
-              </div>
-              <h2 className="mt-1 text-xl font-semibold">{m.title}</h2>
-              <p className="mt-2 text-muted">{m.summary}</p>
-            </>
-          );
-
-          return (
+        <ol className="module-list">
+          {modules.map((m) => (
             <li key={m.slug}>
               {m.available ? (
-                <Link
-                  href={`/curso/${m.slug}`}
-                  className="block rounded-2xl border border-border bg-surface p-6 hover:border-accent"
-                >
-                  {content}
+                <Link className="module-card" href={`/curso/${m.slug}`}>
+                  <span className="step-mark">{m.number}</span>
+                  <div>
+                    <span className="label">{m.duration}</span>
+                    <h3>{m.title}</h3>
+                    <p>{m.summary}</p>
+                  </div>
+                  <span className="badge">Disponible</span>
                 </Link>
               ) : (
-                <div className="rounded-2xl border border-dashed border-border p-6 opacity-60">
-                  {content}
+                <div className="module-card is-locked">
+                  <span className="step-mark">{m.number}</span>
+                  <div>
+                    <span className="label">Próximamente</span>
+                    <h3>{m.title}</h3>
+                    <p>{m.summary}</p>
+                  </div>
                 </div>
               )}
             </li>
-          );
-        })}
-      </ol>
+          ))}
+        </ol>
 
-      <div className="mt-12 rounded-2xl bg-accent-soft p-6">
-        <h2 className="font-semibold">¿Prefieres aprender con acompañamiento?</h2>
-        <p className="mt-2 text-muted">
-          Reserva una clase de prueba gratuita y vemos juntos por dónde empezar
-          con tu proyecto.
-        </p>
-        <a
-          href={contactHref}
-          className="mt-4 inline-block rounded-full bg-accent px-5 py-2 font-medium text-white hover:opacity-90"
-        >
-          Reservar clase de prueba
-        </a>
+        <div className="section cta-band">
+          <div>
+            <h2 className="section-title">¿Prefieres aprender con acompañamiento?</h2>
+            <p>Reserva una clase de prueba gratuita y vemos juntos por dónde empezar con tu proyecto.</p>
+          </div>
+          <a className="button primary" href={contactHref}>
+            Reservar clase de prueba
+          </a>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -1,0 +1,60 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useSyncExternalStore } from "react";
+import { Code } from "@phosphor-icons/react";
+import { contactHref } from "@/lib/site";
+
+const links = [
+  { href: "/", label: "Inicio", hideOnMobile: true },
+  { href: "/curso", label: "Curso gratis", hideOnMobile: false },
+  { href: "/#clases", label: "Clases", hideOnMobile: true },
+];
+
+function subscribe(onChange: () => void) {
+  window.addEventListener("scroll", onChange, { passive: true });
+  return () => window.removeEventListener("scroll", onChange);
+}
+
+export function Header() {
+  const pathname = usePathname();
+  const scrolled = useSyncExternalStore(subscribe, () => window.scrollY > 12, () => false);
+  const isCurrent = (href: string) => (href === "/" ? pathname === "/" : !href.includes("#") && pathname.startsWith(href));
+
+  return (
+    <>
+      <a className="skip-link" href="#contenido">
+        Saltar al contenido
+      </a>
+      <header className="topbar" data-scrolled={scrolled}>
+        <div className="container topbar-inner">
+          <Link aria-label="vibecodingcoach, inicio" className="brand" href="/">
+            <span aria-hidden className="brand-mark">
+              <Code size={24} weight="bold" />
+            </span>
+            <span className="brand-word">
+              vibe<span>coding</span>coach
+            </span>
+          </Link>
+          <nav aria-label="Principal" className="site-nav">
+            <ul>
+              {links.map(({ href, label, hideOnMobile }) => (
+                <li className={hideOnMobile ? "nav-hide" : undefined} key={href}>
+                  <Link aria-current={isCurrent(href) ? "page" : undefined} href={href}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a className="button primary" href={contactHref}>
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </>
+  );
+}
