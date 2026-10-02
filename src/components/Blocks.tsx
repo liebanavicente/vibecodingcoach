@@ -1,4 +1,4 @@
-import { CheckCircle, Lightbulb, Warning, XCircle } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, CheckCircle, Lightbulb, Warning, XCircle } from "@phosphor-icons/react/dist/ssr";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CopyButton } from "@/components/CopyButton";
 import { logoFor } from "@/content/herramientas";
@@ -137,6 +137,25 @@ function BlockView({ block }: { block: Block }) {
             <span>{block.title}</span>
           </div>
           <pre>{block.text}</pre>
+        </div>
+      );
+    case "links":
+      return (
+        <div className="block-links">
+          <h3>{block.title}</h3>
+          <ul>
+            {block.items.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} rel="noreferrer" target="_blank">
+                  <span>
+                    <strong>{link.label}</strong>
+                    <span>{link.note}</span>
+                  </span>
+                  <ArrowUpRight aria-hidden size={18} weight="bold" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       );
     case "cards":

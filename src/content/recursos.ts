@@ -1,3 +1,5 @@
+import { site } from "@/lib/site";
+
 /** Content blocks shared by the resource guides. Tool names in "tools" must match herramientas.ts. */
 export type Block =
   | { type: "text"; text: string }
@@ -10,7 +12,8 @@ export type Block =
   | { type: "cards"; items: { title: string; text: string }[] }
   | { type: "keys"; title: string; items: { key: string; text: string }[] }
   | { type: "dodont"; title: string; items: { bad: string; good: string }[] }
-  | { type: "code"; title: string; text: string };
+  | { type: "code"; title: string; text: string }
+  | { type: "links"; title: string; items: { label: string; href: string; note: string }[] };
 
 export const categories = ["Claude", "Buen uso", "Skills", "Revisión", "Imágenes", "Truquillos"] as const;
 export type Category = (typeof categories)[number];
@@ -533,6 +536,69 @@ export const resources: Resource[] = [
         type: "compare",
         bad: "Arréglalo.",
         good: "Al pulsar «Enviar» no pasa nada y en la consola aparece este error: [error]. Explícame la causa y arréglalo sin tocar el diseño.",
+      },
+    ],
+  },
+  {
+    slug: "mantente-al-dia",
+    category: "Truquillos",
+    title: "Mantente al día sin volverte loco",
+    summary: "A quién seguir y dónde mirar para enterarte de repositorios, skills y novedades antes que nadie.",
+    minutes: 4,
+    blocks: [
+      {
+        type: "text",
+        text: "Las herramientas de IA cambian cada semana: salen funciones nuevas, skills, repositorios que te ahorran días de trabajo. No hace falta leerlo todo. Basta con seguir a unas pocas personas que lo prueban por ti y dedicarle diez minutos al día.",
+      },
+      {
+        type: "cards",
+        items: [
+          { title: "X (Twitter)", text: "Lo más rápido: los equipos anuncian ahí primero. Sigue las cuentas oficiales, como @AnthropicAI y @claudeai, y a quienes las comentan con ejemplos." },
+          { title: "YouTube", text: "Para verlo funcionando. Busca «Claude Code» o «vibe coding» y filtra por «esta semana»." },
+          { title: "LinkedIn", text: "Casos reales de gente aplicándolo en su trabajo, muchos en español." },
+          { title: "GitHub", text: "Repositorios en tendencia y listas «awesome» que recopilan skills, plantillas y herramientas." },
+          { title: "Reddit", text: "Dudas y trucos de gente como tú. r/ClaudeAI es un buen punto de partida." },
+        ],
+      },
+      {
+        type: "steps",
+        title: "Cómo encontrar a buenas personas que seguir",
+        items: [
+          "Busca el nombre de la herramienta y ordena por lo más reciente.",
+          "Quédate con quien enseña proyectos reales y comparte el código, no solo titulares.",
+          "Mira a quién siguen y citan esas personas: así llegas a las mejores.",
+          "Haz una lista solo para IA y repásala diez minutos al día.",
+        ],
+      },
+      {
+        type: "links",
+        title: "Fuentes oficiales para tener a mano",
+        items: [
+          { label: "Novedades de Anthropic", href: "https://www.anthropic.com/news", note: "Modelos y funciones nuevas de Claude." },
+          { label: "Versiones de Claude Code", href: "https://github.com/anthropics/claude-code/releases", note: "Qué cambia en cada versión. Actívale el aviso con Watch." },
+          { label: "Skills oficiales de Anthropic", href: "https://github.com/anthropics/skills", note: "Ejemplos listos para usar o adaptar." },
+          { label: "Tendencias de GitHub", href: "https://github.com/trending", note: "Los repositorios que más crecen hoy." },
+          { label: "Novedades de Vercel", href: "https://vercel.com/changelog", note: "Cambios en la plataforma donde publicas." },
+          { label: "Comunidad r/ClaudeAI", href: "https://www.reddit.com/r/ClaudeAI/", note: "Preguntas, trucos y experiencias reales." },
+        ],
+      },
+      {
+        type: "tip",
+        text: "En GitHub, pulsa Watch → Custom → Releases en los repositorios que uses: te avisará solo cuando salga una versión nueva, sin llenarte el correo.",
+      },
+      {
+        type: "prompt",
+        title: "Cuando veas una novedad, pásasela a Claude",
+        text: "Te paso esto sobre [novedad]: [enlace o texto]. Explícame en tres frases qué es, si me sirve para mi proyecto de [tu proyecto] y cómo lo probaría sin romper nada.",
+      },
+      {
+        type: "warning",
+        text: "Que algo sea viral no significa que sea fiable. Mira la fecha, pruébalo primero en un proyecto de prueba y desconfía de repositorios o skills sin historial: pueden ejecutar código en tu ordenador.",
+      },
+      {
+        type: "links",
+        title: "Y si quieres, sígueme",
+        items: [{ label: "Miguel Liébana en LinkedIn", href: site.linkedin, note: "Comparto lo que voy aprendiendo y los proyectos que construyo." }],
       },
     ],
   },
