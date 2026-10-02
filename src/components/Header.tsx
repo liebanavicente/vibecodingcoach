@@ -9,6 +9,7 @@ import { contactHref } from "@/lib/site";
 const links = [
   { href: "/", label: "Inicio", hideOnMobile: true },
   { href: "/curso", label: "Curso gratis", hideOnMobile: false },
+  { href: "/curso/glosario", label: "Glosario", hideOnMobile: true },
   { href: "/#clases", label: "Clases", hideOnMobile: true },
 ];
 
@@ -20,7 +21,12 @@ function subscribe(onChange: () => void) {
 export function Header() {
   const pathname = usePathname();
   const scrolled = useSyncExternalStore(subscribe, () => window.scrollY > 12, () => false);
-  const isCurrent = (href: string) => (href === "/" ? pathname === "/" : !href.includes("#") && pathname.startsWith(href));
+  const isCurrent = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href.includes("#")) return false;
+    if (href === "/curso") return pathname.startsWith("/curso") && !pathname.startsWith("/curso/glosario");
+    return pathname.startsWith(href);
+  };
 
   return (
     <>

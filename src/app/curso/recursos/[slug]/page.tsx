@@ -57,6 +57,10 @@ export default async function ResourcePage(props: PageProps<"/curso/recursos/[sl
                 ))}
               </ol>
             </nav>
+            <Link className="glass aside-glossary" href="/curso/glosario">
+              <span className="label">¿Alguna palabra rara?</span>
+              <strong>Abre el glosario →</strong>
+            </Link>
             <div className="glass aside-cta">
               <p className="label">¿Lo vemos juntos?</p>
               <p>En una clase de prueba gratuita lo aplicamos a tu proyecto.</p>

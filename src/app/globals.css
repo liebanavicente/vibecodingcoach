@@ -326,6 +326,28 @@ kbd { display: inline-block; border: 1px solid rgba(20, 23, 34, 0.14); border-bo
 .block-table thead th { border-top: 0; background: rgba(255, 112, 52, 0.08); color: var(--accent-ink); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
 .block-table tbody th { color: var(--ink); font-weight: 750; white-space: nowrap; }
 .block-table td { color: var(--text-2); }
+.glossary-tools { display: grid; gap: 14px; margin-bottom: 26px; }
+.glossary-search { display: flex; align-items: center; gap: 12px; border-radius: 999px; color: var(--muted); padding: 6px 8px 6px 22px; }
+.glossary-search:focus-within { box-shadow: var(--shadow-lift), 0 0 0 3px rgba(255, 106, 44, 0.25); }
+.glossary-search input { flex: 1; min-width: 0; min-height: 50px; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 1.05rem; outline: none; }
+.glossary-tools .res-filters { margin-bottom: 0; }
+.glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 14px; margin: 0; }
+.term-card { display: grid; align-content: start; gap: 10px; border-radius: var(--radius-lg); padding: 22px; scroll-margin-top: 110px; }
+.term-card:target { box-shadow: var(--shadow-lift), 0 0 0 3px rgba(255, 106, 44, 0.35); }
+.term-card dt { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.term-card dt strong { font-size: 1.3rem; letter-spacing: -0.02em; }
+.term-alias { color: var(--muted); font-size: 0.9rem; }
+.term-topic { order: 3; margin-left: auto; min-height: 24px; font-size: 0.7rem; padding: 3px 9px; }
+.term-card dd { display: grid; gap: 8px; margin: 0; color: var(--text-2); line-height: 1.6; }
+.term-example { color: var(--muted); font-size: 0.93rem; }
+.term-example span { color: var(--accent-ink); font-weight: 700; }
+.term-guide { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-ink); font-size: 0.9rem; font-weight: 700; }
+.term-guide:hover { text-decoration: underline; }
+.glossary-empty { border-radius: var(--radius-lg); color: var(--text-2); line-height: 1.6; padding: 24px; }
+.aside-glossary { display: grid; gap: 4px; transition: transform 200ms var(--ease-out); }
+.aside-glossary .label { margin: 0; }
+.aside-glossary strong { color: var(--accent-ink); }
+.aside-glossary:hover { transform: translateY(-2px); }
 .checklist-done { margin-top: 14px; border-radius: 14px; background: rgba(40, 180, 120, 0.1); color: #12805c; font-weight: 700; padding: 12px 16px; }
 .aside-cta p:not(.label) { margin-bottom: 14px; color: var(--text-2); line-height: 1.5; }
 .aside-cta .button { width: 100%; }
