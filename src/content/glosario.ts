@@ -65,6 +65,25 @@ export const glossary: Term[] = [
     example: "Por eso puedes pegarle a Claude una captura de un error.",
   },
   {
+    term: "RAG",
+    alias: "Generación aumentada por recuperación",
+    topic: "IA",
+    text: "Una técnica para que la IA responda usando tus propios documentos: primero busca los fragmentos que importan y después los usa para contestar. Así puede hablar de información que no estaba en su entrenamiento y decirte de dónde la ha sacado.",
+    example: "Un chat que responde dudas de las familias usando el PDF del reglamento del cole.",
+  },
+  {
+    term: "Embeddings",
+    topic: "IA",
+    text: "Una forma de convertir textos en listas de números que representan su significado. Los textos parecidos quedan «cerca», y eso permite buscar por significado y no solo por palabras exactas. Es la pieza que usa el RAG para encontrar lo relevante.",
+    example: "«Coche» y «automóvil» quedan muy cerca aunque no compartan letras.",
+  },
+  {
+    term: "Temperatura",
+    topic: "IA",
+    text: "Un ajuste que controla cuánto se arriesga la IA al elegir las palabras: baja da respuestas más previsibles y constantes; alta, más variadas y creativas, pero con más riesgo de errores. Se ajusta sobre todo cuando usas la IA desde una API.",
+    example: "Baja para sacar los datos de una factura; más alta para inventar nombres para tu negocio.",
+  },
+  {
     term: "Vibe coding",
     topic: "IA",
     text: "Construir software describiendo lo que quieres en lenguaje normal y dejando que la IA escriba la mayor parte del código. Tú diriges, decides y revisas.",

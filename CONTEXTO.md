@@ -70,7 +70,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   imágenes, truquillos, empezar…), escritos como bloques (`text`, `steps`, `prompt`, `tip`,
   `warning`, `tools`, `compare`, `cards`, `keys`, `dodont`, `code`, `links`, `table`) que pinta `src/components/Blocks.tsx`. Páginas en
   `/curso/recursos/[slug]`. Para añadir un recurso, añadir un objeto al array.
-- Glosario: `/curso/glosario`, 45 términos en `src/content/glosario.ts` (IA, Herramientas,
+- Glosario: `/curso/glosario`, 48 términos en `src/content/glosario.ts` (IA, Herramientas,
   Código, Publicar), con buscador sin tildes y enlace a la guía relacionada (`guide`).
 - Progreso del alumno: las checklists de cada módulo se guardan en el navegador
   (localStorage, `src/components/Progress.tsx`); la página del curso muestra el % por módulo.
