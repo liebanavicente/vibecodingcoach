@@ -114,8 +114,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 3. Enlazar esta web desde miguelliebana.com.
 4. Pilotar el Módulo 1 gratis con 2-3 personas y recoger feedback (ver PLAN.md).
 5. Darse de alta en Preply / Superprof / ADPList.
-6. Crear la cuenta de Cal.com y pegar el enlace en `site.bookingUrl`. Mejoras posibles:
-   imagen OG, analítica.
+6. Mejoras posibles: imagen OG, analítica. Cal.com ya conectado:
+   https://cal.com/miguel-liebana-vicente-hyod7f/30min («Clase de prueba gratis»).
 
 ## Avisos
 
