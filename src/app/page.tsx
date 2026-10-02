@@ -8,17 +8,22 @@ import {
   Chalkboard,
   Code,
   Cube,
+  CodeBlock,
   CursorClick,
   GraduationCap,
   Hammer,
   Lightbulb,
   Lightning,
+  Planet,
   Play,
   Sparkle,
+  TerminalWindow,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import { MlLogo } from "@/components/MlLogo";
+import { ResourceMarquee } from "@/components/ResourceMarquee";
 import { availableModules, modules } from "@/content/curso";
+import { tools } from "@/content/herramientas";
 import { contactHref } from "@/lib/site";
 
 const perks = [
@@ -84,6 +89,8 @@ const offers = [
   },
 ];
 
+const toolIcons = [Asterisk, TerminalWindow, CodeBlock, Cube, Planet];
+
 const codeLines = ["62%", "44%", "78%", "36%", "58%", "70%", "30%", "52%"];
 
 function HeroVisual() {
@@ -130,14 +137,23 @@ function HeroVisual() {
       </div>
       <div className="float-tile t1">
         <Asterisk className="t-orange" size={30} weight="bold" />
-        Claude Code
-      </div>
-      <div className="float-tile t2">
-        <Cube size={30} weight="fill" />
-        Cursor
+        Claude
       </div>
       <div className="float-tile t3">
-        <Sparkle className="t-orange" size={30} weight="fill" />
+        <TerminalWindow className="t-orange" size={28} weight="fill" />
+        Claude Code
+      </div>
+      <div className="float-tile t4">
+        <CodeBlock size={28} weight="bold" />
+        Codex
+      </div>
+      <div className="float-tile t2">
+        <Cube size={28} weight="fill" />
+        Cursor
+      </div>
+      <div className="float-tile t5">
+        <Planet className="t-orange" size={28} weight="fill" />
+        Antigravity
       </div>
       <CursorClick className="float-cursor" size={56} weight="fill" />
     </div>
@@ -158,8 +174,8 @@ export default function Home() {
               Construye tu primera web <span className="grad-text">con IA</span>, aunque nunca hayas programado.
             </h1>
             <p className="page-intro">
-              Te enseño a usar herramientas como <strong>Claude Code</strong> y <strong>Cursor</strong> con la
-              pedagogía de 14 años como maestro, no con jerga de programador.
+              Te enseño a usar <strong>Claude</strong>, <strong>Claude Code</strong>, <strong>Codex</strong>,{" "}
+              <strong>Cursor</strong> y <strong>Antigravity</strong> con la pedagogía de 14 años como maestro, no con jerga de programador.
             </p>
             <div className="actions">
               <a className="button primary lg" href={contactHref}>
@@ -192,7 +208,35 @@ export default function Home() {
           ))}
         </div>
 
-        <section aria-labelledby="para-quien">
+        <section aria-labelledby="herramientas">
+          <div className="section-head">
+            <div>
+              <p className="label">Por orden de uso</p>
+              <h2 className="section-title" id="herramientas">
+                Mis herramientas
+              </h2>
+            </div>
+          </div>
+          <ol className="tool-grid">
+            {tools.map((tool, i) => {
+              const Icon = toolIcons[i];
+              return (
+                <li className="tool-card" key={tool.name}>
+                  <span className="tool-rank">{i + 1}</span>
+                  <span className="tool-icon">
+                    <Icon aria-hidden size={24} weight="bold" />
+                  </span>
+                  <h3>{tool.name}</h3>
+                  <p>{tool.text}</p>
+                </li>
+              );
+            })}
+          </ol>
+          <p className="label marquee-label">Y todo lo que lo rodea</p>
+          <ResourceMarquee />
+        </section>
+
+        <section aria-labelledby="para-quien" className="section">
           <div className="section-head">
             <h2 className="section-title" id="para-quien">
               ¿Para quién es?

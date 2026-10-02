@@ -60,6 +60,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   cada sección). Si el módulo tiene `video: { src, poster?, cues }`, el vídeo se
   muestra al lado y mueve las diapositivas; `cues[i]` = segundo en que empieza la
   diapositiva i. Sin vídeo, se navega a mano (flechas, puntos, teclado, pantalla completa).
+- `src/content/herramientas.ts`: herramientas principales por orden de uso (Claude,
+  Claude Code, Codex, Cursor, Antigravity) y recursos del banner en movimiento
+  (Higgsfield, Google Flow, Vercel, Supabase…). Para cambiarlos, editar solo ese archivo.
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
   módulo, rellenar `objectives`, `sections`, `exercise`, `checklist` y poner
   `available: true`.

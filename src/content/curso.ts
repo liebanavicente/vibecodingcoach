@@ -74,13 +74,14 @@ export const modules: Module[] = [
       {
         title: "Elige tu herramienta",
         points: [
-          "Cursor: editor con IA, ves todos los archivos",
-          "Claude Code: desde la terminal, para proyectos completos",
-          "Kimi Pages o Framer: sin instalar nada",
+          "Claude: para pensar, aprender y empezar sin instalar nada",
+          "Claude Code y Codex: agentes que construyen proyectos completos",
+          "Cursor y Antigravity: editores con la IA integrada",
         ],
         body: [
-          "Para empezar te basta con una. Cursor es un editor de código con IA integrada, cómodo si te gusta ver los archivos. Claude Code trabaja desde la terminal y es muy potente para proyectos completos. Si prefieres no instalar nada aún, herramientas web como Kimi Pages o Framer te dejan crear páginas desde el navegador.",
-          "En este curso usaremos ejemplos con Claude Code y Cursor, pero los principios valen para cualquiera.",
+          "Para empezar te basta con una. Si nunca has programado, empieza hablando con Claude en el navegador: te explica, te propone ideas y te escribe código que puedes copiar sin instalar nada.",
+          "Cuando quieras construir proyectos completos, da el salto a Claude Code o Codex: son agentes que trabajan directamente sobre los archivos de tu proyecto. Si prefieres ver y tocar cada archivo, Cursor y Antigravity son editores de código con la IA integrada.",
+          "En este curso usaremos sobre todo Claude y Claude Code, que son las que más uso, pero los principios valen para cualquiera.",
         ],
       },
       {
