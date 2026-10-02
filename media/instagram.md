@@ -164,6 +164,23 @@ Te enseño a hacerla tú, aunque nunca hayas programado. Curso gratuito en el en
 #vibecoding #inteligenciaartificial #ia #humor #futbol #memes #aprenderaprogramar #googleflow
 ```
 
+## Reel 10 · ¿Qué IA uso para vibe coding?
+
+```
+¿Claude Code, Codex, Kimi o Antigravity? 🤔
+
+Claude Code → proyectos enteros, bien planificados. Pero necesita plan de pago y usa la terminal.
+Codex → incluido en ChatGPT y genial revisando código. Rinde mejor con tareas concretas.
+Kimi → barato y crea webs desde el navegador. Menos guías en español.
+Antigravity → editor con agentes, hoy gratis. Muy nuevo: aún tiene fallos.
+
+¿La mejor? La que aprendes a usar bien.
+
+¿Cuál usas tú? Te leo en comentarios 👇
+
+#vibecoding #claudecode #codex #kimi #antigravity #inteligenciaartificial #ia #aprenderaprogramar
+```
+
 ---
 
 ## Próximos reels (misma plantilla)

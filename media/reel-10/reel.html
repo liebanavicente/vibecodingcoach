@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 10 · ¿Qué IA uso para vibe coding?</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<script src="../kit/logos.js"></script>
+<style>
+  .card { position: absolute; top: 330px; left: 70px; right: 70px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .count { color: var(--muted); font-size: 38px; font-weight: 800; letter-spacing: 0.08em; }
+  .logo { display: grid; width: 250px; height: 250px; margin-top: 40px; place-items: center; overflow: hidden; border-radius: 64px; font-size: 150px; }
+  .logo img { width: 72%; height: 72%; object-fit: contain; }
+  .logo img.fill { width: 100%; height: 100%; object-fit: cover; }
+  .name { margin: 44px 0 0; font-size: 110px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+  .by { margin-top: 14px; color: var(--muted); font-size: 38px; font-weight: 600; }
+  .pros { display: flex; flex-direction: column; gap: 22px; width: 100%; margin-top: 60px; text-align: left; }
+  .row { display: flex; align-items: center; gap: 26px; border-radius: 40px; padding: 30px 36px; }
+  .row .ico { display: grid; width: 84px; height: 84px; flex: none; place-items: center; border-radius: 26px; font-size: 54px; }
+  .row.good .ico { background: var(--green-soft); color: var(--green); }
+  .row.bad .ico { background: var(--red-soft); color: var(--red); }
+  .row .k { display: block; font-size: 30px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+  .row.good .k { color: var(--green); }
+  .row.bad .k { color: var(--red); }
+  .row p { margin: 6px 0 0; font-size: 46px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+  .logos-row { display: flex; gap: 26px; margin-top: 60px; }
+  .logos-row span { display: grid; width: 140px; height: 140px; place-items: center; overflow: hidden; border-radius: 40px; font-size: 84px; }
+  .logos-row img { width: 72%; height: 72%; object-fit: contain; }
+  .logos-row img.fill { width: 100%; height: 100%; object-fit: cover; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="21">
+
+  <section class="scene slide warm" data-start="0" data-end="3">
+    <div class="brand-top" data-fx="fade" data-in="0"><svg class="ml" data-ml width="92"></svg><span class="wm">vibe<span>coding</span>coach</span></div>
+    <div class="center">
+      <p class="h-l" data-fx="up" data-in="0.2">¿Qué IA uso para <span class="grad">vibe coding</span>?</p>
+      <div class="logos-row">
+        <span class="glass" data-fx="pop" data-in="0.8" data-logo="claude"></span>
+        <span class="glass" data-fx="pop" data-in="1.0"><img alt="" src="../../public/logos/codex.webp"></span>
+        <span class="glass" data-fx="pop" data-in="1.2" data-logo="kimi"></span>
+        <span class="glass" data-fx="pop" data-in="1.4"><img alt="" class="fill" src="../../public/logos/antigravity.webp"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="3" data-end="6.6">
+    <div class="card">
+      <span class="count" data-fx="up" data-in="0.05">1 / 4</span>
+      <div class="logo glass" data-fx="bounce" data-in="0.15" data-dur="0.7" data-logo="claude"></div>
+      <p class="name" data-fx="up" data-in="0.4">Claude Code</p>
+      <span class="by" data-fx="up" data-in="0.5">Anthropic</span>
+      <div class="pros">
+        <div class="row good glass" data-fx="left" data-in="0.9"><span class="ico" data-icon="check"></span><div><span class="k">Punto fuerte</span><p>Proyectos enteros, bien planificados</p></div></div>
+        <div class="row bad glass" data-fx="left" data-in="1.5"><span class="ico" data-icon="x"></span><div><span class="k">Punto débil</span><p>Necesita plan de pago y usa la terminal</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="6.6" data-end="10.2">
+    <div class="card">
+      <span class="count" data-fx="up" data-in="0.05">2 / 4</span>
+      <div class="logo glass" data-fx="bounce" data-in="0.15" data-dur="0.7"><img alt="" src="../../public/logos/codex.webp"></div>
+      <p class="name" data-fx="up" data-in="0.4">Codex</p>
+      <span class="by" data-fx="up" data-in="0.5">OpenAI</span>
+      <div class="pros">
+        <div class="row good glass" data-fx="left" data-in="0.9"><span class="ico" data-icon="check"></span><div><span class="k">Punto fuerte</span><p>Incluido en ChatGPT y genial revisando código</p></div></div>
+        <div class="row bad glass" data-fx="left" data-in="1.5"><span class="ico" data-icon="x"></span><div><span class="k">Punto débil</span><p>Rinde mejor con tareas muy concretas</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="10.2" data-end="13.8">
+    <div class="card">
+      <span class="count" data-fx="up" data-in="0.05">3 / 4</span>
+      <div class="logo glass" data-fx="bounce" data-in="0.15" data-dur="0.7" data-logo="kimi"></div>
+      <p class="name" data-fx="up" data-in="0.4">Kimi</p>
+      <span class="by" data-fx="up" data-in="0.5">Moonshot AI</span>
+      <div class="pros">
+        <div class="row good glass" data-fx="left" data-in="0.9"><span class="ico" data-icon="check"></span><div><span class="k">Punto fuerte</span><p>Barato y crea webs desde el navegador</p></div></div>
+        <div class="row bad glass" data-fx="left" data-in="1.5"><span class="ico" data-icon="x"></span><div><span class="k">Punto débil</span><p>Menos guías y comunidad en español</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="13.8" data-end="17.4">
+    <div class="card">
+      <span class="count" data-fx="up" data-in="0.05">4 / 4</span>
+      <div class="logo glass" data-fx="bounce" data-in="0.15" data-dur="0.7"><img alt="" class="fill" src="../../public/logos/antigravity.webp"></div>
+      <p class="name" data-fx="up" data-in="0.4">Antigravity</p>
+      <span class="by" data-fx="up" data-in="0.5">Google</span>
+      <div class="pros">
+        <div class="row good glass" data-fx="left" data-in="0.9"><span class="ico" data-icon="check"></span><div><span class="k">Punto fuerte</span><p>Editor con agentes, y hoy gratis</p></div></div>
+        <div class="row bad glass" data-fx="left" data-in="1.5"><span class="ico" data-icon="x"></span><div><span class="k">Punto débil</span><p>Muy nuevo: aún tiene fallos</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="17.4" data-end="21">
+    <div class="center">
+      <p class="h-m" data-fx="up" data-in="0.1">¿La mejor?</p>
+      <p class="h-l grad" data-fx="pop" data-in="0.5" style="margin-top:24px">La que aprendes a usar bien.</p>
+      <div data-fx="bounce" data-in="1.2" data-dur="0.8" style="margin-top:70px"><svg class="ml" data-ml width="210"></svg></div>
+      <div class="cta-url glass" data-fx="up" data-in="1.6">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>
