@@ -73,7 +73,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - Animaciones con GSAP (gratis, también comercial): `src/components/HeroAnimator.tsx` monta la
   ilustración del hero pieza a pieza al entrar (espera a que se cierre el vídeo de entrada) y le da
   un leve desplazamiento con el scroll; `src/components/CountUp.tsx` hace contar los números de
-  «Sobre mí». Ambas se desactivan con «reducir movimiento». `HERO_SCRIPT` oculta la ilustración
+  «Sobre mí»; `src/components/RouteAnimator.tsx` rellena la línea de la ruta de los dos cursos
+  con el scroll, enciende cada paso y desliza las tarjetas. Todas se desactivan con «reducir movimiento». `HERO_SCRIPT` oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
 - Glosario: `/curso/glosario`, 48 términos en `src/content/glosario.ts` (IA, Herramientas,
   Código, Publicar), con buscador sin tildes y enlace a la guía relacionada (`guide`).

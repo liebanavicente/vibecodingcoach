@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, Clock, Lock, XCircle } from "@phosphor-icons/react/dist/ssr";
 import { CourseProgress, ModuleProgress } from "@/components/Progress";
+import { RouteAnimator } from "@/components/RouteAnimator";
 import { ResourceGrid } from "@/components/ResourceGrid";
 import { availableModules, modules } from "@/content/curso";
 import { resources } from "@/content/recursos";
@@ -83,35 +84,37 @@ export default function CursoPage() {
               </h2>
             </div>
           </div>
-          <ol className="route">
-            {modules.map((m) => (
-              <li className={m.available ? "route-item" : "route-item is-locked"} key={m.slug}>
-                <span className="route-node">{m.number}</span>
-                {m.available ? (
-                  <Link className="route-card glass" href={`/curso/${m.slug}`}>
-                    <div>
-                      <span className="label">
-                        <Clock aria-hidden size={14} weight="bold" /> {m.duration}
-                      </span>
-                      <h3>{m.title}</h3>
-                      <p>{m.summary}</p>
+          <RouteAnimator>
+            <ol className="route">
+              {modules.map((m) => (
+                <li className={m.available ? "route-item" : "route-item is-locked"} key={m.slug}>
+                  <span className="route-node">{m.number}</span>
+                  {m.available ? (
+                    <Link className="route-card glass" href={`/curso/${m.slug}`}>
+                      <div>
+                        <span className="label">
+                          <Clock aria-hidden size={14} weight="bold" /> {m.duration}
+                        </span>
+                        <h3>{m.title}</h3>
+                        <p>{m.summary}</p>
+                      </div>
+                      <ModuleProgress slug={m.slug} total={m.checklist?.length ?? 0} />
+                    </Link>
+                  ) : (
+                    <div className="route-card glass">
+                      <div>
+                        <span className="label">
+                          <Lock aria-hidden size={14} weight="bold" /> Próximamente
+                        </span>
+                        <h3>{m.title}</h3>
+                        <p>{m.summary}</p>
+                      </div>
                     </div>
-                    <ModuleProgress slug={m.slug} total={m.checklist?.length ?? 0} />
-                  </Link>
-                ) : (
-                  <div className="route-card glass">
-                    <div>
-                      <span className="label">
-                        <Lock aria-hidden size={14} weight="bold" /> Próximamente
-                      </span>
-                      <h3>{m.title}</h3>
-                      <p>{m.summary}</p>
-                    </div>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ol>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </RouteAnimator>
         </section>
 
         <section aria-labelledby="buen-uso" className="section" id="buen-uso-vs-mal-uso">

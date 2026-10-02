@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock, Lock } from "@phosphor-icons/react/dist/ssr";
 import { CourseProgress, ModuleProgress } from "@/components/Progress";
+import { RouteAnimator } from "@/components/RouteAnimator";
 import { availableDigitalModules, digitalModules } from "@/content/competencias";
 import { contactHref } from "@/lib/site";
 
@@ -91,35 +92,37 @@ export default function CompetenciasPage() {
               </h2>
             </div>
           </div>
-          <ol className="route">
-            {digitalModules.map((m) => (
-              <li className={m.available ? "route-item" : "route-item is-locked"} key={m.slug}>
-                <span className="route-node">{m.number}</span>
-                {m.available ? (
-                  <Link className="route-card glass" href={`/competencias-digitales/${m.slug}`}>
-                    <div>
-                      <span className="label">
-                        <Clock aria-hidden size={14} weight="bold" /> {m.duration}
-                      </span>
-                      <h3>{m.title}</h3>
-                      <p>{m.summary}</p>
+          <RouteAnimator>
+            <ol className="route">
+              {digitalModules.map((m) => (
+                <li className={m.available ? "route-item" : "route-item is-locked"} key={m.slug}>
+                  <span className="route-node">{m.number}</span>
+                  {m.available ? (
+                    <Link className="route-card glass" href={`/competencias-digitales/${m.slug}`}>
+                      <div>
+                        <span className="label">
+                          <Clock aria-hidden size={14} weight="bold" /> {m.duration}
+                        </span>
+                        <h3>{m.title}</h3>
+                        <p>{m.summary}</p>
+                      </div>
+                      <ModuleProgress slug={m.slug} total={m.checklist?.length ?? 0} />
+                    </Link>
+                  ) : (
+                    <div className="route-card glass">
+                      <div>
+                        <span className="label">
+                          <Lock aria-hidden size={14} weight="bold" /> Próximamente
+                        </span>
+                        <h3>{m.title}</h3>
+                        <p>{m.summary}</p>
+                      </div>
                     </div>
-                    <ModuleProgress slug={m.slug} total={m.checklist?.length ?? 0} />
-                  </Link>
-                ) : (
-                  <div className="route-card glass">
-                    <div>
-                      <span className="label">
-                        <Lock aria-hidden size={14} weight="bold" /> Próximamente
-                      </span>
-                      <h3>{m.title}</h3>
-                      <p>{m.summary}</p>
-                    </div>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ol>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </RouteAnimator>
           <p className="muted" style={{ marginTop: 14 }}>
             Basado en DigComp, el marco europeo de competencias digitales.
           </p>

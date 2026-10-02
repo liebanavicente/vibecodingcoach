@@ -236,6 +236,17 @@ html[data-intro="1"] body { overflow: hidden; }
 a.route-card:hover { box-shadow: var(--shadow-lift); transform: translateX(4px); }
 a.route-card:hover h3 { color: var(--accent-ink); }
 .route-item.is-locked .route-card { opacity: 0.62; }
+/* Scroll-driven route (RouteAnimator): a gradient line fills the dashed one and steps light up when reached. */
+.route-wrap { position: relative; }
+.route-progress { position: absolute; z-index: 0; top: 40px; bottom: 40px; left: 21px; width: 4px; border-radius: 4px; background: linear-gradient(180deg, #ff9440, #ff6a2c 50%, #f2452f); box-shadow: 0 0 14px rgba(255, 106, 44, 0.45); transform: scaleY(0); transform-origin: top; pointer-events: none; }
+.route-node { transition: background-color 300ms ease, color 300ms ease, box-shadow 300ms ease; }
+@media (prefers-reduced-motion: no-preference) {
+  .route-wrap .route-item:not(.is-locked) .route-node:not(.is-lit) { background: rgba(255, 255, 255, 0.92); box-shadow: var(--shadow); color: var(--muted); }
+  .route-wrap .route-item.is-locked .route-node.is-lit { box-shadow: 0 0 0 3px var(--accent-line), var(--shadow); color: var(--accent-ink); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-progress { display: none; }
+}
 
 .res-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
 .res-card { display: grid; height: 100%; align-content: start; gap: 12px; border-radius: var(--radius-xl); padding: 28px; transition: transform 240ms var(--ease-out), box-shadow 240ms var(--ease-out); }
