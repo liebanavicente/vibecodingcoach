@@ -17,6 +17,7 @@ import {
   Sparkle,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
+import { MlLogo } from "@/components/MlLogo";
 import { availableModules, modules } from "@/content/curso";
 import { contactHref } from "@/lib/site";
 
@@ -302,6 +303,7 @@ export default function Home() {
           </div>
           <div className="about">
             <div className="about-facts">
+              <MlLogo className="about-logo" title="Miguel Liébana" />
               <div>
                 <strong className="grad-text">14</strong>
                 <span className="muted">años como maestro</span>

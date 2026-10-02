@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/Header";
+import { MlLogo } from "@/components/MlLogo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -25,9 +26,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         {children}
         <footer className="container site-footer">
-          <p>
-            © {new Date().getFullYear()} {site.author} · Maestro y desarrollador web
-          </p>
+          <div className="footer-brand">
+            <MlLogo className="footer-logo" title="Miguel Liébana" />
+            <p>
+              <strong>
+                vibe<span>coding</span>coach
+              </strong>{" "}
+              by {site.author}
+              <br />© {new Date().getFullYear()} · Maestro y desarrollador web
+            </p>
+          </div>
           <span className="site-footer-links">
             <a href={site.linkedin}>LinkedIn</a>
             <a href={site.github}>GitHub</a>

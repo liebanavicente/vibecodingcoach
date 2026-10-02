@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSyncExternalStore } from "react";
-import { Code } from "@phosphor-icons/react";
+import { MlLogo } from "@/components/MlLogo";
 import { contactHref } from "@/lib/site";
 
 const links = [
@@ -29,13 +29,14 @@ export function Header() {
       </a>
       <header className="topbar" data-scrolled={scrolled}>
         <div className="container topbar-inner">
-          <Link aria-label="vibecodingcoach, inicio" className="brand" href="/">
-            <span aria-hidden className="brand-mark">
-              <Code size={24} weight="bold" />
-            </span>
-            <span className="brand-word">
+          <Link aria-label="vibecodingcoach by ML, inicio" className="brand" href="/">
+            <span aria-hidden className="brand-word">
               vibe<span>coding</span>coach
             </span>
+            <span aria-hidden className="brand-by">
+              by
+            </span>
+            <MlLogo className="brand-logo" title="Miguel Liébana" />
           </Link>
           <nav aria-label="Principal" className="site-nav">
             <ul>

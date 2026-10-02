@@ -42,7 +42,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   con burbujas (`public/fondo-burbujas.webp`; `fondo-azul.webp` en las páginas del
   curso; `fondo-ondas.webp` en las diapositivas), degradado naranja→coral como acento,
   paneles de vidrio esmerilado, botones en cápsula, fuente Inter. Cabecera flotante con
-  logo `</>` y wordmark vibe**coding**coach. Hero con ilustración de editor en CSS
+  la marca «vibe**coding**coach by ML».
+- **Marca personal:** logo ML de Miguel («ml_» en tecla blanca con sombra azul `#1f66ff`
+  y cursor que parpadea), redibujado como SVG en `src/components/MlLogo.tsx` y usado en
+  cabecera, pie, «Sobre mí» y favicon (`src/app/icon.svg`). Mantenerlo siempre visible. Hero con ilustración de editor en CSS
   (`HeroVisual` en `src/app/page.tsx`) y franja de 3 ventajas. Todo el CSS en
   `src/app/globals.css` con clases propias (no utilidades de Tailwind).
 
