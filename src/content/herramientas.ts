@@ -14,8 +14,9 @@ import {
   type SimpleIcon,
 } from "simple-icons";
 
-/** A brand mark: a Simple Icons path, or an official image in public/logos ("fill" = app icon that fills its tile). */
-export type Logo = { icon: SimpleIcon } | { src: string; fill?: boolean };
+/** A brand mark: a Simple Icons path, an official image in public/logos ("fill" = app icon that fills its tile),
+ * or a generic code glyph in a brand colour when no logo is available. */
+export type Logo = { icon: SimpleIcon } | { src: string; fill?: boolean } | { generic: "code"; color: string };
 
 /** Main tools, in the order Miguel uses them most. */
 export const tools: { name: string; text: string; logo: Logo }[] = [
@@ -24,6 +25,7 @@ export const tools: { name: string; text: string; logo: Logo }[] = [
   { name: "Codex", logo: { src: "/logos/codex.webp" }, text: "El agente de programación de OpenAI, para encargar tareas y revisar código." },
   { name: "Cursor", logo: { icon: siCursor }, text: "Un editor de código con la IA integrada, para ver y tocar cada archivo." },
   { name: "Antigravity", logo: { src: "/logos/antigravity.webp", fill: true }, text: "El entorno de desarrollo de Google pensado para trabajar con agentes." },
+  { name: "VS Code", logo: { generic: "code", color: "#007ACC" }, text: "El editor gratuito más usado: ligero y con extensiones para todo, también para Claude Code." },
 ];
 
 /** Everything around the main tools, shown in the moving banner. */

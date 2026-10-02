@@ -134,9 +134,9 @@ function HeroVisual() {
           </div>
         </div>
       </div>
-      {tools.map((tool, i) => (
+      {tools.slice(0, tilePositions.length).map((tool, i) => (
         <div className={`float-tile ${tilePositions[i]}`} key={tool.name}>
-          <BrandLogo logo={tool.logo} size={"icon" in tool.logo ? 30 : 38} />
+          <BrandLogo logo={tool.logo} size={"src" in tool.logo ? 38 : 30} />
           {tool.name}
         </div>
       ))}
@@ -212,7 +212,7 @@ export default function Home() {
               <li className="tool-card" key={tool.name}>
                 <span className="tool-rank">{i + 1}</span>
                 <span className="tool-logo">
-                  <BrandLogo logo={tool.logo} size={"icon" in tool.logo ? 30 : 56} />
+                  <BrandLogo logo={tool.logo} size={"src" in tool.logo ? 56 : 30} />
                 </span>
                 <h3>{tool.name}</h3>
                 <p>{tool.text}</p>
