@@ -162,7 +162,7 @@ export default function Home() {
             </h1>
             <p className="page-intro">
               Te enseño a usar <strong>Claude</strong>, <strong>Claude Code</strong>, <strong>Codex</strong>,{" "}
-              <strong>Cursor</strong> y <strong>Antigravity</strong> con la pedagogía de 14 años como maestro, no con jerga de programador.
+              <strong>Cursor</strong> y <strong>Antigravity</strong> desde cero, con la experiencia de 14 años como maestro: paso a paso, a tu ritmo y con palabras sencillas.
             </p>
             <div className="actions">
               <a className="button primary lg" href={contactHref}>
