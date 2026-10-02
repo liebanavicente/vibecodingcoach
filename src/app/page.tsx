@@ -22,6 +22,7 @@ import { INTRO_SCRIPT } from "@/lib/intro";
 import { MlLogo } from "@/components/MlLogo";
 import { ResourceMarquee } from "@/components/ResourceMarquee";
 import { availableModules, modules } from "@/content/curso";
+import { availableDigitalModules, digitalModules } from "@/content/competencias";
 import { tools } from "@/content/herramientas";
 import { contactHref } from "@/lib/site";
 
@@ -76,7 +77,7 @@ const offers = [
     name: "Clases 1:1",
     price: "25 €/h",
     detail: "Online · a tu ritmo",
-    text: "Sesiones individuales para construir tu propio proyecto paso a paso, con apoyo entre clases.",
+    text: "Sesiones individuales para construir tu proyecto con IA o ponerte al día con el ordenador y el móvil, con apoyo entre clases.",
     featured: true,
   },
   {
@@ -298,6 +299,52 @@ export default function Home() {
           <p className="muted" style={{ marginTop: 14 }}>
             {availableModules.length} de {modules.length} módulos disponibles · lecciones en diapositivas y vídeo, con
             ejercicios y checklist.
+          </p>
+        </section>
+
+        <section aria-labelledby="competencias" className="section">
+          <div className="section-head">
+            <div>
+              <p className="label">Segundo curso gratuito · nivel cero</p>
+              <h2 className="section-title" id="competencias">
+                Competencias digitales <span className="grad-text">básicas</span>
+              </h2>
+              <p className="muted section-sub">
+                ¿Aún no te manejas con el ordenador o el móvil? Empieza aquí: archivos, internet sin bulos, seguridad,
+                trámites online y la IA del día a día.
+              </p>
+            </div>
+            <Link className="button" href="/competencias-digitales">
+              Ver el curso <ArrowRight aria-hidden size={18} weight="bold" />
+            </Link>
+          </div>
+          <ol className="module-list">
+            {digitalModules.slice(0, 3).map((m) => (
+              <li key={m.slug}>
+                {m.available ? (
+                  <Link className="module-card" href={`/competencias-digitales/${m.slug}`}>
+                    <span className="step-mark">{m.number}</span>
+                    <div>
+                      <span className="label">{m.duration}</span>
+                      <h3>{m.title}</h3>
+                    </div>
+                    <span className="badge">Gratis</span>
+                  </Link>
+                ) : (
+                  <div className="module-card is-locked">
+                    <span className="step-mark">{m.number}</span>
+                    <div>
+                      <span className="label">Próximamente</span>
+                      <h3>{m.title}</h3>
+                    </div>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ol>
+          <p className="muted" style={{ marginTop: 14 }}>
+            {availableDigitalModules.length} de {digitalModules.length} módulos disponibles · también en clases
+            individuales.
           </p>
         </section>
 

@@ -101,6 +101,39 @@ Ideal si tienes un pequeño negocio, quieres un portfolio o te apetece aprender 
 
 ---
 
+## Segundo anuncio: competencias digitales básicas
+
+En Superprof y Tusclases puedes tener varios anuncios. Publica este en la categoría **Informática** (nivel principiante); llega a un público distinto (personas mayores, quien vuelve a trabajar) y suele tener mucha demanda.
+
+**Título:**
+
+```
+Maestro con 14 años de experiencia te enseña informática básica con paciencia: ordenador, móvil, internet seguro y trámites online
+```
+
+**Acerca de la clase:**
+
+```
+¿El ordenador o el móvil te imponen? ¿Te gustaría pedir cita, mandar un archivo o hacer una videollamada sin tener que pedir ayuda cada vez? Empezamos desde cero, con calma y con palabras sencillas.
+
+Qué aprendemos (tú eliges por dónde empezar):
+· Manejar el ordenador, el móvil y la tablet sin miedo.
+· Guardar y encontrar tus documentos y fotos.
+· Buscar en internet y distinguir la información fiable de los bulos.
+· Correo, WhatsApp y videollamadas.
+· Contraseñas seguras y cómo evitar estafas.
+· Trámites online: cita previa, certificado digital, Cl@ve.
+· Usar la inteligencia artificial para resolver dudas del día a día.
+
+Clases adaptadas a tu ritmo, con ejercicios prácticos sobre tus propios dispositivos, y acceso a mi curso gratuito para repasar en casa.
+
+La primera clase de 30 minutos es gratis.
+```
+
+**Acerca de mí:** usa el mismo texto que en el anuncio de vibe coding.
+
+---
+
 ## Guion del vídeo de presentación (45 s)
 
 ```

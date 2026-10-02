@@ -4,6 +4,8 @@ export type Section = {
   points: string[];
   body: string[];
   prompt?: string;
+  /** Label above the prompt box; defaults to "Prompt de ejemplo". */
+  promptLabel?: string;
   tip?: string;
 };
 

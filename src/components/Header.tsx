@@ -7,8 +7,8 @@ import { MlLogo } from "@/components/MlLogo";
 import { contactHref } from "@/lib/site";
 
 const links = [
-  { href: "/", label: "Inicio", hideOnMobile: true },
-  { href: "/curso", label: "Curso gratis", hideOnMobile: false },
+  { href: "/curso", label: "Vibe coding", hideOnMobile: false },
+  { href: "/competencias-digitales", label: "Competencias digitales", hideOnMobile: true },
   { href: "/curso/glosario", label: "Glosario", hideOnMobile: true },
   { href: "/#clases", label: "Clases", hideOnMobile: true },
 ];

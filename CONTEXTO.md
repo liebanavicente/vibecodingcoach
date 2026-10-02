@@ -95,6 +95,11 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   junta todos los textos en `media/palabras/captions.md` y renderiza los vídeos que falten.
   Opciones: `--only rag,git`, `--no-render`, `--force`. Publicación: programada a mano en
   Meta Business Suite (sin API de Instagram por ahora).
+- Segundo curso «Competencias digitales básicas» (nivel cero, basado en DigComp):
+  `/competencias-digitales`, contenido en `src/content/competencias.ts` (módulos 0 y 1
+  escritos; 2–5 «próximamente»). Las lecciones de ambos cursos usan
+  `src/components/ModuleView.tsx`. Los slugs no se repiten entre cursos (el progreso se
+  guarda por slug).
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
   módulo, rellenar `objectives`, `sections`, `exercise`, `checklist` y poner
   `available: true`.
