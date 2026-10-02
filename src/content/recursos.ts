@@ -11,7 +11,7 @@ export type Block =
   | { type: "compare"; bad: string; good: string }
   | { type: "cards"; items: { title: string; text: string }[] }
   | { type: "keys"; title: string; items: { key: string; text: string }[] }
-  | { type: "dodont"; title: string; items: { bad: string; good: string }[] }
+  | { type: "dodont"; title: string; labels?: [string, string]; items: { bad: string; good: string }[] }
   | { type: "code"; title: string; text: string }
   | { type: "links"; title: string; items: { label: string; href: string; note: string }[] };
 
@@ -543,8 +543,8 @@ export const resources: Resource[] = [
     slug: "mantente-al-dia",
     category: "Truquillos",
     title: "Mantente al día sin volverte loco",
-    summary: "A quién seguir y dónde mirar para enterarte de repositorios, skills y novedades antes que nadie.",
-    minutes: 4,
+    summary: "A quién seguir, dónde mirar y cómo detectar a los vendehumos antes de que te vendan nada.",
+    minutes: 6,
     blocks: [
       {
         type: "text",
@@ -556,9 +556,37 @@ export const resources: Resource[] = [
           { title: "X (Twitter)", text: "Lo más rápido: los equipos anuncian ahí primero. Sigue las cuentas oficiales, como @AnthropicAI y @claudeai, y a quienes las comentan con ejemplos." },
           { title: "YouTube", text: "Para verlo funcionando. Busca «Claude Code» o «vibe coding» y filtra por «esta semana»." },
           { title: "LinkedIn", text: "Casos reales de gente aplicándolo en su trabajo, muchos en español." },
+          { title: "Instagram", text: "Reels cortos con trucos y demos: ideal para descubrir cosas nuevas. Pero filtra mucho: es donde más vendehumos hay. Mira el detector de fiabilidad." },
           { title: "GitHub", text: "Repositorios en tendencia y listas «awesome» que recopilan skills, plantillas y herramientas." },
           { title: "Reddit", text: "Dudas y trucos de gente como tú. r/ClaudeAI es un buen punto de partida." },
         ],
+      },
+      {
+        type: "warning",
+        text: "Aviso sobre vendehumos: en Instagram y TikTok abundan las cuentas que venden cursos, «prompts secretos» o «métodos» con promesas que no se cumplen. Antes de seguir a alguien, y sobre todo antes de pagarle, pásalo por el detector de fiabilidad.",
+      },
+      {
+        type: "dodont",
+        title: "Detector de fiabilidad",
+        labels: ["Desconfía", "Fíate más"],
+        items: [
+          { bad: "Promete resultados mágicos: «crea tu app millonaria en un fin de semana».", good: "Enseña el proceso real, con sus errores y lo que le costó." },
+          { bad: "Nunca enseña el proyecto funcionando ni el código.", good: "Comparte enlaces, repositorios o demos que puedes probar tú." },
+          { bad: "Todo es «comenta CURSO y te lo envío» o te vende algo caro a la primera.", good: "Da mucho valor gratis antes de venderte nada." },
+          { bad: "Cuenta nueva, pocos seguidores y «el secreto que nadie te cuenta».", good: "Lleva tiempo publicando y sus consejos de hace meses siguen teniendo sentido." },
+          { bad: "Muchos seguidores pero comentarios genéricos, emojis sueltos o bots.", good: "Comentarios con preguntas reales y el autor respondiendo." },
+          { bad: "Capturas de ingresos o «resultados» sin contexto.", good: "Explica qué funcionó, qué no y por qué." },
+          { bad: "Te mete prisa: «solo hoy», «últimas plazas».", good: "Te deja tiempo para pensártelo." },
+        ],
+      },
+      {
+        type: "tip",
+        text: "Pocos seguidores no es malo por sí solo: mucha gente buena empieza así. La alarma salta cuando se juntan varias señales de la columna de la izquierda.",
+      },
+      {
+        type: "prompt",
+        title: "Pídele a Claude una segunda opinión",
+        text: "Te paso la descripción de este perfil o anuncio: [pega aquí el texto]. ¿Qué señales de alarma ves? ¿Qué le preguntarías antes de pagarle?",
       },
       {
         type: "steps",

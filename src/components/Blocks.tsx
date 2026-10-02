@@ -108,21 +108,21 @@ function BlockView({ block }: { block: Block }) {
           <h3>{block.title}</h3>
           <div className="dodont-head" aria-hidden>
             <span className="is-bad">
-              <XCircle size={16} weight="fill" /> Mal uso
+              <XCircle size={16} weight="fill" /> {block.labels?.[0] ?? "Mal uso"}
             </span>
             <span className="is-good">
-              <CheckCircle size={16} weight="fill" /> Buen uso
+              <CheckCircle size={16} weight="fill" /> {block.labels?.[1] ?? "Buen uso"}
             </span>
           </div>
           <ul>
             {block.items.map((item) => (
               <li key={item.bad}>
                 <p className="is-bad">
-                  <span className="visually-hidden">Mal uso: </span>
+                  <span className="visually-hidden">{block.labels?.[0] ?? "Mal uso"}: </span>
                   {item.bad}
                 </p>
                 <p className="is-good">
-                  <span className="visually-hidden">Buen uso: </span>
+                  <span className="visually-hidden">{block.labels?.[1] ?? "Buen uso"}: </span>
                   {item.good}
                 </p>
               </li>
