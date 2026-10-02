@@ -80,8 +80,12 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   El botón «Mira cómo funciona» del hero lo vuelve a abrir en un diálogo.
 - Sección «Buen uso vs mal uso» en `/curso`: sale de los recursos de categoría «Buen uso»
   (ventana de contexto, orden de carpetas, Git y GitHub, despliegues en Vercel).
-- Reel 01: fuente en `media/reel-01/` (`reel.html` = montaje, `clips/` = clips de Flow,
-  `npm run reel` lo renderiza en `media/reel-01/out/reel-01.mp4`, ignorado por git).
+- Reels de Instagram: carpetas `media/reel-XX/` con un `reel.html` cada una. La plantilla
+  compartida está en `media/kit/` (motor de animación `engine.js`, estilos `kit.css`, iconos).
+  `npm run reel -- reel-02` renderiza a `media/reel-02/out/reel-02.mp4` (ignorado por git).
+  Reel 01 = presentación con clips de Flow (`media/reel-01/clips/`); 02 = detector de
+  vendehumos; 03 = así no / así sí; 04 = palabra del día (token). Textos de publicación,
+  bio y calendario en `media/instagram.md`.
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
   módulo, rellenar `objectives`, `sections`, `exercise`, `checklist` y poner
   `available: true`.

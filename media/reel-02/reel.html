@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 02 · Detector de vendehumos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<style>
+  .flags { position: absolute; top: 250px; left: 70px; right: 70px; display: flex; flex-direction: column; gap: 22px; }
+  .flags h2 { margin: 0 0 18px; text-align: center; }
+  .flag { display: flex; align-items: center; gap: 30px; border-radius: 40px; padding: 26px 34px; }
+  .flag .ico { display: grid; width: 92px; height: 92px; flex: none; place-items: center; border-radius: 28px; background: var(--red-soft); color: var(--red); font-size: 58px; }
+  .flag strong { display: block; font-size: 50px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+  .flag span.sub { display: block; margin-top: 6px; color: var(--muted); font-size: 34px; font-weight: 500; }
+  .verdict .h-xl { font-size: 170px; }
+  .verdict .body-l { max-width: 820px; margin-top: 50px; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="26">
+
+  <section class="scene slide warm" data-start="0" data-end="3.2">
+    <div class="brand-top" data-fx="fade" data-in="0"><svg class="ml" data-ml width="92"></svg><span class="wm">vibe<span>coding</span>coach</span></div>
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.2"><span data-icon="flag"></span>Detector de fiabilidad</span>
+      <p class="h-l" data-fx="up" data-in="0.5" style="margin-top:60px">¿Te quieren vender un curso de IA?</p>
+      <p class="h-l grad" data-fx="pop" data-in="1.6" style="margin-top:40px">Mira esto antes.</p>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="3.2" data-end="17.2">
+    <div class="flags">
+      <h2 class="h-m" data-fx="up" data-in="0.1">6 señales de <span class="grad">vendehumos</span></h2>
+      <div class="flag glass" data-fx="left" data-in="0.7"><span class="ico" data-icon="x"></span><div><strong>Promete resultados mágicos</strong><span class="sub">«Tu app millonaria en un finde»</span></div></div>
+      <div class="flag glass" data-fx="left" data-in="2.6"><span class="ico" data-icon="x"></span><div><strong>Nunca enseña el código</strong><span class="sub">Ni el proyecto funcionando</span></div></div>
+      <div class="flag glass" data-fx="left" data-in="4.5"><span class="ico" data-icon="x"></span><div><strong>«Comenta CURSO y te lo envío»</strong><span class="sub">Y luego te vende algo caro</span></div></div>
+      <div class="flag glass" data-fx="left" data-in="6.4"><span class="ico" data-icon="x"></span><div><strong>Capturas de ingresos</strong><span class="sub">Sin contexto ni explicación</span></div></div>
+      <div class="flag glass" data-fx="left" data-in="8.3"><span class="ico" data-icon="x"></span><div><strong>Comentarios de bots</strong><span class="sub">Emojis sueltos y «¡genial!»</span></div></div>
+      <div class="flag glass" data-fx="left" data-in="10.2"><span class="ico" data-icon="x"></span><div><strong>Te mete prisa</strong><span class="sub">«Solo hoy», «últimas plazas»</span></div></div>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="17.2" data-end="21.2">
+    <div class="center verdict">
+      <p class="h-l" data-fx="up" data-in="0.2">¿Ves tres o más?</p>
+      <p class="h-xl grad" data-fx="stamp" data-in="0.95" data-dur="0.5" style="margin-top:40px">Desconfía.</p>
+      <p class="body-l" data-fx="up" data-in="1.8">Tener pocos seguidores no es malo. Varias señales juntas, sí.</p>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="21.2" data-end="26">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="300"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.65">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.2" data-dur="0.6"><div class="cta-btn" data-pulse="2.0"><span data-icon="book"></span>Guía completa, gratis</div></div>
+      <p class="cta-sec" data-fx="up" data-in="1.8">El detector entero y más trucos en</p>
+      <div class="cta-url glass" data-fx="up" data-in="2.2">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>

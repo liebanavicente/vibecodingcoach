@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 03 · Así no / Así sí</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<style>
+  .verdict-label { position: absolute; top: 330px; left: 0; right: 0; display: flex; justify-content: center; }
+  .tag { display: inline-flex; align-items: center; gap: 14px; border-radius: 999px; font-size: 46px; font-weight: 800; letter-spacing: 0.06em; padding: 18px 36px; text-transform: uppercase; }
+  .tag svg { font-size: 52px; }
+  .tag.bad { background: var(--red-soft); color: var(--red); border: 2px solid rgba(196, 41, 28, 0.25); }
+  .tag.good { background: var(--green-soft); color: var(--green); border: 2px solid rgba(13, 122, 82, 0.28); }
+  .prompt-card { position: absolute; left: 70px; right: 70px; border-radius: 44px; padding: 44px 48px; }
+  .prompt-card .bar { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; color: var(--muted); font-size: 32px; font-weight: 700; }
+  .prompt-card .bar svg { color: var(--orange); font-size: 38px; }
+  .prompt-text { margin: 0; min-height: 1.3em; font-size: 54px; font-weight: 650; letter-spacing: -0.02em; line-height: 1.32; }
+  .prompt-text.long { font-size: 44px; line-height: 1.42; }
+  .caret { display: inline-block; width: 5px; height: 0.95em; margin-left: 4px; background: var(--orange); vertical-align: -0.12em; }
+  .bad-card { top: 720px; }
+  .good-card { top: 520px; }
+  .stamp { position: absolute; top: 560px; right: 70px; display: grid; width: 200px; height: 200px; place-items: center; border: 10px solid var(--red); border-radius: 50%; color: var(--red); font-size: 124px; }
+  .why { position: absolute; top: 1180px; left: 90px; right: 90px; text-align: center; }
+  .chips { position: absolute; top: 1330px; left: 70px; right: 70px; display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+  .chip { display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; background: var(--green-soft); border: 2px solid rgba(13, 122, 82, 0.28); color: var(--green); font-size: 40px; font-weight: 750; padding: 16px 28px; }
+  .chip svg { font-size: 44px; }
+  .formula { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 60px; }
+  .formula .h-l { font-size: 104px; }
+  .formula .plus { color: var(--muted); font-size: 80px; font-weight: 700; line-height: 1; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="25">
+
+  <section class="scene slide" data-start="0" data-end="3">
+    <div class="brand-top" data-fx="fade" data-in="0"><svg class="ml" data-ml width="92"></svg><span class="wm">vibe<span>coding</span>coach</span></div>
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.2"><span data-icon="prompt"></span>Así no / Así sí</span>
+      <p class="h-l" data-fx="up" data-in="0.5" style="margin-top:60px">¿La IA te da respuestas genéricas?</p>
+      <p class="h-l grad" data-fx="pop" data-in="1.5" style="margin-top:40px">Es por el prompt.</p>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="3" data-end="8.5">
+    <div class="verdict-label" data-fx="pop" data-in="0.1"><span class="tag bad"><span data-icon="x"></span>Así no</span></div>
+    <div class="prompt-card glass bad-card" data-fx="up" data-in="0.3">
+      <div class="bar"><span data-icon="sparkle"></span>Tu mensaje a la IA</div>
+      <p class="prompt-text"><span data-type="Hazme una web para mi clase." data-in="0.6" data-dur="1.3"></span><i class="caret" data-blink></i></p>
+    </div>
+    <div class="stamp" data-fx="stamp" data-in="2.3" data-dur="0.45" data-icon="x"></div>
+    <p class="why h-m" data-fx="up" data-in="2.9">Sin contexto. Sin objetivo. <span class="grad">Sin detalles.</span></p>
+  </section>
+
+  <section class="scene slide warm" data-start="8.5" data-end="17">
+    <div class="verdict-label" data-fx="pop" data-in="0.1" style="top:300px"><span class="tag good"><span data-icon="check"></span>Así sí</span></div>
+    <div class="prompt-card glass good-card" data-fx="up" data-in="0.3">
+      <div class="bar"><span data-icon="sparkle"></span>Tu mensaje a la IA</div>
+      <p class="prompt-text long"><span data-type="Soy maestro de primaria y nunca he programado. Quiero una web sencilla para que las familias vean las tareas de la semana desde el móvil. Antes de empezar, hazme las preguntas que necesites." data-in="0.6" data-dur="3.8"></span><i class="caret" data-blink></i></p>
+    </div>
+    <div class="chips">
+      <span class="chip" data-fx="pop" data-in="4.7"><span data-icon="user"></span>Quién eres</span>
+      <span class="chip" data-fx="pop" data-in="5.2"><span data-icon="target"></span>Para qué</span>
+      <span class="chip" data-fx="pop" data-in="5.7"><span data-icon="phone"></span>Dónde se verá</span>
+      <span class="chip" data-fx="pop" data-in="6.2"><span data-icon="question"></span>Que te pregunte</span>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="17" data-end="20.5">
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.1"><span data-icon="idea"></span>La fórmula</span>
+      <div class="formula">
+        <p class="h-l" data-fx="up" data-in="0.4">Contexto</p>
+        <span class="plus" data-fx="pop" data-in="0.8">+</span>
+        <p class="h-l" data-fx="up" data-in="1.0">Objetivo</p>
+        <span class="plus" data-fx="pop" data-in="1.4">+</span>
+        <p class="h-l grad" data-fx="up" data-in="1.6">Restricciones</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="20.5" data-end="25">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="300"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.65">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.2" data-dur="0.6"><div class="cta-btn" data-pulse="2.0"><span data-icon="prompt"></span>Prompts para copiar, gratis</div></div>
+      <p class="cta-sec" data-fx="up" data-in="1.8">En el curso gratuito de</p>
+      <div class="cta-url glass" data-fx="up" data-in="2.2">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>

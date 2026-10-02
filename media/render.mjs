@@ -1,12 +1,17 @@
-// Renders reel.html frame by frame with the local Chrome and encodes it with ffmpeg.
-// Usage: node media/reel-01/render.mjs [--stills 1.2,5,9.4]   (stills = seconds to export as PNG previews)
+// Renders a reel folder (media/<name>/reel.html) frame by frame with the local Chrome and encodes it with ffmpeg.
+// Usage: npm run reel -- <name> [--stills 1.2,5,9.4]   e.g. npm run reel -- reel-02
 import { execFileSync } from "node:child_process";
-import { mkdirSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import puppeteer from "puppeteer-core";
 
-const here = dirname(fileURLToPath(import.meta.url));
+const name = process.argv[2];
+const here = join(dirname(fileURLToPath(import.meta.url)), name ?? "");
+if (!name || !existsSync(join(here, "reel.html"))) {
+  console.error("Usage: npm run reel -- <reel folder in media/>");
+  process.exit(1);
+}
 const out = join(here, "out");
 const framesDir = join(out, "frames");
 const stillsArg = process.argv.indexOf("--stills");
@@ -40,14 +45,15 @@ const { frames, fps } = await page.evaluate(() => ({ frames: window.FRAMES, fps:
 for (let f = 0; f < frames; f++) {
   await page.evaluate((s) => window.renderAt(s), f / fps);
   await stage.screenshot({ path: join(framesDir, `${String(f).padStart(5, "0")}.jpg`), type: "jpeg", quality: 94 });
-  if (f % 60 === 0) console.log(`frame ${f}/${frames}`);
+  if (f % 90 === 0) console.log(`${name}: frame ${f}/${frames}`);
 }
 await browser.close();
 
-const video = join(out, "reel-01.mp4");
-execFileSync("ffmpeg", [
-  "-v", "error", "-y", "-framerate", String(fps), "-i", join(framesDir, "%05d.jpg"),
-  "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "+faststart", video,
-], { stdio: "inherit" });
+const video = join(out, `${name}.mp4`);
+execFileSync(
+  "ffmpeg",
+  ["-v", "error", "-y", "-framerate", String(fps), "-i", join(framesDir, "%05d.jpg"), "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "+faststart", video],
+  { stdio: "inherit" },
+);
 rmSync(framesDir, { recursive: true, force: true });
 console.log(`video written to ${video}`);

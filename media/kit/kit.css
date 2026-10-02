@@ -1,0 +1,41 @@
+/* Brand look for vertical reels, shared with the website: Inter, orange-coral gradient, glass, ML logo. */
+:root {
+  --ink: #141722; --muted: #5d6272; --orange: #ff6a2c; --accent-ink: #df4f1c;
+  --grad: linear-gradient(120deg, #ff9440 0%, #ff6a2c 45%, #f2452f 100%);
+  --red: #c4291c; --red-soft: rgba(196, 41, 28, 0.08); --green: #0d7a52; --green-soft: rgba(40, 180, 120, 0.12);
+  --ml-blue: #1f66ff; --ml-ink: #111;
+  --glass: rgba(255, 255, 255, 0.7); --rim: rgba(255, 255, 255, 0.92);
+  --shadow: 0 2px 0 rgba(255, 255, 255, 0.9) inset, 0 40px 90px rgba(60, 80, 140, 0.16), 0 6px 18px rgba(20, 23, 34, 0.06);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #000; }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #eef3f9; font-family: Inter, system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+.scene { position: absolute; inset: 0; opacity: 0; will-change: opacity, transform; }
+[data-fx] { opacity: 0; }
+
+.slide { background: url("../../public/fondo-azul.webp") center / cover no-repeat; }
+.slide.warm { background-image: url("../../public/fondo-burbujas.webp"); }
+.slide::before { position: absolute; inset: 0; background-image: linear-gradient(rgba(31, 102, 255, 0.07) 2px, transparent 2px), linear-gradient(90deg, rgba(31, 102, 255, 0.07) 2px, transparent 2px); background-size: 72px 72px; content: ""; -webkit-mask-image: radial-gradient(70% 60% at 50% 45%, #000 30%, transparent 85%); mask-image: radial-gradient(70% 60% at 50% 45%, #000 30%, transparent 85%); }
+.slide::after { position: absolute; inset: 0; background: radial-gradient(62% 48% at 50% 46%, rgba(250, 251, 253, 0.88), rgba(250, 251, 253, 0)); content: ""; }
+.slide > * { position: relative; z-index: 1; }
+
+.center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 90px; text-align: center; }
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.glass { border: 2px solid var(--rim); background: var(--glass); box-shadow: var(--shadow); -webkit-backdrop-filter: blur(26px) saturate(160%); backdrop-filter: blur(26px) saturate(160%); }
+.ml { display: block; height: auto; overflow: visible; }
+.wm span { color: var(--orange); }
+
+.pill { display: inline-flex; align-items: center; gap: 14px; border: 2px solid rgba(255, 112, 52, 0.25); border-radius: 999px; background: rgba(255, 112, 52, 0.12); color: var(--accent-ink); font-size: 40px; font-weight: 700; padding: 16px 30px; }
+.pill svg { font-size: 44px; }
+.h-xl { margin: 0; font-size: 128px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+.h-l { margin: 0; font-size: 96px; font-weight: 800; letter-spacing: -0.045em; line-height: 1.04; }
+.h-m { margin: 0; font-size: 70px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
+.body-l { margin: 0; color: var(--muted); font-size: 48px; font-weight: 500; line-height: 1.35; }
+
+/* top brand strip and closing call to action, shared by every reel */
+.brand-top { position: absolute; top: 230px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 18px; font-size: 38px; font-weight: 800; letter-spacing: -0.03em; }
+.cta-word { margin: 56px 0 0; font-size: 96px; font-weight: 800; letter-spacing: -0.045em; }
+.cta-btn { display: inline-flex; align-items: center; gap: 22px; margin-top: 70px; border-radius: 999px; background: var(--grad); box-shadow: 0 30px 60px rgba(242, 69, 47, 0.35), 0 2px 0 rgba(255, 255, 255, 0.4) inset; color: white; font-size: 50px; font-weight: 750; padding: 36px 56px; }
+.cta-btn svg { font-size: 54px; }
+.cta-sec { margin: 46px 0 0; color: var(--muted); font-size: 44px; font-weight: 600; }
+.cta-url { margin-top: 30px; border-radius: 999px; font-size: 40px; font-weight: 700; padding: 22px 42px; }
