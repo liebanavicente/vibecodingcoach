@@ -86,6 +86,22 @@ function BlockView({ block }: { block: Block }) {
           </div>
         </div>
       );
+    case "keys":
+      return (
+        <div className="block-keys">
+          <h3>{block.title}</h3>
+          <dl>
+            {block.items.map((item) => (
+              <div key={item.key}>
+                <dt>
+                  <kbd>{item.key}</kbd>
+                </dt>
+                <dd>{item.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      );
     case "cards":
       return (
         <ul className="block-cards">

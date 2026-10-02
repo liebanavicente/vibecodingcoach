@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock, ImageSquare, Lock, MagicWand, PuzzlePiece, Scales } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, Clock, Lock } from "@phosphor-icons/react/dist/ssr";
 import { CourseProgress, ModuleProgress } from "@/components/Progress";
+import { ResourceGrid } from "@/components/ResourceGrid";
 import { availableModules, modules } from "@/content/curso";
-import { resources, type Resource } from "@/content/recursos";
+import { resources } from "@/content/recursos";
 import { contactHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Curso gratuito",
   description:
     "Vibe Coding desde Cero: curso gratuito para aprender a construir webs con IA sin experiencia previa, con módulos, recursos y truquillos.",
-};
-
-const categoryIcon: Record<Resource["category"], typeof PuzzlePiece> = {
-  Skills: PuzzlePiece,
-  Revisión: Scales,
-  Imágenes: ImageSquare,
-  Truquillos: MagicWand,
 };
 
 export default function CursoPage() {
@@ -116,29 +110,7 @@ export default function CursoPage() {
               </h2>
             </div>
           </div>
-          <ul className="res-grid">
-            {resources.map((r) => {
-              const Icon = categoryIcon[r.category];
-              return (
-                <li key={r.slug}>
-                  <Link className="res-card glass" href={`/curso/recursos/${r.slug}`}>
-                    <span className="res-icon">
-                      <Icon aria-hidden size={26} weight="fill" />
-                    </span>
-                    <span className="res-meta">
-                      <span className="badge">{r.category}</span>
-                      <span className="muted">{r.minutes} min</span>
-                    </span>
-                    <h3>{r.title}</h3>
-                    <p>{r.summary}</p>
-                    <span className="res-go">
-                      Leer <ArrowRight aria-hidden size={16} weight="bold" />
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <ResourceGrid items={resources.map(({ slug, category, title, summary, minutes }) => ({ slug, category, title, summary, minutes }))} />
         </section>
 
         <div className="section cta-band">
