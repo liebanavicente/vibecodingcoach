@@ -1,4 +1,5 @@
-// Renders an Instagram carousel (media/<name>/carrusel.html): every .card is saved as a 1080x1350 PNG in out/.
+// Renders an Instagram carousel (media/<name>/carrusel.html): every .card is saved as a PNG in out/ (1080x1350
+// for carousels; media/og holds the 1200x630 share image).
 // Brand logos come from simple-icons: <span data-si="instagram"></span>. The ML mark: <svg data-ml>.
 // Usage: npm run carrusel -- carrusel-01
 import { existsSync, mkdirSync, rmSync } from "node:fs";
@@ -25,7 +26,8 @@ const browser = await puppeteer.launch({
   args: ["--allow-file-access-from-files"],
 });
 const page = await browser.newPage();
-await page.setViewport({ width: 1080, height: 1350, deviceScaleFactor: 1 });
+// Wide enough for 1080x1350 carousel cards and 1200x630 share images.
+await page.setViewport({ width: 1280, height: 1400, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(join(here, "carrusel.html")).href, { waitUntil: "networkidle0" });
 const count = await page.evaluate(
   (brands, ML) => {

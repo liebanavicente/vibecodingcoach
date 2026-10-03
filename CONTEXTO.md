@@ -166,7 +166,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 3. Enlazar esta web desde miguelliebana.com.
 4. Pilotar el Módulo 1 gratis con 2-3 personas y recoger feedback (ver PLAN.md).
 5. Darse de alta en Preply / Superprof / ADPList.
-6. Mejoras posibles: imagen OG, analítica. Reservas con la agenda de citas de Google
+6. Mejoras posibles: analítica. Imagen para compartir (Open Graph) hecha: `src/app/opengraph-image.png`,
+   generada desde `media/og/carrusel.html` con `npm run carrusel -- og` (copiar `out/01.png` encima); `metadataBase`
+   en `layout.tsx`. Reservas con la agenda de citas de Google
    Calendar: https://calendar.app.google/uSv5gUWQeJT8efSM6 (Cal.com se abandonó: fallaba
    el inicio de sesión en el móvil).
 7. Reels: Miguel prefiere la plantilla de cristal de siempre con fondo animado de Flow (no la «cine», que

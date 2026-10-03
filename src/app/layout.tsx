@@ -9,12 +9,16 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
 export const metadata: Metadata = {
+  // Lets the share image (opengraph-image.png) and other metadata use full URLs.
+  metadataBase: new URL("https://vibecoding.miguelliebana.com"),
   title: {
     default: `${site.name} · ${site.author}`,
     template: `%s · ${site.name}`,
   },
   description:
     "Aprende a construir tu primera web con IA, sin experiencia previa. Clases y curso gratuito de un maestro con 14 años de experiencia.",
+  openGraph: { type: "website", locale: "es_ES", siteName: "vibecodingcoach by Miguel Liébana" },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = { themeColor: "#fdf7f3" };

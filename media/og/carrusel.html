@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Imagen para compartir (Open Graph)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<style>
+  /* The preview shown when the site is shared (1200x630). npm run carrusel -- og, then copy out/01.png to
+     src/app/opengraph-image.png. Keep the important text away from the edges: some apps crop it to a square. */
+  body { margin: 0; background: #ddd; }
+  .card { position: relative; width: 1200px; height: 630px; overflow: hidden; background: url("../../public/fondo-burbujas.webp") center / cover; font-family: Inter, system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .card::after { position: absolute; inset: 0; background: radial-gradient(60% 70% at 38% 50%, rgba(250, 251, 253, 0.85), rgba(250, 251, 253, 0)); content: ""; }
+  .card > * { position: relative; z-index: 1; }
+  .copy { position: absolute; top: 92px; left: 80px; width: 730px; }
+  .brand { display: flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 800; letter-spacing: -0.03em; }
+  .brand .wm span { color: var(--orange); }
+  h1 { margin: 34px 0 0; font-size: 60px; font-weight: 800; letter-spacing: -0.05em; line-height: 1.04; }
+  .sub { max-width: 660px; margin: 20px 0 0; color: var(--muted); font-size: 27px; font-weight: 550; line-height: 1.35; }
+  .chips { display: flex; gap: 14px; margin-top: 28px; }
+  .chip { border-radius: 999px; font-size: 24px; font-weight: 750; padding: 12px 24px; }
+  .chip.hot { background: var(--grad); color: white; box-shadow: 0 12px 26px rgba(242, 69, 47, 0.3); }
+  .key { position: absolute; top: 140px; right: 90px; display: grid; place-items: center; width: 300px; height: 300px; border-radius: 70px; }
+  .url { position: absolute; top: 470px; right: 40px; width: 400px; color: var(--accent-ink); font-size: 24px; font-weight: 750; text-align: center; }
+</style>
+</head>
+<body>
+<section class="card">
+  <div class="copy">
+    <div class="brand"><svg class="ml" data-ml width="64"></svg><span class="wm">vibe<span>coding</span>coach</span></div>
+    <h1>Construye tu primera web <span class="grad">con IA</span>, aunque nunca hayas programado</h1>
+    <p class="sub">Clases para principiantes con un maestro de 14 años de experiencia.</p>
+    <div class="chips"><span class="chip hot">Curso gratis</span><span class="chip glass">Clase de prueba gratis</span></div>
+  </div>
+  <div class="key glass"><svg class="ml" data-ml width="210"></svg></div>
+  <span class="url">vibecoding.miguelliebana.com</span>
+</section>
+</body>
+</html>
