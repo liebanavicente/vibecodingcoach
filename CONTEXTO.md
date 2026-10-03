@@ -1,6 +1,6 @@
 # Contexto del proyecto vibecodingcoach
 
-Traspaso de sesión (3 oct 2026). Leer antes de continuar.
+Traspaso de sesión (4 oct 2026). Leer antes de continuar.
 
 ## Quién y qué
 
@@ -153,7 +153,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   palabras» rellena el formulario (salida JSON con esquema) y «Explícame esta estimación» redacta una nota con las cifras
   que calcula el servidor. Botones: pedir por correo (con el resumen) o llamada gratis. Enlazada desde «Te la hago yo» y
   el asistente. Ambos usan `src/lib/gemini.ts` (modelo de respaldo, límite por IP).
-- Asistente de la web (`src/components/Asistente.tsx`, burbuja «¿Dudas?»): responde solo sobre horarios, precios,
+- Asistente de la web (`src/components/Asistente.tsx`; botón de robot con bocadillo de cómic «¿Ayuda?», que en la
+  calculadora del móvil se oculta para no chocar con la barra fija): responde solo sobre horarios, precios,
   cursos y servicios con Google Gemini (plan gratuito). La llamada va en el servidor (`src/app/api/asistente/route.ts`)
   con `GEMINI_API_KEY` en `.env.local` y en Vercel (secreta, Production). Modelo `gemini-flash-lite-latest` (rápido, sin
   gastar salida en razonar) y, si está saturado (503), `gemini-flash-latest`; se cambian con `GEMINI_MODEL` y
@@ -191,6 +192,27 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - Vídeos del reproductor: ninguno grabado todavía. Flujo previsto: grabar la narración (con webcam o
   pantalla) pasando las diapositivas en pantalla completa, subir el mp4 (p. ej. a
   `public/videos/` o Vercel Blob) y anotar en `cues` el segundo de cada cambio.
+
+### Anuncios (vídeo)
+
+- `media/ad-whatsapp/`: anuncio de 22 s con la plantilla de cristal (fondo de burbujas, dos ofertas, logos, cierre);
+  `out/ad-whatsapp-wa.mp4` ligero para WhatsApp.
+- `media/ad-avatar/`: avatar de HeyGen con subtítulos de VEED (`clips/avatar-original.mp4`, no versionado) y tarjetas de
+  marca pegadas con ffmpeg (`montar.sh`) para no perder fluidez: el avatar nunca pasa por el navegador.
+- `media/ad-artistico/`: clip de Google Flow (tecla → cintas → piezas de web → móvil en la mano) + cierre de marca.
+  `pantalla.py` sustituye la web inventada del móvil por la real siguiendo la pantalla fotograma a fotograma y dejando el
+  pulgar delante; `montar.sh` lo monta. Programado en la cola de Buffer (YouTube 3 oct, Instagram 6 oct, TikTok 10 oct).
+- Descartados: Pika y Dreamina (caros; Dreamina exige plan de pago para su CLI, se desinstaló). Para vídeo generativo,
+  Google Flow (ya incluido en su suscripción).
+- Herramientas probadas: OpusClip (MCP conectado, sin uso), NotebookLM (vídeos de los módulos), HeyGen, Submagic/VEED.
+
+### Remotion (en pruebas)
+
+- Plugin de Claude Code instalado (`remotion@remotion`, v4.0.532, ámbito de usuario) para hacer vídeos con React.
+  Para instalarlo se añadió la huella verificada de GitHub a `~/.ssh/known_hosts` y la regla global de git
+  `url."https://github.com/".insteadOf "git@github.com:"` (Miguel no tiene clave SSH; todos sus repos usan HTTPS).
+- Idea: valorar si algún tipo de reel (palabra del día, tarjetas) conviene pasarlo del kit propio (`media/kit`) a
+  Remotion. El kit actual sigue siendo la referencia mientras tanto.
 
 ## Pendientes / siguientes pasos
 
