@@ -18,6 +18,7 @@ Sin esa línea, el reel usa los fondos fijos de siempre (`fondo-azul` / `fondo-b
 | Archivo | Qué es |
 | --- | --- |
 | `burbujas.mp4` | Burbujas de cristal subiendo sobre crema, con toques coral y azul (Flow). El principal |
+| `seda.mp4` | Seda coral ondeando arriba y abajo, centro crema libre (Flow). Ideal para mucho texto |
 | `cintas.mp4` | Cintas de cristal coral (el vídeo de la web, en vertical) |
 
 ## Crear uno nuevo con Google Flow

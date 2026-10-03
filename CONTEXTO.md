@@ -168,8 +168,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
    Calendar: https://calendar.app.google/uSv5gUWQeJT8efSM6 (Cal.com se abandonó: fallaba
    el inicio de sesión en el móvil).
 7. Reels: Miguel prefiere la plantilla de cristal de siempre con fondo animado de Flow (no la «cine», que
-   queda como plan B). Fondos listos: `burbujas` (el principal) y `cintas`. `media/bg/seda.mp4` (Flow) está
-   subido pero **sin convertir**: Miguel pidió no tocarlo aún; cuando lo diga, `npm run fondos`.
+   queda como plan B). Fondos listos en `media/kit/bg/`: `burbujas` (el principal), `seda` (centro libre,
+   bueno para mucho texto) y `cintas`. Aún no se ha publicado ningún reel con fondo animado.
    Demo de prueba (no versionada): `media/_demo/out/reel-06-con-burbujas.mp4`.
 8. OpusClip MCP añadido el 3 oct (`claude mcp add --transport http opusclip https://mcp.opus.pro/mcp`, en la
    config local de este proyecto, `~/.claude.json`). Tras reiniciar hay que conectarlo con `/mcp` → opusclip
