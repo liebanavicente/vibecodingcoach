@@ -119,7 +119,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   (pit stop) + «trabajar en equipo: Google Flow + Claude», con el sonido del clip
   (`data-audio` en `#stage`); 09 = meme «y yo pagando» (clip de Flow con desenfoques que
   siguen logos reales: `data-box` en `engine.js`). Fondo animado en bucle para la plantilla de cristal: `<video class="bg-loop"
-  data-video="../kit/bg/burbujas.mp4">` dentro de `#stage` (también `cintas.mp4`); los clips de Flow se dejan en
+  data-video="../kit/bg/burbujas.mp4">` dentro de `#stage` (también `seda.mp4` y `cintas.mp4`); los clips de Flow se dejan en
   `media/bg/` y `npm run fondos` los convierte en bucle (guía y prompts en `media/kit/bg/README.md`). Plan B: plantilla «cine» (`media/kit/cine.css`, guía y
   prompts para Flow en `media/kit/CINE.md`): clip de Flow a pantalla completa con titular, subtítulos karaoke
   (`data-words`), barra de capítulos (`.hud`) y cámara lenta/zoom (`data-rate`, `data-zoom`); 14 = de idea a
