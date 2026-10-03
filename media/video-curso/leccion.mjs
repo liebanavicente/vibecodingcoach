@@ -180,11 +180,25 @@ for (const [name, body, length] of [["entrada", coverScene.replace('data-end="6.
   writeFileSync(join(dir, name, "reel.html"), page(body, length, "../../.."));
 }
 
+// Links to the previous and next lessons: their YouTube video if it is up, otherwise the next one's page on the site.
+const prev = modules.find((m) => m.number === mod.number - 1);
+const navigation = [
+  prev?.youtube ? `◀ Anterior: Módulo ${prev.number} · ${prev.title} → https://youtu.be/${prev.youtube}` : null,
+  next?.youtube
+    ? `▶ Siguiente: Módulo ${next.number} · ${next.title} → https://youtu.be/${next.youtube}`
+    : next?.available
+      ? `▶ Siguiente: Módulo ${next.number} · ${next.title} → https://vibecoding.miguelliebana.com/curso/${next.slug}`
+      : null,
+]
+  .filter(Boolean)
+  .map((line) => `${line}\n`)
+  .join("");
+const navigationBlock = navigation ? `${navigation}\n` : "";
 const stamp = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 const description = `Módulo ${mod.number} del curso gratuito Vibe Coding desde Cero: ${mod.title.charAt(0).toLowerCase() + mod.title.slice(1)}.
 ${mod.summary}
 
-📚 Curso completo, gratis y con ejercicios: https://vibecoding.miguelliebana.com/curso/${slug}
+${navigationBlock}📚 Curso completo, gratis y con ejercicios: https://vibecoding.miguelliebana.com/curso/${slug}
 🎓 Primera clase gratis (30 min): https://vibecoding.miguelliebana.com/reservar
 
 Capítulos
