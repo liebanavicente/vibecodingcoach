@@ -29,7 +29,7 @@ export function RouteAnimator({ children }: { children: ReactNode }) {
         );
 
         // Sliding in from the side would widen the page on phones, so there the cards rise instead.
-        const offset = window.matchMedia("(min-width: 961px)").matches ? { x: 60 } : { y: 40 };
+        const offset = window.matchMedia("(min-width: 1320px)").matches ? { x: 60 } : { y: 40 };
         q(".route-item").forEach((item) => {
           const node = item.querySelector(".route-node");
           const card = item.querySelector(".route-card");

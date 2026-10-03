@@ -36,7 +36,7 @@ export function CourseAnimator({ children }: { children: ReactNode }) {
 
         if (head) {
           const h = gsap.utils.selector(head);
-          const wide = window.matchMedia("(min-width: 961px)").matches;
+          const wide = window.matchMedia("(min-width: 1320px)").matches;
           const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
           tl.set(head, { autoAlpha: 1 })
             .from(h(".eyebrow"), { y: 16, autoAlpha: 0, duration: 0.45, clearProps: "transform" });
