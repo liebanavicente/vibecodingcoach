@@ -181,7 +181,7 @@ for (const [name, body, length] of [["entrada", coverScene.replace('data-end="6.
 }
 
 const stamp = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
-const description = `Módulo ${mod.number} del curso gratuito Vibe Coding desde Cero: ${mod.title.toLowerCase()}.
+const description = `Módulo ${mod.number} del curso gratuito Vibe Coding desde Cero: ${mod.title.charAt(0).toLowerCase() + mod.title.slice(1)}.
 ${mod.summary}
 
 📚 Curso completo, gratis y con ejercicios: https://vibecoding.miguelliebana.com/curso/${slug}

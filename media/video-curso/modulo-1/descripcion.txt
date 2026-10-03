@@ -1,4 +1,4 @@
-Módulo 1 del curso gratuito Vibe Coding desde Cero: hablar con la ia.
+Módulo 1 del curso gratuito Vibe Coding desde Cero: hablar con la IA.
 Cómo escribir instrucciones claras, iterar sobre el resultado y salir de los errores sin frustrarte.
 
 📚 Curso completo, gratis y con ejercicios: https://vibecoding.miguelliebana.com/curso/modulo-1
