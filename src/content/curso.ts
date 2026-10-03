@@ -351,6 +351,7 @@ export const modules: Module[] = [
     summary: "Formularios y una base de datos sencilla para guardar información.",
     duration: "1 h",
     available: true,
+    youtube: "gIBQNzvndKk",
     objectives: [
       "Entender qué pasa entre que alguien pulsa «Enviar» y el dato se guarda.",
       "Añadir a tu web un formulario de contacto que te llegue al correo.",
