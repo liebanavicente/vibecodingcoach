@@ -260,6 +260,30 @@ Curso gratis desde cero en el enlace del perfil.
 
 ---
 
+## Carrusel 01 · Mis reels se publican solos
+
+9 imágenes en `media/carrusel-01/out/` (`npm run carrusel -- carrusel-01`). Guía en la web:
+/curso/recursos/publicar-en-automatico.
+
+```
+Hacer el vídeo con IA es rápido. Publicarlo, no 😅
+
+Así dejé mis reels publicándose solos en Instagram y TikTok:
+
+1️⃣ Buffer (gratis) programa las publicaciones
+2️⃣ Claude Code se conecta a Buffer y hace el trabajo técnico
+3️⃣ Los vídeos van a un almacén con enlace, de donde Buffer los coge
+4️⃣ Una lista con el orden, y cada mañana la cola se rellena sola
+
+Resultado: 52 vídeos = 4 meses de publicaciones sin tocar nada.
+
+Guárdalo 📌 La guía paso a paso y el prompt, gratis en el enlace del perfil.
+
+#vibecoding #automatizacion #inteligenciaartificial #ia #claudecode #buffer #redessociales #emprendedores
+```
+
+---
+
 ## Próximos reels (misma plantilla)
 
 - Palabra del día: ventana de contexto, alucinación, commit, deploy, RAG.

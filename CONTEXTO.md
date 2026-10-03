@@ -123,7 +123,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   `media/bg/` y `npm run fondos` los convierte en bucle (guía y prompts en `media/kit/bg/README.md`). Plan B: plantilla «cine» (`media/kit/cine.css`, guía y
   prompts para Flow en `media/kit/CINE.md`): clip de Flow a pantalla completa con titular, subtítulos karaoke
   (`data-words`), barra de capítulos (`.hud`) y cámara lenta/zoom (`data-rate`, `data-zoom`); 14 = de idea a
-  web en 3 pasos, primer reel con ella. Textos de publicación,
+  web en 3 pasos, primer reel con ella. Carruseles de Instagram: `media/carrusel-XX/carrusel.html` (una `.card`
+  por imagen, 1080×1350) y `npm run carrusel -- carrusel-01` las guarda en `out/`; logos de marca con
+  `data-si="<slug de simple-icons>"`; 01 = «Mis reels se publican solos» (Buffer). Textos de publicación,
   bio y calendario en `media/instagram.md`.
 - Generador «Palabra del día»: `npm run reels:palabras` lee `src/content/glosario.ts`, crea
   `media/palabras/<id>/reel.html` + `caption.txt` por término (salvo token y mcp, hechos a mano),
@@ -186,6 +188,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
    - Sin la clave, Claude hace lo mismo con el MCP de Buffer (`create_post`, Instagram con
      `metadata.instagram = { type: "reel", shouldShareToFeed: true }`; al editar hay que reenviar `assets` y
      `metadata`). Publicar al momento, siempre con confirmación de Miguel.
+   - Guía didáctica en la web: `/curso/recursos/publicar-en-automatico` (categoría «Automatizar») y prompt
+     `publicar-en-automatico` en la biblioteca. Arranque diario instalado en `~/Library/LaunchAgents`.
    - Estado 3 oct: 10/10 programadas (agente, alucinación, API, backend y reel 11 en las dos redes), todas con
      texto y en automático. Los reels 10, 12 y 13 salieron sin texto. Reels 01, 07 y 08 se publicaron a mano
      (fuera de la cola); el 14 («cine», plan B) tampoco está en la cola. OpusClip MCP conectado, sin usar.
