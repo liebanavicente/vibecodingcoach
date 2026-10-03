@@ -17,6 +17,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CountUp } from "@/components/CountUp";
+import { CourseScrollVideo } from "@/components/CourseScrollVideo";
 import { HERO_SCRIPT, HeroAnimator } from "@/components/HeroAnimator";
 import { HowItWorks } from "@/components/HowItWorks";
 import { IntroVideo } from "@/components/IntroVideo";
@@ -275,6 +276,7 @@ export default function Home() {
               Ver el curso <ArrowRight aria-hidden size={18} weight="bold" />
             </Link>
           </div>
+          <CourseScrollVideo />
           <ol className="module-list">
             {modules.slice(0, 3).map((m) => (
               <li key={m.slug}>

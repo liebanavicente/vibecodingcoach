@@ -74,7 +74,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   ilustración del hero pieza a pieza al entrar (espera a que se cierre el vídeo de entrada) y le da
   un leve desplazamiento con el scroll; `src/components/CountUp.tsx` hace contar los números de
   «Sobre mí»; `src/components/RouteAnimator.tsx` rellena la línea de la ruta de los dos cursos
-  con el scroll, enciende cada paso y desliza las tarjetas. Todas se desactivan con «reducir movimiento». `HERO_SCRIPT` oculta la ilustración
+  con el scroll, enciende cada paso y desliza las tarjetas; `src/components/CourseScrollVideo.tsx`
+  muestra en la sección del curso de la portada un clip de Flow (una web construyéndose en un portátil)
+  que se abre con un recorte y avanza con el scroll (`public/videos/curso-scroll.mp4`, codificado con
+  fotograma clave cada 3 para que el scrub sea suave; fuente en `media/curso-video/clip.mp4`). Todas se desactivan con «reducir movimiento». `HERO_SCRIPT` oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
 - Biblioteca de prompts: `/curso/prompts`, 33 prompts en `src/content/prompts.ts` (fuente
   única). Las guías los usan con un bloque `{ type: "prompt", id }`; los huecos van [entre
