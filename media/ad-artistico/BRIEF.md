@@ -1,9 +1,12 @@
-# Anuncio de 10 s en Dreamina (Seedance 2.5)
+# Anuncio artístico de 10 s (Google Flow)
+
+Hecho para Seedance en Dreamina, pero se descartó por precio: se genera en Google Flow, ya incluido en la
+suscripción. El prompt vale igual.
 
 **Objetivo (uno solo):** que quien lo vea sienta «con IA, una idea se convierte en una web» y entre a la web a
 por la primera clase gratis. 10 segundos dan para una sola idea: de una frase a una web, en un gesto.
 
-**Formato:** vertical 9:16, 720p (pruebas a 480p), 10 s, sin texto en pantalla. Claude añade después la
+**Formato:** vertical 9:16, 8–10 s, sin texto en pantalla. Claude añade después la
 marca, la dirección y el cierre (3 s más).
 
 ## Referencias que subir
@@ -33,5 +36,5 @@ Cinematic, sharp, premium, playful. No readable text or captions, no logos, no c
 
 ## Después
 
-Deja el vídeo en `media/ad-dreamina/clip.mp4`: Claude tapa lo que haya salido raro en la pantalla del
+Deja el vídeo en `media/ad-artistico/clip.mp4`: Claude tapa lo que haya salido raro en la pantalla del
 móvil con la captura real, y añade el cierre con el ML, «Primera clase gratis» y la web.
