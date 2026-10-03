@@ -164,6 +164,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   con `npm run reel -- video-curso/<slug>`; la música (Biblioteca de audio de YouTube, `musicadefondo.mp3`, no
   versionada) se añade después con `bash media/video-curso/musica.sh <slug>`. Miniatura: `npm run carrusel --
   video-curso/<slug>/miniatura`. Módulo 0 hecho (4:20).
+  Alternativa que a Miguel le gustó más: el resumen en vídeo de NotebookLM (Gemini Notebook) del módulo, envuelto con
+  nuestra entrada y cierre: `bash media/video-curso/envolver.sh modulo-0 notebooklm.mp4 393.7` (393.7 = segundo
+  donde cortar antes de su pantalla final) → `out/<slug>-notebooklm-youtube.mp4`; descripción en
+  `descripcion-notebooklm.txt`. Los vídeos de NotebookLM no se versionan.
 - Vídeos del reproductor: ninguno grabado todavía. Flujo previsto: grabar la narración (con webcam o
   pantalla) pasando las diapositivas en pantalla completa, subir el mp4 (p. ej. a
   `public/videos/` o Vercel Blob) y anotar en `cues` el segundo de cada cambio.
