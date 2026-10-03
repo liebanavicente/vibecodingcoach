@@ -1,6 +1,6 @@
 # Contexto del proyecto vibecodingcoach
 
-Traspaso de sesión (2 oct 2026). Leer antes de continuar.
+Traspaso de sesión (3 oct 2026). Leer antes de continuar.
 
 ## Quién y qué
 
@@ -167,6 +167,13 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 6. Mejoras posibles: imagen OG, analítica. Reservas con la agenda de citas de Google
    Calendar: https://calendar.app.google/uSv5gUWQeJT8efSM6 (Cal.com se abandonó: fallaba
    el inicio de sesión en el móvil).
+7. Reels: Miguel prefiere la plantilla de cristal de siempre con fondo animado de Flow (no la «cine», que
+   queda como plan B). Fondos listos: `burbujas` (el principal) y `cintas`. `media/bg/seda.mp4` (Flow) está
+   subido pero **sin convertir**: Miguel pidió no tocarlo aún; cuando lo diga, `npm run fondos`.
+   Demo de prueba (no versionada): `media/_demo/out/reel-06-con-burbujas.mp4`.
+8. OpusClip MCP añadido el 3 oct (`claude mcp add --transport http opusclip https://mcp.opus.pro/mcp`, en la
+   config local de este proyecto, `~/.claude.json`). Tras reiniciar hay que conectarlo con `/mcp` → opusclip
+   (inicio de sesión en el navegador). Idea: sacar clips cortos para reels de vídeos largos.
 
 ## Avisos
 
