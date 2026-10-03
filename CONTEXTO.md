@@ -171,13 +171,18 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
    queda como plan B). Fondos listos en `media/kit/bg/`: `burbujas` (el principal), `seda` (centro libre,
    bueno para mucho texto) y `cintas`. Aún no se ha publicado ningún reel con fondo animado.
    Demo de prueba (no versionada): `media/_demo/out/reel-06-con-burbujas.mp4`.
-8. Publicación automática de reels (tarea que Miguel quiere quitarse de encima). OpusClip MCP conectado
-   (prueba gratis, 90 min de crédito; solo publica clips de sus proyectos: habría que subir cada reel y
-   procesarlo sin recortar, `skipCurate`). Miguel prefirió probar **Buffer**: añadido el 3 oct con
-   `claude mcp add --transport http buffer https://mcp.buffer.com/mcp` (config local, `~/.claude.json`);
-   tras reiniciar, `/mcp` → buffer para iniciar sesión. Plan: conectar Instagram (cuenta profesional) y
-   TikTok en Buffer y programar desde aquí los reels renderizados con los textos de `media/instagram.md`.
-   Publicar o programar siempre con confirmación de Miguel.
+8. Publicación de reels con **Buffer** (MCP `buffer`, conectado; organización «My organization», plan gratis:
+   3 canales y 10 publicaciones programadas a la vez). Canales: Instagram @vibecodingcoach_ml
+   (6ac02fceea19ca0bde5b0ee0, horario tue 19:45 / wed 18:25 / thu 10:49) y TikTok @vibecodingcoach_m
+   (6abfd978ea19ca0bde55e36d). Buffer no admite subir archivos por el MCP: los vídeos van por enlace público.
+   `npm run subir -- reel-15 palabras/rag` sube los renders a Vercel Blob (almacén `vibecodingcoach-reels`,
+   público, fra1; clave `BLOB_READ_WRITE_TOKEN` en `.env.local`, no versionado) y saca el enlace y el texto
+   (de `caption.txt` o de `media/instagram.md`). Luego Claude crea las publicaciones con `create_post`
+   (Instagram: `metadata.instagram = { type: "reel", shouldShareToFeed: true }`). Al editar una publicación
+   hay que reenviar su vídeo (`assets`) o Buffer la rechaza. Publicar o programar siempre con confirmación.
+   Hecho el 3 oct: textos y hashtags puestos a las palabras agente, alucinación y API (TikTok, programadas);
+   borrador de prueba «backend» en TikTok. Los reels 10, 12 y 13 salieron sin texto. OpusClip MCP también
+   conectado (prueba, 90 min), sin usar.
 
 ## Avisos
 
