@@ -89,7 +89,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   continuo hecho con un fundido desde `media/bg/bg.mp4`): detrás de las secciones de cursos de la
   portada y de las cabeceras de /curso, /competencias-digitales, /curso/prompts, /curso/glosario y
   /reservar. Solo se reproduce en pantalla; se usa poniendo `has-ribbon` al contenedor y
-  `<RibbonBg />` como último hijo. Opacidad en `.ribbon-bg video` (globals.css).
+  `<RibbonBg />` como último hijo. Opacidad en `.ribbon-bg video` (globals.css). En móvil (≤960 px)
+  va desenfocado, más alto y a 0,55× de velocidad, y además sale detrás del texto del hero de la
+  portada (`position="hero"`, oculto en escritorio).
   `GSAP_SCRIPT` (`src/lib/intro.ts`) oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
 - Biblioteca de prompts: `/curso/prompts`, 33 prompts en `src/content/prompts.ts` (fuente

@@ -83,7 +83,7 @@ export function HeroAnimator({ children }: { children: ReactNode }) {
   );
 
   return (
-    <section className="hero" ref={root}>
+    <section className="hero has-ribbon" ref={root}>
       {children}
     </section>
   );

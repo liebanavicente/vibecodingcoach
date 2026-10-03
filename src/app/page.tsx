@@ -191,6 +191,7 @@ export default function Home() {
             <HeroVisual />
             <HowItWorks />
           </div>
+          <RibbonBg position="hero" />
         </HeroAnimator>
 
         <div className="perks">
