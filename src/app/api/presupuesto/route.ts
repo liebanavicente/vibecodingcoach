@@ -1,4 +1,4 @@
-import { type Answers, contentOptions, estimate, features, MAX_PAGES, summary, webTypes } from "@/content/presupuesto";
+import { type Answers, contentOptions, estimate, features, MAX_PAGES, RATE, REVISIONS, summary, webTypes } from "@/content/presupuesto";
 import { askGemini, tooMany } from "@/lib/gemini";
 import { site } from "@/lib/site";
 
@@ -64,7 +64,8 @@ urgent: true solo si dice que lo necesita muy pronto (días o una o dos semanas)
     const answers = clean(body.answers ?? {});
     const e = estimate(answers);
     const system = `Eres Miguel Liébana, que hace webs por encargo. Escribe en español, tuteando y con tono cercano, una respuesta de 3 a 5 frases a alguien que acaba de calcular un presupuesto orientativo.
-- Usa exactamente esta estimación, sin cambiar ni añadir cifras: ${e.price[0]}–${e.price[1]} € y ${e.weeks[0]}–${e.weeks[1]} semanas.
+- Usa exactamente esta estimación, sin cambiar ni añadir cifras: unas ${e.hours[0]}–${e.hours[1]} horas de trabajo a ${RATE} €/h (lo mismo que tus clases), es decir ${e.price[0]}–${e.price[1]} €, con entrega en ${e.weeks[0]}–${e.weeks[1]} semanas.
+- Es un precio de lanzamiento e incluye ${REVISIONS} rondas de cambios; menciónalo de forma natural, sin sonar a oferta comercial.
 - Explica en una frase qué es lo que más pesa en el precio, según lo elegido.
 - Deja claro que es orientativa y que el precio cerrado se acuerda en una llamada gratis de 30 minutos, según lo que necesite de verdad.
 - Si ves algo que conviene concretar (por ejemplo, cuántos productos, quién actualizará la web), menciónalo como pregunta.

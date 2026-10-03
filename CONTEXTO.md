@@ -147,8 +147,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - `src/lib/site.ts`: nombre, email de contacto y enlaces sociales. `src/content/oferta.ts`: precios de las clases y
   «Te la hago yo» (lo usan la portada y el asistente).
 - Calculadora de presupuesto (`/presupuesto`, `src/components/Calculadora.tsx`): tipo de web, páginas, funciones,
-  contenido y urgencia → horquilla de precio y semanas calculada con reglas fijas (`src/content/presupuesto.ts`, tarifas
-  editables por Miguel), nunca un precio cerrado. Con IA (`src/app/api/presupuesto/route.ts`): «Cuéntamelo con tus
+  contenido y urgencia → horquilla de horas, precio y semanas con reglas fijas (`src/content/presupuesto.ts`). Precio
+  de lanzamiento coherente con su perfil junior: horas × 25 €/h (lo mismo que las clases), 2 rondas de cambios incluidas,
+  urgencia +15 %, mantenimiento 15–25 €/mes; nunca un precio cerrado. Con IA (`src/app/api/presupuesto/route.ts`): «Cuéntamelo con tus
   palabras» rellena el formulario (salida JSON con esquema) y «Explícame esta estimación» redacta una nota con las cifras
   que calcula el servidor. Botones: pedir por correo (con el resumen) o llamada gratis. Enlazada desde «Te la hago yo» y
   el asistente. Ambos usan `src/lib/gemini.ts` (modelo de respaldo, límite por IP).

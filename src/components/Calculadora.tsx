@@ -3,7 +3,7 @@
 import { useMemo, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { CalendarBlank, EnvelopeSimple, MagicWand, Sparkle } from "@phosphor-icons/react";
-import { type Answers, contentOptions, defaultAnswers, estimate, type Feature, features, MAX_PAGES, maintenance, summary, webTypes } from "@/content/presupuesto";
+import { type Answers, contentOptions, defaultAnswers, estimate, type Feature, features, MAX_PAGES, maintenance, RATE, REVISIONS, summary, webTypes } from "@/content/presupuesto";
 import { contactHref, site } from "@/lib/site";
 
 const eur = (n: number) => n.toLocaleString("es-ES");
@@ -152,7 +152,7 @@ export function Calculadora({ withAi }: { withAi: boolean }) {
                 {eur(e.price[0])}–{eur(e.price[1])} €
               </strong>
               <span>
-                {e.weeks[0]}–{e.weeks[1]} semanas · ver detalle ↓
+                {e.hours[0]}–{e.hours[1]} h · {e.weeks[0]}–{e.weeks[1]} semanas · ver detalle ↓
               </span>
             </a>,
             document.body,
@@ -160,12 +160,12 @@ export function Calculadora({ withAi }: { withAi: boolean }) {
         : null}
 
       <aside aria-live="polite" className="calc-result glass" id="estimacion">
-        <p className="label">Estimación orientativa</p>
+        <p className="label">Estimación orientativa · precio de lanzamiento</p>
         <p className="calc-price">
           {eur(e.price[0])}–{eur(e.price[1])} €
         </p>
         <p className="calc-weeks">
-          {e.weeks[0] === e.weeks[1] ? `${e.weeks[0]}` : `${e.weeks[0]}–${e.weeks[1]}`} semanas de trabajo
+          Unas {e.hours[0]}–{e.hours[1]} horas a {RATE} €/h · entrega en {e.weeks[0] === e.weeks[1] ? `${e.weeks[0]}` : `${e.weeks[0]}–${e.weeks[1]}`} semanas
         </p>
         <ul className="calc-lines">
           {e.lines.map((l) => (
@@ -179,12 +179,12 @@ export function Calculadora({ withAi }: { withAi: boolean }) {
           {answers.urgent ? (
             <li>
               <span>Urgencia</span>
-              <span>+25 %</span>
+              <span>+15 %</span>
             </li>
           ) : null}
         </ul>
         <p className="calc-small">
-          Aparte: dominio (unos 10–15 € al año) y, si quieres, mantenimiento ({maintenance[0]}–{maintenance[1]} €/mes). El precio cerrado se acuerda en una llamada, según lo que necesites de verdad.
+          Al mismo precio por hora que mis clases. Incluye {REVISIONS} rondas de cambios; lo que pase de ahí, por horas. Aparte: dominio (unos 10–15 € al año) y, si quieres, mantenimiento ({maintenance[0]}–{maintenance[1]} €/mes). El precio cerrado se acuerda en una llamada, según lo que necesites de verdad.
         </p>
 
         {notice ? <p className="calc-notice">{notice}</p> : null}
