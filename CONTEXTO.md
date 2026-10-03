@@ -211,8 +211,14 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - Plugin de Claude Code instalado (`remotion@remotion`, v4.0.532, ámbito de usuario) para hacer vídeos con React.
   Para instalarlo se añadió la huella verificada de GitHub a `~/.ssh/known_hosts` y la regla global de git
   `url."https://github.com/".insteadOf "git@github.com:"` (Miguel no tiene clave SSH; todos sus repos usan HTTPS).
-- Idea: valorar si algún tipo de reel (palabra del día, tarjetas) conviene pasarlo del kit propio (`media/kit`) a
-  Remotion. El kit actual sigue siendo la referencia mientras tanto.
+- Proyecto en `media/remotion/` (con sus propias dependencias; Next lo excluye en `tsconfig.json` y `eslint.config.mjs`).
+  `npm run remotion` abre el Studio. Piloto: «Palabra del día» (`src/PalabraDelDia.tsx`, marca en `src/brand.tsx`):
+  lee `src/content/glosario.ts` y crea una composición por término (carpeta «Glosario», ids `palabra-<id>`) más
+  `PalabraDelDia` editable desde el panel. Mejoras sobre el kit: la definición se ilumina palabra a palabra, cada
+  escena dura lo que pide su texto, transiciones de deslizar y barra de progreso. Renderizar un término:
+  `cd media/remotion && npx remotion render palabra-api out/api.mp4`. Fondos copiados en `media/remotion/public/`
+  (los enlaces simbólicos no funcionan con el bundler).
+- Decisión pendiente de Miguel: si le gusta más que el kit, migrar a Remotion el resto de reels tipo plantilla.
 
 ## Pendientes / siguientes pasos
 

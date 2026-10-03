@@ -9,6 +9,7 @@
     "lint": "eslint",
     "reel": "node media/render.mjs",
     "carrusel": "node media/carrusel.mjs",
+    "remotion": "npm --prefix media/remotion run dev",
     "fondos": "node media/bg-loop.mjs",
     "subir": "node media/subir.mjs",
     "publicar": "node media/publicar/publicar.mjs",
