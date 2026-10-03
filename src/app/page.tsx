@@ -18,6 +18,7 @@ import {
 import { BrandLogo } from "@/components/BrandLogo";
 import { CountUp } from "@/components/CountUp";
 import { RibbonBg } from "@/components/RibbonBg";
+import { SocialLinks } from "@/components/SocialLinks";
 import { CourseScrollVideo } from "@/components/CourseScrollVideo";
 import { HeroAnimator } from "@/components/HeroAnimator";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -422,6 +423,20 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </section>
+
+        <section aria-labelledby="sigueme" className="section has-ribbon">
+          <div className="section-head">
+            <div>
+              <p className="label">Vídeos cortos cada semana</p>
+              <h2 className="section-title" id="sigueme">
+                Sígueme en redes
+              </h2>
+              <p className="muted section-sub">Trucos de vibe coding en un minuto, sin jerga. Si te sirven, ya sabes dónde estoy.</p>
+            </div>
+          </div>
+          <SocialLinks />
+          <RibbonBg position="bottom" />
         </section>
 
         <section className="section">

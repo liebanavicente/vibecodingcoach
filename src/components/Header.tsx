@@ -12,6 +12,7 @@ import {
   House,
   InstagramLogo,
   List,
+  TiktokLogo,
   Translate,
   X,
 } from "@phosphor-icons/react";
@@ -141,9 +142,14 @@ export function Header() {
                 <Link className="button primary lg" href={contactHref} onClick={() => setOpenOn(null)}>
                   Reserva una clase de prueba gratis
                 </Link>
-                <a className="mobile-menu-social" href={site.instagram} rel="noreferrer" target="_blank">
-                  <InstagramLogo aria-hidden size={20} weight="bold" /> {site.instagramHandle}
-                </a>
+                <span className="mobile-menu-socials">
+                  <a className="mobile-menu-social" href={site.instagram} rel="noreferrer" target="_blank">
+                    <InstagramLogo aria-hidden size={20} weight="bold" /> Instagram
+                  </a>
+                  <a className="mobile-menu-social" href={site.tiktok} rel="noreferrer" target="_blank">
+                    <TiktokLogo aria-hidden size={20} weight="bold" /> TikTok
+                  </a>
+                </span>
               </div>
             </div>,
             document.body,

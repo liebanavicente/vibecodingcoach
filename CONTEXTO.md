@@ -85,14 +85,15 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   pantalla completa (`src/components/Header.tsx`, montado en <body> con un portal porque el blur de
   la cabecera lo atraparía). Se cierra con Escape, al pulsar un enlace o al cambiar de página.
   `html { overflow-x: clip }` evita el scroll lateral de las animaciones y los fondos a sangre.
-  Fondo animado de cintas (`src/components/RibbonBg.tsx`, `public/videos/fondo-cintas.mp4` y su versión vertical `fondo-cintas-movil.mp4` para móvil, bucle
+  Fondo animado de cintas (`src/components/RibbonBg.tsx`, `public/videos/fondo-cintas.mp4`, bucle
   continuo hecho con un fundido desde `media/bg/bg.mp4`): detrás de las secciones de cursos de la
   portada y de las cabeceras de /curso, /competencias-digitales, /curso/prompts, /curso/glosario y
   /reservar. Solo se reproduce en pantalla; se usa poniendo `has-ribbon` al contenedor y
   `<RibbonBg />` como último hijo. Opacidad en `.ribbon-bg video` (globals.css). En móvil (≤960 px)
-  usa un corte vertical nítido con tres corrientes de cintas (`fondo-cintas-movil.mp4`: el vídeo
-  horizontal recortado y apilado con copias volteadas y desfasadas, hecho con ffmpeg) en una caja de
-  como mucho una pantalla de alto, a 0,8× de velocidad, y además sale detrás del texto del hero de la portada (`position="hero"`, oculto en escritorio).
+  no carga vídeo (varias copias a la vez hacían pesado el scroll): muestra la imagen vertical
+  `fondo-cintas-movil.webp` (11 KB) con una deriva lenta en CSS (`ribbon-drift`) que solo corre en
+  la sección visible, y además sale detrás del texto del hero de la portada (`position="hero"`,
+  oculto en escritorio).
   `GSAP_SCRIPT` (`src/lib/intro.ts`) oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
 - Biblioteca de prompts: `/curso/prompts`, 33 prompts en `src/content/prompts.ts` (fuente
@@ -135,7 +136,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - Reservas: todos los botones «Reservar» llevan a `/reservar` (`src/app/reservar/page.tsx`).
   Si `site.bookingUrl` (en `src/lib/site.ts`) está vacío, el botón abre un email ya redactado;
   con un enlace, abre el calendario de reservas. Instagram: @vibecodingcoach_ml
-  (`site.instagram`), enlazado en el pie, en `/reservar` y en la guía «Mantente al día».
+  (`site.instagram`) y TikTok @vibecodingcoach_m (`site.tiktok`): tarjetas «Sígueme en redes» en la
+  portada (tras «Sobre mí»), iconos en el pie y en el menú móvil (`src/components/SocialLinks.tsx`,
+  hover con los colores de cada marca). Instagram también en `/reservar` y en la guía «Mantente al día».
 
 ### Curso
 
