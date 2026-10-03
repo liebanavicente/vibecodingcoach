@@ -8,6 +8,7 @@
   "organizacion": "6abfd4c9ae9e53ac2e23617c",
   "limite": 10,
   "cola": [
+    "ad-artistico",
     "palabras/ia-generativa",
     "palabras/llm",
     "reel-02",
