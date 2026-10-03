@@ -156,9 +156,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - Módulos 0 (Mentalidad y primeros pasos), 1 (Hablar con la IA) y 2 (Lo mínimo de código para no perderte:
   HTML, CSS, el inspector y pedir cambios precisos; enlaza su curso materialdidacticocpweb.vercel.app) y 3
   (Funcionalidad real: frontend/backend/base de datos, formulario con Formspree, Supabase, RLS y claves, IA gratis
-  con Gemini en el servidor, pruebas): escritos y publicados. Los ejemplos de código van en `prompt` con `promptLabel` («Así se ve el HTML»).
-- Módulos 4 y 5 (Publicar, Proyecto final): solo título y resumen, «Próximamente».
-- Pendiente de Miguel: revisar el texto de los módulos 0 a 3 para que suene a él.
+  con Gemini en el servidor, pruebas) y 4 (Publicar y compartir: GitHub, Vercel y claves en Environment
+  Variables, dominio y DNS, vista previa Open Graph, sitemap y Search Console): escritos y publicados. Los ejemplos de código van en `prompt` con `promptLabel` («Así se ve el HTML»).
+- Módulo 5 (Proyecto final): solo título y resumen, «Próximamente»; se escribirá cuando haya alumnos.
+- Pendiente de Miguel: revisar el texto de los módulos 0 a 4 para que suene a él.
 - Vídeos para YouTube (sin voz ni avatar, decisión de Miguel): `node --no-warnings media/video-curso/leccion.mjs
   modulo-0 [--musica pista.mp3]` crea `media/video-curso/<slug>/reel.html` (1920×1080: diapositivas que se montan
   solas + el texto de la lección en frases al ritmo de lectura) y `descripcion.txt` con capítulos; se renderiza
@@ -179,7 +180,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 1. Probar a mano el reproductor (botones, teclado, pantalla completa): solo se revisó
    con capturas estáticas, no con clics.
-2. Escribir el Módulo 4 (publicar) y los módulos 2–5 de Competencias.
+2. Escribir los módulos 2–5 de Competencias. Vídeos de NotebookLM de los módulos 2–4 y actualizar descripciones
+   de YouTube: Miguel lo hará todo junto cuando haya más contenido.
 3. Enlazar esta web desde miguelliebana.com.
 4. Pilotar el Módulo 1 gratis con 2-3 personas y recoger feedback (ver PLAN.md).
 5. Darse de alta en Preply / Superprof / ADPList.

@@ -473,10 +473,121 @@ export const modules: Module[] = [
     number: 4,
     title: "Publicar y compartir",
     summary: "Sube tu proyecto a internet y consigue un enlace para compartir.",
-    duration: "Próximamente",
-    available: false,
-    objectives: [],
-    sections: [],
+    duration: "45 min",
+    available: true,
+    objectives: [
+      "Guardar tu proyecto en GitHub y publicarlo en internet con Vercel.",
+      "Entender qué pasa cada vez que cambias algo y lo vuelves a subir.",
+      "Ponerle tu propio dominio a la web.",
+      "Conseguir que se vea bien al compartirla y que Google la encuentre.",
+    ],
+    sections: [
+      {
+        title: "De tu ordenador a internet",
+        points: [
+          "En tu ordenador, la web solo la ves tú",
+          "El hosting es un ordenador encendido siempre que la enseña al mundo",
+          "Vercel, Netlify o Cloudflare Pages: gratis para empezar",
+        ],
+        body: [
+          "Hasta ahora tu web vivía en tu ordenador: si lo apagas, desaparece, y nadie más puede verla. Publicarla es copiarla a un ordenador que está encendido día y noche y que se la enseña a quien escriba su dirección. Eso es el hosting.",
+          "Para webs como las que haces en este curso hay opciones gratuitas muy buenas: Vercel, Netlify o Cloudflare Pages. Funcionan casi igual: conectas tu proyecto y en un par de minutos tienes un enlace para compartir.",
+          "El camino que te recomiendo es el que uso para esta misma web: el código va a GitHub y Vercel lo publica desde allí. Así cada cambio que guardas se publica solo.",
+        ],
+      },
+      {
+        title: "Sube tu proyecto a GitHub",
+        points: [
+          "GitHub guarda tu proyecto en la nube, con todo su historial",
+          "Commit: una foto del proyecto; push: subirla",
+          "Pídeselo a la IA y que te explique cada paso",
+        ],
+        body: [
+          "GitHub es como una carpeta en la nube que además recuerda cada versión de tu proyecto. Si algo se rompe, puedes volver atrás; si se te estropea el ordenador, tu web está a salvo.",
+          "Dos palabras que vas a oír mucho: un commit es una foto del proyecto en un momento dado, con una frase que explica qué cambiaste. Un push es subir esas fotos a GitHub. La IA puede hacer las dos cosas por ti; pídele que te cuente qué hace mientras lo hace.",
+        ],
+        prompt:
+          "Quiero subir este proyecto a GitHub por primera vez. Comprueba antes que no se va a subir ningún archivo con claves (como .env). Luego crea el repositorio, haz el primer commit y súbelo, explicándome en una frase cada paso.",
+        tip: "Tienes la guía completa en «Git y GitHub en 5 minutos».",
+      },
+      {
+        title: "Publica con Vercel",
+        points: [
+          "Entra con tu cuenta de GitHub e importa el proyecto",
+          "Cada push publica una versión nueva sola",
+          "Las claves del .env se copian a mano en Vercel",
+        ],
+        body: [
+          "En vercel.com entra con tu cuenta de GitHub, pulsa «Add New → Project» y elige tu repositorio. Vercel detecta qué tipo de web es y la publica en uno o dos minutos con una dirección del tipo tu-proyecto.vercel.app. Ya puedes mandarla por WhatsApp.",
+          "Desde ese momento, cada vez que subes un cambio a GitHub, Vercel publica una versión nueva sola. Si algo sale mal, puedes volver a la versión anterior con un clic en su panel.",
+          "Ojo con las claves: tu archivo .env no se sube a GitHub (y está bien que no se suba), así que Vercel no las conoce. Tienes que copiarlas en Settings → Environment Variables. Si tu formulario o tu IA funcionan en tu ordenador pero no en internet, casi siempre es esto.",
+        ],
+        tip: "El plan gratuito de Vercel es para proyectos personales. Si tu web es de un negocio que cobra, mira su plan de pago o usa Netlify o Cloudflare Pages, que permiten uso comercial gratis.",
+      },
+      {
+        title: "Tu propio dominio",
+        points: [
+          "tunegocio.com da confianza; tu-proyecto.vercel.app, menos",
+          "Un dominio cuesta unos 10–15 € al año",
+          "La IA te guía con los DNS, y el candado HTTPS es automático",
+        ],
+        body: [
+          "Un enlace de vercel.app funciona, pero para un negocio queda mucho mejor tunegocio.com. Un dominio se compra por unos 10–15 € al año en sitios como Namecheap, Cloudflare o el propio Vercel.",
+          "Después hay que decirle a internet que ese nombre apunta a tu web: eso son los DNS. Suena técnico, pero son dos o tres datos que se copian de un sitio a otro, y la IA te dice exactamente cuáles. El candado de «conexión segura» (HTTPS) lo pone Vercel solo.",
+          "Si ya tienes un dominio, también puedes usar un subdominio, como hago yo con vibecoding.miguelliebana.com.",
+        ],
+        prompt:
+          "Quiero que mi web de Vercel funcione con mi dominio [tudominio.com], que tengo comprado en [Namecheap, Cloudflare…]. Dime paso a paso qué tengo que tocar en Vercel y qué registros DNS tengo que añadir, y cómo sé que ha funcionado.",
+      },
+      {
+        title: "Que se vea bien al compartirla",
+        points: [
+          "Título y descripción de cada página",
+          "Imagen de vista previa: la que sale en WhatsApp",
+          "Icono de la pestaña (favicon)",
+        ],
+        body: [
+          "Cuando pegas un enlace en WhatsApp o en LinkedIn, aparece una tarjeta con título, descripción e imagen. Si tu web no las tiene, sale un enlace pelado y nadie lo pulsa.",
+          "Esa imagen se llama imagen Open Graph y se prepara una vez: 1200×630 píxeles, con tu nombre, una frase y tus colores. Pídeselo a la IA junto con el título y la descripción de cada página y el icono de la pestaña.",
+        ],
+        prompt:
+          "Prepara mi web para compartirla: título y descripción en cada página, una imagen de vista previa de 1200×630 con [nombre del negocio], [frase] y mis colores, y un favicon. Dime cómo comprobar que la vista previa sale bien en WhatsApp.",
+        tip: "WhatsApp y las redes guardan la vista previa unos días. Si la cambias y no se actualiza, pega el enlace con ?v=2 al final.",
+      },
+      {
+        title: "Que Google te encuentre",
+        points: [
+          "Mapa del sitio (sitemap) y robots.txt",
+          "Google Search Console: dile a Google que existes",
+          "Paciencia: tarda semanas, no horas",
+        ],
+        body: [
+          "Publicar no significa que Google te encuentre. Ayúdale con dos archivos: el mapa del sitio (sitemap.xml), que lista todas tus páginas, y robots.txt, que le dice que puede entrar. La IA los crea en un minuto.",
+          "Después da de alta tu web en Google Search Console (gratis): verificas que el dominio es tuyo y le envías el mapa del sitio. Ahí verás qué buscan las personas que llegan a ti.",
+          "Y paciencia: Google tarda semanas en colocar una web nueva. Mientras tanto, compártela tú: WhatsApp, redes, tu firma de correo.",
+        ],
+        prompt:
+          "Revisa lo básico de SEO de mi web: que tenga sitemap.xml y robots.txt, que cada página tenga título y descripción propios y que se vea bien en el móvil. Arregla lo que falte y explícame cómo darla de alta en Google Search Console.",
+      },
+    ],
+    exercise: {
+      title: "Ejercicio: publica tu libro de visitas",
+      steps: [
+        "Sube a GitHub el proyecto del Módulo 3, comprobando que el .env no se sube.",
+        "Publícalo en Vercel y copia allí tus claves de Supabase y Gemini.",
+        "Deja un mensaje en tu libro de visitas desde el móvil y comprueba que se guarda.",
+        "Ponle título, descripción e imagen de vista previa, y pega el enlace en un chat de WhatsApp contigo mismo.",
+        "Compártelo con tres personas y pídeles que dejen un mensaje: es tu primer feedback real.",
+      ],
+    },
+    checklist: [
+      "Mi proyecto está en GitHub y sin claves a la vista.",
+      "Mi web está publicada y tiene un enlace que funciona en cualquier móvil.",
+      "Sé qué pasa al subir un cambio y cómo volver atrás.",
+      "Mis claves están configuradas en Vercel, no en el código.",
+      "Al compartir el enlace sale una vista previa con imagen.",
+      "Sé cómo dar de alta mi web en Google Search Console.",
+    ],
   },
   {
     slug: "modulo-5",
