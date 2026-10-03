@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/Header";
-import { MlLogo } from "@/components/MlLogo";
+import { MlLink } from "@/components/MlLogo";
 import { SocialLinks } from "@/components/SocialLinks";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <footer className="container site-footer">
           <div className="footer-brand">
-            <MlLogo className="footer-logo" title="Miguel Liébana" />
+            <MlLink className="footer-logo" />
             <p>
               <strong>
                 vibe<span>coding</span>coach

@@ -83,7 +83,10 @@ h3 { font-size: 1.08rem; font-weight: 700; letter-spacing: -0.01em; line-height:
 .ml-cursor { animation: caret-blink 1.1s steps(1) infinite; }
 @keyframes caret-blink { 50% { opacity: 0; } }
 .brand-logo { width: 62px; transition: transform 260ms var(--ease-out); }
-.brand:hover .brand-logo { transform: rotate(-6deg); }
+.brand-home { display: flex; align-items: center; }
+.ml-link { display: inline-block; flex: none; line-height: 0; }
+.ml-link .ml-logo { transition: transform 260ms var(--ease-out); }
+.ml-link:hover .ml-logo, .ml-link:focus-visible .ml-logo { transform: rotate(-6deg) scale(1.05); }
 .brand-by { color: var(--muted); font-size: 0.85rem; font-weight: 600; }
 .brand-word { font-size: 1.35rem; font-weight: 750; letter-spacing: -0.03em; }
 .brand-word span { color: var(--orange); }
@@ -430,22 +433,16 @@ mark.fill { border-radius: 6px; background: rgba(255, 154, 98, 0.22); color: #ff
 .ribbon-bottom video { object-position: center 80%; }
 .ribbon-hero, .ribbon-still { display: none; }
 @media (max-width: 960px) {
-  /* Phones: a portrait still (no video, which was heavy with several on one page) in a box about one screen tall.
-     It drifts slowly in CSS while on screen; the fade lives on the image box. */
+  /* Phones: a light portrait video over its still, in a box about one screen tall so tall sections never blow it up.
+     The fade lives on the media box. */
   .ribbon-bg { top: -60px; bottom: -60px; -webkit-mask-image: none; mask-image: none; }
-  .ribbon-bg video { display: none; }
-  .ribbon-still { display: block; position: absolute; left: -6%; width: 112%; top: calc(50% - min(50%, 95vw)); height: min(100%, 190vw); opacity: 0.7; background: url("/videos/fondo-cintas-movil.webp") center / cover; -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent); will-change: transform; }
-  .ribbon-top .ribbon-still, .ribbon-hero .ribbon-still { top: 0; }
-  .ribbon-bottom .ribbon-still { top: auto; bottom: 0; }
+  .ribbon-still, .ribbon-bg video { display: block; position: absolute; left: 0; width: 100%; top: calc(50% - min(50%, 95vw)); height: min(100%, 190vw); opacity: 0.7; -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent); }
+  .ribbon-still { background: url("/videos/fondo-cintas-movil.webp") center / cover; }
+  .ribbon-bg video { background: none; }
+  .ribbon-bg.has-video .ribbon-still { visibility: hidden; }
+  .ribbon-top .ribbon-still, .ribbon-hero .ribbon-still, .ribbon-top video, .ribbon-hero video { top: 0; }
+  .ribbon-bottom .ribbon-still, .ribbon-bottom video { top: auto; bottom: 0; }
   .ribbon-hero { display: block; top: -100px; bottom: 15%; }
-}
-@media (max-width: 960px) and (prefers-reduced-motion: no-preference) {
-  .ribbon-still { animation: ribbon-drift 14s ease-in-out infinite alternate paused; }
-  .ribbon-bg.is-on .ribbon-still { animation-play-state: running; }
-}
-@keyframes ribbon-drift {
-  from { transform: translate3d(-3%, -2%, 0) scale(1.02) rotate(-1deg); }
-  to { transform: translate3d(3%, 3%, 0) scale(1.1) rotate(1.5deg); }
 }
 .checklist-done { margin-top: 14px; border-radius: 14px; background: rgba(40, 180, 120, 0.1); color: #12805c; font-weight: 700; padding: 12px 16px; }
 .aside-cta p:not(.label) { margin-bottom: 14px; color: var(--text-2); line-height: 1.5; }

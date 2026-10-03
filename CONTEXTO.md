@@ -45,7 +45,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   la marca «vibe**coding**coach by ML».
 - **Marca personal:** logo ML de Miguel («ml_» en tecla blanca con sombra azul `#1f66ff`
   y cursor que parpadea), redibujado como SVG en `src/components/MlLogo.tsx` y usado en
-  cabecera, pie, «Sobre mí» y favicon (`src/app/icon.svg`). Mantenerlo siempre visible. Hero con ilustración de editor en CSS
+  cabecera, pie, «Sobre mí» y favicon (`src/app/icon.svg`). Mantenerlo siempre visible. En la web
+  va siempre como `MlLink`, que enlaza a miguelliebana.com en una pestaña nueva. Hero con ilustración de editor en CSS
   (`HeroVisual` en `src/app/page.tsx`) y franja de 3 ventajas. Todo el CSS en
   `src/app/globals.css` con clases propias (no utilidades de Tailwind).
 
@@ -90,10 +91,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   portada y de las cabeceras de /curso, /competencias-digitales, /curso/prompts, /curso/glosario y
   /reservar. Solo se reproduce en pantalla; se usa poniendo `has-ribbon` al contenedor y
   `<RibbonBg />` como último hijo. Opacidad en `.ribbon-bg video` (globals.css). En móvil (≤960 px)
-  no carga vídeo (varias copias a la vez hacían pesado el scroll): muestra la imagen vertical
-  `fondo-cintas-movil.webp` (11 KB) con una deriva lenta en CSS (`ribbon-drift`) que solo corre en
-  la sección visible, y además sale detrás del texto del hero de la portada (`position="hero"`,
-  oculto en escritorio).
+  usa `fondo-cintas-movil.mp4`, un corte vertical a 360 px (135 KB) que solo se descarga cuando la
+  sección llega a la pantalla, sin desplazamiento con el scroll (el de 720 px, con varias copias a la vez,
+  hacía pesado el scroll), sobre su imagen fija `fondo-cintas-movil.webp`. Además sale detrás del texto
+  del hero de la portada (`position="hero"`, oculto en escritorio).
   `GSAP_SCRIPT` (`src/lib/intro.ts`) oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
 - Biblioteca de prompts: `/curso/prompts`, 33 prompts en `src/content/prompts.ts` (fuente

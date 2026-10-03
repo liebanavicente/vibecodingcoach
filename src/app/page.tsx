@@ -24,7 +24,7 @@ import { HeroAnimator } from "@/components/HeroAnimator";
 import { HowItWorks } from "@/components/HowItWorks";
 import { IntroVideo } from "@/components/IntroVideo";
 import { GSAP_SCRIPT, INTRO_SCRIPT } from "@/lib/intro";
-import { MlLogo } from "@/components/MlLogo";
+import { MlLink } from "@/components/MlLogo";
 import { ResourceMarquee } from "@/components/ResourceMarquee";
 import { availableModules, modules } from "@/content/curso";
 import { availableDigitalModules, digitalModules } from "@/content/competencias";
@@ -391,7 +391,7 @@ export default function Home() {
           </div>
           <div className="about">
             <div className="about-facts">
-              <MlLogo className="about-logo" title="Miguel Liébana" />
+              <MlLink className="about-logo" />
               <div>
                 <CountUp className="grad-text" value={14} />
                 <span className="muted">años como maestro</span>

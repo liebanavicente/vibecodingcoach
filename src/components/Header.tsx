@@ -16,7 +16,7 @@ import {
   Translate,
   X,
 } from "@phosphor-icons/react";
-import { MlLogo } from "@/components/MlLogo";
+import { MlLink } from "@/components/MlLogo";
 import { contactHref, site } from "@/lib/site";
 
 const links = [
@@ -71,15 +71,17 @@ export function Header() {
       </a>
       <header className="topbar" data-scrolled={scrolled}>
         <div className="container topbar-inner">
-          <Link aria-label="vibecodingcoach by ML, inicio" className="brand" href="/">
-            <span aria-hidden className="brand-word">
-              vibe<span>coding</span>coach
-            </span>
+          <div className="brand">
+            <Link aria-label="vibecodingcoach, inicio" className="brand-home" href="/">
+              <span aria-hidden className="brand-word">
+                vibe<span>coding</span>coach
+              </span>
+            </Link>
             <span aria-hidden className="brand-by">
               by
             </span>
-            <MlLogo className="brand-logo" title="Miguel Liébana" />
-          </Link>
+            <MlLink className="brand-logo" />
+          </div>
           <nav aria-label="Principal" className="site-nav">
             <ul>
               {links

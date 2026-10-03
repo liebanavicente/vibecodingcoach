@@ -9,7 +9,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 /** Flowing glass ribbons behind a section. Place it as the last child of an element with class "has-ribbon".
  * It only plays while on screen, fades in and drifts with scroll; with reduced motion it stays a still image.
- * Phones get a portrait still (fondo-cintas-movil.webp) that drifts slowly in CSS instead of the video;
+ * Phones get a light portrait cut (fondo-cintas-movil.mp4) over its still (fondo-cintas-movil.webp);
  * "hero" only shows on phones. */
 export function RibbonBg({ position = "center" }: { position?: "top" | "center" | "bottom" | "hero" }) {
   const root = useRef<HTMLDivElement>(null);
@@ -30,30 +30,30 @@ export function RibbonBg({ position = "center" }: { position?: "top" | "center" 
           scrollTrigger: { trigger: host, start: "top 85%", once: true },
         });
 
-        // Phones skip the video: several decoders at once made scrolling heavy. A still drifts in CSS instead,
-        // and only while it is on screen.
-        if (phone) {
-          ScrollTrigger.create({
-            trigger: host,
-            start: "top bottom",
-            end: "bottom top",
-            onToggle: (self) => root.current?.classList.toggle("is-on", self.isActive),
+        // Phones get a small 360px cut (135 KB) and no scroll drift; several big decoders at once made scrolling heavy.
+        // The file only loads once the section first reaches the screen.
+        const src = phone ? "/videos/fondo-cintas-movil.mp4" : "/videos/fondo-cintas.mp4";
+        if (!phone) {
+          gsap.fromTo(el, { yPercent: -6 }, {
+            yPercent: 6,
+            ease: "none",
+            scrollTrigger: { trigger: host, start: "top bottom", end: "bottom top", scrub: true },
           });
-          return;
         }
-
-        if (!el.src.endsWith("/videos/fondo-cintas.mp4")) el.src = "/videos/fondo-cintas.mp4";
-        gsap.fromTo(el, { yPercent: -6 }, {
-          yPercent: 6,
-          ease: "none",
-          scrollTrigger: { trigger: host, start: "top bottom", end: "bottom top", scrub: true },
-        });
+        // Both layers are translucent, so the still steps aside once the video draws frames.
+        const onPlaying = () => root.current?.classList.add("has-video");
+        el.addEventListener("playing", onPlaying, { once: true });
         ScrollTrigger.create({
           trigger: host,
           start: "top bottom",
           end: "bottom top",
-          onToggle: (self) => (self.isActive ? void el.play().catch(() => {}) : el.pause()),
+          onToggle: (self) => {
+            if (!self.isActive) return el.pause();
+            if (!el.src.endsWith(src)) el.src = src;
+            el.play().catch(() => {});
+          },
         });
+        return () => el.removeEventListener("playing", onPlaying);
       });
       return () => mm.revert();
     },

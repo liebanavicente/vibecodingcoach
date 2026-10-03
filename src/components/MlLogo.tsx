@@ -1,3 +1,5 @@
+import { site } from "@/lib/site";
+
 /** Miguel Liébana's mark: "ml_" on a white key with a blue offset shadow and a blinking blue cursor. */
 export function MlLogo({ className = "", title = "ML" }: { className?: string; title?: string }) {
   return (
@@ -12,5 +14,14 @@ export function MlLogo({ className = "", title = "ML" }: { className?: string; t
       </g>
       <rect className="ml-cursor" fill="var(--ml-blue)" height="4.6" width="25.3" x="79.3" y="54.3" />
     </svg>
+  );
+}
+
+/** The ML mark as a link to Miguel's personal site (opens in a new tab so the visit here isn't lost). */
+export function MlLink({ className }: { className?: string }) {
+  return (
+    <a aria-label="Miguel Liébana, web personal (miguelliebana.com)" className="ml-link" href={site.web} rel="noreferrer" target="_blank" title="miguelliebana.com">
+      <MlLogo className={className} title="Miguel Liébana" />
+    </a>
   );
 }
