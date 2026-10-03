@@ -1,0 +1,25 @@
+Módulo 2 del curso gratuito Vibe Coding desde Cero: lo mínimo de código para no perderte.
+HTML y CSS básicos para entender lo que la IA escribe por ti.
+
+◀ Anterior: Módulo 1 · Hablar con la IA → https://youtu.be/l0BfZHVDGL0
+▶ Siguiente: Módulo 3 · Funcionalidad real → https://vibecoding.miguelliebana.com/curso/modulo-3
+
+📚 Curso completo, gratis y con ejercicios: https://vibecoding.miguelliebana.com/curso/modulo-2
+🎓 Primera clase gratis (30 min): https://vibecoding.miguelliebana.com/reservar
+
+Capítulos
+0:00 Introducción
+0:33 Una web es una casa
+1:51 Leer HTML sin miedo
+2:55 Las etiquetas que verás casi siempre
+4:03 CSS: cómo se ve cada cosa
+5:00 Las propiedades que más vas a pedir
+6:11 El inspector: tocar sin romper
+7:22 Pedir cambios con las palabras justas
+8:49 Ejercicio
+9:35 Repaso
+
+Soy Miguel Liébana, maestro durante 14 años. Enseño a principiantes absolutos a construir su primera web con IA, sin jerga.
+Instagram: https://www.instagram.com/vibecodingcoach_ml/ · TikTok: https://www.tiktok.com/@vibecodingcoach_m
+
+#vibecoding #inteligenciaartificial #aprenderaprogramar #claude #crearunaweb

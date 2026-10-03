@@ -46,3 +46,6 @@ next-env.d.ts
 # publishing log
 media/publicar/registro.log
 media/ad-artistico/work/
+
+# NotebookLM videos are not versioned (large, made elsewhere).
+media/video-curso/*/notebooklm.mp4

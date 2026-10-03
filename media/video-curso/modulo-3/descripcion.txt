@@ -1,0 +1,23 @@
+Módulo 3 del curso gratuito Vibe Coding desde Cero: funcionalidad real.
+Formularios y una base de datos sencilla para guardar información.
+
+▶ Siguiente: Módulo 4 · Publicar y compartir → https://vibecoding.miguelliebana.com/curso/modulo-4
+
+📚 Curso completo, gratis y con ejercicios: https://vibecoding.miguelliebana.com/curso/modulo-3
+🎓 Primera clase gratis (30 min): https://vibecoding.miguelliebana.com/reservar
+
+Capítulos
+0:00 Introducción
+0:31 Del escaparate a la tienda
+1:54 Tu primer formulario de contacto
+3:09 Guardar datos: tu primera base de datos
+4:32 Quién puede ver qué
+6:15 Meter IA en tu web, gratis
+7:47 Pruébalo como si fueras otra persona
+8:45 Ejercicio
+9:21 Repaso
+
+Soy Miguel Liébana, maestro durante 14 años. Enseño a principiantes absolutos a construir su primera web con IA, sin jerga.
+Instagram: https://www.instagram.com/vibecodingcoach_ml/ · TikTok: https://www.tiktok.com/@vibecodingcoach_m
+
+#vibecoding #inteligenciaartificial #aprenderaprogramar #claude #crearunaweb
