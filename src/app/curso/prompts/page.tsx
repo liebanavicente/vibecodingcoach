@@ -9,6 +9,7 @@ import { resources } from "@/content/recursos";
 export const metadata: Metadata = {
   title: "Biblioteca de prompts",
   description: "Prompts listos para copiar: empezar un proyecto, arreglar errores, diseño, seguridad, aprender y redes sociales.",
+  alternates: { canonical: "/curso/prompts" },
 };
 
 export default function PromptsPage() {

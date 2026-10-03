@@ -3,12 +3,30 @@ import Link from "next/link";
 import { RibbonBg } from "@/components/RibbonBg";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { GlossaryView } from "@/components/GlossaryView";
-import { glossary } from "@/content/glosario";
+import { glossary, termId } from "@/content/glosario";
 import { resources } from "@/content/recursos";
+import { JsonLd } from "@/components/JsonLd";
+import { siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Glosario",
   description: "Qué significa MCP, LLM, token, contexto, commit o deploy: el vocabulario del vibe coding explicado sin jerga.",
+  alternates: { canonical: "/curso/glosario" },
+};
+
+const glossaryData = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": `${siteUrl}/curso/glosario`,
+  name: "Glosario del vibe coding",
+  inLanguage: "es",
+  hasDefinedTerm: glossary.map((t) => ({
+    "@type": "DefinedTerm",
+    name: t.term,
+    ...(t.alias ? { alternateName: t.alias } : {}),
+    description: t.text,
+    url: `${siteUrl}/curso/glosario#${termId(t.term)}`,
+  })),
 };
 
 export default function GlosarioPage() {
@@ -16,6 +34,7 @@ export default function GlosarioPage() {
 
   return (
     <main className="main" id="contenido" tabIndex={-1}>
+      <JsonLd data={glossaryData} />
       <div aria-hidden className="page-bg calm" />
       <div className="container">
         <div className="page-head has-ribbon">

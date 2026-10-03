@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight, Clock } from "@phosphor-icons/react/dist/ssr";
 import { Blocks } from "@/components/Blocks";
 import { getResource, resources } from "@/content/recursos";
 import { contactHref } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { miguel, siteUrl } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -15,7 +17,7 @@ export function generateStaticParams() {
 export async function generateMetadata(props: PageProps<"/curso/recursos/[slug]">): Promise<Metadata> {
   const { slug } = await props.params;
   const res = getResource(slug);
-  return res ? { title: res.title, description: res.summary } : {};
+  return res ? { title: res.title, description: res.summary, alternates: { canonical: `/curso/recursos/${slug}` } } : {};
 }
 
 export default async function ResourcePage(props: PageProps<"/curso/recursos/[slug]">) {
@@ -27,6 +29,18 @@ export default async function ResourcePage(props: PageProps<"/curso/recursos/[sl
 
   return (
     <main className="main" id="contenido" tabIndex={-1}>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: res.title,
+          description: res.summary,
+          inLanguage: "es",
+          url: `${siteUrl}/curso/recursos/${res.slug}`,
+          image: `${siteUrl}/opengraph-image.png`,
+          author: { "@type": "Person", name: miguel.name, url: miguel.url },
+        }}
+      />
       <div aria-hidden className="page-bg calm" />
       <div className="container">
         <div className="page-head">

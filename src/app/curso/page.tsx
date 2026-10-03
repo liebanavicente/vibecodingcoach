@@ -10,11 +10,14 @@ import { availableModules, modules } from "@/content/curso";
 import { resources } from "@/content/recursos";
 import { GSAP_SCRIPT } from "@/lib/intro";
 import { contactHref } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { course } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Curso gratuito",
   description:
     "Vibe Coding desde Cero: curso gratuito para aprender a construir webs con IA sin experiencia previa, con módulos, recursos y truquillos.",
+  alternates: { canonical: "/curso" },
 };
 
 const goodUse = resources
@@ -30,6 +33,7 @@ export default function CursoPage() {
 
   return (
     <main className="main" id="contenido" tabIndex={-1}>
+      <JsonLd data={course("Vibe Coding desde Cero", "Curso gratuito para aprender a construir tu primera web con IA, sin experiencia previa.", "/curso")} />
       <div aria-hidden className="page-bg calm" />
       <script dangerouslySetInnerHTML={{ __html: GSAP_SCRIPT }} />
       <CourseAnimator>

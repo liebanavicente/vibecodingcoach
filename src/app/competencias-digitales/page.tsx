@@ -8,11 +8,14 @@ import { RouteAnimator } from "@/components/RouteAnimator";
 import { availableDigitalModules, digitalModules } from "@/content/competencias";
 import { GSAP_SCRIPT } from "@/lib/intro";
 import { contactHref } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { course } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Competencias digitales básicas",
   description:
     "Curso gratuito para perderle el miedo al ordenador y al móvil: archivos, internet, bulos, seguridad, trámites online y la IA del día a día.",
+  alternates: { canonical: "/competencias-digitales" },
 };
 
 const forWho = [
@@ -27,6 +30,7 @@ export default function CompetenciasPage() {
 
   return (
     <main className="main" id="contenido" tabIndex={-1}>
+      <JsonLd data={course("Competencias digitales básicas", "Curso gratuito para perderle el miedo al ordenador y al móvil: archivos, internet, seguridad, trámites online y la IA del día a día.", "/competencias-digitales")} />
       <div aria-hidden className="page-bg calm" />
       <script dangerouslySetInnerHTML={{ __html: GSAP_SCRIPT }} />
       <CourseAnimator>

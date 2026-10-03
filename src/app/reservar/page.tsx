@@ -7,6 +7,7 @@ import { emailBookingHref, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Reserva tu clase de prueba",
   description: "30 minutos online y gratis para ver qué quieres construir con IA y llevarte un plan claro para empezar.",
+  alternates: { canonical: "/reservar" },
 };
 
 const steps = [

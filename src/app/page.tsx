@@ -35,6 +35,9 @@ import { availableModules, modules } from "@/content/curso";
 import { availableDigitalModules, digitalModules } from "@/content/competencias";
 import { tools } from "@/content/herramientas";
 import { budgetHref, contactHref } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import type { Metadata } from "next";
+import { miguel, website } from "@/lib/seo";
 
 const perks = [
   { Icon: Lightning, text: "Sin experiencia previa" },
@@ -74,6 +77,8 @@ const method = [
     text: "Usamos la IA para construir, pero aprendes lo suficiente para no depender de ella a ciegas.",
   },
 ];
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const offers = [
   {
@@ -173,6 +178,7 @@ function HeroVisual() {
 export default function Home() {
   return (
     <main className="main" id="contenido" tabIndex={-1}>
+      <JsonLd data={{ "@context": "https://schema.org", "@graph": [miguel, website] }} />
       <script dangerouslySetInnerHTML={{ __html: INTRO_SCRIPT }} />
       <script dangerouslySetInnerHTML={{ __html: GSAP_SCRIPT }} />
       <IntroVideo />
