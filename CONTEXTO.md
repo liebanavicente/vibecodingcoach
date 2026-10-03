@@ -81,6 +81,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   `src/components/CourseAnimator.tsx` anima la cabecera de /curso y /competencias-digitales al
   entrar y revela cada título de sección (SplitText) al hacer scroll. El vídeo de la portada lleva
   desenfoques que siguen las letras inventadas por Flow (`BLURS` en `CourseScrollVideo.tsx`).
+  Menú móvil: por debajo de 1100 px la cabecera muestra un botón hamburguesa que abre un panel a
+  pantalla completa (`src/components/Header.tsx`, montado en <body> con un portal porque el blur de
+  la cabecera lo atraparía). Se cierra con Escape, al pulsar un enlace o al cambiar de página.
+  `html { overflow-x: clip }` evita el scroll lateral de las animaciones y los fondos a sangre.
   Fondo animado de cintas (`src/components/RibbonBg.tsx`, `public/videos/fondo-cintas.mp4`, bucle
   continuo hecho con un fundido desde `media/bg/bg.mp4`): detrás de las secciones de cursos de la
   portada y de las cabeceras de /curso, /competencias-digitales, /curso/prompts, /curso/glosario y
