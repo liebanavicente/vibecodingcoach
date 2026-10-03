@@ -211,6 +211,7 @@ export const modules: Module[] = [
     summary: "HTML y CSS básicos para entender lo que la IA escribe por ti.",
     duration: "45 min",
     available: true,
+    youtube: "pUxvZRAnobo",
     objectives: [
       "Saber qué hace el HTML, qué hace el CSS y qué hace el JavaScript en una web.",
       "Leer un trozo de HTML y de CSS sin asustarte y entender qué está pasando.",

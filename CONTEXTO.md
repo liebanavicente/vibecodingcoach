@@ -190,7 +190,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   donde cortar antes de su pantalla final) → `out/<slug>-notebooklm-youtube.mp4`; descripción en
   `descripcion-notebooklm.txt`. Los vídeos de NotebookLM no se versionan. Se suben a mano a YouTube (miniatura,
   lista «Vibe coding desde cero · Curso gratis») y se enlazan en el módulo con `youtube: "<id>"` en `curso.ts`
-  (se ve encima de las diapositivas). Publicados: Módulo 0 https://youtu.be/c5AYpVE0K1E · Módulo 1 https://youtu.be/l0BfZHVDGL0
+  (se ve encima de las diapositivas). Publicados: Módulo 0 https://youtu.be/c5AYpVE0K1E · Módulo 1 https://youtu.be/l0BfZHVDGL0 · Módulo 2
+  https://youtu.be/pUxvZRAnobo · Módulo 3 https://youtu.be/gIBQNzvndKk (cortes: 0 → 393.7, 1 → 363.8, 2 → 525.9, 3 → 491.9)
 - Vídeos del reproductor: ninguno grabado todavía. Flujo previsto: grabar la narración (con webcam o
   pantalla) pasando las diapositivas en pantalla completa, subir el mp4 (p. ej. a
   `public/videos/` o Vercel Blob) y anotar en `cues` el segundo de cada cambio.
@@ -227,7 +228,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 1. Probar a mano el reproductor (botones, teclado, pantalla completa): solo se revisó
    con capturas estáticas, no con clics.
 2. Cursos: Competencias digitales completo; vibe coding completo salvo el Módulo 5 (proyecto final, cuando haya
-   alumnos). Vídeos de NotebookLM de los módulos 2–4 y actualizar descripciones
+   alumnos). Vídeos de NotebookLM del módulo 4 y de Competencias digitales, y actualizar descripciones
    de YouTube: Miguel lo hará todo junto cuando haya más contenido.
 3. Enlazar esta web desde miguelliebana.com.
 4. Pilotar el Módulo 1 gratis con 2-3 personas y recoger feedback (ver PLAN.md).

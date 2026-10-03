@@ -1,6 +1,7 @@
 Módulo 3 del curso gratuito Vibe Coding desde Cero: funcionalidad real.
 Formularios y una base de datos sencilla para guardar información.
 
+◀ Anterior: Módulo 2 · Lo mínimo de código para no perderte → https://youtu.be/pUxvZRAnobo
 ▶ Siguiente: Módulo 4 · Publicar y compartir → https://vibecoding.miguelliebana.com/curso/modulo-4
 
 📚 Curso completo, gratis y con ejercicios: https://vibecoding.miguelliebana.com/curso/modulo-3
