@@ -4,6 +4,7 @@ import {
   AppWindow,
   ArrowRight,
   CalendarBlank,
+  Calculator,
   EnvelopeSimple,
   IdentificationCard,
   RocketLaunch,
@@ -412,13 +413,16 @@ export default function Home() {
             </ol>
             <div className="build-cta">
               <p className="build-price">Presupuesto a medida</p>
-              <p className="muted">Cada web es distinta: el precio depende de lo que necesites. Pídelo sin compromiso.</p>
-              <a className="button primary lg" href={budgetHref}>
-                <EnvelopeSimple aria-hidden size={22} weight="bold" />
-                Pide presupuesto
+              <p className="muted">Cada web es distinta. Calcula al momento una estimación de precio y plazo, y la concretamos sin compromiso.</p>
+              <Link className="button primary lg" href="/presupuesto">
+                <Calculator aria-hidden size={22} weight="bold" />
+                Calcula tu presupuesto
                 <span className="btn-dot arrow">
                   <ArrowRight aria-hidden size={18} weight="bold" />
                 </span>
+              </Link>
+              <a className="build-alt" href={budgetHref}>
+                <EnvelopeSimple aria-hidden size={16} weight="bold" /> O pídemelo por correo
               </a>
               <a className="build-alt" href={contactHref}>
                 O cuéntamelo en una llamada gratis

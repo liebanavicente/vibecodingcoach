@@ -28,7 +28,7 @@ Si no tienes tiempo de aprender, Miguel te hace la web. Tipos:
 ${list(buildKinds.map((b) => `${b.title}: ${b.text}`))}
 Cómo funciona:
 ${list(buildSteps.map((s, i) => `${i + 1}. ${s.title}: ${s.text}`))}
-El precio es un presupuesto a medida según lo que necesites; no des cifras. Se pide en ${web}/#a-medida o por correo.
+El precio es un presupuesto a medida según lo que necesites; no des cifras tú. Para una estimación orientativa de precio y plazo al momento, envía a la calculadora: ${web}/presupuesto (el precio cerrado se acuerda después en una llamada gratis).
 
 CURSOS GRATUITOS (en la web, sin registro)
 Vibe Coding desde Cero (${web}/curso):

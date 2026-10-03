@@ -146,6 +146,12 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   `available: true`.
 - `src/lib/site.ts`: nombre, email de contacto y enlaces sociales. `src/content/oferta.ts`: precios de las clases y
   «Te la hago yo» (lo usan la portada y el asistente).
+- Calculadora de presupuesto (`/presupuesto`, `src/components/Calculadora.tsx`): tipo de web, páginas, funciones,
+  contenido y urgencia → horquilla de precio y semanas calculada con reglas fijas (`src/content/presupuesto.ts`, tarifas
+  editables por Miguel), nunca un precio cerrado. Con IA (`src/app/api/presupuesto/route.ts`): «Cuéntamelo con tus
+  palabras» rellena el formulario (salida JSON con esquema) y «Explícame esta estimación» redacta una nota con las cifras
+  que calcula el servidor. Botones: pedir por correo (con el resumen) o llamada gratis. Enlazada desde «Te la hago yo» y
+  el asistente. Ambos usan `src/lib/gemini.ts` (modelo de respaldo, límite por IP).
 - Asistente de la web (`src/components/Asistente.tsx`, burbuja «¿Dudas?»): responde solo sobre horarios, precios,
   cursos y servicios con Google Gemini (plan gratuito). La llamada va en el servidor (`src/app/api/asistente/route.ts`)
   con `GEMINI_API_KEY` en `.env.local` y en Vercel (secreta, Production). Modelo `gemini-flash-lite-latest` (rápido, sin
