@@ -47,8 +47,18 @@ async function bufferState() {
   return { seen, scheduled };
 }
 
+// YouTube titles: the caption's first line, at most 100 characters.
+function shortTitle(text) {
+  const line = text.split("\n").find((l) => l.trim())?.trim() ?? "vibecodingcoach";
+  return line.length > 100 ? `${line.slice(0, 97).trimEnd()}…` : line;
+}
+
 async function createPost(service, channelId, url, title, text) {
-  const metadata = service === "instagram" ? { instagram: { type: "reel", shouldShareToFeed: true } } : undefined;
+  const metadata = {
+    instagram: { instagram: { type: "reel", shouldShareToFeed: true } },
+    // Vertical and under 3 minutes, so YouTube publishes it as a Short. Category 27 = Education.
+    youtube: { youtube: { title: shortTitle(text), categoryId: "27", privacy: "public", madeForKids: false } },
+  }[service];
   const data = await buffer(
     `mutation ($input: CreatePostInput!) {
       createPost(input: $input) {

@@ -2,7 +2,8 @@
   "_leeme": "Orden de publicación. npm run publicar sube a Buffer, en este orden, lo que aún no esté allí (en Instagram y TikTok), hasta llenar la cola. Reordena o borra líneas a mano cuando quieras. Lo ya publicado o programado se salta solo (se reconoce por el nombre del vídeo).",
   "canales": {
     "instagram": "6ac02fceea19ca0bde5b0ee0",
-    "tiktok": "6abfd978ea19ca0bde55e36d"
+    "tiktok": "6abfd978ea19ca0bde55e36d",
+    "youtube": "6ac118ecea19ca0bde64c568"
   },
   "organizacion": "6abfd4c9ae9e53ac2e23617c",
   "limite": 10,

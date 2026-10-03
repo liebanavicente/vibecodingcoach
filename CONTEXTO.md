@@ -193,7 +193,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 8. Publicación de reels con **Buffer**, automatizada. Organización «My organization» (plan gratis: 3 canales,
    10 publicaciones programadas a la vez). Canales: Instagram @vibecodingcoach_ml (6ac02fceea19ca0bde5b0ee0,
    huecos mar 19:45 / mié 18:25 / jue 10:49) y TikTok @vibecodingcoach_m (6abfd978ea19ca0bde55e36d, huecos
-   lun 09:06 / sáb 17:57 / dom 09:09); los huecos se cambian en la web de Buffer (la API no deja).
+   lun 09:06 / sáb 17:57 / dom 09:09) y YouTube «Vibecodingcoach» (6ac118ecea19ca0bde64c568, huecos jue 20:08 / vie
+   18:54 / sáb 19:34; los reels salen como Shorts, categoría 27 Educación, título = primera línea del texto); los huecos se cambian en la web de Buffer (la API no deja).
    - **Orden:** `media/publicar/cola.json` (lista editable a mano: palabras del glosario y reels intercalados).
    - **`npm run publicar`:** mira qué hay ya en Buffer (por el nombre del vídeo), y añade en orden lo que falta, en
      Instagram y TikTok, hasta llenar los 10 huecos. Sube cada vídeo a Vercel Blob (almacén
