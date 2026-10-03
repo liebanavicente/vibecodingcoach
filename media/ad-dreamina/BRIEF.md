@@ -1,7 +1,7 @@
 # Anuncio de 10 s en Dreamina (Seedance 2.5)
 
-**Objetivo (uno solo):** que quien lo vea piense «eso lo podría hacer yo» y entre a la web a por la
-primera clase gratis. 10 segundos dan para una sola idea: el cambio de «no sé» a «mira mi web».
+**Objetivo (uno solo):** que quien lo vea sienta «con IA, una idea se convierte en una web» y entre a la web a
+por la primera clase gratis. 10 segundos dan para una sola idea: de una frase a una web, en un gesto.
 
 **Formato:** vertical 9:16, 720p (pruebas a 480p), 10 s, sin texto en pantalla. Claude añade después la
 marca, la dirección y el cierre (3 s más).
@@ -10,19 +10,26 @@ marca, la dirección y el cierre (3 s más).
 
 1. `referencias/estilo-fondo.png` → **@Image1**: paleta y luz (crema, melocotón, coral, cristal).
 2. `referencias/web-en-movil.png` → **@Image2**: la web real en un móvil, para el plano final.
-3. Opcional: una foto tuya de medio cuerpo, con buena luz → **@Image3**, si quieres salir tú.
 
-## Prompt
+## Prompt · «De una frase a una web»
+
+Más acción y más tecnología: una pulsación desata la luz y la web se construye en el aire como una escultura
+de cristal. Sin personas en primer plano (solo una mano), así el estilo manda.
 
 ```
-Vertical 9:16, 10 seconds, warm and hopeful commercial. Color palette, light and frosted-glass mood from @Image1: cream, peach and coral with a touch of electric blue, soft natural light.
+Vertical 9:16, 10 seconds, high-energy artistic tech commercial. Bright luminous cream-white void, palette and frosted-glass mood from @Image1: peach, coral-orange, iridescent glass, small electric-blue accents. Dramatic rim light, speed ramps, motion blur, macro detail.
 
-0-3s: Close-up of a woman in her 40s at a kitchen table at dusk, looking at a laptop with a doubtful frown, she sighs and rubs her forehead.
-3-7s: She types slowly, then her face lights up; on the laptop screen soft abstract blocks of a warm website assemble like glass tiles, she leans closer and smiles.
-7-10s: She proudly turns her phone toward the camera; the phone screen shows the website from @Image2, held steady and centered for the last 2 seconds.
+0-2s: Extreme macro of a fingertip pressing a single glowing key; the impact sends a shockwave of coral light across the keyboard.
+2-5s: FPV camera dives fast into the laptop screen; a line of glowing abstract glyphs (not readable letters) shatters into thousands of glass particles and coral light ribbons that swirl around the camera.
+5-8s: The particles snap together mid-air into floating frosted-glass website panels (a header bar, image cards, a rounded button) that click into place one after another while the camera orbits quickly through them.
+8-10s: The panels fold and compress into a smartphone that spins into a hand and stops facing the camera; its screen shows the website from @Image2, the light settles, steady hold for the final second.
 
-Smooth slow camera push-ins, shallow depth of field, realistic and human, not glossy. No on-screen text or captions, no logos, no code, no music, natural ambient sound only.
+Cinematic, sharp, premium, playful. No readable text or captions, no logos, no code, no people's faces, no music, only whooshes and soft glassy clicks.
 ```
+
+**Variantes para probar** (cambia solo el tramo 5-8s):
+- **Ciudad:** «the particles build a miniature glass city of website pieces rising from the keyboard».
+- **Origami:** «the light ribbons fold like origami into website panels».
 
 ## Después
 
