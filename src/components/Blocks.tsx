@@ -1,7 +1,9 @@
-import { ArrowUpRight, CheckCircle, Lightbulb, Warning, XCircle } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, CheckCircle, Lightbulb, Warning, XCircle } from "@phosphor-icons/react/dist/ssr";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CopyButton } from "@/components/CopyButton";
 import { logoFor } from "@/content/herramientas";
+import { getPrompt } from "@/content/prompts";
 import type { Block } from "@/content/recursos";
 
 function BlockView({ block }: { block: Block }) {
@@ -22,16 +24,22 @@ function BlockView({ block }: { block: Block }) {
           </ol>
         </div>
       );
-    case "prompt":
+    case "prompt": {
+      const prompt = getPrompt(block.id);
+      if (!prompt) return null;
       return (
         <div className="code-block">
           <div className="code-bar">
-            <span>{block.title}</span>
-            <CopyButton text={block.text} />
+            <span>{block.title ?? prompt.title}</span>
+            <CopyButton text={prompt.text} />
           </div>
-          <pre>{block.text}</pre>
+          <pre>{prompt.text}</pre>
+          <Link className="code-foot" href={`/curso/prompts#${prompt.id}`}>
+            Ver más prompts como este <ArrowRight aria-hidden size={14} weight="bold" />
+          </Link>
         </div>
       );
+    }
     case "tip":
       return (
         <div className="note note-tip">

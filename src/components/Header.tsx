@@ -9,6 +9,7 @@ import { contactHref } from "@/lib/site";
 const links = [
   { href: "/curso", label: "Vibe coding", hideOnMobile: false },
   { href: "/competencias-digitales", label: "Competencias digitales", hideOnMobile: true },
+  { href: "/curso/prompts", label: "Prompts", hideOnMobile: true },
   { href: "/curso/glosario", label: "Glosario", hideOnMobile: true },
   { href: "/#clases", label: "Clases", hideOnMobile: true },
 ];
@@ -24,7 +25,7 @@ export function Header() {
   const isCurrent = (href: string) => {
     if (href === "/") return pathname === "/";
     if (href.includes("#")) return false;
-    if (href === "/curso") return pathname.startsWith("/curso") && !pathname.startsWith("/curso/glosario");
+    if (href === "/curso") return pathname.startsWith("/curso") && !/^\/curso\/(glosario|prompts)/.test(pathname);
     return pathname.startsWith(href);
   };
 

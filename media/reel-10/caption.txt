@@ -1,0 +1,18 @@
+La IA te dice «arreglado». Abres la web en el móvil… y el botón sigue cortado.
+
+En vez de escribir «no funciona», prueba con un mensaje que se pueda comprobar:
+
+«En la página de tareas, con la pantalla a 390 px de ancho, el botón “Ver tareas” se corta por la derecha. Adjunto una captura. Debe verse entero, sin desplazar la página hacia los lados. Corrige el desbordamiento y comprueba móvil y escritorio.»
+
+Adjunta la captura de tu fallo. Si no sabes el ancho de la pantalla, indica el modelo del móvil y el navegador que usas.
+
+La fórmula: dónde pasa + qué ves + qué debería pasar + cómo comprobarlo.
+
+Después, abre la web tú: comprueba que el botón se ve entero, que abre las tareas y que en el ordenador sigue funcionando.
+
+Este reel muestra un caso de ejemplo, no el resultado de un cliente.
+
+Guárdalo para tu próximo «no funciona».
+Curso gratuito para crear tu primera web con IA: enlace en el perfil.
+
+#vibecoding #inteligenciaartificial #prompts #desarrolloweb #educacion

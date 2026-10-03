@@ -76,6 +76,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   «Sobre mí»; `src/components/RouteAnimator.tsx` rellena la línea de la ruta de los dos cursos
   con el scroll, enciende cada paso y desliza las tarjetas. Todas se desactivan con «reducir movimiento». `HERO_SCRIPT` oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
+- Biblioteca de prompts: `/curso/prompts`, 33 prompts en `src/content/prompts.ts` (fuente
+  única). Las guías los usan con un bloque `{ type: "prompt", id }`; los huecos van [entre
+  corchetes] y se resaltan en la página.
 - Glosario: `/curso/glosario`, 48 términos en `src/content/glosario.ts` (IA, Herramientas,
   Código, Publicar), con buscador sin tildes y enlace a la guía relacionada (`guide`).
 - Progreso del alumno: las checklists de cada módulo se guardan en el navegador

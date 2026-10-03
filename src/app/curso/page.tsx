@@ -46,6 +46,9 @@ export default function CursoPage() {
               <Link className="button" href="/curso/recursos/que-necesitas">
                 ¿Qué necesito?
               </Link>
+              <Link className="button" href="/curso/prompts">
+                Prompts
+              </Link>
               <Link className="button" href="/curso/glosario">
                 Glosario
               </Link>

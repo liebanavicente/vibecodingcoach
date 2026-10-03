@@ -4,7 +4,8 @@ import { site } from "@/lib/site";
 export type Block =
   | { type: "text"; text: string }
   | { type: "steps"; title: string; items: string[] }
-  | { type: "prompt"; title: string; text: string }
+  /** A prompt from the library (src/content/prompts.ts); title overrides the library title in this guide. */
+  | { type: "prompt"; id: string; title?: string }
   | { type: "tip"; text: string }
   | { type: "warning"; text: string }
   | { type: "tools"; title: string; items: string[] }
@@ -116,8 +117,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "mi-ordenador",
         title: "Pregúntale a Claude por tu ordenador",
-        text: "Tengo este ordenador: [modelo, sistema operativo, RAM y disco]. Quiero aprender a crear webs con IA. ¿Me sirve? ¿Qué debería instalar y qué no? Dame los pasos para mi sistema.",
       },
     ],
   },
@@ -204,8 +205,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "proyecto-nuevo",
         title: "Primer mensaje para un proyecto nuevo",
-        text: "Quiero crear [qué] para [quién]. Nunca he programado. Antes de escribir código, propón un plan sencillo por pasos y espera a que te diga que sí.",
       },
       {
         type: "tip",
@@ -244,8 +245,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "profesor-particular",
         title: "Prompt de profesor particular",
-        text: "A partir de ahora actúa como mi profesor. Soy principiante. Cuando te pregunte algo, explícamelo con un ejemplo sencillo, comprueba con una pregunta que lo he entendido y no avances hasta que responda.",
       },
       {
         type: "tip",
@@ -358,8 +359,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "ordenar-carpetas",
         title: "Pídele que ordene por ti",
-        text: "Revisa esta carpeta y propón una estructura ordenada. Explícame qué va en cada sitio y qué moverías, y espera a que te diga que sí antes de mover nada.",
       },
       {
         type: "warning",
@@ -507,8 +508,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "auditoria-seguridad",
         title: "Prompt de auditoría para cualquier agente",
-        text: "Revisa este proyecto como un experto en seguridad. Busca: claves expuestas en el código del navegador, tablas sin control de acceso, rutas del servidor que no comprueban quién hace la petición, datos que deberían calcularse en el servidor y llamadas a servicios de pago sin límite. Para cada problema dime dónde está, qué podría hacer un atacante y cómo arreglarlo. Ordénalos de más a menos grave y no cambies nada todavía.",
       },
       {
         type: "text",
@@ -558,8 +559,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "usar-skill",
         title: "Pídele que la use",
-        text: "Tengo instalada la skill de [nombre]. Úsala para [tarea] y dime en qué parte del proceso la has aplicado.",
       },
       {
         type: "warning",
@@ -596,8 +597,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "revision-otra-ia",
         title: "Prompt para pedir una revisión",
-        text: "Actúa como revisor exigente. Esto lo ha hecho otra IA para conseguir [objetivo]: [pega aquí el resultado]. Busca errores, cosas que se puedan simplificar y riesgos. Ordénalos de más a menos importante y no reescribas nada todavía.",
       },
       {
         type: "tip",
@@ -648,8 +649,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "fondo-web",
         title: "Prompt de fondo listo para copiar",
-        text: "Fondo abstracto para una web, estilo glassmorphism: formas de cristal translúcido y burbujas suaves, tonos melocotón y naranja coral sobre blanco cálido, iluminación suave. Centro despejado para poner texto encima. Sin texto, sin logos, sin personas. Formato vertical 9:16.",
       },
       {
         type: "tip",
@@ -685,8 +686,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "cambiar-sesion",
         title: "Prompt para cambiar de sesión sin perder nada",
-        text: "Antes de cerrar, crea un archivo CONTEXTO.md con: qué hemos hecho, las decisiones que tomamos y por qué, qué queda pendiente y cualquier aviso importante para la próxima sesión.",
       },
       {
         type: "compare",
@@ -741,8 +742,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "detector-vendehumos",
         title: "Pídele a Claude una segunda opinión",
-        text: "Te paso la descripción de este perfil o anuncio: [pega aquí el texto]. ¿Qué señales de alarma ves? ¿Qué le preguntarías antes de pagarle?",
       },
       {
         type: "steps",
@@ -772,8 +773,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "novedad-ia",
         title: "Cuando veas una novedad, pásasela a Claude",
-        text: "Te paso esto sobre [novedad]: [enlace o texto]. Explícame en tres frases qué es, si me sirve para mi proyecto de [tu proyecto] y cómo lo probaría sin romper nada.",
       },
       {
         type: "warning",
@@ -824,8 +825,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "conectar-ia-gratis",
         title: "Prompt para conectarla",
-        text: "Añade a mi web un botón que resuma el texto del formulario usando la API de Groq. La clave está en la variable GROQ_API_KEY del archivo .env: léela desde ahí y no la escribas en el código. Explícame qué archivos vas a tocar antes de empezar.",
       },
       {
         type: "dodont",
@@ -941,8 +942,8 @@ export const resources: Resource[] = [
       },
       {
         type: "prompt",
+        id: "rescate",
         title: "Prompt de rescate cuando todo se ha liado",
-        text: "Para. No cambies nada más. Explícame en qué estado está el proyecto, qué has cambiado en los últimos pasos y cuál crees que es el problema. Después propón cómo volver a la última versión que funcionaba.",
       },
     ],
   },
