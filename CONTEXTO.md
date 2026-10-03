@@ -169,7 +169,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   donde cortar antes de su pantalla final) → `out/<slug>-notebooklm-youtube.mp4`; descripción en
   `descripcion-notebooklm.txt`. Los vídeos de NotebookLM no se versionan. Se suben a mano a YouTube (miniatura,
   lista «Vibe coding desde cero · Curso gratis») y se enlazan en el módulo con `youtube: "<id>"` en `curso.ts`
-  (se ve encima de las diapositivas). Módulo 0 publicado: https://youtu.be/c5AYpVE0K1E
+  (se ve encima de las diapositivas). Publicados: Módulo 0 https://youtu.be/c5AYpVE0K1E · Módulo 1 https://youtu.be/l0BfZHVDGL0
 - Vídeos del reproductor: ninguno grabado todavía. Flujo previsto: grabar la narración (con webcam o
   pantalla) pasando las diapositivas en pantalla completa, subir el mp4 (p. ej. a
   `public/videos/` o Vercel Blob) y anotar en `cues` el segundo de cada cambio.

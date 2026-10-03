@@ -127,6 +127,7 @@ export const modules: Module[] = [
       "Cómo escribir instrucciones claras, iterar sobre el resultado y salir de los errores sin frustrarte.",
     duration: "1 h 30 min",
     available: true,
+    youtube: "l0BfZHVDGL0",
     objectives: [
       "Escribir un prompt con contexto, objetivo y restricciones.",
       "Iterar en pasos pequeños en lugar de pedirlo todo de golpe.",
