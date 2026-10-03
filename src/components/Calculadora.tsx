@@ -1,10 +1,14 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import dynamic from "next/dynamic";
+import { useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import { CalendarBlank, EnvelopeSimple, MagicWand, Sparkle } from "@phosphor-icons/react";
+import { CalendarBlank, EnvelopeSimple, MagicWand, Play, Sparkle, X } from "@phosphor-icons/react";
 import { type Answers, contentOptions, defaultAnswers, estimate, type Feature, features, MAX_PAGES, maintenance, RATE, REVISIONS, summary, webTypes } from "@/content/presupuesto";
 import { contactHref, site } from "@/lib/site";
+
+// The video player (Remotion) only downloads when someone asks to watch it.
+const PresupuestoPlayer = dynamic(() => import("./PresupuestoPlayer"), { ssr: false, loading: () => <div className="calc-video-loading">Preparando el vídeo…</div> });
 
 const eur = (n: number) => n.toLocaleString("es-ES");
 const noSubscribe = () => () => {};
@@ -17,6 +21,8 @@ export function Calculadora({ withAi }: { withAi: boolean }) {
   const [note, setNote] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const e = useMemo(() => estimate(answers), [answers]);
+  const videoDialog = useRef<HTMLDialogElement>(null);
+  const [video, setVideo] = useState(false);
   // The page container keeps a transform from its entrance animation, which would trap a fixed bar; mount it in <body>.
   const mounted = useSyncExternalStore(noSubscribe, () => true, () => false);
 
@@ -164,6 +170,19 @@ export function Calculadora({ withAi }: { withAi: boolean }) {
         <p className="calc-price">
           {eur(e.price[0])}–{eur(e.price[1])} €
         </p>
+        <button
+          className="calc-video-btn"
+          onClick={() => {
+            setVideo(true);
+            videoDialog.current?.showModal();
+          }}
+          type="button"
+        >
+          <span className="play-icon">
+            <Play aria-hidden size={16} weight="fill" />
+          </span>
+          Ver mi web en vídeo <span className="play-time">12 s</span>
+        </button>
         <p className="calc-weeks">
           Unas {e.hours[0]}–{e.hours[1]} horas a {RATE} €/h · entrega en {e.weeks[0] === e.weeks[1] ? `${e.weeks[0]}` : `${e.weeks[0]}–${e.weeks[1]}`} semanas
         </p>
@@ -204,6 +223,19 @@ export function Calculadora({ withAi }: { withAi: boolean }) {
           <CalendarBlank aria-hidden size={16} weight="bold" /> Hablarlo en una llamada gratis
         </a>
       </aside>
+
+      <dialog
+        aria-label="Vídeo: tu web y su estimación"
+        className="video-dialog"
+        onClick={(ev) => ev.target === videoDialog.current && videoDialog.current.close()}
+        onClose={() => setVideo(false)}
+        ref={videoDialog}
+      >
+        <button aria-label="Cerrar el vídeo" className="video-close" onClick={() => videoDialog.current?.close()} type="button">
+          <X aria-hidden size={20} weight="bold" />
+        </button>
+        <div className="calc-video">{video ? <PresupuestoPlayer answers={answers} estimate={e} /> : null}</div>
+      </dialog>
     </div>
   );
 }

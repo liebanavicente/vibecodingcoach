@@ -151,7 +151,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   de lanzamiento coherente con su perfil junior: horas × 25 €/h (lo mismo que las clases), 2 rondas de cambios incluidas,
   urgencia +15 %, mantenimiento 15–25 €/mes; nunca un precio cerrado. Con IA (`src/app/api/presupuesto/route.ts`): «Cuéntamelo con tus
   palabras» rellena el formulario (salida JSON con esquema) y «Explícame esta estimación» redacta una nota con las cifras
-  que calcula el servidor. Botones: pedir por correo (con el resumen) o llamada gratis. Enlazada desde «Te la hago yo» y
+  que calcula el servidor. «Ver mi web en vídeo»: abre en un diálogo un vídeo de 12 s hecho con Remotion y reproducido en la
+  página (`@remotion/player`, cargado solo al pulsar): la web del visitante se monta en una ventana de navegador y las horas,
+  el precio y las semanas cuentan hasta la estimación (`src/components/PresupuestoVideo.tsx` y `PresupuestoPlayer.tsx`). Botones: pedir por correo (con el resumen) o llamada gratis. Enlazada desde «Te la hago yo» y
   el asistente. Ambos usan `src/lib/gemini.ts` (modelo de respaldo, límite por IP).
 - Asistente de la web (`src/components/Asistente.tsx`; botón de robot con bocadillo de cómic «¿Ayuda?», que en la
   calculadora del móvil se oculta para no chocar con la barra fija): responde solo sobre horarios, precios,
