@@ -1,7 +1,7 @@
 "use client";
 
 import { type FormEvent, type KeyboardEvent, useEffect, useRef, useState } from "react";
-import { ChatCircleDots, PaperPlaneRight, X } from "@phosphor-icons/react";
+import { PaperPlaneRight, Robot, X } from "@phosphor-icons/react";
 import { MlLogo } from "@/components/MlLogo";
 
 type Turn = { role: "user" | "model"; text: string };
@@ -140,17 +140,24 @@ export function Asistente() {
           <p className="assistant-note">Responde una IA y puede equivocarse. No escribas datos personales.</p>
         </section>
       ) : null}
-      <button
-        aria-controls="asistente"
-        aria-expanded={open}
-        className="assistant-toggle"
-        onClick={() => setOpen((o) => !o)}
-        ref={toggle}
-        type="button"
-      >
-        {open ? <X aria-hidden size={22} weight="bold" /> : <ChatCircleDots aria-hidden size={24} weight="fill" />}
-        <span>{open ? "Cerrar" : "¿Dudas?"}</span>
-      </button>
+      <div className="assistant-launcher">
+        {open ? null : (
+          <span aria-hidden className="assistant-bubble">
+            ¿Ayuda?
+          </span>
+        )}
+        <button
+          aria-controls="asistente"
+          aria-expanded={open}
+          aria-label={open ? "Cerrar el asistente" : "Abrir el asistente: ¿necesitas ayuda?"}
+          className="assistant-toggle"
+          onClick={() => setOpen((o) => !o)}
+          ref={toggle}
+          type="button"
+        >
+          {open ? <X aria-hidden size={24} weight="bold" /> : <Robot aria-hidden size={30} weight="fill" />}
+        </button>
+      </div>
     </div>
   );
 }
