@@ -727,6 +727,68 @@ export const resources: Resource[] = [
     ],
   },
   {
+    slug: "ia-gratis",
+    category: "Truquillos",
+    title: "IA gratis para tus proyectos",
+    summary: "Modelos de IA que puedes meter en tu web sin pagar ni dar la tarjeta, y los cuidados que hay que tener.",
+    minutes: 5,
+    blocks: [
+      {
+        type: "text",
+        text: "Si quieres que tu web haga algo «inteligente» (resumir un texto, responder preguntas, generar un test), necesitas conectarla a un modelo de IA mediante una API. Muchas empresas ofrecen modelos gratis con límites de uso: perfectos para aprender y para tus primeros prototipos.",
+      },
+      {
+        type: "table",
+        title: "Cinco para empezar (sin tarjeta)",
+        head: ["Proveedor", "Para qué va bien", "Dónde pedir la clave"],
+        rows: [
+          ["Google Gemini", "Textos, imágenes y PDFs; mucho contexto", "aistudio.google.com"],
+          ["Groq", "Respuestas rapidísimas con modelos abiertos", "console.groq.com"],
+          ["Mistral AI", "Modelos europeos, buenos con el español", "console.mistral.ai"],
+          ["Cloudflare Workers AI", "Muchos modelos, si ya publicas en Cloudflare", "dash.cloudflare.com"],
+          ["Hugging Face", "Probar modelos abiertos de todo tipo", "huggingface.co"],
+        ],
+      },
+      {
+        type: "steps",
+        title: "Cómo usar una, paso a paso",
+        items: [
+          "Crea una cuenta en el proveedor y genera una clave de API.",
+          "Guárdala en el archivo .env de tu proyecto, por ejemplo GROQ_API_KEY=… (y comprueba que .env está en el .gitignore).",
+          "Pídele a tu agente que la use, sin escribirla nunca dentro del código.",
+          "Prueba poco a poco: los planes gratis limitan cuántas peticiones haces por minuto y por día.",
+        ],
+      },
+      {
+        type: "prompt",
+        title: "Prompt para conectarla",
+        text: "Añade a mi web un botón que resuma el texto del formulario usando la API de Groq. La clave está en la variable GROQ_API_KEY del archivo .env: léela desde ahí y no la escribas en el código. Explícame qué archivos vas a tocar antes de empezar.",
+      },
+      {
+        type: "dodont",
+        title: "Lo gratis tiene letra pequeña",
+        labels: ["Ojo con", "Haz esto"],
+        items: [
+          { bad: "Enviar datos personales de alumnos o clientes.", good: "Algunos planes gratis usan lo que envías para entrenar: manda solo datos de prueba." },
+          { bad: "Montar una app con mucho tráfico sobre un plan gratis.", good: "Úsalo para aprender y prototipar; si crece, pasa a un plan de pago." },
+          { bad: "Esperar el nivel de Claude o GPT para programar.", good: "Usa estos modelos dentro de tu web, y un buen agente para construirla." },
+        ],
+      },
+      {
+        type: "links",
+        title: "La lista completa, actualizada a diario",
+        items: [
+          { label: "freellm.net", href: "https://freellm.net", note: "Compara cientos de modelos gratis: límites, contexto y si piden tarjeta." },
+          { label: "awesome-freellm-apis en GitHub", href: "https://github.com/open-free-llm-api/awesome-freellm-apis", note: "El mismo directorio, con ejemplos de código para copiar." },
+        ],
+      },
+      {
+        type: "warning",
+        text: "Los planes gratis cambian a menudo (límites, modelos disponibles, condiciones). Antes de construir algo importante, revisa las condiciones actuales en la web del proveedor.",
+      },
+    ],
+  },
+  {
     slug: "errores-tipicos",
     category: "Truquillos",
     title: "Los errores que cometemos todos al empezar",

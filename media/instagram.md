@@ -181,6 +181,25 @@ Antigravity → editor con agentes, hoy gratis. Muy nuevo: aún tiene fallos.
 #vibecoding #claudecode #codex #kimi #antigravity #inteligenciaartificial #ia #aprenderaprogramar
 ```
 
+## Reel 11 · IA gratis para tu web (sin tarjeta)
+
+```
+¿Quieres meter IA en tu web sin pagar? 💸
+
+5 opciones gratis y sin tarjeta:
+· Gemini → textos, fotos y PDFs
+· Groq → rapidísimo
+· Mistral → europeo, buen español
+· Cloudflare → decenas de modelos
+· Hugging Face → modelos abiertos
+
+La letra pequeña: la clave en el .env (nunca en el código), nada de datos personales y ojo con los límites.
+
+Guárdalo 📌 Guía con el paso a paso, gratis en el enlace del perfil.
+
+#vibecoding #inteligenciaartificial #ia #gratis #gemini #desarrolloweb #aprenderaprogramar #trucos
+```
+
 ---
 
 ## Próximos reels (misma plantilla)
