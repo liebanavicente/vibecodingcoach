@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RibbonBg } from "@/components/RibbonBg";
 import { ArrowRight, CalendarBlank, Chats, ClipboardText, EnvelopeSimple, InstagramLogo, VideoCamera } from "@phosphor-icons/react/dist/ssr";
 import { emailBookingHref, site } from "@/lib/site";
 
@@ -26,7 +27,7 @@ export default function ReservarPage() {
   return (
     <main className="main" id="contenido" tabIndex={-1}>
       <div className="container">
-        <div className="page-head">
+        <div className="page-head has-ribbon">
           <div>
             <p className="eyebrow">Clase de prueba · gratis</p>
             <h1>
@@ -37,6 +38,7 @@ export default function ReservarPage() {
               Sin compromiso y sin jerga.
             </p>
           </div>
+          <RibbonBg position="top" />
         </div>
 
         <div className="grid">

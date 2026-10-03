@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RibbonBg } from "@/components/RibbonBg";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { GlossaryView } from "@/components/GlossaryView";
 import { glossary } from "@/content/glosario";
@@ -17,7 +18,7 @@ export default function GlosarioPage() {
     <main className="main" id="contenido" tabIndex={-1}>
       <div aria-hidden className="page-bg calm" />
       <div className="container">
-        <div className="page-head">
+        <div className="page-head has-ribbon">
           <div>
             <p className="eyebrow">Glosario · {glossary.length} palabras</p>
             <h1>
@@ -31,6 +32,7 @@ export default function GlosarioPage() {
           <Link className="button" href="/curso">
             <ArrowLeft aria-hidden size={18} weight="bold" /> Volver al curso
           </Link>
+          <RibbonBg position="top" />
         </div>
         <GlossaryView guides={guides} />
       </div>

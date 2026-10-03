@@ -17,6 +17,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { BrandLogo } from "@/components/BrandLogo";
 import { CountUp } from "@/components/CountUp";
+import { RibbonBg } from "@/components/RibbonBg";
 import { CourseScrollVideo } from "@/components/CourseScrollVideo";
 import { HeroAnimator } from "@/components/HeroAnimator";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -264,7 +265,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section aria-labelledby="curso" className="section">
+        <section aria-labelledby="curso" className="section has-ribbon">
+          <RibbonBg />
           <div className="section-head">
             <div>
               <p className="label">Curso gratuito</p>
@@ -307,7 +309,8 @@ export default function Home() {
           </p>
         </section>
 
-        <section aria-labelledby="competencias" className="section">
+        <section aria-labelledby="competencias" className="section has-ribbon">
+          <RibbonBg />
           <div className="section-head">
             <div>
               <p className="label">Segundo curso gratuito · nivel cero</p>

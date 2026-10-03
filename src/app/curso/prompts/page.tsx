@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RibbonBg } from "@/components/RibbonBg";
 import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { PromptLibrary } from "@/components/PromptLibrary";
 import { prompts } from "@/content/prompts";
@@ -17,7 +18,7 @@ export default function PromptsPage() {
     <main className="main" id="contenido" tabIndex={-1}>
       <div aria-hidden className="page-bg calm" />
       <div className="container">
-        <div className="page-head">
+        <div className="page-head has-ribbon">
           <div>
             <p className="eyebrow">Biblioteca · {prompts.length} prompts</p>
             <h1>
@@ -31,6 +32,7 @@ export default function PromptsPage() {
           <Link className="button" href="/curso">
             <ArrowLeft aria-hidden size={18} weight="bold" /> Volver al curso
           </Link>
+          <RibbonBg position="top" />
         </div>
         <PromptLibrary guides={guides} />
       </div>

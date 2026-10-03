@@ -81,6 +81,11 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   `src/components/CourseAnimator.tsx` anima la cabecera de /curso y /competencias-digitales al
   entrar y revela cada título de sección (SplitText) al hacer scroll. El vídeo de la portada lleva
   desenfoques que siguen las letras inventadas por Flow (`BLURS` en `CourseScrollVideo.tsx`).
+  Fondo animado de cintas (`src/components/RibbonBg.tsx`, `public/videos/fondo-cintas.mp4`, bucle
+  continuo hecho con un fundido desde `media/bg/bg.mp4`): detrás de las secciones de cursos de la
+  portada y de las cabeceras de /curso, /competencias-digitales, /curso/prompts, /curso/glosario y
+  /reservar. Solo se reproduce en pantalla; se usa poniendo `has-ribbon` al contenedor y
+  `<RibbonBg />` como último hijo. Opacidad en `.ribbon-bg video` (globals.css).
   `GSAP_SCRIPT` (`src/lib/intro.ts`) oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
 - Biblioteca de prompts: `/curso/prompts`, 33 prompts en `src/content/prompts.ts` (fuente

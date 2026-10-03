@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { RibbonBg } from "@/components/RibbonBg";
 import { ArrowRight, CheckCircle, Clock, Lock, XCircle } from "@phosphor-icons/react/dist/ssr";
 import { CourseAnimator } from "@/components/CourseAnimator";
 import { CourseProgress, ModuleProgress } from "@/components/Progress";
@@ -32,7 +33,7 @@ export default function CursoPage() {
       <div aria-hidden className="page-bg calm" />
       <script dangerouslySetInnerHTML={{ __html: GSAP_SCRIPT }} />
       <CourseAnimator>
-        <div className="page-head course-head" data-anim="head">
+        <div className="page-head course-head has-ribbon" data-anim="head">
           <div>
             <p className="eyebrow">Curso gratuito</p>
             <h1>
@@ -79,6 +80,7 @@ export default function CursoPage() {
               </div>
             </dl>
           </aside>
+          <RibbonBg position="top" />
         </div>
 
         <section aria-labelledby="ruta">
