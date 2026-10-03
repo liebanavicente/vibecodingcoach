@@ -282,6 +282,14 @@ export const prompts: LibraryPrompt[] = [
     when: "Para convertir una idea en un vídeo corto.",
     text: "Escribe el guion de un reel de 20 segundos sobre [tema]: un gancho en los 2 primeros segundos, tres ideas clave en frases muy cortas y un cierre que invite a [tu llamada a la acción]. Tono [cercano, divertido…]. Indica qué texto va en pantalla en cada momento.",
   },
+  {
+    id: "publicar-en-automatico",
+    category: "Contenido y redes",
+    title: "Publicar en redes en automático",
+    when: "Cuando tienes muchos vídeos hechos y publicarlos uno a uno se te come las tardes.",
+    text: "Quiero que mis vídeos se publiquen solos en [Instagram y TikTok] con Buffer. Tengo [número] vídeos en [carpeta] y sus textos en [archivo o carpeta]. Ayúdame paso a paso a: 1) conectar Buffer contigo, 2) guardar los vídeos en un sitio con enlace público para que Buffer pueda leerlos, 3) crear una lista con el orden de publicación y 4) hacer un comando que rellene la cola de Buffer siguiendo esa lista, sin repetir lo que ya esté programado. Antes de programar o publicar nada, enséñame el plan y espera mi OK. Las claves van en .env, nunca en el código ni en el chat.",
+    guide: "publicar-en-automatico",
+  },
 ];
 
 export const getPrompt = (id: string) => prompts.find((p) => p.id === id);

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowRight, Asterisk, ImageSquare, Laptop, ListChecks, MagicWand, PuzzlePiece, Scales } from "@phosphor-icons/react";
+import { ArrowRight, Asterisk, ImageSquare, Laptop, ListChecks, MagicWand, PuzzlePiece, Robot, Scales } from "@phosphor-icons/react";
 import { categories, type Category } from "@/content/recursos";
 
 type Item = { slug: string; category: Category; title: string; summary: string; minutes: number };
@@ -15,6 +15,7 @@ const categoryIcon: Record<Category, typeof PuzzlePiece> = {
   Revisión: Scales,
   Imágenes: ImageSquare,
   Truquillos: MagicWand,
+  Automatizar: Robot,
 };
 
 export function ResourceGrid({ items }: { items: Item[] }) {

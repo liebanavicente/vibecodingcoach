@@ -17,7 +17,7 @@ export type Block =
   | { type: "links"; title: string; items: { label: string; href: string; note: string }[] }
   | { type: "table"; title: string; head: string[]; rows: string[][] };
 
-export const categories = ["Empezar", "Claude", "Buen uso", "Skills", "Revisión", "Imágenes", "Truquillos"] as const;
+export const categories = ["Empezar", "Claude", "Buen uso", "Skills", "Revisión", "Imágenes", "Truquillos", "Automatizar"] as const;
 export type Category = (typeof categories)[number];
 
 export type Resource = {
@@ -944,6 +944,106 @@ export const resources: Resource[] = [
         type: "prompt",
         id: "rescate",
         title: "Prompt de rescate cuando todo se ha liado",
+      },
+    ],
+  },
+  {
+    slug: "publicar-en-automatico",
+    category: "Automatizar",
+    title: "Tus redes en piloto automático",
+    summary: "Cómo dejé mis reels publicándose solos en Instagram y TikTok con Buffer y Claude Code, sin pagar nada.",
+    minutes: 9,
+    blocks: [
+      {
+        type: "text",
+        text: "Hacer un reel con IA es rápido. Lo lento llega después: abrir Instagram, subir el vídeo, buscar el texto, copiar los hashtags, elegir la hora… y repetirlo todo en TikTok. Con 50 vídeos son tardes enteras. Y se te olvidan cosas: a mí se me publicaron tres reels sin una sola palabra de texto.",
+      },
+      {
+        type: "text",
+        text: "Así que monté un sistema para que se publiquen solos. Son tres piezas, y ninguna exige saber programar: la IA hace la parte técnica y tú decides.",
+      },
+      {
+        type: "cards",
+        items: [
+          { title: "Buffer: el que publica", text: "Una aplicación que publica en tus redes a la hora que le digas. El plan gratis tiene 3 redes y 10 publicaciones programadas a la vez." },
+          { title: "Claude Code: el que trabaja", text: "Conectado a Buffer, sube los vídeos, escribe los textos, elige los huecos y comprueba qué hay ya programado." },
+          { title: "Una lista: el orden", text: "Un archivo con los vídeos en el orden en que quieres publicarlos. Lo cambias tú cuando quieras." },
+        ],
+      },
+      {
+        type: "steps",
+        title: "Paso 1 · Prepara Buffer",
+        items: [
+          "Crea una cuenta gratis en buffer.com.",
+          "Conecta tus redes. Instagram tiene que ser una cuenta profesional (de creador o de empresa); se cambia gratis en Ajustes de Instagram.",
+          "En Ajustes → Horario de publicación, elige tus huecos: por ejemplo, lunes, miércoles y viernes a las 19:00. Buffer irá llenándolos en orden.",
+        ],
+      },
+      {
+        type: "steps",
+        title: "Paso 2 · Conecta Buffer con Claude Code",
+        items: [
+          "En la terminal, dentro de tu proyecto, pega el comando de abajo.",
+          "Reinicia Claude Code, escribe /mcp, elige buffer e inicia sesión en el navegador.",
+          "Pruébalo con una pregunta: «¿qué tengo programado esta semana?».",
+        ],
+      },
+      { type: "code", title: "Conectar Buffer", text: "claude mcp add --transport http buffer https://mcp.buffer.com/mcp" },
+      {
+        type: "tip",
+        text: "Solo con este paso ya ganas mucho: puedes pedirle «ponle texto y hashtags a todo lo que tengo programado» o «mueve el reel del martes al jueves», y lo hace sin que abras Buffer.",
+      },
+      {
+        type: "steps",
+        title: "Paso 3 · Dale a Buffer un sitio de donde coger los vídeos",
+        items: [
+          "Desde Claude, Buffer no acepta archivos de tu ordenador: necesita un enlace público al vídeo.",
+          "La solución gratis: un almacén en la nube. Yo uso Vercel Blob, porque mi web ya está en Vercel. Claude lo crea por ti.",
+          "La clave del almacén se guarda en el archivo .env.local de tu proyecto, que nunca se sube a GitHub.",
+          "Buffer copia el vídeo en cuanto programas la publicación, así que el almacén solo hace de puente.",
+        ],
+      },
+      { type: "tools", title: "Lo que uso", items: ["Claude Code", "Vercel", "GitHub"] },
+      {
+        type: "steps",
+        title: "Paso 4 · La lista y el piloto automático",
+        items: [
+          "Claude crea un archivo con el orden de publicación. El mío intercala dos «palabras del día» y un reel.",
+          "Y un comando que lo hace todo: mira qué hay ya en Buffer, sube los siguientes vídeos de la lista y los programa con su texto hasta llenar los huecos libres.",
+          "Para la parte automática necesitas una clave de Buffer (publish.buffer.com/settings/api). Pégala tú en el .env.local: nunca en el chat.",
+          "Por último, Claude programa el comando para que se lance solo cada mañana. Mientras quede algo en la lista, tu cola nunca se vacía.",
+        ],
+      },
+      { type: "prompt", id: "publicar-en-automatico", title: "Pídeselo así" },
+      {
+        type: "table",
+        title: "A mano o en automático",
+        head: ["", "A mano", "En automático"],
+        rows: [
+          ["Por cada vídeo", "Unos 5 minutos por red: subir, pegar texto, hashtags, hora.", "Nada: sale solo en su hueco."],
+          ["Textos y hashtags", "Copiar y pegar, y a veces se olvidan.", "Se guardan junto al vídeo y van siempre con él."],
+          ["Constancia", "Depende de que te acuerdes.", "Los mismos días a la misma hora, aunque estés de vacaciones."],
+          ["Tu trabajo", "Todo.", "Hacer vídeos y ordenar la lista."],
+        ],
+      },
+      {
+        type: "dodont",
+        title: "Lo que aprendí por el camino",
+        labels: ["Así no", "Así sí"],
+        items: [
+          { bad: "Escribir el texto en el momento de publicar.", good: "Guardar el texto junto al vídeo desde el principio." },
+          { bad: "Programar a mano en dos redes por separado.", good: "Que cada vídeo vaya a las dos redes de una vez." },
+          { bad: "Pegar la clave de Buffer en el chat para que la IA la use.", good: "Ponerla tú en el .env.local; la IA la lee de ahí sin verla." },
+          { bad: "Dejar que la IA publique «ya» sin mirar.", good: "Programar siempre con antelación y revisar la cola de vez en cuando." },
+        ],
+      },
+      {
+        type: "warning",
+        text: "Las redes son tu escaparate. Antes de automatizar, revisa unos cuantos textos para que suenen a ti, y echa un vistazo a la cola de Buffer una vez por semana. Automatizar la publicación no significa dejar de mirar lo que publicas.",
+      },
+      {
+        type: "text",
+        text: "En mi caso, 52 vídeos en la lista y 3 huecos por semana en cada red dan para unos cuatro meses de publicaciones sin tocar nada. Mi único trabajo ahora es hacer vídeos nuevos y añadirlos a la lista.",
       },
     ],
   },
