@@ -24,7 +24,9 @@ const browser = await puppeteer.launch({
 });
 const page = await browser.newPage();
 await page.setViewport({ width: 1080, height: 1920, deviceScaleFactor: 1 });
-await page.goto(pathToFileURL(join(here, "reel.html")).href, { waitUntil: "networkidle0" });
+// "load", not "networkidle0": Chrome parks long videos half-downloaded, so the network never goes idle.
+// window.ready (engine.js) then waits for every video and font.
+await page.goto(pathToFileURL(join(here, "reel.html")).href, { waitUntil: "load" });
 await page.evaluate(() => window.ready);
 const stage = await page.$("#stage");
 
