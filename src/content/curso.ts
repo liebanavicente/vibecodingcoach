@@ -349,10 +349,124 @@ export const modules: Module[] = [
     number: 3,
     title: "Funcionalidad real",
     summary: "Formularios y una base de datos sencilla para guardar información.",
-    duration: "Próximamente",
-    available: false,
-    objectives: [],
-    sections: [],
+    duration: "1 h",
+    available: true,
+    objectives: [
+      "Entender qué pasa entre que alguien pulsa «Enviar» y el dato se guarda.",
+      "Añadir a tu web un formulario de contacto que te llegue al correo.",
+      "Guardar información en una base de datos y decidir quién puede verla.",
+      "Conectar una IA gratuita a tu web sin dejar la clave a la vista.",
+    ],
+    sections: [
+      {
+        title: "Del escaparate a la tienda",
+        points: [
+          "Frontend: el escaparate que ve la gente",
+          "Backend: la trastienda donde se trabaja",
+          "Base de datos: el archivador donde se guarda todo",
+        ],
+        body: [
+          "Hasta ahora tu web era un escaparate precioso: se ve, pero no hace nada. En este módulo vas a abrir la trastienda.",
+          "Piensa en una tienda de barrio. El escaparate es el frontend: lo que ve la gente en el navegador. La trastienda es el backend: un servidor que recibe lo que la gente pide, comprueba que todo está bien y hace el trabajo. Y el archivador del fondo es la base de datos: donde se guardan los pedidos, los clientes o los mensajes para encontrarlos después.",
+          "Cuando alguien rellena un formulario y pulsa «Enviar», el dato sale del escaparate, la trastienda lo revisa y, si todo está en orden, lo mete en el archivador o te lo manda por correo. La IA puede construir las tres partes; tu trabajo es entender por dónde viaja el dato.",
+        ],
+        tip: "Cuando la IA te hable de «servidor», «API» o «endpoint», piensa en la trastienda: es la parte que el visitante no ve.",
+      },
+      {
+        title: "Tu primer formulario de contacto",
+        points: [
+          "Empieza por lo más simple: que te llegue un correo",
+          "Formspree o Resend: planes gratis, sin montar servidor",
+          "Pruébalo tú antes de publicarlo",
+        ],
+        body: [
+          "El formulario más útil para un negocio es el de contacto: nombre, correo y mensaje. Y no necesitas montar nada complicado: servicios como Formspree o Resend reciben el formulario y te lo reenvían a tu correo. Los dos tienen plan gratuito, de sobra para empezar.",
+          "Pídeselo a la IA indicando qué campos quieres, adónde debe llegar y qué ve la persona al enviarlo. Ese último detalle se olvida mucho y es importante: un «¡Gracias, te contesto en 24 horas!» da confianza.",
+        ],
+        prompt:
+          "Añade a mi web un formulario de contacto con nombre, correo y mensaje, todos obligatorios. Usa Formspree para que los mensajes me lleguen a [tu correo]. Al enviarlo, muestra «¡Gracias! Te contesto en menos de 24 horas» sin recargar la página. Explícame paso a paso qué tengo que hacer yo en la web de Formspree.",
+        tip: "Envíate tres mensajes de prueba: uno bien, uno con el correo mal escrito y uno vacío. Así compruebas que el formulario avisa de los errores.",
+      },
+      {
+        title: "Guardar datos: tu primera base de datos",
+        points: [
+          "Una base de datos es como una hoja de cálculo con reglas",
+          "Supabase: base de datos gratis y con panel visual",
+          "Tablas, columnas y filas: un libro de visitas, una lista de reservas",
+        ],
+        body: [
+          "Cuando quieres guardar información para usarla después (las reservas de la semana, los pedidos, los mensajes de un libro de visitas), el correo se queda corto. Necesitas una base de datos.",
+          "Imagínala como una hoja de cálculo con reglas: cada tabla es una hoja (por ejemplo, «reservas»), cada columna es un dato (nombre, fecha, hora) y cada fila es una reserva. La diferencia es que tu web puede leer y escribir en ella sola.",
+          "Supabase es la opción más cómoda para empezar: tiene plan gratuito, un panel donde ves tus tablas como en una hoja de cálculo y la IA sabe usarla muy bien. Créate una cuenta y un proyecto, y deja que la IA te guíe con el resto.",
+        ],
+        prompt:
+          "Quiero que mi web guarde reservas en Supabase. Cada reserva tiene nombre, teléfono, fecha y hora. Primero explícame qué tabla vas a crear y qué columnas tendrá, y espera mi OK. Luego hazlo paso a paso y dime exactamente qué tengo que copiar del panel de Supabase y dónde guardarlo.",
+      },
+      {
+        title: "Quién puede ver qué",
+        points: [
+          "Que cualquiera pueda escribir no significa que pueda leer",
+          "Las reglas de acceso (RLS) van en la base de datos, no en la web",
+          "Las claves secretas, en .env y nunca en el código",
+        ],
+        body: [
+          "Aquí está el error más peligroso de quien empieza: una web de reservas donde cualquiera puede ver los teléfonos de todos los clientes. Que tu formulario deje escribir no significa que deba dejar leer.",
+          "En Supabase esto se controla con reglas de acceso por fila (Row Level Security, o RLS). Por ejemplo: «cualquiera puede añadir una reserva, pero solo yo puedo verlas». Esas reglas viven en la base de datos, así que da igual lo que alguien toque en la web: el archivador sigue cerrado.",
+          "Y las claves: Supabase te da una pública, que puede estar en la web, y otra secreta, que nunca debe salir de la trastienda. La secreta va en el archivo .env y no se sube a GitHub. Si una clave secreta se te escapa, cámbiala en el panel en ese momento.",
+        ],
+        prompt:
+          "Revisa la seguridad de mi base de datos de Supabase: ¿está activado RLS en todas las tablas? ¿Puede alguien sin iniciar sesión leer datos que no debería? ¿Hay alguna clave secreta en el código del navegador? Explícame cada problema en lenguaje sencillo y propón el arreglo antes de tocar nada.",
+        tip: "Tienes la lista completa de agujeros típicos en la guía «Vibe coding sin agujeros».",
+      },
+      {
+        title: "Meter IA en tu web, gratis",
+        points: [
+          "Google Gemini tiene un plan gratuito, sin tarjeta",
+          "La IA se llama desde la trastienda, nunca desde el navegador",
+          "Pon un límite: qué responde y qué no",
+        ],
+        body: [
+          "Ahora puedes hacer que tu web también piense: que responda a las preguntas frecuentes de tu negocio o que escriba una respuesta automática a cada reserva. Con Google Gemini es gratis para empezar: creas una clave en Google AI Studio y la guardas en tu .env.",
+          "La regla de oro es la misma que con las claves de la base de datos: la llamada a la IA se hace desde la trastienda. Si la clave estuviera en el navegador, cualquiera podría copiarla y gastar tu cupo.",
+          "Y dale límites: de qué temas puede hablar, qué tono usar y qué hacer cuando no sabe algo. Una IA sin instrucciones en la web de una peluquería acabará opinando de política.",
+        ],
+        prompt:
+          "Añade a mi web un pequeño asistente que responda dudas sobre [tu negocio] usando la API gratuita de Google Gemini. La clave debe ir en .env y la llamada hacerse en el servidor, nunca en el navegador. Que solo hable de [horarios, precios y servicios], con tono cercano, y que si no sabe algo diga «Pregúntamelo por teléfono». Explícame cómo consigo la clave.",
+        tip: "Los planes gratis tienen límites de uso. Pide a la IA que, si se agotan, el asistente muestre un mensaje amable en vez de romperse.",
+      },
+      {
+        title: "Pruébalo como si fueras otra persona",
+        points: [
+          "Ventana de incógnito y móvil: así lo verán los demás",
+          "Rompe tu formulario a propósito: vacío, raro, larguísimo",
+          "Pide a la IA una lista de pruebas antes de publicar",
+        ],
+        body: [
+          "Tú sabes cómo se usa tu web; tus visitantes, no. Antes de publicar, ábrela en una ventana de incógnito y en tu móvil, y úsala como lo haría alguien con prisa: deja campos vacíos, pon un correo sin arroba, pega un texto enorme, pulsa «Enviar» dos veces.",
+          "Si algo falla, ya sabes qué hacer: copia el error, pégaselo a la IA y pídele que te lo explique antes de arreglarlo.",
+        ],
+        prompt:
+          "Hazme una lista de 10 pruebas que debería hacer en mi formulario y mi base de datos antes de publicar la web, incluidas las de seguridad. Para cada una, dime qué debería pasar si todo está bien.",
+      },
+    ],
+    exercise: {
+      title: "Ejercicio: un libro de visitas que contesta",
+      steps: [
+        "Crea un proyecto gratis en Supabase.",
+        "Pide a la IA una tabla «visitas» con nombre y mensaje, y un formulario en tu web para dejar un mensaje.",
+        "Activa RLS para que cualquiera pueda escribir, pero solo tú puedas leer los mensajes desde el panel de Supabase.",
+        "Añade una respuesta automática con Gemini: «¡Gracias, Ana! Qué bonito lo que dices de…».",
+        "Prueba en incógnito y en el móvil, y pide a la IA que revise la seguridad antes de dar el ejercicio por terminado.",
+      ],
+    },
+    checklist: [
+      "Sé explicar qué hacen el frontend, el backend y la base de datos.",
+      "Mi web tiene un formulario de contacto que me llega al correo.",
+      "Sé crear una tabla en Supabase y guardar datos desde mi web.",
+      "Tengo RLS activado y sé quién puede leer cada tabla.",
+      "Mis claves secretas están en .env y no en el código.",
+      "He conectado una IA gratuita llamándola desde el servidor.",
+    ],
   },
   {
     slug: "modulo-4",
