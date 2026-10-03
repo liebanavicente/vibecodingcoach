@@ -304,20 +304,158 @@ export const digitalModules: Module[] = [
     number: 4,
     title: "Trámites online sin agobios",
     summary: "Pedir cita, descargar documentos y entender el certificado digital y Cl@ve.",
-    duration: "Próximamente",
-    available: false,
-    objectives: [],
-    sections: [],
+    duration: "1 h",
+    available: true,
+    objectives: [
+      "Encontrar la web oficial de un trámite y no caer en webs que cobran por lo gratuito.",
+      "Pedir cita previa por internet.",
+      "Descargar un documento oficial y encontrarlo después.",
+      "Entender qué son Cl@ve y el certificado digital, y cuál te conviene.",
+    ],
+    sections: [
+      {
+        title: "Primero, la web oficial",
+        points: ["Las webs oficiales terminan en .gob.es o en el dominio de tu comunidad", "Cuidado con los anuncios que cobran por trámites gratis", "Guarda en favoritos las que más uses"],
+        body: [
+          "Casi todos los trámites con la administración se pueden hacer por internet, y casi todos son gratis. El primer paso es llegar a la web de verdad: las de la administración del Estado terminan en .gob.es (por ejemplo, sede.agenciatributaria.gob.es o sede.seg-social.gob.es), y las de tu comunidad o tu ayuntamiento llevan su propio dominio.",
+          "Como vimos en el módulo de buscar, los primeros resultados pueden ser anuncios de empresas que cobran por gestiones gratuitas. Si una web te pide pagar por pedir una cita, desconfía y busca la oficial.",
+          "Cuando encuentres la buena, guárdala en favoritos (la estrella junto a la dirección). La próxima vez irás directo.",
+        ],
+      },
+      {
+        title: "Pedir cita previa",
+        points: ["Ten a mano tu DNI o NIE", "Elige trámite, oficina, día y hora", "Guarda el justificante o haz captura"],
+        body: [
+          "La cita previa funciona casi igual en todas partes: eliges qué quieres hacer, en qué oficina, y te ofrecen días y horas libres. Ten a mano el DNI o NIE, porque te lo pedirán, y a veces un teléfono o un correo para confirmarte la cita.",
+          "Para tu centro de salud suele ser más fácil la aplicación de tu comunidad autónoma. Para el DNI o el pasaporte, la cita se pide en la web de la Policía Nacional. Para el paro, en la web del SEPE o de tu comunidad.",
+          "Al terminar, te dan un justificante o un número de cita: haz una captura de pantalla o descárgalo. Si no hay huecos, prueba a primera hora de la mañana, que es cuando suelen liberarse.",
+        ],
+        tip: "Escribe en la agenda del móvil el día, la hora, la dirección y qué tienes que llevar. Te ahorrarás un viaje en balde.",
+      },
+      {
+        title: "Descargar documentos y encontrarlos",
+        points: ["Los documentos suelen ser PDF", "Van a la carpeta «Descargas»", "Cámbiales el nombre para encontrarlos después"],
+        body: [
+          "Un certificado, un justificante o una vida laboral se descargan casi siempre en PDF, un formato que se ve igual en cualquier ordenador o móvil y que se puede imprimir o enviar por correo.",
+          "En el ordenador van a la carpeta «Descargas»; en el móvil, a la aplicación «Archivos» (o «Mis archivos»). Recuerda lo que vimos en el primer módulo: cámbiale el nombre a algo que entiendas («Vida laboral octubre 2026») y muévelo a una carpeta con sentido, como «Papeles».",
+        ],
+      },
+      {
+        title: "Cl@ve: tu llave para la administración",
+        points: ["Te identifica en internet sin ir a una oficina", "Te registras una sola vez", "Después entras con la app Cl@ve en el móvil"],
+        body: [
+          "Muchos trámites te piden que demuestres quién eres. Cl@ve es el sistema más sencillo: te registras una vez y, a partir de ahí, entras en la web de Hacienda, la Seguridad Social o el SEPE confirmando desde la aplicación Cl@ve del móvil.",
+          "Para registrarte, la web oficial de Cl@ve te ofrece varias formas: en persona en una oficina (Hacienda o Seguridad Social), por videollamada o con tu DNI electrónico. Elige la que te resulte más cómoda; es un trámite gratuito.",
+        ],
+        tip: "Igual que con el banco: nadie de la administración te pedirá por teléfono ni por WhatsApp tu PIN de Cl@ve ni el código que te llega al móvil.",
+      },
+      {
+        title: "El certificado digital, en pocas palabras",
+        points: ["Es un DNI que vive en tu ordenador", "Se pide en la web de la FNMT", "Haz una copia de seguridad y apunta cuándo caduca"],
+        body: [
+          "El certificado digital es como un DNI que vive dentro de tu ordenador o de tu móvil: lo usas para firmar y hacer trámites más complejos. Lo emite gratis la Fábrica Nacional de Moneda y Timbre (FNMT) en su web.",
+          "Se pide en tres pasos: lo solicitas en la web de la FNMT, acreditas tu identidad (en una oficina o por videollamada, según te indiquen) y lo descargas en el mismo ordenador y el mismo navegador desde el que lo pediste.",
+          "Si solo haces trámites sencillos de vez en cuando, con Cl@ve te basta. El certificado conviene si eres autónomo, gestionas papeles de otra persona o haces trámites a menudo.",
+        ],
+        tip: "Haz una copia de seguridad del certificado en un pendrive o en tu nube, y apunta en la agenda cuándo caduca para renovarlo a tiempo.",
+      },
+    ],
+    exercise: {
+      title: "Ejercicio: tu carpeta de papeles",
+      steps: [
+        "Busca la web oficial para pedir cita en tu centro de salud y guárdala en favoritos.",
+        "Encuentra cómo se pide cita para renovar el DNI, sin llegar a pedirla.",
+        "Crea en tu ordenador o en tu móvil una carpeta llamada «Papeles».",
+        "Descarga un PDF cualquiera de una web oficial, cámbiale el nombre y guárdalo en «Papeles».",
+        "Entra en la web oficial de Cl@ve y mira qué formas de registro te ofrece.",
+      ],
+    },
+    checklist: [
+      "Sé reconocer una web oficial y desconfío de las que cobran por trámites gratis.",
+      "Sé pedir una cita previa y guardar el justificante.",
+      "Encuentro mis descargas y les pongo un nombre que entiendo.",
+      "Sé qué es Cl@ve y cómo registrarme.",
+      "Sé qué es el certificado digital y si lo necesito.",
+    ],
   },
   {
     slug: "ia-en-tu-dia",
     number: 5,
     title: "La IA como ayudante del día a día",
     summary: "Usar ChatGPT o Claude para resolver dudas, escribir mensajes y entender documentos.",
-    duration: "Próximamente",
-    available: false,
-    objectives: [],
-    sections: [],
+    duration: "1 h",
+    available: true,
+    objectives: [
+      "Empezar a usar un asistente de IA gratuito en el móvil o el ordenador.",
+      "Pedirle ayuda para entender documentos y escribir mensajes.",
+      "Saber qué datos no compartir con una IA.",
+      "Comprobar lo importante, porque a veces se equivoca.",
+    ],
+    sections: [
+      {
+        title: "Qué es un asistente de IA",
+        points: ["Le escribes (o le hablas) como a una persona", "ChatGPT, Claude y Gemini tienen versión gratis", "Sirve para explicar, escribir, organizar y aprender"],
+        body: [
+          "Un asistente de inteligencia artificial es un programa al que le escribes como si fuera una persona, y te contesta. ChatGPT, Claude y Gemini son los más conocidos; los tres tienen versión gratuita en el navegador y en una aplicación para el móvil.",
+          "No es un buscador: no te da una lista de webs, sino una respuesta con sus propias palabras. Por eso es muy bueno explicando, resumiendo y redactando. Y en el móvil puedes hablarle con el micrófono, sin escribir.",
+        ],
+        tip: "Instala solo la aplicación oficial (de OpenAI, Anthropic o Google). Hay copias en las tiendas de aplicaciones que cobran o recogen datos.",
+      },
+      {
+        title: "Que te explique lo que no entiendes",
+        points: ["Cartas del banco, facturas o instrucciones", "Pídele que te lo explique como a un niño", "Pregunta hasta que lo entiendas"],
+        body: [
+          "Una carta llena de palabras raras, una factura que no cuadra o unas instrucciones complicadas: copia el texto (o hazle una foto) y pídele que te lo explique con palabras sencillas.",
+          "Si no lo entiendes a la primera, pregunta otra vez: «no entiendo lo de la domiciliación», «pon un ejemplo». No se cansa ni se molesta.",
+        ],
+        prompt: "Te paso el texto de una carta de mi compañía de la luz: [pega aquí el texto, sin tus datos personales]. Explícame con palabras sencillas qué me dice, si tengo que hacer algo y antes de qué fecha.",
+        promptLabel: "Pídeselo así",
+      },
+      {
+        title: "Que te ayude a escribir",
+        points: ["Mensajes, correos y reclamaciones", "Dile a quién va y qué tono quieres", "Léelo y cámbialo antes de enviarlo"],
+        body: [
+          "La IA es muy buena escribiendo borradores: un correo a la escuela, una reclamación a una tienda, una felicitación o un mensaje difícil. Dile a quién va dirigido, qué quieres conseguir y qué tono prefieres (amable, firme, formal).",
+          "Léelo siempre antes de enviarlo y cambia lo que no suene a ti: es tu mensaje, la IA solo te ayuda a empezar.",
+        ],
+        prompt: "Ayúdame a escribir un correo amable pero firme a [tienda] para reclamar que el [producto] que compré el [fecha] llegó roto. Quiero que me lo cambien. Que sea corto.",
+        promptLabel: "Pídeselo así",
+      },
+      {
+        title: "Lo que no debes compartir",
+        points: ["Ni DNI, ni tarjetas, ni contraseñas", "Ni datos de salud con tu nombre", "Antes de pegar un documento, borra tus datos"],
+        body: [
+          "Lo que escribes a una IA viaja a los servidores de la empresa, y en algunas versiones gratuitas puede usarse para entrenarla. Así que trátala como a un desconocido muy listo: puedes pedirle consejo, pero no le des tus llaves.",
+          "No le pases tu DNI, números de tarjeta, contraseñas, códigos ni datos médicos con tu nombre. Si quieres que te explique un documento, borra antes tu nombre, dirección y números, o cámbialos por «XXXX».",
+        ],
+      },
+      {
+        title: "Se equivoca: comprueba lo importante",
+        points: ["A veces se inventa datos con total seguridad", "Salud, dinero y leyes: confírmalo con un profesional", "Pídele que te diga de dónde lo saca"],
+        body: [
+          "La IA a veces se equivoca, y lo hace con total seguridad: puede inventarse un teléfono, una fecha o una ley. A eso se le llama «alucinación».",
+          "Para cosas sin importancia, como una receta o ideas para un regalo, no pasa nada. Pero en temas de salud, dinero o leyes, úsala para entender y preparar preguntas, y confirma siempre con tu médico, tu banco o la web oficial.",
+        ],
+        tip: "Un buen truco: pregúntale «¿de dónde sacas eso?» o «¿estás seguro?». Si duda o no da una fuente clara, compruébalo.",
+      },
+    ],
+    exercise: {
+      title: "Ejercicio: tu primer día con un asistente",
+      steps: [
+        "Instala la aplicación oficial de ChatGPT, Claude o Gemini, o ábrela en el navegador.",
+        "Pídele que te explique una carta o una factura reciente, después de borrar tus datos personales.",
+        "Pídele un borrador de un mensaje que tengas pendiente y cámbialo hasta que suene a ti.",
+        "Hazle una pregunta por voz desde el móvil.",
+        "Pregúntale algo cuya respuesta ya sepas y comprueba si acierta.",
+      ],
+    },
+    checklist: [
+      "Tengo un asistente de IA oficial y sé abrirlo.",
+      "Le pido que me explique documentos con palabras sencillas.",
+      "Le pido borradores y los reviso antes de enviarlos.",
+      "No comparto DNI, tarjetas, contraseñas ni datos de salud con mi nombre.",
+      "Compruebo lo importante con una fuente fiable.",
+    ],
   },
 ];
 
