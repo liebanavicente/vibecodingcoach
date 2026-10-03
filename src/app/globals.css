@@ -565,6 +565,9 @@ a.module-card:hover .step-mark { transform: rotate(-10deg) scale(1.06); }
 .pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 28px; }
 
 /* ---------- Lesson player ---------- */
+/* YouTube lesson video above the slides. */
+.lesson-video { margin-bottom: 20px; overflow: hidden; border-radius: var(--radius-xl); background: var(--code); box-shadow: var(--shadow); aspect-ratio: 16 / 9; }
+.lesson-video iframe { display: block; width: 100%; height: 100%; border: 0; }
 .player { margin-bottom: 28px; overflow: hidden; border-radius: var(--radius-xl); }
 .player-stage { display: grid; grid-template-columns: minmax(0, 1fr); }
 .player.has-video .player-stage { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }

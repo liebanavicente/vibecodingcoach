@@ -167,7 +167,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   Alternativa que a Miguel le gustó más: el resumen en vídeo de NotebookLM (Gemini Notebook) del módulo, envuelto con
   nuestra entrada y cierre: `bash media/video-curso/envolver.sh modulo-0 notebooklm.mp4 393.7` (393.7 = segundo
   donde cortar antes de su pantalla final) → `out/<slug>-notebooklm-youtube.mp4`; descripción en
-  `descripcion-notebooklm.txt`. Los vídeos de NotebookLM no se versionan.
+  `descripcion-notebooklm.txt`. Los vídeos de NotebookLM no se versionan. Se suben a mano a YouTube (miniatura,
+  lista «Vibe coding desde cero · Curso gratis») y se enlazan en el módulo con `youtube: "<id>"` en `curso.ts`
+  (se ve encima de las diapositivas). Módulo 0 publicado: https://youtu.be/c5AYpVE0K1E
 - Vídeos del reproductor: ninguno grabado todavía. Flujo previsto: grabar la narración (con webcam o
   pantalla) pasando las diapositivas en pantalla completa, subir el mp4 (p. ej. a
   `public/videos/` o Vercel Blob) y anotar en `cues` el segundo de cada cambio.

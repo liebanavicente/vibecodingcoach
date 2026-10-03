@@ -4,10 +4,11 @@ import { type KeyboardEvent, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowsOut, VideoCamera } from "@phosphor-icons/react";
 import type { Module, Slide } from "@/content/curso";
 
-type Props = { slides: Slide[]; video?: Module["video"] };
+/** hideVideoNote: the lesson already has its video elsewhere on the page (YouTube), so skip "coming soon". */
+type Props = { slides: Slide[]; video?: Module["video"]; hideVideoNote?: boolean };
 
 /** Lesson as slides, optionally driven by a recorded video: the video moves the slides, picking a slide seeks the video. */
-export function LessonPlayer({ slides, video }: Props) {
+export function LessonPlayer({ slides, video, hideVideoNote }: Props) {
   const [index, setIndex] = useState(0);
   const root = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -87,7 +88,7 @@ export function LessonPlayer({ slides, video }: Props) {
           ))}
         </div>
         <span className="spacer" />
-        {video ? null : (
+        {video || hideVideoNote ? null : (
           <span className="player-note">
             <VideoCamera aria-hidden size={14} weight="bold" /> Vídeo de la lección próximamente
           </span>

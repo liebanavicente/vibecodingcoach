@@ -40,7 +40,20 @@ export function ModuleView({ mod, modules, courseHref, linksTitle, links }: Prop
           </Link>
         </div>
 
-        <LessonPlayer slides={slidesFor(mod)} video={mod.video} />
+        {mod.youtube ? (
+          <div className="lesson-video">
+            <iframe
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              src={`https://www.youtube-nocookie.com/embed/${mod.youtube}?rel=0`}
+              title={`Vídeo del módulo ${mod.number}: ${mod.title}`}
+            />
+          </div>
+        ) : null}
+
+        <LessonPlayer hideVideoNote={Boolean(mod.youtube)} slides={slidesFor(mod)} video={mod.video} />
 
         <div className="article-layout">
           <article className="prose">

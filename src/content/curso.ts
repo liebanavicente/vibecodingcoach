@@ -22,6 +22,8 @@ export type Module = {
   checklist?: string[];
   /** Recorded lesson: cues[i] is the second at which slide i starts. */
   video?: { src: string; poster?: string; cues: number[] };
+  /** YouTube video id of the lesson (e.g. the NotebookLM overview), shown above the slides. */
+  youtube?: string;
 };
 
 export type Slide = {
@@ -42,6 +44,7 @@ export const modules: Module[] = [
       "Qué es el vibe coding, qué puede y qué no puede hacer la IA, y cómo preparar tu ordenador para empezar.",
     duration: "45 min",
     available: true,
+    youtube: "c5AYpVE0K1E",
     objectives: [
       "Explicar con tus palabras qué es el vibe coding.",
       "Distinguir qué tareas puedes delegar en la IA y cuáles necesitan tu criterio.",
