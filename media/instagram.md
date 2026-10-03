@@ -200,6 +200,25 @@ Guárdalo 📌 Guía con el paso a paso, gratis en el enlace del perfil.
 #vibecoding #inteligenciaartificial #ia #gratis #gemini #desarrolloweb #aprenderaprogramar #trucos
 ```
 
+## Reel 12 · Tu estudio creativo por 0 €
+
+```
+Tu estudio creativo por 0 € 🎨
+
+5 IA gratis para crear contenido:
+· Leonardo → imágenes realistas
+· Ideogram → carteles y portadas con texto
+· Kling → vídeo desde una frase
+· ElevenLabs → locuciones naturales
+· Suno → canciones a medida
+
+Ojo: gratis no siempre significa comercial. Si vas a ganar dinero con ello, revisa la licencia del plan gratis.
+
+Guárdalo 📌 Guía completa con prompts y derechos, gratis en el enlace del perfil.
+
+#vibecoding #inteligenciaartificial #ia #herramientasia #creadoresdecontenido #gratis #videoia #musicaia
+```
+
 ---
 
 ## Próximos reels (misma plantilla)

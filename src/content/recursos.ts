@@ -775,6 +775,14 @@ export const resources: Resource[] = [
         ],
       },
       {
+        type: "cards",
+        items: [
+          { title: "Y sin internet: IA en tu ordenador", text: "Con Ollama, LM Studio o Jan descargas un modelo y lo usas en tu equipo: sin límites, sin conexión y sin que tus datos salgan de casa." },
+          { title: "¿Me llega el ordenador?", text: "Con 16 GB de RAM van bien los modelos pequeños (de 3 a 8 mil millones de parámetros). Son más lentos y menos listos que los de la nube, pero ideales para practicar." },
+          { title: "Cuándo usarla", text: "Para textos privados (documentos de alumnos, datos de clientes) o para experimentar sin preocuparte de límites ni de costes." },
+        ],
+      },
+      {
         type: "links",
         title: "La lista completa, actualizada a diario",
         items: [
@@ -785,6 +793,64 @@ export const resources: Resource[] = [
       {
         type: "warning",
         text: "Los planes gratis cambian a menudo (límites, modelos disponibles, condiciones). Antes de construir algo importante, revisa las condiciones actuales en la web del proveedor.",
+      },
+    ],
+  },
+  {
+    slug: "herramientas-creativas",
+    category: "Imágenes",
+    title: "Herramientas creativas gratis: imagen, vídeo, voz y música",
+    summary: "Crea imágenes, clips, voces y música para tu web o tus redes sin pagar, y sin meterte en líos de derechos.",
+    minutes: 6,
+    blocks: [
+      {
+        type: "text",
+        text: "Para que tu web o tus redes luzcan no necesitas un diseñador ni un estudio. Hay herramientas con plan gratuito para cada cosa. La clave es saber cuál usar y, sobre todo, qué puedes hacer con lo que generas.",
+      },
+      {
+        type: "table",
+        title: "Qué usar para cada cosa",
+        head: ["Para…", "Prueba", "Lo mejor"],
+        rows: [
+          ["Imágenes", "Leonardo, Adobe Firefly", "Fotos realistas; Firefly está pensado para uso comercial"],
+          ["Imágenes con texto", "Ideogram", "Escribe bien las letras dentro de la imagen (carteles, portadas)"],
+          ["Vídeo", "Kling, Hailuo, Google Flow", "Clips cortos a partir de una descripción o una imagen"],
+          ["Voz", "ElevenLabs", "Convierte un texto en una voz muy natural"],
+          ["Transcribir", "Whisper", "Pasa un audio o vídeo a texto, gratis y en tu ordenador"],
+          ["Música", "Suno, Udio", "Canciones completas a partir de una descripción"],
+        ],
+      },
+      {
+        type: "compare",
+        bad: "Hazme un vídeo de una web.",
+        good: "Vídeo vertical 9:16 de 5 segundos: una web moderna aparece en un portátil sobre una mesa de madera, luz natural, cámara que se acerca despacio. Sin texto, sin logos, sin personas.",
+      },
+      {
+        type: "dodont",
+        title: "Derechos: lo que casi nadie mira",
+        labels: ["Ojo con", "Haz esto"],
+        items: [
+          {
+            bad: "Usar música de un plan gratis en contenido con el que ganas dinero.",
+            good: "En Suno o Udio, el plan gratis suele ser solo para uso personal: para monetizar, pasa a un plan de pago.",
+          },
+          {
+            bad: "Clonar la voz de otra persona.",
+            good: "Usa voces de la biblioteca o la tuya propia.",
+          },
+          {
+            bad: "Pedir logos, marcas o famosos reales.",
+            good: "Escribe «sin logos ni texto» en el prompt y añade tú los textos después.",
+          },
+        ],
+      },
+      {
+        type: "tip",
+        text: "Las IA de vídeo e imagen se inventan letras y logos. Pide siempre «sin texto ni logos» y pon el texto tú encima al editar: queda nítido y tu marca no se deforma.",
+      },
+      {
+        type: "warning",
+        text: "Los créditos gratis y las licencias cambian a menudo. Antes de usar algo en una web o en contenido que monetizas, revisa los términos del plan gratuito de esa herramienta.",
       },
     ],
   },
