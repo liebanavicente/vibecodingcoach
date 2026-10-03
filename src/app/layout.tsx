@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { MlLink } from "@/components/MlLogo";
 import { SocialLinks } from "@/components/SocialLinks";
@@ -52,6 +53,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <a href={`mailto:${site.email}`}>Email</a>
           </span>
         </footer>
+        {/* Vercel Web Analytics: page views without cookies. */}
+        <Analytics />
       </body>
     </html>
   );

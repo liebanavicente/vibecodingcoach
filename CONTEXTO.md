@@ -174,7 +174,8 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
    (`alternates.canonical`; no ponerlo en el layout) y datos estructurados JSON-LD (`src/components/JsonLd.tsx`,
    `src/lib/seo.ts`): Person + WebSite en la portada, Course en cursos y módulos, DefinedTermSet en el glosario y
    Article en las guías. Google Search Console: propiedad de dominio miguelliebana.com, verificada con un
-   registro TXT en los DNS de Vercel (3 oct); sitemap enviado por Miguel. Mejoras posibles: analítica. Imagen para compartir (Open Graph) hecha: `src/app/opengraph-image.png`,
+   registro TXT en los DNS de Vercel (3 oct); sitemap enviado por Miguel. Analítica: Vercel Web Analytics (`<Analytics />` en `layout.tsx`, sin cookies; activarla en el panel de Vercel →
+   Analytics). Siguiente: lista de email (MailerLite o Brevo) con un formulario «te aviso de cada módulo nuevo». Imagen para compartir (Open Graph) hecha: `src/app/opengraph-image.png`,
    generada desde `media/og/carrusel.html` con `npm run carrusel -- og` (copiar `out/01.png` encima); `metadataBase`
    en `layout.tsx`. Reservas con la agenda de citas de Google
    Calendar: https://calendar.app.google/uSv5gUWQeJT8efSM6 (Cal.com se abandonó: fallaba
