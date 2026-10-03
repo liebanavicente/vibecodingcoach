@@ -1,0 +1,12 @@
+Módulo 1 del curso gratuito Vibe Coding desde Cero: hablar con la ia.
+Cómo escribir instrucciones claras, iterar sobre el resultado y salir de los errores sin frustrarte.
+
+📚 Curso completo, gratis y con ejercicios: https://vibecoding.miguelliebana.com/curso/modulo-1
+🎓 Primera clase gratis (30 min): https://vibecoding.miguelliebana.com/reservar
+
+Resumen en vídeo creado con Gemini Notebook (NotebookLM) a partir del contenido del curso.
+
+Soy Miguel Liébana, maestro durante 14 años. Enseño a principiantes absolutos a construir su primera web con IA, sin jerga.
+Instagram: https://www.instagram.com/vibecodingcoach_ml/ · TikTok: https://www.tiktok.com/@vibecodingcoach_m
+
+#vibecoding #inteligenciaartificial #aprenderaprogramar #claude #crearunaweb

@@ -196,6 +196,13 @@ Instagram: https://www.instagram.com/vibecodingcoach_ml/ · TikTok: https://www.
 #vibecoding #inteligenciaartificial #aprenderaprogramar #claude #crearunaweb
 `;
 writeFileSync(join(dir, "descripcion.txt"), description);
+// For the NotebookLM overview wrapped by envolver.sh: no chapters (its structure is its own) and a credit line.
+writeFileSync(
+  join(dir, "descripcion-notebooklm.txt"),
+  description
+    .replace(/\nCapítulos\n[\s\S]*?\n\n/, "\n")
+    .replace("Soy Miguel Liébana", "Resumen en vídeo creado con Gemini Notebook (NotebookLM) a partir del contenido del curso.\n\nSoy Miguel Liébana"),
+);
 
 // YouTube thumbnail (1280x720): npm run carrusel -- video-curso/<slug>/miniatura → miniatura/out/01.png
 const thumbDir = join(dir, "miniatura");
