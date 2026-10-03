@@ -9,7 +9,8 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 /** Flowing glass ribbons behind a section. Place it as the last child of an element with class "has-ribbon".
  * It only plays while on screen, fades in and drifts with scroll; with reduced motion it stays a still image.
- * On phones it runs slower and softer (the blur lives in globals.css); "hero" only shows on phones. */
+ * Phones get a portrait cut with two ribbon streams (fondo-cintas-movil.mp4) so they stay crisp instead of a zoomed-in slice;
+ * "hero" only shows on phones. */
 export function RibbonBg({ position = "center" }: { position?: "top" | "center" | "bottom" | "hero" }) {
   const root = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -22,7 +23,9 @@ export function RibbonBg({ position = "center" }: { position?: "top" | "center" 
         const el = video.current;
         const host = root.current?.parentElement;
         if (!motion || !el || !host || getComputedStyle(root.current!).display === "none") return;
-        el.playbackRate = phone ? 0.55 : 1;
+        const src = phone ? "/videos/fondo-cintas-movil.mp4" : "/videos/fondo-cintas.mp4";
+        if (!el.src.endsWith(src)) el.src = src;
+        el.defaultPlaybackRate = el.playbackRate = phone ? 0.8 : 1;
 
         gsap.fromTo(root.current, { autoAlpha: 0 }, {
           autoAlpha: 1,
@@ -30,8 +33,7 @@ export function RibbonBg({ position = "center" }: { position?: "top" | "center" 
           ease: "power2.out",
           scrollTrigger: { trigger: host, start: "top 85%", once: true },
         });
-        // The phone blur needs the zoom so its soft edges stay off screen.
-        gsap.fromTo(el, { yPercent: -6, scale: phone ? 1.2 : 1 }, {
+        gsap.fromTo(el, { yPercent: -6 }, {
           yPercent: 6,
           ease: "none",
           scrollTrigger: { trigger: host, start: "top bottom", end: "bottom top", scrub: true },
@@ -50,7 +52,8 @@ export function RibbonBg({ position = "center" }: { position?: "top" | "center" 
 
   return (
     <div aria-hidden className={`ribbon-bg ribbon-${position}`} ref={root}>
-      <video loop muted playsInline poster="/videos/fondo-cintas.webp" preload="metadata" ref={video} src="/videos/fondo-cintas.mp4" tabIndex={-1} />
+      {/* The file is picked in the effect (phone or desktop cut); until then, and with reduced motion, the CSS poster shows. */}
+      <video loop muted playsInline preload="metadata" ref={video} tabIndex={-1} />
     </div>
   );
 }

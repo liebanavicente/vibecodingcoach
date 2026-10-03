@@ -85,13 +85,14 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   pantalla completa (`src/components/Header.tsx`, montado en <body> con un portal porque el blur de
   la cabecera lo atraparía). Se cierra con Escape, al pulsar un enlace o al cambiar de página.
   `html { overflow-x: clip }` evita el scroll lateral de las animaciones y los fondos a sangre.
-  Fondo animado de cintas (`src/components/RibbonBg.tsx`, `public/videos/fondo-cintas.mp4`, bucle
+  Fondo animado de cintas (`src/components/RibbonBg.tsx`, `public/videos/fondo-cintas.mp4` y su versión vertical `fondo-cintas-movil.mp4` para móvil, bucle
   continuo hecho con un fundido desde `media/bg/bg.mp4`): detrás de las secciones de cursos de la
   portada y de las cabeceras de /curso, /competencias-digitales, /curso/prompts, /curso/glosario y
   /reservar. Solo se reproduce en pantalla; se usa poniendo `has-ribbon` al contenedor y
   `<RibbonBg />` como último hijo. Opacidad en `.ribbon-bg video` (globals.css). En móvil (≤960 px)
-  va desenfocado, más alto y a 0,55× de velocidad, y además sale detrás del texto del hero de la
-  portada (`position="hero"`, oculto en escritorio).
+  usa un corte vertical nítido con tres corrientes de cintas (`fondo-cintas-movil.mp4`: el vídeo
+  horizontal recortado y apilado con copias volteadas y desfasadas, hecho con ffmpeg) en una caja de
+  como mucho una pantalla de alto, a 0,8× de velocidad, y además sale detrás del texto del hero de la portada (`position="hero"`, oculto en escritorio).
   `GSAP_SCRIPT` (`src/lib/intro.ts`) oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
 - Biblioteca de prompts: `/curso/prompts`, 33 prompts en `src/content/prompts.ts` (fuente
