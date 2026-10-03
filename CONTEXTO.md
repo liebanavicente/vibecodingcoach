@@ -77,7 +77,11 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   con el scroll, enciende cada paso y desliza las tarjetas; `src/components/CourseScrollVideo.tsx`
   muestra en la sección del curso de la portada un clip de Flow (una web construyéndose en un portátil)
   que se abre con un recorte y avanza con el scroll (`public/videos/curso-scroll.mp4`, codificado con
-  fotograma clave cada 3 para que el scrub sea suave; fuente en `media/curso-video/clip.mp4`). Todas se desactivan con «reducir movimiento». `HERO_SCRIPT` oculta la ilustración
+  fotograma clave cada 3 para que el scrub sea suave; fuente en `media/curso-video/clip.mp4`). Todas se desactivan con «reducir movimiento».
+  `src/components/CourseAnimator.tsx` anima la cabecera de /curso y /competencias-digitales al
+  entrar y revela cada título de sección (SplitText) al hacer scroll. El vídeo de la portada lleva
+  desenfoques que siguen las letras inventadas por Flow (`BLURS` en `CourseScrollVideo.tsx`).
+  `GSAP_SCRIPT` (`src/lib/intro.ts`) oculta la ilustración
   antes del primer pintado, con un respaldo CSS que la muestra a los 3 s si el JS no carga.
 - Biblioteca de prompts: `/curso/prompts`, 33 prompts en `src/content/prompts.ts` (fuente
   única). Las guías los usan con un bloque `{ type: "prompt", id }`; los huecos van [entre
