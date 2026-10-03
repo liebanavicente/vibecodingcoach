@@ -29,6 +29,9 @@ await page.setViewport({ width: 1080, height: 1920, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(join(here, "reel.html")).href, { waitUntil: "load" });
 await page.evaluate(() => window.ready);
 const stage = await page.$("#stage");
+// Vertical reels are 1080x1920; a #stage sized in its page (e.g. 1920x1080 for YouTube) sets the frame instead.
+const size = await stage.evaluate((el) => ({ width: el.offsetWidth, height: el.offsetHeight }));
+await page.setViewport({ ...size, deviceScaleFactor: 1 });
 
 mkdirSync(out, { recursive: true });
 if (stills) {
@@ -43,11 +46,12 @@ if (stills) {
 
 rmSync(framesDir, { recursive: true, force: true });
 mkdirSync(framesDir, { recursive: true });
-const { frames, fps, audio, fadeAt } = await page.evaluate(() => ({
+const { frames, fps, audio, fadeAt, volume } = await page.evaluate(() => ({
   frames: window.FRAMES,
   fps: window.FPS,
   audio: document.getElementById("stage").dataset.audio ?? null,
   fadeAt: document.getElementById("stage").dataset.audioFadeout ?? null,
+  volume: document.getElementById("stage").dataset.audioVolume ?? null,
 }));
 for (let f = 0; f < frames; f++) {
   await page.evaluate((s) => window.renderAt(s), f / fps);
@@ -59,8 +63,11 @@ await browser.close();
 const video = join(out, `${basename(name)}.mp4`);
 const encode = ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "+faststart"];
 // Optional soundtrack: data-audio on #stage points to a clip (relative to the reel folder) that starts at 0 s.
+// data-audio-volume (e.g. 0.25 for background music) and data-audio-fadeout (seconds) are optional.
+// The output is cut to the reel's own length, so a long music track never stretches the video.
+const filters = [volume ? `volume=${volume}` : null, fadeAt ? `afade=t=out:st=${fadeAt}:d=0.8` : null].filter(Boolean);
 const sound = audio
-  ? ["-i", join(here, audio), "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k", ...(fadeAt ? ["-af", `afade=t=out:st=${fadeAt}:d=0.8`] : [])]
+  ? ["-i", join(here, audio), "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k", ...(filters.length ? ["-af", filters.join(",")] : []), "-t", String(frames / fps)]
   : [];
 execFileSync("ffmpeg", ["-v", "error", "-y", "-framerate", String(fps), "-i", join(framesDir, "%05d.jpg"), ...sound, ...encode, video], { stdio: "inherit" });
 rmSync(framesDir, { recursive: true, force: true });
