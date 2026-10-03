@@ -42,3 +42,6 @@ next-env.d.ts
 
 # rendered reels and previews
 /media/**/out/
+
+# publishing log
+media/publicar/registro.log

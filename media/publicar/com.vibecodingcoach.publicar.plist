@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Runs npm run publicar every day at 09:00 (or when the Mac wakes up, if it was asleep then).
+     Install: cp media/publicar/com.vibecodingcoach.publicar.plist ~/Library/LaunchAgents/ &&
+              launchctl load ~/Library/LaunchAgents/com.vibecodingcoach.publicar.plist
+     Log: media/publicar/registro.log -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.vibecodingcoach.publicar</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/mlieban3/Proyectos/vibecodingcoach</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/node</string>
+    <string>media/publicar/publicar.mjs</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/mlieban3/Proyectos/vibecodingcoach/media/publicar/registro.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/mlieban3/Proyectos/vibecodingcoach/media/publicar/registro.log</string>
+</dict>
+</plist>

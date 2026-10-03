@@ -10,6 +10,7 @@
     "reel": "node media/render.mjs",
     "fondos": "node media/bg-loop.mjs",
     "subir": "node media/subir.mjs",
+    "publicar": "node media/publicar/publicar.mjs",
     "reels:palabras": "node --no-warnings media/palabras/generate.mjs"
   },
   "dependencies": {

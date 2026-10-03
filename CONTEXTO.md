@@ -171,18 +171,24 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
    queda como plan B). Fondos listos en `media/kit/bg/`: `burbujas` (el principal), `seda` (centro libre,
    bueno para mucho texto) y `cintas`. Aún no se ha publicado ningún reel con fondo animado.
    Demo de prueba (no versionada): `media/_demo/out/reel-06-con-burbujas.mp4`.
-8. Publicación de reels con **Buffer** (MCP `buffer`, conectado; organización «My organization», plan gratis:
-   3 canales y 10 publicaciones programadas a la vez). Canales: Instagram @vibecodingcoach_ml
-   (6ac02fceea19ca0bde5b0ee0, horario tue 19:45 / wed 18:25 / thu 10:49) y TikTok @vibecodingcoach_m
-   (6abfd978ea19ca0bde55e36d). Buffer no admite subir archivos por el MCP: los vídeos van por enlace público.
-   `npm run subir -- reel-15 palabras/rag` sube los renders a Vercel Blob (almacén `vibecodingcoach-reels`,
-   público, fra1; clave `BLOB_READ_WRITE_TOKEN` en `.env.local`, no versionado) y saca el enlace y el texto
-   (de `caption.txt` o de `media/instagram.md`). Luego Claude crea las publicaciones con `create_post`
-   (Instagram: `metadata.instagram = { type: "reel", shouldShareToFeed: true }`). Al editar una publicación
-   hay que reenviar su vídeo (`assets`) o Buffer la rechaza. Publicar o programar siempre con confirmación.
-   Hecho el 3 oct: textos y hashtags puestos a las palabras agente, alucinación y API (TikTok, programadas);
-   borrador de prueba «backend» en TikTok. Los reels 10, 12 y 13 salieron sin texto. OpusClip MCP también
-   conectado (prueba, 90 min), sin usar.
+8. Publicación de reels con **Buffer**, automatizada. Organización «My organization» (plan gratis: 3 canales,
+   10 publicaciones programadas a la vez). Canales: Instagram @vibecodingcoach_ml (6ac02fceea19ca0bde5b0ee0,
+   huecos mar 19:45 / mié 18:25 / jue 10:49) y TikTok @vibecodingcoach_m (6abfd978ea19ca0bde55e36d, huecos
+   lun 09:06 / sáb 17:57 / dom 09:09); los huecos se cambian en la web de Buffer (la API no deja).
+   - **Orden:** `media/publicar/cola.json` (lista editable a mano: palabras del glosario y reels intercalados).
+   - **`npm run publicar`:** mira qué hay ya en Buffer (por el nombre del vídeo), y añade en orden lo que falta, en
+     Instagram y TikTok, hasta llenar los 10 huecos. Sube cada vídeo a Vercel Blob (almacén
+     `vibecodingcoach-reels`) porque Buffer solo acepta enlaces; Buffer lo coloca en el siguiente hueco libre.
+     `--plan` solo enseña lo que haría. Necesita `BUFFER_API_KEY` (de publish.buffer.com/settings/api) y
+     `BLOB_READ_WRITE_TOKEN` en `.env.local` (no versionado).
+   - **Automático:** `media/publicar/com.vibecodingcoach.publicar.plist` lo lanza cada día a las 09:00 en el Mac
+     (instrucciones dentro del archivo; registro en `media/publicar/registro.log`).
+   - Sin la clave, Claude hace lo mismo con el MCP de Buffer (`create_post`, Instagram con
+     `metadata.instagram = { type: "reel", shouldShareToFeed: true }`; al editar hay que reenviar `assets` y
+     `metadata`). Publicar al momento, siempre con confirmación de Miguel.
+   - Estado 3 oct: 10/10 programadas (agente, alucinación, API, backend y reel 11 en las dos redes), todas con
+     texto y en automático. Los reels 10, 12 y 13 salieron sin texto. Reels 01, 07 y 08 se publicaron a mano
+     (fuera de la cola); el 14 («cine», plan B) tampoco está en la cola. OpusClip MCP conectado, sin usar.
 
 ## Avisos
 
