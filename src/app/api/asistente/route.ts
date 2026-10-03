@@ -6,7 +6,12 @@ import { site } from "@/lib/site";
 
 type Turn = { role: "user" | "model"; text: string };
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-flash-latest";
+// The light model answers in about a second without spending its output on long reasoning; if Google says it is
+// overloaded (503) or failing, the bigger one answers instead. Both can be changed in the environment.
+const MODELS = [
+  { name: process.env.GEMINI_MODEL || "gemini-flash-lite-latest", thinking: "minimal" },
+  { name: process.env.GEMINI_FALLBACK_MODEL || "gemini-flash-latest", thinking: "low" },
+];
 const MAX_TURNS = 10;
 const MAX_CHARS = 600;
 const LIMIT_MESSAGE =
@@ -45,24 +50,35 @@ export async function POST(request: Request) {
   if (!turns.length || turns[turns.length - 1].role !== "user") return reply(ERROR_MESSAGE, "error");
 
   try {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: assistantInstructions() }] },
-        contents: turns.map((t) => ({ role: t.role, parts: [{ text: t.text }] })),
-        generationConfig: { temperature: 0.4, maxOutputTokens: 500 },
-      }),
-      signal: AbortSignal.timeout(20_000),
-    });
+    let res: Response | null = null;
+    for (const model of MODELS) {
+      res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model.name}:generateContent`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: assistantInstructions() }] },
+          contents: turns.map((t) => ({ role: t.role, parts: [{ text: t.text }] })),
+          // Reasoning tokens count against maxOutputTokens, so keep reasoning short and leave room for the answer.
+          generationConfig: { temperature: 0.4, maxOutputTokens: 1500, thinkingConfig: { thinkingLevel: model.thinking } },
+        }),
+        signal: AbortSignal.timeout(20_000),
+      });
+      if (res.status !== 503 && res.status < 500) break;
+      console.error("asistente:", model.name, "no disponible", res.status);
+    }
+    if (!res) return reply(ERROR_MESSAGE, "error");
     // 429 = the free plan's limits are used up for now.
     if (res.status === 429) return reply(LIMIT_MESSAGE, "limit");
     if (!res.ok) {
       console.error("asistente: Gemini respondió", res.status, (await res.text()).slice(0, 300));
       return reply(ERROR_MESSAGE, "error");
     }
-    const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] };
-    const text = data.candidates?.[0]?.content?.parts?.map((p) => p.text ?? "").join("").trim();
+    const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string; thought?: boolean }[] } }[] };
+    const text = data.candidates?.[0]?.content?.parts
+      ?.filter((p) => !p.thought)
+      .map((p) => p.text ?? "")
+      .join("")
+      .trim();
     return reply(text || ERROR_MESSAGE, text ? "ok" : "error");
   } catch (error) {
     console.error("asistente:", error);
