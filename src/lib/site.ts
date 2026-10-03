@@ -7,8 +7,8 @@ export const site = {
   instagram: "https://www.instagram.com/vibecodingcoach_ml/",
   instagramHandle: "@vibecodingcoach_ml",
   web: "https://miguelliebana.com",
-  /** Public booking page (e.g. https://cal.com/<usuario>/clase-de-prueba). Empty = book by email. */
-  bookingUrl: "https://cal.com/miguel-liebana-vicente-hyod7f/30min",
+  /** Public booking page (Google Calendar appointment schedule). Empty = book by email. */
+  bookingUrl: "https://calendar.app.google/uSv5gUWQeJT8efSM6",
 };
 
 /** Every "reserve" button on the site goes to the booking page. */

@@ -112,7 +112,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - `src/lib/site.ts`: nombre, email de contacto y enlaces sociales.
 - Reservas: todos los botones «Reservar» llevan a `/reservar` (`src/app/reservar/page.tsx`).
   Si `site.bookingUrl` (en `src/lib/site.ts`) está vacío, el botón abre un email ya redactado;
-  al pegar ahí el enlace de Cal.com, abre el calendario. Instagram: @vibecodingcoach_ml
+  con un enlace, abre el calendario de reservas. Instagram: @vibecodingcoach_ml
   (`site.instagram`), enlazado en el pie, en `/reservar` y en la guía «Mantente al día».
 
 ### Curso
@@ -133,8 +133,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 3. Enlazar esta web desde miguelliebana.com.
 4. Pilotar el Módulo 1 gratis con 2-3 personas y recoger feedback (ver PLAN.md).
 5. Darse de alta en Preply / Superprof / ADPList.
-6. Mejoras posibles: imagen OG, analítica. Cal.com ya conectado:
-   https://cal.com/miguel-liebana-vicente-hyod7f/30min («Clase de prueba gratis»).
+6. Mejoras posibles: imagen OG, analítica. Reservas con la agenda de citas de Google
+   Calendar: https://calendar.app.google/uSv5gUWQeJT8efSM6 (Cal.com se abandonó: fallaba
+   el inicio de sesión en el móvil).
 
 ## Avisos
 
