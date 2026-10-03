@@ -171,9 +171,13 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
    queda como plan B). Fondos listos en `media/kit/bg/`: `burbujas` (el principal), `seda` (centro libre,
    bueno para mucho texto) y `cintas`. Aún no se ha publicado ningún reel con fondo animado.
    Demo de prueba (no versionada): `media/_demo/out/reel-06-con-burbujas.mp4`.
-8. OpusClip MCP añadido el 3 oct (`claude mcp add --transport http opusclip https://mcp.opus.pro/mcp`, en la
-   config local de este proyecto, `~/.claude.json`). Tras reiniciar hay que conectarlo con `/mcp` → opusclip
-   (inicio de sesión en el navegador). Idea: sacar clips cortos para reels de vídeos largos.
+8. Publicación automática de reels (tarea que Miguel quiere quitarse de encima). OpusClip MCP conectado
+   (prueba gratis, 90 min de crédito; solo publica clips de sus proyectos: habría que subir cada reel y
+   procesarlo sin recortar, `skipCurate`). Miguel prefirió probar **Buffer**: añadido el 3 oct con
+   `claude mcp add --transport http buffer https://mcp.buffer.com/mcp` (config local, `~/.claude.json`);
+   tras reiniciar, `/mcp` → buffer para iniciar sesión. Plan: conectar Instagram (cuenta profesional) y
+   TikTok en Buffer y programar desde aquí los reels renderizados con los textos de `media/instagram.md`.
+   Publicar o programar siempre con confirmación de Miguel.
 
 ## Avisos
 
