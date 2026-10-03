@@ -141,20 +141,163 @@ export const digitalModules: Module[] = [
     number: 2,
     title: "Correo, WhatsApp y videollamadas",
     summary: "Enviar emails con archivos adjuntos, usar WhatsApp con confianza y unirte a una videollamada.",
-    duration: "Próximamente",
-    available: false,
-    objectives: [],
-    sections: [],
+    duration: "1 h",
+    available: true,
+    objectives: [
+      "Escribir un correo claro y enviar un archivo adjunto.",
+      "Escribir a varias personas sin enseñar el correo de todas.",
+      "Usar WhatsApp con tranquilidad: audios, fotos, documentos y grupos.",
+      "Unirte a una videollamada y que te vean y te oigan bien.",
+    ],
+    sections: [
+      {
+        title: "Un correo que se entiende",
+        points: ["Asunto corto que diga de qué va", "Saludo, lo importante primero, despedida", "Revisa la dirección antes de enviar"],
+        body: [
+          "Un correo se lee mejor si el asunto dice de qué va: «Factura de septiembre» es mejor que «Hola». Dentro, saluda, cuenta lo importante en las primeras líneas y despídete con tu nombre.",
+          "Antes de pulsar «Enviar», mira bien la dirección: una letra cambiada y el correo le llega a otra persona o a nadie.",
+        ],
+        prompt:
+          "Asunto: Factura de septiembre\n\nHola, Marta:\n\nTe envío la factura de septiembre en el archivo adjunto. Si ves algo que no cuadra, dímelo y lo revisamos.\n\nUn saludo,\nCarmen",
+        promptLabel: "Correo de ejemplo",
+      },
+      {
+        title: "Adjuntar archivos",
+        points: ["El clip 📎 sirve para adjuntar", "Fotos y documentos de hasta unos 25 MB", "Para archivos grandes, comparte un enlace"],
+        body: [
+          "Para enviar un documento o una foto, busca el icono del clip 📎 al escribir el correo, elige el archivo y espera a que termine de cargarse antes de enviar.",
+          "Los correos tienen un límite de tamaño (en Gmail, unos 25 MB). Si el archivo es más grande, como un vídeo, el propio correo te ofrecerá subirlo a Google Drive o a OneDrive y enviar un enlace en su lugar.",
+        ],
+        tip: "Antes de enviar, abre el adjunto con un clic para comprobar que es el archivo correcto. Es el despiste más habitual.",
+      },
+      {
+        title: "Escribir a varias personas",
+        points: ["Para: a quien va dirigido", "CC: con copia, todos ven a todos", "CCO: copia oculta, nadie ve a los demás"],
+        body: [
+          "Cuando escribes a varias personas tienes tres casillas. «Para» es la persona principal. «CC» (con copia) es para quien debe estar enterado; todos ven las direcciones de todos.",
+          "«CCO» (con copia oculta) envía el correo a cada persona sin que vea a las demás. Úsalo siempre que escribas a un grupo que no se conoce entre sí, como los padres de una clase o los clientes de un negocio: así no compartes sus correos sin permiso.",
+        ],
+      },
+      {
+        title: "WhatsApp con confianza",
+        points: ["Audios, fotos y documentos desde el clip o la cámara", "Dos marcas azules: lo ha leído", "Silencia los grupos que te agobian"],
+        body: [
+          "En WhatsApp puedes enviar mucho más que texto. Mantén pulsado el micrófono para grabar un audio; el clip te deja enviar fotos, documentos o tu ubicación.",
+          "Las marcas junto a tu mensaje te dicen qué ha pasado: una gris, enviado; dos grises, entregado; dos azules, leído.",
+          "Si un grupo no para de sonar, entra en él, toca su nombre y elige «Silenciar». Sigues recibiendo los mensajes, pero sin avisos. Y si te equivocas al enviar algo, mantén pulsado el mensaje y elige «Eliminar para todos».",
+        ],
+        tip: "En Ajustes → Privacidad puedes elegir quién ve tu foto, tu «última vez» o quién puede añadirte a grupos. Lo más tranquilo: «Mis contactos».",
+      },
+      {
+        title: "Tu primera videollamada",
+        points: ["WhatsApp para la familia; Meet o Zoom con un enlace", "Prueba cámara y micrófono antes", "Luz de frente y micrófono apagado si no hablas"],
+        body: [
+          "Para hablar con la familia, la videollamada de WhatsApp es lo más fácil: abre el chat y toca el icono de la cámara. Para una reunión, una clase o el médico te suelen mandar un enlace de Google Meet o de Zoom: tócalo a la hora indicada y sigue los pasos. Con Meet ni siquiera hace falta instalar nada en el ordenador.",
+          "Unos minutos antes, comprueba que la cámara se ve y el micrófono se oye. Ponte con la luz de frente (una ventana delante, no detrás) y apaga el micrófono cuando no hables para que no se oiga el ruido de casa.",
+        ],
+      },
+    ],
+    exercise: {
+      title: "Ejercicio: comunícate de tres formas",
+      steps: [
+        "Envíate un correo a ti mismo con un asunto claro y una foto adjunta, y comprueba que te llega.",
+        "Escribe un correo a dos personas usando CCO.",
+        "Envía por WhatsApp un audio corto y un documento a alguien de confianza.",
+        "Silencia un grupo de WhatsApp y revisa tu privacidad en Ajustes.",
+        "Haz una videollamada de prueba de cinco minutos con alguien de tu familia.",
+      ],
+    },
+    checklist: [
+      "Escribo correos con un asunto claro.",
+      "Sé adjuntar un archivo y comprobar que es el correcto.",
+      "Uso CCO cuando escribo a un grupo.",
+      "Envío audios, fotos y documentos por WhatsApp.",
+      "Sé silenciar un grupo y ajustar mi privacidad.",
+      "Me he unido a una videollamada con la cámara y el micrófono bien.",
+    ],
   },
   {
     slug: "seguridad",
     number: 3,
     title: "Seguridad: contraseñas y estafas",
     summary: "Contraseñas seguras, la verificación en dos pasos y cómo reconocer los timos más habituales.",
-    duration: "Próximamente",
-    available: false,
-    objectives: [],
-    sections: [],
+    duration: "1 h",
+    available: true,
+    objectives: [
+      "Crear contraseñas seguras que puedas recordar, y no repetirlas.",
+      "Activar la verificación en dos pasos en tu correo y en WhatsApp.",
+      "Reconocer los timos más habituales por SMS, WhatsApp y teléfono.",
+      "Saber qué hacer si te ha pasado.",
+    ],
+    sections: [
+      {
+        title: "Contraseñas que no se adivinan",
+        points: ["Larga mejor que rara: una frase", "Una distinta para cada sitio", "Deja que el móvil las recuerde por ti"],
+        body: [
+          "Una contraseña segura no tiene por qué ser un lío de símbolos. Lo que más cuenta es que sea larga: una frase que solo tú entiendas, como «MiPerroLunaComeSardinas2024», es mucho más difícil de adivinar que «P@ss1».",
+          "Lo más importante es no repetirla. Si usas la misma en todas partes y una web la pierde, los ladrones la prueban en tu correo y en tu banco.",
+          "No hace falta memorizarlas todas: el móvil y el navegador (de Google o de Apple) pueden guardarlas por ti y rellenarlas solas. Así solo tienes que recordar la de tu móvil y la de tu correo.",
+        ],
+        tip: "Tu correo es la llave de todo: si alguien entra en él, puede cambiar las contraseñas del resto. Protégelo el primero.",
+      },
+      {
+        title: "La verificación en dos pasos",
+        points: ["Contraseña más un código que llega a tu móvil", "Actívala en el correo, el banco y WhatsApp", "Ese código no se le da a nadie, nunca"],
+        body: [
+          "La verificación en dos pasos añade una segunda cerradura: además de la contraseña, para entrar hace falta un código que te llega al móvil. Aunque alguien sepa tu contraseña, sin tu móvil no puede entrar.",
+          "Actívala en tu correo (en Gmail: Cuenta de Google → Seguridad), en tu banco y en WhatsApp (Ajustes → Cuenta → Verificación en dos pasos, que te pide un PIN de seis cifras).",
+          "Y la regla más importante de este módulo: esos códigos son solo para ti. Nadie de verdad, ni tu banco ni WhatsApp ni la policía, te los va a pedir.",
+        ],
+      },
+      {
+        title: "Los timos más habituales",
+        points: ["SMS de «Correos» o de «tu banco» con un enlace", "«Hola mamá, se me ha roto el móvil»", "Llamadas de un falso técnico o un falso banco"],
+        body: [
+          "El SMS falso: «Tu paquete está retenido, paga 1,99 € aquí» o «Hemos bloqueado tu cuenta, entra aquí». El enlace lleva a una web que imita a la real para robarte los datos de la tarjeta o del banco.",
+          "El «Hola mamá»: un número desconocido te escribe por WhatsApp haciéndose pasar por tu hijo o tu hija, que dice haber perdido el móvil y necesita que hagas un pago urgente.",
+          "La llamada falsa: alguien que dice ser de tu banco, de Microsoft o de la compañía de la luz te avisa de un problema y te pide un código, instalar un programa o hacer un Bizum «para anularlo».",
+        ],
+        tip: "Todos tienen algo en común: prisa, miedo y que hagas algo ya. Cuando sientas esa prisa, cuelga, respira y comprueba por tu cuenta.",
+      },
+      {
+        title: "Cómo comprobarlo",
+        points: ["No pulses el enlace: entra tú en la web o la app", "Llama tú al número de siempre", "Pregunta a alguien antes de pagar"],
+        body: [
+          "Si te escribe «tu banco», no pulses el enlace: abre tú la aplicación del banco o llama al teléfono que aparece en tu tarjeta. Si te escribe «tu hijo» desde un número nuevo, llámale al número de siempre o hazle una pregunta que solo él sabría contestar.",
+          "Y una regla con Bizum: recibir dinero nunca te exige hacer nada. Si para «recibir» te piden que aceptes una operación o que des un código, en realidad estás pagando.",
+        ],
+        prompt: "Me ha llegado este mensaje: [pega aquí el mensaje]. ¿Tiene pinta de estafa? Explícame en palabras sencillas qué señales lo delatan y qué debería hacer.",
+        promptLabel: "Pregúntale a la IA",
+      },
+      {
+        title: "Si ya te ha pasado",
+        points: ["Llama a tu banco y bloquea la tarjeta", "Cambia la contraseña de la cuenta afectada", "Pide ayuda gratis en el 017"],
+        body: [
+          "Le pasa a mucha gente, también a quien sabe de tecnología, así que no te culpes: actúa rápido. Si has dado datos del banco o de la tarjeta, llama al banco enseguida y pide que la bloqueen.",
+          "Si has dado una contraseña, cámbiala y activa la verificación en dos pasos. Si es la de tu correo, cámbiala la primera.",
+          "En España tienes el 017, la línea gratuita de ayuda en ciberseguridad del INCIBE: te dicen qué hacer paso a paso. Y si has perdido dinero, denúncialo en la Policía o en la Guardia Civil.",
+        ],
+        tip: "Apunta el 017 en tus contactos con el nombre «Ayuda estafas». Ojalá no lo necesites.",
+      },
+    ],
+    exercise: {
+      title: "Ejercicio: pon tus cerraduras",
+      steps: [
+        "Cambia la contraseña de tu correo por una frase larga que no uses en ningún otro sitio.",
+        "Activa la verificación en dos pasos en tu correo.",
+        "Activa la verificación en dos pasos de WhatsApp y guarda el PIN en un lugar seguro.",
+        "Busca en tus SMS o en tu WhatsApp un mensaje sospechoso y localiza las señales de estafa.",
+        "Guarda el 017 en tus contactos.",
+      ],
+    },
+    checklist: [
+      "Mi correo tiene una contraseña larga que no uso en otro sitio.",
+      "Tengo la verificación en dos pasos activada en el correo y en WhatsApp.",
+      "Sé que nunca debo dar un código que me llega al móvil.",
+      "Reconozco el SMS falso, el «Hola mamá» y la llamada falsa.",
+      "Compruebo por mi cuenta antes de pagar o pulsar un enlace.",
+      "Sé qué hacer y a quién llamar si me han estafado.",
+    ],
   },
   {
     slug: "tramites-online",

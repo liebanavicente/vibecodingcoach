@@ -136,8 +136,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   Opciones: `--only rag,git`, `--no-render`, `--force`. Publicación: programada a mano en
   Meta Business Suite (sin API de Instagram por ahora).
 - Segundo curso «Competencias digitales básicas» (nivel cero, basado en DigComp):
-  `/competencias-digitales`, contenido en `src/content/competencias.ts` (módulos 0 y 1
-  escritos; 2–5 «próximamente»). Las lecciones de ambos cursos usan
+  `/competencias-digitales`, contenido en `src/content/competencias.ts` (módulos 0 a 3
+  escritos: ordenador y móvil, buscar y contrastar, correo/WhatsApp/videollamadas, seguridad y estafas con el 017;
+  4 y 5 «próximamente»). Las lecciones de ambos cursos usan
   `src/components/ModuleView.tsx`. Los slugs no se repiten entre cursos (el progreso se
   guarda por slug).
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
@@ -180,7 +181,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 1. Probar a mano el reproductor (botones, teclado, pantalla completa): solo se revisó
    con capturas estáticas, no con clics.
-2. Escribir los módulos 2–5 de Competencias. Vídeos de NotebookLM de los módulos 2–4 y actualizar descripciones
+2. Escribir los módulos 4 (trámites online) y 5 (la IA en el día a día) de Competencias. Vídeos de NotebookLM de los módulos 2–4 y actualizar descripciones
    de YouTube: Miguel lo hará todo junto cuando haya más contenido.
 3. Enlazar esta web desde miguelliebana.com.
 4. Pilotar el Módulo 1 gratis con 2-3 personas y recoger feedback (ver PLAN.md).
