@@ -1,4 +1,7 @@
-# Plantilla «cine» (Google Flow + Claude)
+# Plantilla «cine» (Google Flow + Claude) · plan B
+
+> Experimento guardado como alternativa. La línea principal es la plantilla de cristal con fondo animado
+> (`media/kit/bg/README.md`).
 
 La hermana oscura de la plantilla de cristal. Un clip de Flow ocupa toda la pantalla y encima va el guion:
 número de paso, titular que golpea, subtítulos que se iluminan palabra a palabra, barra de capítulos arriba

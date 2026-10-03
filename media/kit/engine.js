@@ -40,6 +40,10 @@
     rate: +(el.dataset.rate || 1),
     zoom: +(el.dataset.zoom || 0),
   }));
+  // Animated background: <video class="bg-loop" data-video="…"> as the first child of #stage loops under every
+  // scene for the whole reel; slides then drop their still background (kit.css) and fade out as the next fades in.
+  const loop = document.querySelector("#stage > video.bg-loop");
+  if (loop) stage.classList.add("has-loop");
   // Overlays outside the scenes (progress bar, corner logo) run on the reel's global time.
   const huds = [...document.querySelectorAll("#stage > .hud")];
 
@@ -148,7 +152,7 @@
       if (!visible) return;
       const lt = t - s.start;
       const fadeIn = i === 0 ? 1 : easeOut(clamp(lt / FADE));
-      const fadeOut = i === scenes.length - 1 ? clamp((TOTAL - t) / 0.5) : 1;
+      const fadeOut = i === scenes.length - 1 ? clamp((TOTAL - t) / 0.5) : loop ? 1 - easeOut(clamp((t - s.end) / FADE)) : 1;
       s.el.style.opacity = fadeIn * fadeOut;
       s.el.style.transform = s.video ? "" : `scale(${1.035 - 0.035 * easeOut(clamp(lt / 0.8))})`;
       // data-zoom: slow push-in on the clip across the scene (Ken Burns).
@@ -157,6 +161,7 @@
       // data-rate: < 1 slows the clip down so a short Flow take can fill a longer scene.
       if (s.video) waits.push(seek(s.video, Math.min(lt * s.rate, s.video.duration - 0.05)));
     });
+    if (loop) waits.push(seek(loop, t % (loop.duration - 0.04)));
     huds.forEach((el) => {
       el.style.opacity = clamp(Math.min(t / 0.4, (TOTAL - t) / 0.5));
       applyFx(el, t);
@@ -166,18 +171,13 @@
   };
 
   window.ready = (async () => {
-    await Promise.all(
-      scenes
-        .filter((s) => s.video)
-        .map(
-          (s) =>
-            new Promise((resolve) => {
-              s.video.addEventListener("loadeddata", resolve, { once: true });
-              s.video.src = s.src;
-              s.video.load();
-            }),
-        ),
-    );
+    const load = (video, src) =>
+      new Promise((resolve) => {
+        video.addEventListener("loadeddata", resolve, { once: true });
+        video.src = src;
+        video.load();
+      });
+    await Promise.all([...scenes.filter((s) => s.video).map((s) => load(s.video, s.src)), ...(loop ? [load(loop, loop.dataset.video)] : [])]);
     await document.fonts.ready;
     window.FRAMES = Math.round(TOTAL * FPS);
     window.FPS = FPS;
