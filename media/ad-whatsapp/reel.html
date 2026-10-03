@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Anuncio WhatsApp · Tu web: apréndela o te la hago</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<script src="../kit/logos.js"></script>
+<style>
+  .stack { position: absolute; top: 300px; left: 70px; right: 70px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .offer { display: flex; align-items: center; gap: 30px; width: 100%; margin-top: 30px; border-radius: 48px; padding: 40px 44px; text-align: left; }
+  .offer .ico { display: grid; flex: none; place-items: center; width: 130px; height: 130px; border-radius: 38px; background: var(--grad); box-shadow: 0 18px 36px rgba(242, 69, 47, 0.3); color: white; font-size: 76px; }
+  .offer .tag { display: block; color: var(--accent-ink); font-size: 30px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .offer strong { display: block; margin-top: 6px; font-size: 62px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; }
+  .offer span.t { display: block; margin-top: 10px; color: var(--muted); font-size: 36px; font-weight: 550; line-height: 1.3; }
+  .or { margin-top: 30px; color: var(--muted); font-size: 40px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+  .logos-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px; margin-top: 70px; }
+  .logos-row span { display: grid; width: 150px; height: 150px; place-items: center; overflow: hidden; border-radius: 42px; font-size: 88px; }
+  .logos-row img { width: 72%; height: 72%; object-fit: contain; }
+  .checks { display: flex; flex-direction: column; gap: 22px; width: 100%; margin-top: 70px; text-align: left; }
+  .checks div { display: flex; align-items: center; gap: 26px; border-radius: 40px; padding: 28px 36px; font-size: 46px; font-weight: 700; letter-spacing: -0.02em; }
+  .checks div > span { display: grid; flex: none; place-items: center; width: 76px; height: 76px; border-radius: 24px; background: var(--green-soft); color: var(--green); font-size: 46px; }
+  .free { display: inline-flex; align-items: center; gap: 18px; margin-top: 60px; border-radius: 999px; background: var(--grad); box-shadow: 0 30px 60px rgba(242, 69, 47, 0.35), 0 2px 0 rgba(255, 255, 255, 0.4) inset; color: white; font-size: 52px; font-weight: 800; padding: 34px 56px; }
+  .free svg { font-size: 56px; }
+  .share { margin: 46px 0 0; color: var(--muted); font-size: 42px; font-weight: 650; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="22">
+  <video class="bg-loop" data-video="../kit/bg/burbujas.mp4" muted playsinline preload="auto"></video>
+
+  <!-- 1 · Gancho -->
+  <section class="scene slide warm" data-start="0" data-end="3.6">
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.1"><span data-icon="web"></span>Para tu negocio o tu idea</span>
+      <p class="h-xl" data-fx="up" data-in="0.45" style="margin-top:60px">¿Quieres tu <span class="grad">propia web</span>?</p>
+      <p class="body-l" data-fx="up" data-in="1.2" style="margin-top:40px">Hoy se hace con IA. Y no hace falta saber programar.</p>
+    </div>
+  </section>
+
+  <!-- 2 · Las dos opciones -->
+  <section class="scene slide warm" data-start="3.6" data-end="10.6">
+    <div class="stack">
+      <p class="h-l" data-fx="up" data-in="0.1">Dos formas de <span class="grad">tenerla</span></p>
+      <div class="offer glass" data-fx="left" data-in="0.7" style="margin-top:60px">
+        <span class="ico" data-icon="book"></span>
+        <div><span class="tag">Opción 1</span><strong>Aprende a hacerla tú</strong><span class="t">Clases de vibe coding 1:1, sin jerga y a tu ritmo.</span></div>
+      </div>
+      <span class="or" data-fx="pop" data-in="1.9">o</span>
+      <div class="offer glass" data-fx="left" data-in="2.3">
+        <span class="ico" data-icon="sparkle"></span>
+        <div><span class="tag">Opción 2</span><strong>Te la hago yo</strong><span class="t">Me cuentas tu idea y te la entrego publicada.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Herramientas -->
+  <section class="scene slide" data-start="10.6" data-end="14.6">
+    <div class="center">
+      <p class="h-l" data-fx="up" data-in="0.1">Con las herramientas <span class="grad">de hoy</span></p>
+      <div class="logos-row">
+        <span class="glass" data-fx="pop" data-in="0.6" data-logo="claude"></span>
+        <span class="glass" data-fx="pop" data-in="0.8" data-logo="vercel"></span>
+        <span class="glass" data-fx="pop" data-in="1.0" data-logo="github"></span>
+        <span class="glass" data-fx="pop" data-in="1.2" data-logo="supabase"></span>
+        <span class="glass" data-fx="pop" data-in="1.4" data-logo="gemini"></span>
+      </div>
+      <p class="body-l" data-fx="up" data-in="1.9" style="margin-top:60px">Webs modernas, rápidas y que se ven bien en el móvil.</p>
+    </div>
+  </section>
+
+  <!-- 4 · Por qué conmigo -->
+  <section class="scene slide warm" data-start="14.6" data-end="18.4">
+    <div class="stack" style="top:380px">
+      <p class="h-l" data-fx="up" data-in="0.1">¿Por qué <span class="grad">conmigo</span>?</p>
+      <div class="checks">
+        <div class="glass" data-fx="left" data-in="0.6"><span data-icon="check"></span>14 años como maestro</div>
+        <div class="glass" data-fx="left" data-in="1.0"><span data-icon="check"></span>+5 webs y apps publicadas</div>
+        <div class="glass" data-fx="left" data-in="1.4"><span data-icon="check"></span>Te lo explico sin jerga</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Cierre -->
+  <section class="scene slide warm" data-start="18.4" data-end="22">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="260"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.6">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.0" data-dur="0.6"><div class="free" data-pulse="1.7"><span data-icon="calendar"></span>Primera clase gratis</div></div>
+      <div class="cta-url glass" data-fx="up" data-in="1.5" style="margin-top:46px">vibecoding.miguelliebana.com</div>
+      <p class="share" data-fx="up" data-in="2.0"><span data-icon="send" style="vertical-align:-0.12em;margin-right:12px;color:var(--orange)"></span>Reenvíaselo a quien lo necesite</p>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>
