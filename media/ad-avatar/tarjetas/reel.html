@@ -2,13 +2,15 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Anuncio con avatar · Tu web: apréndela o te la hago</title>
+<title>Tarjetas del anuncio con avatar</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
-<link href="../kit/kit.css" rel="stylesheet">
-<script src="../kit/icons.js"></script>
-<script src="../kit/logos.js"></script>
+<link href="../../kit/kit.css" rel="stylesheet">
+<script src="../../kit/icons.js"></script>
+<script src="../../kit/logos.js"></script>
 <style>
   /* The avatar clip (HeyGen + VEED captions) plays whole; brand cards cut in over it while the voice goes on. */
+  /* Cards fade in from the same bubbles, so pasting them over the avatar never flashes a blank frame. */
+  #stage { background: url("../../../public/fondo-burbujas.webp") center / cover; }
   .scene video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .url-top { position: absolute; top: 240px; left: 0; right: 0; display: flex; justify-content: center; }
   .url-top div { border-radius: 999px; font-size: 44px; font-weight: 800; padding: 22px 40px; }
@@ -25,13 +27,10 @@
 </style>
 </head>
 <body>
-<div id="stage" data-total="26.3" data-audio="clips/avatar.mp4">
+<!-- Only the brand cards, on the ad's own timeline. media/ad-avatar/montar.sh pastes them over the untouched
+     avatar clip, so its frames never go through the browser (that made the face look choppy). -->
+<div id="stage" data-total="26.3">
 
-  <!-- Avatar, the whole clip -->
-  <section class="scene" data-start="0" data-end="22.8" data-video="clips/avatar.mp4">
-    <video muted playsinline preload="auto"></video>
-    <div class="url-top" data-fx="pop" data-in="20.5"><div class="glass">vibecoding.miguelliebana.com</div></div>
-  </section>
 
   <!-- «Puedes aprender a hacerla tú… o te la hago yo» -->
   <section class="scene slide warm cut" data-start="11.8" data-end="15.95">
@@ -68,6 +67,6 @@
   </section>
 
 </div>
-<script src="../kit/engine.js"></script>
+<script src="../../kit/engine.js"></script>
 </body>
 </html>

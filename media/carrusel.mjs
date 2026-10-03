@@ -51,6 +51,7 @@ const out = join(here, "out");
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 const cards = await page.$$(".card");
-for (const [i, card] of cards.entries()) await card.screenshot({ path: join(out, `${String(i + 1).padStart(2, "0")}.png`) });
+// omitBackground keeps transparent cards transparent (overlays); cards with their own background are unchanged.
+for (const [i, card] of cards.entries()) await card.screenshot({ path: join(out, `${String(i + 1).padStart(2, "0")}.png`), omitBackground: true });
 await browser.close();
 console.log(`${count} slides written to ${out}`);
