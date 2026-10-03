@@ -2,7 +2,7 @@
 // every reel that is not there yet, until the plan's limit of scheduled posts is reached. Buffer puts each post in
 // the channel's next free slot (its posting schedule). What is already in Buffer is recognised by the video name.
 // Usage: npm run publicar            fill the queue (needs BUFFER_API_KEY in .env.local)
-//        npm run publicar -- --plan  only show what would be added
+//        npm run publicar -- --plan  only show what would be added (add --limite 20 to preview further ahead)
 import { existsSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import { captionFor, env, media, upload, videoPath } from "./comun.mjs";
@@ -72,8 +72,10 @@ async function createPost(service, channelId, url, title, text) {
 }
 
 const { seen, scheduled } = key ? await bufferState() : { seen: new Set(), scheduled: 0 };
-let free = config.limite - scheduled;
-console.log(`[${stamp()}] ${scheduled}/${config.limite} programadas, ${free} huecos libres${key ? "" : " (sin BUFFER_API_KEY: solo plan)"}`);
+const limitArg = process.argv.indexOf("--limite");
+const limit = limitArg > -1 ? Number(process.argv[limitArg + 1]) : config.limite;
+let free = limit - scheduled;
+console.log(`[${stamp()}] ${scheduled}/${limit} programadas, ${free} huecos libres${key ? "" : " (sin BUFFER_API_KEY: solo plan)"}`);
 
 const plan = [];
 for (const name of config.cola) {
