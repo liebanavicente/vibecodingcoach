@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { Asistente } from "@/components/Asistente";
 import { Header } from "@/components/Header";
 import { MlLink } from "@/components/MlLogo";
 import { SocialLinks } from "@/components/SocialLinks";
@@ -53,6 +54,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <a href={`mailto:${site.email}`}>Email</a>
           </span>
         </footer>
+        {/* Only once the Gemini key is configured (.env.local and Vercel), so visitors never see a dead chat. */}
+        {process.env.GEMINI_API_KEY ? <Asistente /> : null}
         {/* Vercel Web Analytics: page views without cookies. */}
         <Analytics />
       </body>

@@ -35,6 +35,7 @@ import { availableModules, modules } from "@/content/curso";
 import { availableDigitalModules, digitalModules } from "@/content/competencias";
 import { tools } from "@/content/herramientas";
 import { budgetHref, contactHref } from "@/lib/site";
+import { buildKinds, buildSteps, offers } from "@/content/oferta";
 import { JsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import { miguel, website } from "@/lib/seo";
@@ -80,43 +81,8 @@ const method = [
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
-const offers = [
-  {
-    name: "Clase de prueba",
-    price: "Gratis",
-    detail: "30 min · online",
-    text: "Nos conocemos, vemos qué quieres construir y te llevas un plan claro para empezar.",
-    featured: false,
-  },
-  {
-    name: "Clases 1:1",
-    price: "25 €/h",
-    detail: "Online · a tu ritmo",
-    text: "Sesiones individuales para construir tu proyecto con IA o ponerte al día con el ordenador y el móvil, con apoyo entre clases.",
-    featured: true,
-  },
-  {
-    name: "Taller en grupo",
-    price: "30 €",
-    detail: "3 h · grupos reducidos",
-    text: "De cero a tu primera web publicada en una tarde, junto a otras personas que también empiezan.",
-    featured: false,
-  },
-];
-
-const builds = [
-  { Icon: Storefront, title: "Web para tu negocio", text: "Quién eres, qué ofreces, dónde estás y cómo contactarte. Lista para Google." },
-  { Icon: RocketLaunch, title: "Página de un servicio o evento", text: "Una sola página pensada para que la gente reserve, se apunte o te escriba." },
-  { Icon: IdentificationCard, title: "Portfolio o web personal", text: "Tu trabajo, tu currículum o tu proyecto, con tu propio dominio." },
-  { Icon: AppWindow, title: "Una pequeña app a medida", text: "Reservas, formularios, un área privada o esa herramienta que siempre has querido." },
-];
-
-const buildSteps = [
-  { title: "Me cuentas tu idea", text: "Por email o en una llamada gratis de 30 minutos." },
-  { title: "Te paso un presupuesto cerrado", text: "Precio y plazo por escrito antes de empezar. Sin sorpresas." },
-  { title: "La construyo y la revisas", text: "Ves cómo avanza y pides cambios por el camino." },
-  { title: "Te la entrego publicada", text: "Con tu dominio, y te enseño a cambiar textos y fotos tú solo." },
-];
+const buildIcons = [Storefront, RocketLaunch, IdentificationCard, AppWindow];
+const builds = buildKinds.map((b, i) => ({ ...b, Icon: buildIcons[i] }));
 
 const tilePositions = ["t1", "t3", "t4", "t2", "t5"];
 

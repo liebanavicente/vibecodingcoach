@@ -144,7 +144,13 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - `src/content/curso.ts`: **todo el contenido del curso**. Para publicar un
   módulo, rellenar `objectives`, `sections`, `exercise`, `checklist` y poner
   `available: true`.
-- `src/lib/site.ts`: nombre, email de contacto y enlaces sociales.
+- `src/lib/site.ts`: nombre, email de contacto y enlaces sociales. `src/content/oferta.ts`: precios de las clases y
+  «Te la hago yo» (lo usan la portada y el asistente).
+- Asistente de la web (`src/components/Asistente.tsx`, burbuja «¿Dudas?»): responde solo sobre horarios, precios,
+  cursos y servicios con Google Gemini (plan gratuito). La llamada va en el servidor (`src/app/api/asistente/route.ts`)
+  con `GEMINI_API_KEY` (y opcional `GEMINI_MODEL`, por defecto `gemini-flash-latest`) en `.env.local` y en Vercel;
+  sin clave, la burbuja no aparece. Instrucciones y datos en `src/lib/asistente.ts`, generados del contenido de la
+  web. Si se agota el cupo (429) o falla, muestra un mensaje amable; además frena a 15 preguntas cada 10 min por IP.
 - Reservas: todos los botones «Reservar» llevan a `/reservar` (`src/app/reservar/page.tsx`).
   Si `site.bookingUrl` (en `src/lib/site.ts`) está vacío, el botón abre un email ya redactado;
   con un enlace, abre el calendario de reservas. Instagram: @vibecodingcoach_ml
