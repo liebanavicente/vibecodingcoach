@@ -8,7 +8,7 @@ transparentes y mantienen su centro claro, así que los textos y tarjetas se esc
 Añade esta línea justo después de `<div id="stage" …>`:
 
 ```html
-<video class="bg-loop" data-video="../kit/bg/cintas.mp4" muted playsinline preload="auto"></video>
+<video class="bg-loop" data-video="../kit/bg/burbujas.mp4" muted playsinline preload="auto"></video>
 ```
 
 Sin esa línea, el reel usa los fondos fijos de siempre (`fondo-azul` / `fondo-burbujas`).
@@ -17,14 +17,17 @@ Sin esa línea, el reel usa los fondos fijos de siempre (`fondo-azul` / `fondo-b
 
 | Archivo | Qué es |
 | --- | --- |
-| `cintas.mp4` | Cintas de cristal coral (el vídeo de la web, en vertical). Provisional |
+| `burbujas.mp4` | Burbujas de cristal subiendo sobre crema, con toques coral y azul (Flow). El principal |
+| `cintas.mp4` | Cintas de cristal coral (el vídeo de la web, en vertical) |
 
 ## Crear uno nuevo con Google Flow
 
 1. Genera el clip en Flow con uno de los prompts de abajo (vertical 9:16, 8 s).
-2. `npm run reel:fondo -- ~/Downloads/clip.mp4 nombre`: lo recorta a 1080×1920 y funde el final con el
-   principio para que el bucle no salte. Sale en `media/kit/bg/nombre.mp4`.
-3. Cambia `data-video` en el reel.
+2. Déjalo en `media/bg/` con un nombre corto (p. ej. `seda.mp4`).
+3. Ejecuta `npm run fondos` (sin nada más). Convierte todos los clips verticales de `media/bg/` que aún no
+   tengan bucle: los recorta a 1080×1920 y funden el final con el principio para que no salte. Salen en
+   `media/kit/bg/` con el mismo nombre. (O pídeselo a Claude.)
+4. Cambia `data-video` en el reel.
 
 ### Qué tiene que tener el clip
 
