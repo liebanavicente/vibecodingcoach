@@ -161,7 +161,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - Vídeos para YouTube (sin voz ni avatar, decisión de Miguel): `node --no-warnings media/video-curso/leccion.mjs
   modulo-0 [--musica pista.mp3]` crea `media/video-curso/<slug>/reel.html` (1920×1080: diapositivas que se montan
   solas + el texto de la lección en frases al ritmo de lectura) y `descripcion.txt` con capítulos; se renderiza
-  con `npm run reel -- video-curso/<slug>`. Música opcional de la Biblioteca de audio de YouTube.
+  con `npm run reel -- video-curso/<slug>`; la música (Biblioteca de audio de YouTube, `musicadefondo.mp3`, no
+  versionada) se añade después con `bash media/video-curso/musica.sh <slug>`. Miniatura: `npm run carrusel --
+  video-curso/<slug>/miniatura`. Módulo 0 hecho (4:20).
 - Vídeos del reproductor: ninguno grabado todavía. Flujo previsto: grabar la narración (con webcam o
   pantalla) pasando las diapositivas en pantalla completa, subir el mp4 (p. ej. a
   `public/videos/` o Vercel Blob) y anotar en `cues` el segundo de cada cambio.
