@@ -153,10 +153,11 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 ### Curso
 
-- Módulos 0 (Mentalidad y primeros pasos) y 1 (Hablar con la IA): escritos y publicados.
-- Módulos 2 a 5 (Código mínimo, Funcionalidad real, Publicar, Proyecto final):
-  solo título y resumen, marcados como "Próximamente".
-- Pendiente de Miguel: revisar el texto de los módulos 0 y 1 para que suene a él.
+- Módulos 0 (Mentalidad y primeros pasos), 1 (Hablar con la IA) y 2 (Lo mínimo de código para no perderte:
+  HTML, CSS, el inspector y pedir cambios precisos; enlaza su curso materialdidacticocpweb.vercel.app): escritos y
+  publicados. Los ejemplos de código van en `prompt` con `promptLabel` («Así se ve el HTML»).
+- Módulos 3 a 5 (Funcionalidad real, Publicar, Proyecto final): solo título y resumen, «Próximamente».
+- Pendiente de Miguel: revisar el texto de los módulos 0, 1 y 2 para que suene a él.
 - Vídeos: ninguno grabado todavía. Flujo previsto: grabar la narración (con webcam o
   pantalla) pasando las diapositivas en pantalla completa, subir el mp4 (p. ej. a
   `public/videos/` o Vercel Blob) y anotar en `cues` el segundo de cada cambio.
@@ -165,7 +166,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 1. Probar a mano el reproductor (botones, teclado, pantalla completa): solo se revisó
    con capturas estáticas, no con clics.
-2. Escribir el Módulo 2 (puede reutilizar su material HTML/CSS existente).
+2. Escribir el Módulo 3 (formularios, guardar datos e IA gratis en tu web) y los módulos 2–5 de Competencias.
 3. Enlazar esta web desde miguelliebana.com.
 4. Pilotar el Módulo 1 gratis con 2-3 personas y recoger feedback (ver PLAN.md).
 5. Darse de alta en Preply / Superprof / ADPList.
