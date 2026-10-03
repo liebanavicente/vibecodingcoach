@@ -21,3 +21,10 @@ export const emailBookingHref = `mailto:${site.email}?subject=${encodeURICompone
 )}&body=${encodeURIComponent(
   "Hola, Miguel:\n\nMe gustaría reservar una clase de prueba.\n\nLo que quiero construir: \nMi nivel: \nDías y horas que me van bien: \n\nGracias.",
 )}`;
+
+/** "Te la hago yo": an email with the questions needed to quote a website. */
+export const budgetHref = `mailto:${site.email}?subject=${encodeURIComponent(
+  "Presupuesto web - vibecodingcoach",
+)}&body=${encodeURIComponent(
+  "Hola, Miguel:\n\nMe gustaría que me hicieras una web.\n\nPara qué es (negocio, proyecto, evento…): \nQué debería tener (páginas, formulario, reservas, tienda…): \nQué tengo ya (logo, textos, fotos, dominio): \nWebs que me gustan: \nPara cuándo la necesito: \nPresupuesto aproximado (opcional): \n\nGracias.",
+)}`;

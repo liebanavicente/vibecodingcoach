@@ -52,7 +52,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 ### Estructura
 
-- `src/app/page.tsx`: landing (hero, para quién, método, curso, oferta, sobre mí).
+- `src/app/page.tsx`: landing (hero, para quién, método, curso, oferta, «Te la hago yo», sobre mí).
+  «Te la hago yo» (`#a-medida`): servicio de hacer la web por encargo, con presupuesto a medida (sin precio
+  público); el botón abre un email con las preguntas para presupuestar (`budgetHref` en `src/lib/site.ts`).
+  En el menú solo sale en móvil («Web a medida»), para que la barra de escritorio no se desborde.
 - `src/app/curso/page.tsx`: índice del curso.
 - `src/app/curso/[slug]/page.tsx`: página de cada módulo (generada estáticamente):
   reproductor de diapositivas + texto completo + índice lateral.
@@ -82,7 +85,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   `src/components/CourseAnimator.tsx` anima la cabecera de /curso y /competencias-digitales al
   entrar y revela cada título de sección (SplitText) al hacer scroll. El vídeo de la portada lleva
   desenfoques que siguen las letras inventadas por Flow (`BLURS` en `CourseScrollVideo.tsx`).
-  Menú móvil: por debajo de 1100 px la cabecera muestra un botón hamburguesa que abre un panel a
+  Menú móvil: por debajo de 1280 px la cabecera muestra un botón hamburguesa que abre un panel a
   pantalla completa (`src/components/Header.tsx`, montado en <body> con un portal porque el blur de
   la cabecera lo atraparía). Se cierra con Escape, al pulsar un enlace o al cambiar de página.
   `html { overflow-x: clip }` evita el scroll lateral de las animaciones y los fondos a sangre.

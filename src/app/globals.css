@@ -97,12 +97,12 @@ h3 { font-size: 1.08rem; font-weight: 700; letter-spacing: -0.01em; line-height:
 .site-nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-ink); font-weight: 650; }
 .site-nav .button { margin-left: 6px; }
 
-/* Mobile menu: below 1100px the links move into a full-screen panel opened from the toggle. */
+/* Mobile menu: below 1280px the links move into a full-screen panel opened from the toggle. */
 .nav-mobile { display: none; }
 .menu-toggle { display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid var(--rim); border-radius: 50%; background: var(--glass-strong); box-shadow: var(--shadow); color: var(--ink); cursor: pointer; transition: transform 160ms var(--ease-out); }
 .menu-toggle:active { transform: scale(0.94); }
 .menu-toggle[aria-expanded="true"] { background: var(--ink); color: white; }
-@media (max-width: 1100px) {
+@media (max-width: 1279px) {
   .nav-desktop { display: none; }
   .nav-mobile { display: block; }
 }
@@ -490,6 +490,21 @@ a.module-card:hover .step-mark { transform: rotate(-10deg) scale(1.06); }
 .offer-card:hover { box-shadow: var(--shadow-lift); transform: translateY(-4px); }
 .offer-card.is-featured { border: 1.5px solid rgba(255, 112, 52, 0.45); background: rgba(255, 255, 255, 0.72); }
 .offer-tag { position: absolute; top: -13px; right: 22px; border-radius: 999px; background: var(--grad); box-shadow: var(--shadow-orange); color: white; font-size: 0.74rem; font-weight: 700; padding: 5px 12px; }
+/* "Te la hago yo": what I build, how we work and the budget call to action. */
+.build-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.build-flow { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px; margin-top: 16px; border-radius: var(--radius-xl); padding: 36px; }
+.build-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 28px; margin: 0; padding: 0; list-style: none; }
+.build-steps li { display: flex; gap: 16px; }
+.build-steps h3 { margin-bottom: 4px; font-size: 1.05rem; }
+.build-steps p { color: var(--muted); line-height: 1.5; }
+.build-num { display: grid; flex: none; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: var(--accent-soft); color: var(--accent-ink); font-weight: 800; }
+.build-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; border-left: 1px solid rgba(20, 23, 34, 0.08); padding-left: 32px; }
+.build-cta .muted { line-height: 1.55; }
+.build-price { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
+.build-alt { color: var(--accent-ink); font-weight: 650; }
+.build-alt:hover { text-decoration: underline; }
+@media (max-width: 1100px) { .build-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .build-flow { grid-template-columns: minmax(0, 1fr); } .build-cta { border-left: 0; border-top: 1px solid rgba(20, 23, 34, 0.08); padding: 24px 0 0; } }
+@media (max-width: 620px) { .build-grid, .build-steps { grid-template-columns: minmax(0, 1fr); } .build-flow { padding: 24px; } .build-cta .button { width: 100%; } }
 .offer-price { margin-top: 14px; font-size: 2.8rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
 .offer-card .offer-text { flex: 1; margin: 16px 0 24px; color: var(--muted); line-height: 1.6; }
 

@@ -12,6 +12,7 @@ import {
   House,
   InstagramLogo,
   List,
+  Storefront,
   TiktokLogo,
   Translate,
   X,
@@ -26,6 +27,7 @@ const links = [
   { href: "/curso/prompts", label: "Prompts", Icon: ChatCircleText, desktop: true },
   { href: "/curso/glosario", label: "Glosario", Icon: Translate, desktop: true },
   { href: "/#clases", label: "Clases", Icon: Chalkboard, desktop: true },
+  { href: "/#a-medida", label: "Web a medida", Icon: Storefront, desktop: false },
 ];
 
 function subscribe(onChange: () => void) {

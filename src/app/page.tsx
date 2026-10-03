@@ -1,8 +1,13 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import {
+  AppWindow,
   ArrowRight,
   CalendarBlank,
+  EnvelopeSimple,
+  IdentificationCard,
+  RocketLaunch,
+  Storefront,
   ChartBar,
   Chalkboard,
   Code,
@@ -29,7 +34,7 @@ import { ResourceMarquee } from "@/components/ResourceMarquee";
 import { availableModules, modules } from "@/content/curso";
 import { availableDigitalModules, digitalModules } from "@/content/competencias";
 import { tools } from "@/content/herramientas";
-import { contactHref } from "@/lib/site";
+import { budgetHref, contactHref } from "@/lib/site";
 
 const perks = [
   { Icon: Lightning, text: "Sin experiencia previa" },
@@ -92,6 +97,20 @@ const offers = [
     text: "De cero a tu primera web publicada en una tarde, junto a otras personas que también empiezan.",
     featured: false,
   },
+];
+
+const builds = [
+  { Icon: Storefront, title: "Web para tu negocio", text: "Quién eres, qué ofreces, dónde estás y cómo contactarte. Lista para Google." },
+  { Icon: RocketLaunch, title: "Página de un servicio o evento", text: "Una sola página pensada para que la gente reserve, se apunte o te escriba." },
+  { Icon: IdentificationCard, title: "Portfolio o web personal", text: "Tu trabajo, tu currículum o tu proyecto, con tu propio dominio." },
+  { Icon: AppWindow, title: "Una pequeña app a medida", text: "Reservas, formularios, un área privada o esa herramienta que siempre has querido." },
+];
+
+const buildSteps = [
+  { title: "Me cuentas tu idea", text: "Por email o en una llamada gratis de 30 minutos." },
+  { title: "Te paso un presupuesto cerrado", text: "Precio y plazo por escrito antes de empezar. Sin sorpresas." },
+  { title: "La construyo y la revisas", text: "Ves cómo avanza y pides cambios por el camino." },
+  { title: "Te la entrego publicada", text: "Con tu dominio, y te enseño a cambiar textos y fotos tú solo." },
 ];
 
 const tilePositions = ["t1", "t3", "t4", "t2", "t5"];
@@ -381,6 +400,60 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </section>
+
+        <section aria-labelledby="a-medida-title" className="section has-ribbon" id="a-medida">
+          <div className="section-head">
+            <div>
+              <p className="label">¿Sin tiempo para aprender?</p>
+              <h2 className="section-title" id="a-medida-title">
+                Te la hago yo
+              </h2>
+              <p className="muted section-sub">
+                Me cuentas lo que necesitas y te entrego tu web publicada y lista para usar, con las mismas
+                herramientas que enseño en clase.
+              </p>
+            </div>
+          </div>
+          <div className="build-grid">
+            {builds.map(({ Icon, title, text }) => (
+              <div className="panel" key={title}>
+                <span className="panel-icon">
+                  <Icon aria-hidden size={24} weight="bold" />
+                </span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="build-flow glass">
+            <ol className="build-steps">
+              {buildSteps.map((s, i) => (
+                <li key={s.title}>
+                  <span className="build-num">{i + 1}</span>
+                  <div>
+                    <h3>{s.title}</h3>
+                    <p>{s.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="build-cta">
+              <p className="build-price">Presupuesto a medida</p>
+              <p className="muted">Cada web es distinta: el precio depende de lo que necesites. Pídelo sin compromiso.</p>
+              <a className="button primary lg" href={budgetHref}>
+                <EnvelopeSimple aria-hidden size={22} weight="bold" />
+                Pide presupuesto
+                <span className="btn-dot arrow">
+                  <ArrowRight aria-hidden size={18} weight="bold" />
+                </span>
+              </a>
+              <a className="build-alt" href={contactHref}>
+                O cuéntamelo en una llamada gratis
+              </a>
+            </div>
+          </div>
+          <RibbonBg position="center" />
         </section>
 
         <section aria-labelledby="sobre-mi" className="section">
