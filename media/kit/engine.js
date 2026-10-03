@@ -19,6 +19,14 @@
     el.innerHTML = window.LOGOS?.[el.dataset.logo] ?? "";
   });
 
+  // Karaoke captions: data-words="text" becomes one span per word, lit in turn between data-in and data-in + data-dur.
+  document.querySelectorAll("[data-words]").forEach((el) => {
+    el.innerHTML = el.dataset.words
+      .split(" ")
+      .map((w) => `<span class="w">${w}</span>`)
+      .join(" ");
+  });
+
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const easeOut = (p) => 1 - Math.pow(1 - p, 3);
   const easeBack = (p, s = 1.9) => 1 + (s + 1) * Math.pow(p - 1, 3) + s * Math.pow(p - 1, 2);
@@ -29,7 +37,11 @@
     end: +el.dataset.end,
     video: el.querySelector("video"),
     src: el.dataset.video,
+    rate: +(el.dataset.rate || 1),
+    zoom: +(el.dataset.zoom || 0),
   }));
+  // Overlays outside the scenes (progress bar, corner logo) run on the reel's global time.
+  const huds = [...document.querySelectorAll("#stage > .hud")];
 
   function applyFx(root, lt) {
     root.querySelectorAll("[data-fx]").forEach((el) => {
@@ -49,8 +61,19 @@
         tf = `scale(${2.2 - 1.2 * easeOut(p)}) rotate(${-14 + 6 * easeOut(p)}deg)`;
       }
       if (fx === "grow") tf = `scaleX(${easeOut(p)})`;
+      let filter = "";
+      if (fx === "slam") {
+        o = clamp(p * 3);
+        tf = `scale(${1.55 - 0.55 * easeOut(p)})`;
+        filter = `blur(${(1 - easeOut(p)) * 16}px)`;
+      }
+      if (fx === "wipe") {
+        o = 1;
+        el.style.clipPath = `inset(0 ${(1 - easeOut(p)) * 100}% 0 0)`;
+      }
       el.style.opacity = o;
       el.style.transform = tf;
+      el.style.filter = filter;
     });
     root.querySelectorAll("[data-out]").forEach((el) => {
       const p = clamp((lt - +el.dataset.out) / 0.4);
@@ -66,6 +89,22 @@
       const text = el.dataset.type;
       const p = clamp((lt - +el.dataset.in) / +el.dataset.dur);
       el.textContent = text.slice(0, Math.round(p * text.length));
+    });
+    root.querySelectorAll("[data-words]").forEach((el) => {
+      const words = el.querySelectorAll(".w");
+      const p = (lt - +el.dataset.in) / +el.dataset.dur;
+      const now = Math.floor(clamp(p, 0, 0.9999) * words.length);
+      words.forEach((w, i) => {
+        w.classList.toggle("on", p >= 0 && i <= now);
+        w.classList.toggle("now", p >= 0 && p < 1 && i === now);
+      });
+    });
+    // Story-style progress: data-segments="0,5,10.5" are the chapter starts; each .seg fills during its chapter.
+    root.querySelectorAll("[data-segments]").forEach((el) => {
+      const marks = [...el.dataset.segments.split(",").map(Number), TOTAL];
+      el.querySelectorAll(".seg i").forEach((bar, i) => {
+        bar.style.transform = `scaleX(${clamp((lt - marks[i]) / (marks[i + 1] - marks[i]))})`;
+      });
     });
     root.querySelectorAll("[data-count]").forEach((el) => {
       const [from, to] = el.dataset.count.split(",").map(Number);
@@ -112,8 +151,15 @@
       const fadeOut = i === scenes.length - 1 ? clamp((TOTAL - t) / 0.5) : 1;
       s.el.style.opacity = fadeIn * fadeOut;
       s.el.style.transform = s.video ? "" : `scale(${1.035 - 0.035 * easeOut(clamp(lt / 0.8))})`;
+      // data-zoom: slow push-in on the clip across the scene (Ken Burns).
+      if (s.video && s.zoom) s.video.style.transform = `scale(${1 + (s.zoom - 1) * clamp(lt / (s.end - s.start + FADE))})`;
       applyFx(s.el, lt);
-      if (s.video) waits.push(seek(s.video, Math.min(lt, s.video.duration - 0.05)));
+      // data-rate: < 1 slows the clip down so a short Flow take can fill a longer scene.
+      if (s.video) waits.push(seek(s.video, Math.min(lt * s.rate, s.video.duration - 0.05)));
+    });
+    huds.forEach((el) => {
+      el.style.opacity = clamp(Math.min(t / 0.4, (TOTAL - t) / 0.5));
+      applyFx(el, t);
     });
     await Promise.all(waits);
     await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));

@@ -240,6 +240,26 @@ Guárdalo 📌 Checklist de seguridad y prompt de auditoría, gratis en el enlac
 
 ---
 
+## Reel 14 · De idea a web en 3 pasos (plantilla «cine»)
+
+Primer reel con la plantilla oscura: clips de Google Flow a pantalla completa y el guion encima.
+
+```
+No sé programar. Y aun así publiqué mi primera web en una tarde 👇
+
+1️⃣ Cuéntale tu idea a la IA, con palabras normales
+2️⃣ Pídele un plan antes que código, y ve cambio a cambio
+3️⃣ Publícala gratis, con tu propio enlace
+
+Imagen: Google Flow · Guion y montaje: Claude · Idea: yo 😉
+
+Curso gratis desde cero en el enlace del perfil.
+
+#vibecoding #inteligenciaartificial #ia #crearunaweb #googleflow #claude #aprenderaprogramar #emprendedores
+```
+
+---
+
 ## Próximos reels (misma plantilla)
 
 - Palabra del día: ventana de contexto, alucinación, commit, deploy, RAG.
@@ -247,5 +267,7 @@ Guárdalo 📌 Checklist de seguridad y prompt de auditoría, gratis en el enlac
 - Trucos: Git es tu botón de deshacer, una captura vale más que mil palabras.
 - Mitos: «La IA te va a quitar el trabajo de aprender», «Hay que saber inglés».
 - Errores de principiante: pegar claves en el chat, conversaciones eternas.
+
+Plantilla «cine» (clips de Flow + guion encima): guía y prompts para Flow en `media/kit/CINE.md`.
 
 Cómo crear uno nuevo: copia la carpeta de un reel parecido en `media/`, cambia los textos y tiempos de su `reel.html` y ejecuta `npm run reel -- <carpeta>`.
