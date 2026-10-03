@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Reel 13 · Vibe coding sin agujeros</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=block" rel="stylesheet">
+<link href="../kit/kit.css" rel="stylesheet">
+<script src="../kit/icons.js"></script>
+<style>
+  .list { position: absolute; top: 300px; left: 70px; right: 70px; display: flex; flex-direction: column; gap: 22px; }
+  .list h2 { margin: 0 0 16px; text-align: center; }
+  .item { display: flex; align-items: center; gap: 30px; border-radius: 40px; padding: 26px 32px; }
+  .item .ico { display: grid; width: 100px; height: 100px; flex: none; place-items: center; border-radius: 30px; background: var(--red-soft); color: var(--red); font-size: 58px; }
+  .item strong { display: block; font-size: 50px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+  .item span.sub { display: block; margin-top: 4px; color: var(--muted); font-size: 34px; font-weight: 600; }
+  .fix .shield { display: grid; width: 220px; height: 220px; place-items: center; border-radius: 64px; background: var(--green-soft); color: var(--green); font-size: 140px; }
+  .fix .prompt { max-width: 900px; margin-top: 50px; border-radius: 36px; background: #1f1b26; box-shadow: inset 8px 0 0 var(--orange); color: #f1edf7; font-family: "SFMono-Regular", Menlo, monospace; font-size: 40px; line-height: 1.45; padding: 34px 40px 34px 48px; text-align: left; }
+  .caret { display: inline-block; width: 5px; height: 0.95em; margin-left: 4px; background: var(--orange); vertical-align: -0.12em; }
+</style>
+</head>
+<body>
+<div id="stage" data-total="21">
+
+  <section class="scene slide warm" data-start="0" data-end="3">
+    <div class="brand-top" data-fx="fade" data-in="0"><svg class="ml" data-ml width="92"></svg><span class="wm">vibe<span>coding</span>coach</span></div>
+    <div class="center">
+      <span class="pill" data-fx="pop" data-in="0.15"><span data-icon="warning"></span>Seguridad</span>
+      <p class="h-l" data-fx="up" data-in="0.45" style="margin-top:60px">Tu app hecha con IA funciona.</p>
+      <p class="h-l grad" data-fx="pop" data-in="1.4" style="margin-top:30px">¿Pero es segura?</p>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="3" data-end="12">
+    <div class="list">
+      <h2 class="h-m" data-fx="up" data-in="0.1">5 agujeros <span class="grad">típicos</span></h2>
+      <div class="item glass" data-fx="left" data-in="0.6"><span class="ico" data-icon="key"></span><div><strong>Claves a la vista</strong><span class="sub">En el código del navegador</span></div></div>
+      <div class="item glass" data-fx="left" data-in="1.8"><span class="ico" data-icon="database"></span><div><strong>Base de datos abierta</strong><span class="sub">Tablas sin permisos por usuario</span></div></div>
+      <div class="item glass" data-fx="left" data-in="3.0"><span class="ico" data-icon="eyeslash"></span><div><strong>Botón oculto, puerta abierta</strong><span class="sub">El servidor no comprueba quién eres</span></div></div>
+      <div class="item glass" data-fx="left" data-in="4.2"><span class="ico" data-icon="package"></span><div><strong>Paquetes inventados</strong><span class="sub">La IA sugiere librerías falsas</span></div></div>
+      <div class="item glass" data-fx="left" data-in="5.4"><span class="ico" data-icon="money"></span><div><strong>IA de pago sin límite</strong><span class="sub">Alguien la usa mil veces y pagas tú</span></div></div>
+    </div>
+  </section>
+
+  <section class="scene slide warm" data-start="12" data-end="17.5">
+    <div class="center fix">
+      <div class="shield" data-fx="bounce" data-in="0.15" data-dur="0.8" data-icon="shield"></div>
+      <p class="h-m" data-fx="up" data-in="0.6" style="margin-top:50px">La solución: que la IA <span class="grad">se&nbsp;audite</span></p>
+      <div class="prompt" data-fx="up" data-in="1.1"><span data-type="Revisa este proyecto como un experto en seguridad y dime qué podría hacer un atacante." data-in="1.4" data-dur="2.6"></span><i class="caret" data-blink></i></div>
+    </div>
+  </section>
+
+  <section class="scene slide" data-start="17.5" data-end="21">
+    <div class="center">
+      <div data-fx="bounce" data-in="0.15" data-dur="0.85"><svg class="ml" data-ml width="280"></svg></div>
+      <p class="cta-word wm" data-fx="up" data-in="0.6">vibe<span>coding</span>coach</p>
+      <div data-fx="pop" data-in="1.1" data-dur="0.6"><div class="cta-btn" data-pulse="1.8"><span data-icon="shield"></span>Checklist gratis</div></div>
+      <div class="cta-url glass" data-fx="up" data-in="1.7" style="margin-top:50px">vibecoding.miguelliebana.com</div>
+    </div>
+  </section>
+
+</div>
+<script src="../kit/engine.js"></script>
+</body>
+</html>

@@ -472,6 +472,69 @@ export const resources: Resource[] = [
     ],
   },
   {
+    slug: "seguridad",
+    category: "Buen uso",
+    title: "Vibe coding sin agujeros: seguridad antes de publicar",
+    summary: "Los fallos de seguridad típicos de las apps hechas con IA y cómo pedirle a la propia IA que los busque por ti.",
+    minutes: 7,
+    blocks: [
+      {
+        type: "text",
+        text: "La IA escribe código que funciona, pero no siempre código seguro: si no se lo pides, prioriza que la app haga lo que dices, no que nadie pueda abusar de ella. Por suerte, los fallos suelen ser siempre los mismos, y la propia IA es muy buena encontrándolos si se lo pides.",
+      },
+      {
+        type: "cards",
+        items: [
+          { title: "Claves a la vista", text: "Una clave secreta en el código del navegador la puede copiar cualquiera. En Next.js, todo lo que empieza por NEXT_PUBLIC_ es público." },
+          { title: "Base de datos sin cerrojo", text: "En Supabase, una tabla sin RLS (seguridad por filas) deja que cualquiera lea o borre los datos de todos." },
+          { title: "Botones ocultos, puertas abiertas", text: "Esconder el botón de «borrar» no basta: el servidor tiene que comprobar quién hace cada petición." },
+          { title: "Fiarse del navegador", text: "El precio, el rol de usuario o el «soy administrador» nunca deben venir del navegador: se pueden manipular." },
+          { title: "Paquetes inventados", text: "A veces la IA recomienda librerías que no existen, y hay gente que crea paquetes falsos con esos nombres. Comprueba cada una antes de instalarla." },
+          { title: "Sin límites de uso", text: "Un botón que llama a una IA de pago sin límite puede vaciarte la cuenta si alguien lo usa mil veces." },
+        ],
+      },
+      {
+        type: "steps",
+        title: "Checklist antes de publicar",
+        items: [
+          "Las claves secretas están en .env, el .env está en el .gitignore y en Vercel van en Environment Variables.",
+          "Ninguna clave secreta empieza por NEXT_PUBLIC_ (ni VITE_ en otros proyectos).",
+          "Todas las tablas de Supabase tienen RLS activado, con reglas de quién puede leer y escribir.",
+          "Cada ruta del servidor comprueba que el usuario ha iniciado sesión y tiene permiso.",
+          "Los precios y los pagos se calculan en el servidor, y los webhooks de Stripe verifican su firma.",
+          "Has revisado las dependencias con npm audit.",
+        ],
+      },
+      {
+        type: "prompt",
+        title: "Prompt de auditoría para cualquier agente",
+        text: "Revisa este proyecto como un experto en seguridad. Busca: claves expuestas en el código del navegador, tablas sin control de acceso, rutas del servidor que no comprueban quién hace la petición, datos que deberían calcularse en el servidor y llamadas a servicios de pago sin límite. Para cada problema dime dónde está, qué podría hacer un atacante y cómo arreglarlo. Ordénalos de más a menos grave y no cambies nada todavía.",
+      },
+      {
+        type: "text",
+        text: "Para una revisión a fondo, Cloudflare ha publicado gratis la skill que usa para buscar vulnerabilidades: varios agentes buscan fallos y otros intentan desmentirlos, y al final te entrega un informe con lo confirmado y lo pendiente.",
+      },
+      {
+        type: "code",
+        title: "Instalar la skill de auditoría de Cloudflare",
+        text: "npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit\n\n# Después, dentro de tu proyecto, pídele a tu agente:\n# «haz una auditoría de seguridad de este proyecto»",
+      },
+      {
+        type: "warning",
+        text: "La auditoría completa lanza muchos agentes y gasta mucho uso: con un plan básico puede agotar tu límite en una sola pasada. Pruébala en un proyecto pequeño. Y si una clave secreta llegó a subirse a GitHub, no basta con borrarla: cámbiala en el servicio.",
+      },
+      {
+        type: "dodont",
+        title: "Mal uso vs buen uso",
+        items: [
+          { bad: "Publicar en cuanto funciona.", good: "Pasar la checklist y pedir una auditoría antes de enseñarlo." },
+          { bad: "Borrar el commit donde se coló una clave.", good: "Cambiar la clave en el servicio: lo que se subió ya puede estar copiado." },
+          { bad: "Instalar todo lo que sugiere la IA.", good: "Comprobar que cada paquete existe, es conocido y está mantenido." },
+        ],
+      },
+    ],
+  },
+  {
     slug: "skills",
     category: "Skills",
     title: "Skills: dale superpoderes a tu agente",

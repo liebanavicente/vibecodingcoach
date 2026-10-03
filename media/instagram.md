@@ -219,6 +219,25 @@ Guárdalo 📌 Guía completa con prompts y derechos, gratis en el enlace del pe
 #vibecoding #inteligenciaartificial #ia #herramientasia #creadoresdecontenido #gratis #videoia #musicaia
 ```
 
+## Reel 13 · Vibe coding sin agujeros
+
+```
+Tu app hecha con IA funciona. ¿Pero es segura? 🔐
+
+5 agujeros típicos:
+· Claves a la vista en el código del navegador
+· Base de datos sin permisos por usuario
+· Botón oculto, pero el servidor no comprueba quién eres
+· Paquetes que la IA se inventa
+· Una IA de pago sin límite de uso
+
+La solución: pídele a la propia IA que se audite antes de publicar.
+
+Guárdalo 📌 Checklist de seguridad y prompt de auditoría, gratis en el enlace del perfil.
+
+#vibecoding #ciberseguridad #seguridadweb #inteligenciaartificial #ia #desarrolloweb #supabase #aprenderaprogramar
+```
+
 ---
 
 ## Próximos reels (misma plantilla)
