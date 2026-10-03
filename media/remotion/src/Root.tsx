@@ -1,5 +1,6 @@
 import { Composition, Folder } from "remotion";
 import { glossary, termId } from "../../../src/content/glosario";
+import { DURATION, ReelPresupuesto } from "./ReelPresupuesto";
 import { calculatePalabraMetadata, FPS, PalabraDelDia, palabraSchema, timing } from "./PalabraDelDia";
 
 export const RemotionRoot: React.FC = () => {
@@ -24,6 +25,8 @@ export const RemotionRoot: React.FC = () => {
           total: glossary.length,
         }}
       />
+      {/* «¿Cuánto costaría tu web?»: sends people to the budget calculator. */}
+      <Composition id="ReelPresupuesto" component={ReelPresupuesto} durationInFrames={DURATION} fps={FPS} width={1080} height={1920} />
       {/* One reel per glossary term, straight from src/content/glosario.ts. */}
       <Folder name="Glosario">
         {glossary.map((t) => {
