@@ -9,9 +9,6 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText, TextPlugin);
 
-/** Before first paint: hide the hero so it can animate in; never for reduced motion. */
-export const HERO_SCRIPT = `(function(){try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("gsap-on")}catch(e){}})()`;
-
 /** The hero: the headline rises word by word, then the illustration builds itself piece by piece and drifts on scroll. */
 export function HeroAnimator({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);

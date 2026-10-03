@@ -18,10 +18,10 @@ import {
 import { BrandLogo } from "@/components/BrandLogo";
 import { CountUp } from "@/components/CountUp";
 import { CourseScrollVideo } from "@/components/CourseScrollVideo";
-import { HERO_SCRIPT, HeroAnimator } from "@/components/HeroAnimator";
+import { HeroAnimator } from "@/components/HeroAnimator";
 import { HowItWorks } from "@/components/HowItWorks";
 import { IntroVideo } from "@/components/IntroVideo";
-import { INTRO_SCRIPT } from "@/lib/intro";
+import { GSAP_SCRIPT, INTRO_SCRIPT } from "@/lib/intro";
 import { MlLogo } from "@/components/MlLogo";
 import { ResourceMarquee } from "@/components/ResourceMarquee";
 import { availableModules, modules } from "@/content/curso";
@@ -153,7 +153,7 @@ export default function Home() {
   return (
     <main className="main" id="contenido" tabIndex={-1}>
       <script dangerouslySetInnerHTML={{ __html: INTRO_SCRIPT }} />
-      <script dangerouslySetInnerHTML={{ __html: HERO_SCRIPT }} />
+      <script dangerouslySetInnerHTML={{ __html: GSAP_SCRIPT }} />
       <IntroVideo />
       <div className="container">
         <HeroAnimator>

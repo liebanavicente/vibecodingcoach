@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock, Lock } from "@phosphor-icons/react/dist/ssr";
+import { CourseAnimator } from "@/components/CourseAnimator";
 import { CourseProgress, ModuleProgress } from "@/components/Progress";
 import { RouteAnimator } from "@/components/RouteAnimator";
 import { availableDigitalModules, digitalModules } from "@/content/competencias";
+import { GSAP_SCRIPT } from "@/lib/intro";
 import { contactHref } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,8 +27,9 @@ export default function CompetenciasPage() {
   return (
     <main className="main" id="contenido" tabIndex={-1}>
       <div aria-hidden className="page-bg calm" />
-      <div className="container">
-        <div className="page-head course-head">
+      <script dangerouslySetInnerHTML={{ __html: GSAP_SCRIPT }} />
+      <CourseAnimator>
+        <div className="page-head course-head" data-anim="head">
           <div>
             <p className="eyebrow">Curso gratuito · nivel cero</p>
             <h1>
@@ -140,7 +143,7 @@ export default function CompetenciasPage() {
             </span>
           </Link>
         </div>
-      </div>
+      </CourseAnimator>
     </main>
   );
 }
