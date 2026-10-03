@@ -26,8 +26,8 @@ const browser = await puppeteer.launch({
   args: ["--allow-file-access-from-files"],
 });
 const page = await browser.newPage();
-// Wide enough for 1080x1350 carousel cards and 1200x630 share images.
-await page.setViewport({ width: 1280, height: 1400, deviceScaleFactor: 1 });
+// Wide enough for carousel cards, share images and 1920x1080 video slides.
+await page.setViewport({ width: 2000, height: 1400, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(join(here, "carrusel.html")).href, { waitUntil: "networkidle0" });
 const count = await page.evaluate(
   (brands, ML) => {
