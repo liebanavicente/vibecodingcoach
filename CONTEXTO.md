@@ -52,6 +52,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 ### Estructura
 
+- Revisión gratis de Google Maps (la que prometen la tarjeta y `/comercios`): guía y reglas en `media/revision-google/README.md`,
+  10 puntos en `criterios.mjs` (0/1/2, nota sobre 20). `npm run revision -- media/revision-google/negocios/<negocio>.json`
+  (copia de `ejemplo.json`; `negocios/` no se versiona) → `out/<negocio>.pdf`, una página A4 con semáforo, 3 mejoras y QR a
+  `/comercios?utm_source=revision`.
 - Encargos (`/encargo`, `src/components/Encargo.tsx`, preguntas y resumen en `src/content/encargo.ts`): asistente paso a
   paso (negocio, objetivo, tipo de web, funciones, qué tiene, estilo, plazo y presupuesto, contacto) con la estimación de la
   calculadora; el botón principal de la calculadora («Continuar con el encargo») lo abre con sus respuestas en la URL.

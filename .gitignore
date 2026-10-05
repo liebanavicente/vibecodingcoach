@@ -57,3 +57,6 @@ media/video-curso/musicadefondo.mp3
 media/ad-artistico/clip.mp4
 media/ad-avatar/clips/
 media/ad-whatsapp/clips/
+
+# Free Google Maps reviews: one file per real business (kept out of the public repo).
+media/revision-google/negocios/

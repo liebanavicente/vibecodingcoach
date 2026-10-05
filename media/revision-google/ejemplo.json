@@ -1,0 +1,18 @@
+{
+  "negocio": "Pastelería Ana",
+  "barrio": "Sant Andreu",
+  "fecha": "5 de octubre de 2026",
+  "notas": {
+    "verificada": [2, ""],
+    "categoria": [1, "La categoría principal es «Tienda»: mejor «Pastelería»."],
+    "horario": [1, "No hay horario especial para el puente de octubre."],
+    "contacto": [0, "El enlace lleva a Instagram; no hay web propia."],
+    "fotos": [1, "Solo 4 fotos y ninguna de la fachada."],
+    "descripcion": [0, ""],
+    "resenas": [1, "4,7 de media, pero solo 9 reseñas."],
+    "respuestas": [2, ""],
+    "productos": [0, ""],
+    "novedades": [1, ""]
+  },
+  "mejoras": []
+}
