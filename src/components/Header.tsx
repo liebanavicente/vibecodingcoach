@@ -16,8 +16,10 @@ import {
   TiktokLogo,
   Translate,
   X,
+  YoutubeLogo,
 } from "@phosphor-icons/react";
 import { MlLink } from "@/components/MlLogo";
+import { SocialLinks } from "@/components/SocialLinks";
 import { contactHref, site } from "@/lib/site";
 
 const links = [
@@ -130,18 +132,25 @@ export function Header() {
                   <X aria-hidden size={22} weight="bold" />
                 </button>
               </div>
-              <ul>
-                {links.map(({ href, label, Icon }, i) => (
-                  <li key={href} style={{ "--i": i } as CSSProperties}>
-                    <Link aria-current={isCurrent(href) ? "page" : undefined} href={href} onClick={() => setOpenOn(null)}>
-                      <span className="mobile-menu-icon">
-                        <Icon aria-hidden size={22} weight="bold" />
-                      </span>
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              {/* Wide screens: links on the left and the social networks, big, in the space on the right. */}
+              <div className="mobile-menu-body">
+                <ul>
+                  {links.map(({ href, label, Icon }, i) => (
+                    <li key={href} style={{ "--i": i } as CSSProperties}>
+                      <Link aria-current={isCurrent(href) ? "page" : undefined} href={href} onClick={() => setOpenOn(null)}>
+                        <span className="mobile-menu-icon">
+                          <Icon aria-hidden size={22} weight="bold" />
+                        </span>
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <aside className="mobile-menu-side">
+                  <p className="label">Sígueme</p>
+                  <SocialLinks />
+                </aside>
+              </div>
               <div className="mobile-menu-foot">
                 <Link className="button primary lg" href={contactHref} onClick={() => setOpenOn(null)}>
                   Reserva una clase de prueba gratis
@@ -152,6 +161,9 @@ export function Header() {
                   </a>
                   <a className="mobile-menu-social" href={site.tiktok} rel="noreferrer" target="_blank">
                     <TiktokLogo aria-hidden size={20} weight="bold" /> TikTok
+                  </a>
+                  <a className="mobile-menu-social" href={site.youtube} rel="noreferrer" target="_blank">
+                    <YoutubeLogo aria-hidden size={20} weight="bold" /> YouTube
                   </a>
                 </span>
               </div>

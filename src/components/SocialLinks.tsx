@@ -1,12 +1,13 @@
-import { ArrowUpRight, InstagramLogo, TiktokLogo } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, InstagramLogo, TiktokLogo, YoutubeLogo } from "@phosphor-icons/react/dist/ssr";
 import { site } from "@/lib/site";
 
 const networks = [
   { key: "instagram", name: "Instagram", href: site.instagram, handle: site.instagramHandle, Icon: InstagramLogo, text: "Reels cortos: trucos, palabras del día y errores típicos." },
   { key: "tiktok", name: "TikTok", href: site.tiktok, handle: site.tiktokHandle, Icon: TiktokLogo, text: "Los mismos vídeos, en formato TikTok." },
+  { key: "youtube", name: "YouTube", href: site.youtube, handle: site.youtubeHandle, Icon: YoutubeLogo, text: "Los módulos del curso en vídeo y los Shorts." },
 ];
 
-/** Instagram and TikTok links: big cards for a page section, or a row of round icons for the footer. */
+/** Instagram, TikTok and YouTube links: big cards for a page section, or a row of round icons for the footer. */
 export function SocialLinks({ variant = "cards" }: { variant?: "cards" | "icons" }) {
   if (variant === "icons") {
     return (

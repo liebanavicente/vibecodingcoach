@@ -11,7 +11,7 @@ export const miguel = {
   jobTitle: "Profesor de vibe coding y desarrollador web",
   description: "Maestro con 14 años de experiencia que enseña a principiantes a construir webs con IA.",
   knowsLanguage: ["es", "ca", "de", "en"],
-  sameAs: [site.web, site.linkedin, site.github, site.instagram, site.tiktok],
+  sameAs: [site.web, site.linkedin, site.github, site.instagram, site.tiktok, site.youtube],
 };
 
 export const website = {

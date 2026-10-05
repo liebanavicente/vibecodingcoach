@@ -8,6 +8,8 @@ export const site = {
   instagramHandle: "@vibecodingcoach_ml",
   tiktok: "https://www.tiktok.com/@vibecodingcoach_m",
   tiktokHandle: "@vibecodingcoach_m",
+  youtube: "https://www.youtube.com/@vibecodingcoach_ml",
+  youtubeHandle: "@vibecodingcoach_ml",
   web: "https://miguelliebana.com",
   /** Public booking page (Google Calendar appointment schedule). Empty = book by email. */
   bookingUrl: "https://calendar.app.google/uSv5gUWQeJT8efSM6",
