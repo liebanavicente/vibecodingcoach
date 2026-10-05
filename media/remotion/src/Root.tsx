@@ -1,5 +1,6 @@
 import { Composition, Folder } from "remotion";
 import { glossary, termId } from "../../../src/content/glosario";
+import { DURATION as CURSOS_DURATION, ReelCursos, reelCursosSchema } from "./ReelCursos";
 import { DURATION, ReelPresupuesto } from "./ReelPresupuesto";
 import { calculatePalabraMetadata, FPS, PalabraDelDia, palabraSchema, timing } from "./PalabraDelDia";
 
@@ -27,6 +28,28 @@ export const RemotionRoot: React.FC = () => {
       />
       {/* «¿Cuánto costaría tu web?»: sends people to the budget calculator. */}
       <Composition id="ReelPresupuesto" component={ReelPresupuesto} durationInFrames={DURATION} fps={FPS} width={1080} height={1920} />
+      {/* Announces the free courses at cursos.miguelliebana.com. */}
+      <Composition
+        id="ReelCursos"
+        component={ReelCursos}
+        schema={reelCursosSchema}
+        durationInFrames={CURSOS_DURATION}
+        fps={FPS}
+        width={1080}
+        height={1920}
+        defaultProps={{
+          hookSmall: "Cursos gratis",
+          hookBig: "3 cursos",
+          hookSub: "para hacer tu web desde cero",
+          promises: [
+            { title: "Gratis", text: "Los tres, completos." },
+            { title: "A tu ritmo", text: "Cuando quieras y desde el móvil." },
+            { title: "Sin trampas", text: "Ni registro, ni tarjeta, ni email." },
+          ],
+          url: "cursos.miguelliebana.com",
+          linkHint: "Enlace en el perfil",
+        }}
+      />
       {/* One reel per glossary term, straight from src/content/glosario.ts. */}
       <Folder name="Glosario">
         {glossary.map((t) => {
