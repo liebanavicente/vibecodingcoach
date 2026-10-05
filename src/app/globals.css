@@ -881,6 +881,10 @@ body.menu-open .assistant { display: none; }
 .shop-price { margin: 4px 0 0; font-size: 2.4rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
 .shop-note { max-width: 60em; margin-top: 16px; font-size: 0.9rem; line-height: 1.6; }
 .shop-steps { margin-top: 22px; }
+.shop-test { align-self: center; }
+.shop-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 18px; }
+.shop-links a, .build-shops a { color: var(--accent-ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.build-shops { display: grid; gap: 8px; margin-top: 6px; padding-top: 14px; border-top: 1px solid rgba(20, 23, 34, 0.08); font-size: 0.95rem; }
 
 /* Course catalog (cursos.miguelliebana.com). */
 .catalog-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); align-items: center; gap: 40px; padding: 30px 0 54px; }

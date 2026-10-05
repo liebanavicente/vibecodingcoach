@@ -15,10 +15,12 @@ mkdirSync(out, { recursive: true });
 const URL = "https://vibecoding.miguelliebana.com/comercios?utm_source=tarjeta";
 const SHOWN_URL = "vibecoding.miguelliebana.com/comercios";
 const price = estimate({ type: "landing", pages: 1, features: [], content: "todo", urgent: false }).price[0];
-const qr = await QRCode.toString(URL, { type: "svg", errorCorrectionLevel: "M", margin: 0, color: { dark: "#141722", light: "#0000" } });
+const GOOGLE_URL = "https://vibecoding.miguelliebana.com/comercios/google?utm_source=tarjeta";
+const toQr = (url) => QRCode.toString(url, { type: "svg", errorCorrectionLevel: "M", margin: 0, color: { dark: "#141722", light: "#0000" } });
+const qr = await toQr(URL);
+const qrGoogle = await toQr(GOOGLE_URL);
 
 const ml = `<svg class="ml" viewBox="0 0 132 86"><rect fill="#1f66ff" height="74" rx="14" width="118" x="11.5" y="10.5"/><rect fill="white" height="74" rx="14" stroke="#111" stroke-width="3" width="118" x="1.5" y="1.5"/><g fill="none" stroke="#111" stroke-width="5.2"><path d="M19.6 59V36"/><path d="M19.6 38.5c0-3.2 2.4-4.9 5.45-4.9s5.45 1.7 5.45 4.9V59"/><path d="M30.5 38.5c0-3.2 2.4-4.9 5.45-4.9s5.45 1.7 5.45 4.9V59"/><path d="M46.8 23.9h13.6v28.5a4 4 0 0 0 4 4h11.3"/></g><rect fill="#1f66ff" height="4.6" width="25.3" x="79.3" y="54.3"/></svg>`;
-const check = `<svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
 const html = `<!doctype html>
 <html lang="es">
@@ -48,15 +50,16 @@ const html = `<!doctype html>
   .price { position: absolute; right: 0; bottom: 0; display: grid; justify-items: center; border-radius: 4mm; background: linear-gradient(120deg, #ff9440, #ff6a2c 45%, #f2452f); color: white; padding: 2mm 3.6mm 2.2mm; box-shadow: 0 1.5mm 4mm rgba(242,69,47,0.35); }
   .price small { font-size: 2.1mm; font-weight: 700; opacity: 0.9; }
   .price strong { font-size: 5.6mm; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
-  /* Back */
-  .back .safe { display: grid; grid-template-columns: 27mm 1fr; gap: 4.5mm; align-items: center; }
-  .qr { display: grid; place-items: center; width: 27mm; height: 27mm; border-radius: 3mm; background: white; box-shadow: 0 1mm 3mm rgba(210,90,40,0.18); padding: 2mm; }
+  /* Back: two QR codes, the shops page and the Google Maps self-assessment. */
+  .back .safe { display: grid; grid-template-rows: auto 1fr; gap: 2.4mm; }
+  .back h2 { font-size: 3.6mm; font-weight: 800; letter-spacing: -0.035em; text-align: center; }
+  .codes { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .code { display: grid; justify-items: center; align-content: start; gap: 1.6mm; text-align: center; }
+  .qr { display: grid; place-items: center; width: 22mm; height: 22mm; border-radius: 2.6mm; background: white; box-shadow: 0 1mm 3mm rgba(210,90,40,0.18); padding: 1.6mm; }
   .qr svg { width: 100%; height: 100%; }
-  .back h2 { font-size: 4.3mm; font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
-  .back ul { display: grid; gap: 1.3mm; margin-top: 2.2mm; padding: 0; list-style: none; }
-  .back li { display: flex; align-items: center; gap: 1.4mm; font-size: 2.45mm; font-weight: 650; line-height: 1.2; }
-  .back li svg { flex: none; width: 3mm; height: 3mm; color: #0d7a52; }
-  .back .url { position: absolute; left: 6mm; right: 6mm; bottom: 4.6mm; display: flex; justify-content: space-between; color: #5d6272; font-size: 2.1mm; font-weight: 650; }
+  .code strong { font-size: 3mm; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .code span { color: #3b3f4c; font-size: 2.35mm; font-weight: 650; line-height: 1.2; }
+  .back .url { position: absolute; left: 6mm; right: 6mm; bottom: 4.4mm; display: flex; justify-content: space-between; color: #5d6272; font-size: 2.1mm; font-weight: 650; }
   .back .url b { color: #df4f1c; font-weight: 800; }
 </style>
 </head>
@@ -72,15 +75,10 @@ const html = `<!doctype html>
   </section>
   <section class="side back">
     <div class="safe">
-      <div class="qr">${qr}</div>
-      <div>
-        <h2>Escanéame:<br><span class="grad">mira qué incluye</span></h2>
-        <ul>
-          <li>${check}Se ve bien en el móvil</li>
-          <li>${check}Horarios, mapa y botón de llamar</li>
-          <li>${check}Calcula tu precio en 1 minuto</li>
-          <li>${check}Revisión gratis en Google Maps</li>
-        </ul>
+      <h2>Escanea con la cámara del móvil</h2>
+      <div class="codes">
+        <div class="code"><div class="qr">${qr}</div><strong class="grad">Tu web</strong><span>Qué incluye y cuánto cuesta</span></div>
+        <div class="code"><div class="qr">${qrGoogle}</div><strong class="grad">Test gratis</strong><span>¿Cómo está tu ficha de Google?</span></div>
       </div>
     </div>
     <p class="url"><b>${SHOWN_URL}</b><span>mlieban3@gmail.com</span></p>
@@ -101,4 +99,4 @@ await page.setViewport({ width: 400, height: 600, deviceScaleFactor: 4 });
 const sides = await page.$$(".side");
 for (const [i, side] of sides.entries()) await side.screenshot({ path: join(out, `${i ? "trasera" : "delantera"}.png`) });
 await browser.close();
-console.log(`desde ${price} € · QR → ${URL}\n→ ${join(out, "tarjeta.pdf")}`);
+console.log(`desde ${price} € · QR → ${URL} y ${GOOGLE_URL}\n→ ${join(out, "tarjeta.pdf")}`);

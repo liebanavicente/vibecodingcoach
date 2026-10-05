@@ -427,6 +427,10 @@ export default function Home() {
               <a className="build-alt" href={contactHref}>
                 O cuéntamelo en una llamada gratis
               </a>
+              <span className="build-shops">
+                <Link href="/comercios">¿Tienes un comercio? Mira la web para comercios</Link>
+                <Link href="/comercios/google">Test gratis: ¿cómo está tu ficha de Google?</Link>
+              </span>
             </div>
           </div>
           <RibbonBg position="center" />

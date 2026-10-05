@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { FichaGoogle } from "@/components/FichaGoogle";
 
 export const metadata: Metadata = {
@@ -22,6 +23,10 @@ export default function FichaGooglePage() {
             <p className="page-intro">
               Es lo primero que ven tus clientes cuando te buscan en el móvil. Responde 10 preguntas sencillas (ten a mano tu
               ficha en Google Maps) y te digo tu nota y qué mejorar primero.
+            </p>
+            <p className="shop-links">
+              <Link href="/comercios">Webs para comercios, desde 150 €</Link>
+              <Link href="/encargo?utm_source=ficha-google">Encarga tu web</Link>
             </p>
           </div>
         </div>

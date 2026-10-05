@@ -60,6 +60,9 @@ export default function ComerciosPage() {
               <Link className="button" href={contactHref}>
                 <CalendarBlank aria-hidden size={18} weight="bold" /> Hablamos 30 min, gratis
               </Link>
+              <Link className="build-alt shop-test" href="/comercios/google">
+                <MapPin aria-hidden size={16} weight="bold" /> Test gratis: ¿cómo está tu ficha de Google?
+              </Link>
             </div>
           </div>
           <aside className="glass course-stats">

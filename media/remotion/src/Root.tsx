@@ -1,6 +1,8 @@
 import { Composition, Folder } from "remotion";
 import { glossary, termId } from "../../../src/content/glosario";
 import { DURATION as CURSOS_DURATION, ReelCursos, reelCursosSchema } from "./ReelCursos";
+import { DURATION as COMERCIOS_DURATION, ReelComercios } from "./ReelComercios";
+import { DURATION as FICHA_DURATION, ReelFichaGoogle } from "./ReelFichaGoogle";
 import { DURATION, ReelPresupuesto } from "./ReelPresupuesto";
 import { calculatePalabraMetadata, FPS, PalabraDelDia, palabraSchema, timing } from "./PalabraDelDia";
 
@@ -50,6 +52,10 @@ export const RemotionRoot: React.FC = () => {
           linkHint: "Enlace en el perfil",
         }}
       />
+      {/* For neighbourhood shops: what a simple website includes, from 150 €. */}
+      <Composition id="ReelComercios" component={ReelComercios} durationInFrames={COMERCIOS_DURATION} fps={FPS} width={1080} height={1920} />
+      {/* The Google Maps self-assessment at /comercios/google. */}
+      <Composition id="ReelFichaGoogle" component={ReelFichaGoogle} durationInFrames={FICHA_DURATION} fps={FPS} width={1080} height={1920} />
       {/* One reel per glossary term, straight from src/content/glosario.ts. */}
       <Folder name="Glosario">
         {glossary.map((t) => {

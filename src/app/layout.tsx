@@ -51,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <span className="site-footer-links">
             <SocialLinks variant="icons" />
             <a href={coursesUrl}>Todos mis cursos</a>
+            <a href="/comercios">Para comercios</a>
             <a href={site.linkedin}>LinkedIn</a>
             <a href={site.github}>GitHub</a>
             <a href={`mailto:${site.email}`}>Email</a>
