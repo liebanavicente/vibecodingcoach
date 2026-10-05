@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { ArrowRight, Check } from "@phosphor-icons/react/dist/ssr";
+import { ArrowDown, ArrowRight, Check } from "@phosphor-icons/react/dist/ssr";
+import { CursosHero } from "@/components/CursosHero";
 import { JsonLd } from "@/components/JsonLd";
 import { RibbonBg } from "@/components/RibbonBg";
 import { courses, coursesUrl } from "@/content/cursos";
+import { GSAP_SCRIPT } from "@/lib/intro";
 import { siteUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -47,10 +49,11 @@ export default function CursosPage() {
   return (
     <main className="main" id="contenido" tabIndex={-1}>
       <JsonLd data={catalog} />
+      <script dangerouslySetInnerHTML={{ __html: GSAP_SCRIPT }} />
       <div aria-hidden className="page-bg calm" />
       <div className="container">
-        <div className="page-head has-ribbon">
-          <div>
+        <CursosHero>
+          <div className="hero-copy">
             <p className="eyebrow">Gratis · sin registro · a tu ritmo</p>
             <h1>
               Mis cursos, <span className="grad-text">de cero a tu web</span>
@@ -59,11 +62,19 @@ export default function CursosPage() {
               Soy Miguel Liébana, maestro durante 14 años y desarrollador web. Estos son mis cursos gratuitos, ordenados
               para que avances paso a paso: empieza por el que te toque y sigue cuando estés listo.
             </p>
+            <div className="actions">
+              <a className="button primary" href="#lista">
+                Ver los cursos <ArrowDown aria-hidden size={18} weight="bold" />
+              </a>
+              <a className="button" href={`${siteUrl}/reservar`}>
+                Clase de prueba gratis
+              </a>
+            </div>
           </div>
           <RibbonBg position="top" />
-        </div>
+        </CursosHero>
 
-        <ol className="catalog">
+        <ol className="catalog" id="lista">
           {courses.map((c, i) => (
             <li key={c.id}>
               <a className="catalog-card glass" href={c.href}>
