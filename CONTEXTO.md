@@ -52,6 +52,16 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 ### Estructura
 
+- Encargos (`/encargo`, `src/components/Encargo.tsx`, preguntas y resumen en `src/content/encargo.ts`): asistente paso a
+  paso (negocio, objetivo, tipo de web, funciones, qué tiene, estilo, plazo y presupuesto, contacto) con la estimación de la
+  calculadora; el botón principal de la calculadora («Continuar con el encargo») lo abre con sus respuestas en la URL.
+  `src/app/api/encargo/route.ts` lo guarda en Supabase (proyecto `vibecodingcoach`, id `zdjdfrzsxdicjqmnjlmp`, París; tabla
+  `encargos` solo de inserción con la clave pública, RLS) y avisa por email con Resend (`RESEND_API_KEY`; remitente de
+  pruebas `onboarding@resend.dev`, solo llega al email de la cuenta de Resend). Basta con que funcione uno; si fallan los
+  dos, ofrece enviarlo por correo. Env: `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` (en `.env.local` y Vercel). Cron diario
+  `/api/latido` (`vercel.json`) para que Supabase gratis no se pause. Claude lee los encargos con el conector de Supabase
+  (`select * from encargos where estado = 'nuevo'`) y prepara propuesta y precio; columnas `estado` y `notas` para el
+  seguimiento. Aviso de privacidad en `/privacidad` (enlazado en el pie y en la casilla del formulario).
 - Comercios del barrio: página `/comercios` (`src/app/comercios/page.tsx`; precios sacados de `estimate()`: página
   sencilla desde 150 €, web completa 425–750 €, revisión gratis de la ficha de Google Maps) y tarjeta de visita para
   repartir en mano: `node --no-warnings media/tarjeta-comercios/tarjeta.mjs` → `out/tarjeta.pdf` (85×55 mm + 3 mm de
