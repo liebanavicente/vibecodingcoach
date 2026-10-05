@@ -52,6 +52,15 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 ### Estructura
 
+- Catálogo de cursos en **https://cursos.miguelliebana.com** (mismo proyecto de Vercel): `src/app/cursos/page.tsx` con los
+  datos de `src/content/cursos.ts` (orden recomendado: competencias digitales → HTML y CSS → vibe coding). En
+  `next.config.ts`, para ese host `/` se reescribe a `/cursos` y el resto de rutas redirige (308) a vibecoding.miguelliebana.com;
+  los archivos y la API no se tocan. Enlazado en el pie («Todos mis cursos») y en el asistente.
+- Curso «HTML y CSS desde cero»: proyecto aparte (`fundamentos-html-css` en Vercel, sin copia local), en
+  **https://html-css.miguelliebana.com**. Sustituye a `materialdidacticocpweb` (el Módulo 2 ya enlaza al nuevo).
+- Web personal **miguelliebana.com**: repo `liebanavicente/miguelweb2026`, carpeta local `~/Desktop/miguelweb` (Next 16,
+  4 idiomas: es, ca, de, en; textos en `lib/dictionaries/`). Ojo: `~/Proyectos/miguelliebana` es una versión antigua que no
+  se publica. Bajo las cifras clave tiene dos tarjetas: vibecodingcoach y los cursos (`VENTURES` en `lib/cv.ts`).
 - `src/app/page.tsx`: landing (hero, para quién, método, curso, oferta, «Te la hago yo», sobre mí).
   «Te la hago yo» (`#a-medida`): servicio de hacer la web por encargo, con presupuesto a medida (sin precio
   público); el botón abre un email con las preguntas para presupuestar (`budgetHref` en `src/lib/site.ts`).
@@ -230,7 +239,7 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 2. Cursos: Competencias digitales completo; vibe coding completo salvo el Módulo 5 (proyecto final, cuando haya
    alumnos). Vídeos de NotebookLM del módulo 4 y de Competencias digitales, y actualizar descripciones
    de YouTube: Miguel lo hará todo junto cuando haya más contenido.
-3. Enlazar esta web desde miguelliebana.com.
+3. Hecho (5 oct): miguelliebana.com enlaza a vibecodingcoach y a cursos.miguelliebana.com.
 4. Pilotar el Módulo 1 gratis con 2-3 personas y recoger feedback (ver PLAN.md).
 5. Darse de alta en Preply / Superprof / ADPList.
 6. SEO: `src/app/sitemap.ts` y `robots.ts` (se generan del contenido), enlace canónico en cada página
