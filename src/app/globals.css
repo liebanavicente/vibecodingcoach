@@ -780,6 +780,31 @@ body.menu-open .assistant { display: none; }
 .calc-result .button { justify-content: center; width: 100%; }
 .calc-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; color: var(--accent-ink); font-weight: 650; }
 .calc-sticky { display: none; }
+
+/* Course catalog (cursos.miguelliebana.com). */
+.catalog { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; }
+.catalog-card { display: grid; grid-template-columns: 46px minmax(0, 1fr) 230px; align-items: start; gap: 22px; border-radius: var(--radius-xl); padding: 28px; color: var(--ink); transition: transform 240ms var(--ease-out), box-shadow 240ms var(--ease-out); }
+.catalog-card:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
+.catalog-card:hover .step-mark { transform: rotate(-8deg); }
+.catalog-body h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: -0.035em; }
+.catalog-body .label { text-transform: none; letter-spacing: 0; font-size: 0.88rem; color: var(--accent-ink); }
+.catalog-text { margin-top: 10px; color: var(--muted); line-height: 1.6; }
+.catalog-learn { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 16px 0 0; padding: 0; list-style: none; color: var(--text-2); font-size: 0.92rem; font-weight: 600; }
+.catalog-learn li { display: inline-flex; align-items: center; gap: 6px; }
+.catalog-learn svg { color: #0d7a52; }
+.catalog-side { display: grid; gap: 18px; }
+.catalog-side dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.catalog-side dt { color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.catalog-side dd { margin: 4px 0 0; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.03em; }
+.catalog-side .button { justify-content: center; }
+.catalog-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 40px; border-radius: var(--radius-xl); padding: 32px; }
+.catalog-cta > div:first-child { max-width: 560px; }
+.catalog-cta .muted { margin-top: 10px; line-height: 1.6; }
+.catalog-cta .actions { margin-top: 0; }
+@media (max-width: 860px) {
+  .catalog-card { grid-template-columns: 42px minmax(0, 1fr); padding: 22px 20px; }
+  .catalog-side { grid-column: 1 / -1; }
+}
 .calc-video-btn { display: inline-flex; align-items: center; justify-self: start; gap: 10px; border: 1.5px solid rgba(255, 112, 52, 0.3); border-radius: 999px; background: var(--accent-soft); color: var(--accent-ink); cursor: pointer; font: inherit; font-size: 0.92rem; font-weight: 700; padding: 6px 14px 6px 6px; transition: transform 180ms var(--ease-out); }
 .calc-video-btn:hover { transform: scale(1.03); }
 .calc-video-btn .play-icon { width: 30px; height: 30px; }

@@ -1,5 +1,6 @@
 import { availableDigitalModules } from "@/content/competencias";
 import { availableModules } from "@/content/curso";
+import { coursesUrl, htmlCssUrl } from "@/content/cursos";
 import { buildKinds, buildSteps, offers } from "@/content/oferta";
 import { site } from "@/lib/site";
 
@@ -35,6 +36,8 @@ Vibe Coding desde Cero (${web}/curso):
 ${list(availableModules.map((m) => `Módulo ${m.number}: ${m.title}. ${m.summary}`))}
 Competencias digitales básicas, para quien empieza de cero con el ordenador y el móvil (${web}/competencias-digitales):
 ${list(availableDigitalModules.map((m) => `Módulo ${m.number}: ${m.title}. ${m.summary}`))}
+HTML y CSS desde cero, para entender cómo está hecha una web por dentro (${htmlCssUrl}): 18 lecciones, unas 11 horas y 50 ejercicios con pistas.
+Todos los cursos, en orden recomendado (competencias digitales → HTML y CSS → vibe coding): ${coursesUrl}
 Además hay un glosario (${web}/curso/glosario) y una biblioteca de prompts (${web}/curso/prompts).
 
 Invita a reservar la clase de prueba gratis (${web}/reservar) solo cuando venga a cuento (dudas sobre clases, precios o por dónde empezar) y no en todas las respuestas.`;

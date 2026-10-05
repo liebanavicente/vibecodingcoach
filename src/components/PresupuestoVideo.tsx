@@ -10,22 +10,8 @@ import {
   ShoppingCart,
   Translate,
 } from "@phosphor-icons/react";
-import {
-  AbsoluteFill,
-  Easing,
-  interpolate,
-  spring,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
-import {
-  type Answers,
-  type Estimate,
-  type Feature,
-  RATE,
-  REVISIONS,
-  webTypes,
-} from "@/content/presupuesto";
+import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { type Answers, type Estimate, type Feature, RATE, REVISIONS, webTypes } from "@/content/presupuesto";
 
 export type PresupuestoVideoProps = { answers: Answers; estimate: Estimate };
 
@@ -49,16 +35,7 @@ const glass = {
 
 const WINDOW_TOP = 220;
 
-const PAGE_NAMES = [
-  "Inicio",
-  "Servicios",
-  "Sobre mí",
-  "Galería",
-  "Contacto",
-  "Precios",
-  "Opiniones",
-  "Blog",
-];
+const PAGE_NAMES = ["Inicio", "Servicios", "Sobre mí", "Galería", "Contacto", "Precios", "Opiniones", "Blog"];
 const FEATURES: Record<Feature, { label: string; Icon: typeof Robot }> = {
   contacto: { label: "Contacto", Icon: EnvelopeSimple },
   reservas: { label: "Reservas", Icon: CalendarCheck },
@@ -71,8 +48,7 @@ const FEATURES: Record<Feature, { label: string; Icon: typeof Robot }> = {
 
 const ease = Easing.bezier(0.22, 1, 0.36, 1);
 // Spanish formatting leaves 4-digit numbers ungrouped (1450); prices read better as 1.450.
-const eur = (n: number) =>
-  new Intl.NumberFormat("es-ES", { useGrouping: "always" }).format(n);
+const eur = (n: number) => new Intl.NumberFormat("es-ES", { useGrouping: "always" }).format(n);
 
 /** 0 → 1 between two frames, eased. */
 function useProgress(from: number, to: number) {
@@ -108,8 +84,7 @@ const Background: React.FC = () => {
   return (
     <AbsoluteFill
       style={{
-        background:
-          "linear-gradient(160deg, #fff6ef 0%, #ffe9dc 55%, #ffd9c6 100%)",
+        background: "linear-gradient(160deg, #fff6ef 0%, #ffe9dc 55%, #ffd9c6 100%)",
       }}
     >
       <div
@@ -120,8 +95,7 @@ const Background: React.FC = () => {
           left: -200 + drift,
           top: -160,
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(255,148,64,0.35), transparent 65%)",
+          background: "radial-gradient(circle, rgba(255,148,64,0.35), transparent 65%)",
         }}
       />
       <div
@@ -132,8 +106,7 @@ const Background: React.FC = () => {
           right: -260,
           bottom: -200 - drift,
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(242,69,47,0.22), transparent 65%)",
+          background: "radial-gradient(circle, rgba(242,69,47,0.22), transparent 65%)",
         }}
       />
     </AbsoluteFill>
@@ -193,10 +166,7 @@ const Block: React.FC<{ id: Feature; at: number }> = ({ id, at }) => {
 };
 
 /** The visitor's website, assembling itself: window, menu with its pages, a hero and one block per feature. */
-const Browser: React.FC<{ answers: Answers; height: number }> = ({
-  answers,
-  height,
-}) => {
+const Browser: React.FC<{ answers: Answers; height: number }> = ({ answers, height }) => {
   const win = usePop(8);
   const heroLine = useProgress(40, 70);
   const pages = Math.min(answers.pages, 6);
@@ -301,12 +271,8 @@ const Browser: React.FC<{ answers: Answers; height: number }> = ({
         }}
       >
         {feats.length
-          ? feats.map((id, i) => (
-              <Block at={featStart + i * 9} id={id} key={id} />
-            ))
-          : [0, 1, 2].map((i) => (
-              <Placeholder at={featStart + i * 9} key={i} />
-            ))}
+          ? feats.map((id, i) => <Block at={featStart + i * 9} id={id} key={id} />)
+          : [0, 1, 2].map((i) => <Placeholder at={featStart + i * 9} key={i} />)}
       </div>
     </div>
   );
@@ -389,9 +355,7 @@ const Numbers: React.FC<{
         <span style={big}>
           {count(e.hours[0])}–{count(e.hours[1])}
         </span>
-        <span style={{ color: muted, fontSize: 22, fontWeight: 600 }}>
-          a {RATE} €/h
-        </span>
+        <span style={{ color: muted, fontSize: 22, fontWeight: 600 }}>a {RATE} €/h</span>
       </Stat>
       <Stat at={175} label="Precio" wide>
         <span
@@ -411,15 +375,8 @@ const Numbers: React.FC<{
         </span>
       </Stat>
       <Stat at={185} label="Entrega">
-        <span style={big}>
-          {e.weeks[0] === e.weeks[1]
-            ? e.weeks[0]
-            : `${e.weeks[0]}–${e.weeks[1]}`}{" "}
-          sem.
-        </span>
-        <div
-          style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}
-        >
+        <span style={big}>{e.weeks[0] === e.weeks[1] ? e.weeks[0] : `${e.weeks[0]}–${e.weeks[1]}`} sem.</span>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 8 }}>
           {Array.from({ length: weeks }, (_, i) => {
             const on = frame >= 200 + i * 5;
             return (
@@ -429,11 +386,7 @@ const Numbers: React.FC<{
                   width: 18,
                   height: 18,
                   borderRadius: 5,
-                  background: on
-                    ? i < e.weeks[0]
-                      ? "#ff6a2c"
-                      : "rgba(255,106,44,0.35)"
-                    : "rgba(20,23,34,0.08)",
+                  background: on ? (i < e.weeks[0] ? "#ff6a2c" : "rgba(255,106,44,0.35)") : "rgba(20,23,34,0.08)",
                 }}
               />
             );
@@ -444,10 +397,7 @@ const Numbers: React.FC<{
   );
 };
 
-export const PresupuestoVideo: React.FC<PresupuestoVideoProps> = ({
-  answers,
-  estimate,
-}) => {
+export const PresupuestoVideo: React.FC<PresupuestoVideoProps> = ({ answers, estimate }) => {
   const type = webTypes.find((t) => t.id === answers.type)?.label ?? "Tu web";
   // The window grows with the rows of features (three per row) and everything below follows it.
   const rows = Math.max(1, Math.ceil(answers.features.length / 3));
@@ -510,9 +460,7 @@ export const PresupuestoVideo: React.FC<PresupuestoVideoProps> = ({
         >
           <p style={{ margin: 0, fontSize: 30, fontWeight: 700 }}>
             {REVISIONS} rondas de cambios incluidas ·{" "}
-            <span style={{ color: accentInk }}>
-              se cierra en una llamada gratis
-            </span>
+            <span style={{ color: accentInk }}>se cierra en una llamada gratis</span>
           </p>
         </div>
       </AbsoluteFill>

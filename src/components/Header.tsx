@@ -46,7 +46,7 @@ export function Header() {
   const isCurrent = (href: string) => {
     if (href === "/") return pathname === "/";
     if (href.includes("#")) return false;
-    if (href === "/curso") return pathname.startsWith("/curso") && !/^\/curso\/(glosario|prompts)/.test(pathname);
+    if (href === "/curso") return /^\/curso(\/|$)/.test(pathname) && !/^\/curso\/(glosario|prompts)/.test(pathname);
     return pathname.startsWith(href);
   };
 

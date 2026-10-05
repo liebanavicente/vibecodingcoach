@@ -5,6 +5,7 @@ import { Asistente } from "@/components/Asistente";
 import { Header } from "@/components/Header";
 import { MlLink } from "@/components/MlLogo";
 import { SocialLinks } from "@/components/SocialLinks";
+import { coursesUrl } from "@/content/cursos";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
           <span className="site-footer-links">
             <SocialLinks variant="icons" />
+            <a href={coursesUrl}>Todos mis cursos</a>
             <a href={site.linkedin}>LinkedIn</a>
             <a href={site.github}>GitHub</a>
             <a href={`mailto:${site.email}`}>Email</a>

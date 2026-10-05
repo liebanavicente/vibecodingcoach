@@ -318,7 +318,7 @@ export const modules: Module[] = [
         body: [
           "Ahora puedes hablar con la IA como habla un desarrollador, pero sin dejar de ser tú. Compara «pon el botón más bonito» con un prompt que nombra el elemento, la propiedad y el valor. El primero da una sorpresa; el segundo, lo que quieres.",
           "Para cambios pequeños, como un texto, un color o un tamaño, a veces es más rápido hacerlo tú directamente en el archivo. Y cada vez que lo haces, aprendes un poco más.",
-          "¿Te ha picado la curiosidad? En materialdidacticocpweb.vercel.app tienes mi curso gratuito de HTML y CSS, paso a paso y con un editor para practicar en el navegador.",
+          "¿Te ha picado la curiosidad? En html-css.miguelliebana.com tienes mi curso gratuito «HTML y CSS desde cero»: lecciones cortas, ejemplos que editas al momento y 50 ejercicios con pistas.",
         ],
         prompt:
           "En el botón con class \"boton-llamar\", cambia el padding a 20px 40px, el color de fondo a #c2410c y pon la letra en negrita. No toques nada más de la página.",
