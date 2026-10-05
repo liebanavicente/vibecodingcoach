@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/competencias-digitales", 0.9),
     page("/reservar", 0.8),
     page("/presupuesto", 0.8),
+    page("/comercios", 0.8),
     page("/curso/glosario", 0.8),
     page("/curso/prompts", 0.8),
     ...availableModules.map((m) => page(`/curso/${m.slug}`, 0.7)),
