@@ -84,7 +84,9 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 - `src/app/page.tsx`: landing (hero, para quién, método, curso, oferta, «Te la hago yo», sobre mí).
   «Te la hago yo» (`#a-medida`): servicio de hacer la web por encargo, con presupuesto a medida (sin precio
   público); el botón abre un email con las preguntas para presupuestar (`budgetHref` en `src/lib/site.ts`).
-  En el menú solo sale en móvil («Web a medida»), para que la barra de escritorio no se desborde.
+  En la cabecera es el desplegable «Te la hago yo» (`services` en `src/components/Header.tsx`): webs para comercios,
+  calculadora, encargo, test de la ficha de Google y cómo funciona; en el menú del móvil, el primer grupo. En el hero de la
+  portada, la línea «¿Sin tiempo para aprender? Te la hago yo».
 - `src/app/curso/page.tsx`: índice del curso.
 - `src/app/curso/[slug]/page.tsx`: página de cada módulo (generada estáticamente):
   reproductor de diapositivas + texto completo + índice lateral.

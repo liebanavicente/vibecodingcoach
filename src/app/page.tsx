@@ -179,6 +179,10 @@ export default function Home() {
                 <ArrowRight aria-hidden size={18} weight="bold" />
               </Link>
             </div>
+            <p className="hero-build">
+              ¿Sin tiempo para aprender? <Link href="/#a-medida">Te la hago yo</Link> ·{" "}
+              <Link href="/presupuesto">calcula tu precio en 1 minuto</Link>
+            </p>
           </div>
           <div className="hero-media">
             <HeroVisual />
