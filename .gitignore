@@ -50,3 +50,10 @@ media/ad-artistico/work/
 # NotebookLM videos are not versioned (large, made elsewhere).
 media/video-curso/*/notebooklm.mp4
 media/video-curso/musicadefondo.mp3
+
+# Local Codex settings.
+.codex/
+# Source clips of the ads (large, made elsewhere).
+media/ad-artistico/clip.mp4
+media/ad-avatar/clips/
+media/ad-whatsapp/clips/
