@@ -52,6 +52,10 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
 
 ### Estructura
 
+- Comercios del barrio: página `/comercios` (`src/app/comercios/page.tsx`; precios sacados de `estimate()`: página
+  sencilla desde 150 €, web completa 425–750 €, revisión gratis de la ficha de Google Maps) y tarjeta de visita para
+  repartir en mano: `node --no-warnings media/tarjeta-comercios/tarjeta.mjs` → `out/tarjeta.pdf` (85×55 mm + 3 mm de
+  sangrado, dos caras) y vistas previas PNG. El QR lleva a `/comercios?utm_source=tarjeta`.
 - Catálogo de cursos en **https://cursos.miguelliebana.com** (mismo proyecto de Vercel): `src/app/cursos/page.tsx` con los
   datos de `src/content/cursos.ts` (orden recomendado: competencias digitales → HTML y CSS → vibe coding). En
   `next.config.ts`, para ese host `/` se reescribe a `/cursos` y el resto de rutas redirige (308) a vibecoding.miguelliebana.com;
