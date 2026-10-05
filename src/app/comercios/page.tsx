@@ -148,8 +148,11 @@ export default function ComerciosPage() {
               <p className="offer-text">
                 Miro cómo sales en Google Maps (fotos, horarios, reseñas) y te digo qué mejorar. Sin compromiso.
               </p>
-              <Link className="button" href={contactHref}>
-                Pedir la revisión
+              <Link className="button" href="/comercios/google">
+                Hazla tú en 2 minutos
+              </Link>
+              <Link className="build-alt" href={contactHref}>
+                O pídemela a mí
               </Link>
             </div>
           </div>

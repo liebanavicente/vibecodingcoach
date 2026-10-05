@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/reservar", 0.8),
     page("/presupuesto", 0.8),
     page("/comercios", 0.8),
+    page("/comercios/google", 0.7),
     page("/encargo", 0.8),
     page("/privacidad", 0.2),
     page("/curso/glosario", 0.8),

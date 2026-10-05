@@ -760,7 +760,7 @@ body.menu-open .assistant { display: none; }
 /* Phones on the calculator: the sticky estimate bar shares the bottom edge, so the robot goes without its bubble. */
 @media (max-width: 960px) { body:has(.calc-sticky) .assistant-bubble { display: none; } }
 /* Phones filling in an order: the robot would cover the «Siguiente» button, and the form already answers. */
-@media (max-width: 960px) { body:has(.enc) .assistant { display: none; } }
+@media (max-width: 960px) { body:has(.enc) .assistant { display: none; } body:has(.gfa) .assistant-bubble { display: none; } }
 
 /* Budget calculator (/presupuesto). */
 .calc { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px; align-items: start; }
@@ -836,6 +836,45 @@ body.menu-open .assistant { display: none; }
   .enc-styles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .enc-fields, .enc-summary { grid-template-columns: minmax(0, 1fr); }
   .legal { padding: 26px 20px; }
+}
+
+/* Google Maps self-assessment (/comercios/google). */
+.gfa { display: grid; gap: 20px; max-width: 860px; }
+.gfa-form, .gfa-result { border-radius: var(--radius-xl); padding: 30px 32px; }
+.gfa-business { display: grid; gap: 6px; max-width: 420px; color: var(--text-2); font-size: 0.9rem; font-weight: 650; }
+.gfa-business input { border: 1px solid rgba(20, 23, 34, 0.14); border-radius: var(--radius-md); background: white; color: var(--ink); font: inherit; font-size: 16px; padding: 11px 14px; }
+.gfa-list { display: grid; gap: 22px; margin: 26px 0 0; padding: 0; list-style: none; }
+.gfa-q { display: flex; gap: 12px; margin-bottom: 10px; color: var(--ink); font-size: 1.05rem; font-weight: 700; line-height: 1.4; }
+.gfa-q span { display: grid; flex: none; place-items: center; width: 28px; height: 28px; border-radius: 9px; background: var(--accent-soft); color: var(--accent-ink); font-size: 0.85rem; font-weight: 800; }
+.gfa-list .calc-chips { padding-left: 40px; }
+.gfa-go { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(20, 23, 34, 0.08); }
+.gfa-go .button:disabled { cursor: not-allowed; opacity: 0.45; }
+.gfa-result { scroll-margin-top: 100px; }
+.gfa-head { display: flex; align-items: center; gap: 26px; }
+.gfa-head h2 { margin-top: 2px; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.03em; }
+.gfa-head .muted { margin-top: 6px; line-height: 1.55; }
+.gfa-score { display: grid; flex: none; place-items: center; width: 130px; height: 130px; border-radius: 50%; background: conic-gradient(var(--orange) var(--p), rgba(20, 23, 34, 0.08) 0); }
+.gfa-score span { display: flex; align-items: baseline; justify-content: center; gap: 2px; padding-top: 34px; width: 102px; height: 102px; border-radius: 50%; background: white; color: var(--muted); font-weight: 700; }
+.gfa-score strong { color: var(--ink); font-size: 2.6rem; letter-spacing: -0.05em; line-height: 1; }
+.gfa-result h3 { margin-top: 28px; font-size: 1.2rem; }
+.gfa-tips { display: grid; gap: 12px; margin: 14px 0 0; padding: 0; list-style: none; }
+.gfa-tips li { display: flex; gap: 14px; border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.8); padding: 14px 16px; line-height: 1.5; }
+.gfa-tips b { display: grid; flex: none; place-items: center; width: 30px; height: 30px; border-radius: 10px; background: var(--grad); color: white; }
+.gfa-perfect { margin-top: 22px; color: #0d7a52; font-weight: 700; }
+.gfa-more { margin-top: 14px; color: var(--text-2); }
+.gfa-more summary { cursor: pointer; color: var(--accent-ink); font-weight: 650; }
+.gfa-more ul { display: grid; gap: 8px; margin-top: 10px; padding-left: 1.2em; line-height: 1.5; }
+.gfa-cta { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px 28px; align-items: center; margin-top: 28px; border-radius: var(--radius-lg); background: linear-gradient(135deg, #fff1e8, #ffe3d3); padding: 22px 24px; }
+.gfa-cta h3 { margin-top: 0; }
+.gfa-cta .muted { margin-top: 6px; line-height: 1.55; }
+.gfa-actions { display: grid; gap: 10px; justify-items: stretch; }
+.gfa-actions .button { justify-content: center; }
+.gfa-actions .build-alt { justify-self: center; }
+@media (max-width: 720px) {
+  .gfa-form, .gfa-result { padding: 22px 18px; }
+  .gfa-list .calc-chips { padding-left: 0; }
+  .gfa-head { flex-direction: column; align-items: flex-start; }
+  .gfa-cta { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Landing for neighbourhood shops (/comercios). */

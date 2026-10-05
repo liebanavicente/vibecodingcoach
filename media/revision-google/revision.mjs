@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import puppeteer from "puppeteer-core";
 import QRCode from "qrcode";
 import { estimate } from "../../src/content/presupuesto.ts";
-import { CRITERIOS } from "./criterios.mjs";
+import { CRITERIOS, verdict as verdictFor } from "./criterios.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const file = process.argv[2] ?? join(here, "ejemplo.json");
@@ -21,12 +21,7 @@ const rows = CRITERIOS.map((c) => {
   return { ...c, score: Math.max(0, Math.min(2, Number(score))), note };
 });
 const total = rows.reduce((s, r) => s + r.score, 0);
-const verdict =
-  total >= 16
-    ? ["¡Muy bien!", "Tu ficha está cuidada. Con un par de retoques estarás entre las mejores de tu zona."]
-    : total >= 11
-      ? ["Bien, con margen", "Tienes lo básico. Con las mejoras de abajo, más vecinos te encontrarán y te elegirán."]
-      : ["Te estás perdiendo clientes", "Cuando alguien busca lo que vendes cerca, Google enseña antes las fichas más completas."];
+const verdict = verdictFor(total);
 // The 3 improvements: the ones written in the file, or the weakest points (missing first, then improvable).
 const mejoras = (data.mejoras?.length ? data.mejoras : rows.filter((r) => r.score < 2).sort((a, b) => a.score - b.score).map((r) => r.mejora)).slice(0, 3);
 const price = estimate({ type: "landing", pages: 1, features: [], content: "todo", urgent: false }).price[0];
