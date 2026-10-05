@@ -190,6 +190,9 @@ export default function ComerciosPage() {
                   <ArrowRight aria-hidden size={18} weight="bold" />
                 </span>
               </Link>
+              <Link className="build-alt" href="/encargo?utm_source=comercios">
+                O cuéntamelo en 3 minutos con el encargo
+              </Link>
               <Link className="build-alt" href="/presupuesto">
                 <Calculator aria-hidden size={16} weight="bold" /> O calcula tu precio tú mismo
               </Link>

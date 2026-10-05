@@ -54,6 +54,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <a href={site.linkedin}>LinkedIn</a>
             <a href={site.github}>GitHub</a>
             <a href={`mailto:${site.email}`}>Email</a>
+            <a href="/privacidad">Privacidad</a>
           </span>
         </footer>
         {/* Only once the Gemini key is configured (.env.local and Vercel), so visitors never see a dead chat. */}

@@ -55,6 +55,19 @@ export type Answers = {
 
 export const defaultAnswers: Answers = { type: "negocio", pages: 5, features: ["contacto"], content: "parte", urgent: false };
 
+/** Keeps only valid values, whatever the model or the browser sent. */
+export function cleanAnswers(raw: Partial<Answers>): Answers {
+  const type = webTypes.some((t) => t.id === raw.type) ? raw.type! : "negocio";
+  const pages = Math.min(MAX_PAGES, Math.max(1, Math.round(Number(raw.pages) || webTypes.find((t) => t.id === type)!.pages)));
+  return {
+    type,
+    pages,
+    features: features.map((f) => f.id).filter((id) => raw.features?.includes(id)),
+    content: contentOptions.some((c) => c.id === raw.content) ? raw.content! : "parte",
+    urgent: raw.urgent === true,
+  };
+}
+
 export type Estimate = { hours: Range; price: Range; weeks: Range; lines: { label: string; hours: Range; price: Range }[] };
 
 const round25 = (n: number) => Math.round(n / 25) * 25;

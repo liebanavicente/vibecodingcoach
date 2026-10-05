@@ -3,7 +3,8 @@
 import dynamic from "next/dynamic";
 import { useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import { CalendarBlank, EnvelopeSimple, MagicWand, Play, Sparkle, X } from "@phosphor-icons/react";
+import { CalendarBlank, EnvelopeSimple, MagicWand, PaperPlaneTilt, Play, Sparkle, X } from "@phosphor-icons/react";
+import Link from "next/link";
 import { type Answers, contentOptions, defaultAnswers, estimate, type Feature, features, MAX_PAGES, maintenance, RATE, REVISIONS, summary, webTypes } from "@/content/presupuesto";
 import { contactHref, site } from "@/lib/site";
 
@@ -64,6 +65,15 @@ export function Calculadora({ withAi }: { withAi: boolean }) {
       description.trim() ? `\n\nLo que necesito: ${description.trim()}` : ""
     }\n\nMi nombre: \nCómo prefiero que me contactes: \n\nGracias.`,
   )}`;
+
+  // "Continuar con el encargo" carries these answers to /encargo, so nothing is asked twice.
+  const orderHref = `/encargo?${new URLSearchParams({
+    tipo: answers.type,
+    paginas: String(answers.pages),
+    funciones: answers.features.join(","),
+    contenido: answers.content,
+    urgente: answers.urgent ? "1" : "0",
+  })}`;
 
   return (
     <div className="calc">
@@ -215,9 +225,12 @@ export function Calculadora({ withAi }: { withAi: boolean }) {
             {busy === "explicar" ? "Escribiendo…" : "Explícame esta estimación"}
           </button>
         ) : null}
-        <a className="button primary" href={mail}>
-          <EnvelopeSimple aria-hidden size={18} weight="bold" />
-          Pedir este presupuesto
+        <Link className="button primary" href={orderHref}>
+          <PaperPlaneTilt aria-hidden size={18} weight="bold" />
+          Continuar con el encargo
+        </Link>
+        <a className="calc-link" href={mail}>
+          <EnvelopeSimple aria-hidden size={16} weight="bold" /> O pídemelo por correo
         </a>
         <a className="calc-link" href={contactHref}>
           <CalendarBlank aria-hidden size={16} weight="bold" /> Hablarlo en una llamada gratis

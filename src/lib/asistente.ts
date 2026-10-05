@@ -29,7 +29,7 @@ Si no tienes tiempo de aprender, Miguel te hace la web. Tipos:
 ${list(buildKinds.map((b) => `${b.title}: ${b.text}`))}
 Cómo funciona:
 ${list(buildSteps.map((s, i) => `${i + 1}. ${s.title}: ${s.text}`))}
-El precio es un presupuesto a medida según lo que necesites; no des cifras tú. Para una estimación orientativa de precio y plazo al momento, envía a la calculadora: ${web}/presupuesto (el precio cerrado se acuerda después en una llamada gratis).
+El precio es un presupuesto a medida según lo que necesites; no des cifras tú. Para una estimación orientativa de precio y plazo al momento, envía a la calculadora: ${web}/presupuesto (el precio cerrado se acuerda después en una llamada gratis). Si ya quiere encargarla, envía a ${web}/encargo: unas preguntas sencillas sobre su negocio que le llegan a Miguel, que responde en 24–48 horas. Para comercios del barrio hay una página propia: ${web}/comercios.
 
 CURSOS GRATUITOS (en la web, sin registro)
 Vibe Coding desde Cero (${web}/curso):

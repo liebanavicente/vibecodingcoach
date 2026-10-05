@@ -1,4 +1,4 @@
-import { type Answers, contentOptions, estimate, features, MAX_PAGES, RATE, REVISIONS, summary, webTypes } from "@/content/presupuesto";
+import { type Answers, cleanAnswers as clean, contentOptions, estimate, features, MAX_PAGES, RATE, REVISIONS, summary, webTypes } from "@/content/presupuesto";
 import { askGemini, tooMany } from "@/lib/gemini";
 import { site } from "@/lib/site";
 
@@ -16,19 +16,6 @@ const schema = {
   },
   required: ["type", "pages", "features", "content", "urgent"],
 };
-
-/** Keeps only valid values, whatever the model or the browser sent. */
-function clean(raw: Partial<Answers>): Answers {
-  const type = webTypes.some((t) => t.id === raw.type) ? raw.type! : "negocio";
-  const pages = Math.min(MAX_PAGES, Math.max(1, Math.round(Number(raw.pages) || webTypes.find((t) => t.id === type)!.pages)));
-  return {
-    type,
-    pages,
-    features: features.map((f) => f.id).filter((id) => raw.features?.includes(id)),
-    content: contentOptions.some((c) => c.id === raw.content) ? raw.content! : "parte",
-    urgent: raw.urgent === true,
-  };
-}
 
 const LIMIT = `Ahora mismo no puedo ayudarte con la IA (límite gratuito alcanzado). Usa el formulario o escríbeme a ${site.email}.`;
 const ERROR = "No he podido hacerlo ahora. Usa el formulario, que calcula igual, o inténtalo en un momento.";
