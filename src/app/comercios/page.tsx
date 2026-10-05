@@ -50,7 +50,7 @@ export default function ComerciosPage() {
               Tu comercio, <span className="grad-text">también en internet</span>
             </h1>
             <p className="page-intro">
-              Soy Miguel Liébana, vecino y desarrollador web. Hago webs sencillas para comercios: que te encuentren en
+              Soy Miguel Liébana, vecino del barrio. Hago webs sencillas para comercios: que te encuentren en
               Google, vean tus horarios y te llamen o escriban con un toque. Sin tecnicismos y con un precio claro.
             </p>
             <div className="actions">

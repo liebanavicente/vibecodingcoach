@@ -66,7 +66,7 @@ const html = `<!doctype html>
       <div class="brand">${ml}<div>vibe<span>coding</span>coach</div></div>
       <h1>Tu comercio,<br><span class="grad">también en internet</span></h1>
       <p class="sub">Webs sencillas para los comercios del barrio.</p>
-      <p class="who"><b>Miguel Liébana</b><br>Tu vecino desarrollador web</p>
+      <p class="who"><b>Miguel Liébana</b><br>Tu vecino que hace webs</p>
       <div class="price"><small>desde</small><strong>${price} €</strong></div>
     </div>
   </section>
