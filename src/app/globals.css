@@ -175,6 +175,7 @@ body.menu-open { overflow: hidden; }
 /* ---------- Hero ---------- */
 .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: center; gap: 48px; min-height: min(calc(100vh - 140px), 780px); padding: 28px 0 40px; }
 .hero-copy .actions .button.lg { min-width: 300px; }
+.about-badge { color: var(--accent-ink); font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
 .hero-build { margin-top: 18px; color: var(--text-2); font-weight: 600; }
 .hero-build a { color: var(--accent-ink); font-weight: 750; text-decoration: underline; text-underline-offset: 3px; }
 
