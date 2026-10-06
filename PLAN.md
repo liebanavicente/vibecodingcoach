@@ -12,7 +12,7 @@
 a quien emprendedores le paguen por estrategia.
 
 **Lo que SÍ eres, y es una combinación poco común:**
-- Maestro titulado (UB), 14 años de docencia, máster en TIC aplicadas a la educación,
+- Maestro titulado (UB), 14 años de docencia, máster en TIC aplicadas a la educación (cursado, falta el TFM),
   coordinador TIC formando a otro profesorado.
 - Developer junior en formación activa (Bootcamp Full Stack con IA, Upgrade Hub,
   termina feb 2027), con proyectos reales ya desplegados (SaaS con Next.js/Prisma/

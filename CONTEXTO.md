@@ -6,7 +6,7 @@ Traspaso de sesión (4 oct 2026). Leer antes de continuar.
 
 Miguel Liébana quiere monetizar su experiencia con vibe coding dando clases.
 Perfil real (de su CV): maestro titulado (UB) con 14 años de docencia y
-coordinador TIC, máster en TIC aplicadas a la educación, developer full-stack
+coordinador TIC, máster en TIC aplicadas a la educación (cursado, le falta el TFM), developer full-stack
 junior en bootcamp (Upgrade Hub, termina feb 2027), trabaja de recepcionista/
 administrativo. Proyectos desplegados: ENERPRO, BandManager, material didáctico
 HTML/CSS (materialdidacticocpweb.vercel.app), Apuntes Upgrade (IA que genera

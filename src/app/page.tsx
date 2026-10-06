@@ -465,7 +465,7 @@ export default function Home() {
             <div className="about-copy">
               <p>
                 Soy Miguel Liébana. Durante 14 años fui maestro de primaria y coordinador TIC, formando a alumnos y a
-                otros profesores en el uso de la tecnología. Tengo un máster en TIC aplicadas a la educación.
+                otros profesores en el uso de la tecnología. He cursado un máster en TIC aplicadas a la educación (me falta el trabajo final).
               </p>
               <p>
                 Hoy me estoy formando como desarrollador full-stack con IA y construyo aplicaciones reales: un portal
