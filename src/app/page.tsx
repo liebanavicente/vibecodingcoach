@@ -470,9 +470,13 @@ export default function Home() {
               <p>
                 Hoy me estoy formando como desarrollador full-stack con IA y construyo aplicaciones reales: un portal
                 para empleados, una plataforma de gestión para bandas de música, una tienda online con pagos… Casi
-                todo con ayuda de la IA, y con la formación oficial de Anthropic sobre Claude Code (
+                todo con ayuda de la IA, y con la formación oficial de Anthropic sobre Claude Code (insignias{" "}
                 <a className="about-badge" href="https://academy.claude.com/verify/5d19de20b0954f81da7d6fe4f060e5ec" rel="noreferrer" target="_blank">
-                  insignia Claude Code 101
+                  Claude Code 101
+                </a>{" "}
+                y{" "}
+                <a className="about-badge" href="https://academy.claude.com/verify/4da8487bb71ae62923a4e62f027bd914" rel="noreferrer" target="_blank">
+                  Claude Code in Action
                 </a>
                 ).
               </p>
