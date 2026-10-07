@@ -1,0 +1,7 @@
+¿Qué imprime este código? 👇 Responde en comentarios antes de ver la solución.
+
+Fui maestro 14 años. Ahora aprendo a programar a los 40 y te lo explico como a un niño de 10.
+
+Reto #1: la función enseña el 10 con console.log, pero no lo devuelve. Sin return, la variable se queda en undefined.
+
+#JavaScript #AprenderAProgramar #Programacion #Bootcamp

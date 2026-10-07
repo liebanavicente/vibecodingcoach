@@ -161,6 +161,11 @@ Detalle completo del plan y del currículo en [PLAN.md](./PLAN.md).
   por imagen, 1080×1350) y `npm run carrusel -- carrusel-01` las guarda en `out/`; logos de marca con
   `data-si="<slug de simple-icons>"`; 01 = «Mis reels se publican solos» (Buffer). Textos de publicación,
   bio y calendario en `media/instagram.md`.
+- Retos JS («Aprendo JavaScript a los 40», desde el 7 oct): reels «¿Qué imprime este código?» con el gancho legible en el
+  fotograma 0 y la respuesta a los 6 s. Contenido en `media/remotion/src/retos.ts`, plantilla `RetoJS.tsx` (carpeta
+  «Retos-JS» del Studio). Cada reto vive en `media/retos/reto-NN/` (`caption.txt` + `out/reto-NN.mp4`, el formato de la cola):
+  `cd media/remotion && npx remotion render reto-<id> ../retos/reto-NN/out/reto-NN.mp4`. Los vídeos van siempre a `media/`,
+  nunca al escritorio. «Palabra del día» se sacó de la cola el 7 oct (0–6 visualizaciones).
 - Generador «Palabra del día»: `npm run reels:palabras` lee `src/content/glosario.ts`, crea
   `media/palabras/<id>/reel.html` + `caption.txt` por término (salvo token y mcp, hechos a mano),
   junta todos los textos en `media/palabras/captions.md` y renderiza los vídeos que falten.
