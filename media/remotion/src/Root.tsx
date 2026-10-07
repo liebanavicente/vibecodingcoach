@@ -4,6 +4,8 @@ import { DURATION as CURSOS_DURATION, ReelCursos, reelCursosSchema } from "./Ree
 import { DURATION as COMERCIOS_DURATION, ReelComercios } from "./ReelComercios";
 import { DURATION as FICHA_DURATION, ReelFichaGoogle } from "./ReelFichaGoogle";
 import { DURATION, ReelPresupuesto } from "./ReelPresupuesto";
+import { DURATION as RETO_DURATION, RetoJS } from "./RetoJS";
+import { retos } from "./retos";
 import { calculatePalabraMetadata, FPS, PalabraDelDia, palabraSchema, timing } from "./PalabraDelDia";
 
 export const RemotionRoot: React.FC = () => {
@@ -56,6 +58,12 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="ReelComercios" component={ReelComercios} durationInFrames={COMERCIOS_DURATION} fps={FPS} width={1080} height={1920} />
       {/* The Google Maps self-assessment at /comercios/google. */}
       <Composition id="ReelFichaGoogle" component={ReelFichaGoogle} durationInFrames={FICHA_DURATION} fps={FPS} width={1080} height={1920} />
+      {/* «Aprendo JavaScript a los 40»: one «¿Qué imprime este código?» challenge per reel (retos.ts). */}
+      <Folder name="Retos-JS">
+        {retos.map((reto) => (
+          <Composition key={reto.id} id={`reto-${reto.id}`} component={RetoJS} durationInFrames={RETO_DURATION} fps={FPS} width={1080} height={1920} defaultProps={reto} />
+        ))}
+      </Folder>
       {/* One reel per glossary term, straight from src/content/glosario.ts. */}
       <Folder name="Glosario">
         {glossary.map((t) => {
