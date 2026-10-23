@@ -2,6 +2,7 @@
 
 import { type FormEvent, type KeyboardEvent, useEffect, useRef, useState } from "react";
 import { PaperPlaneRight, Robot, X } from "@phosphor-icons/react";
+import { usePathname } from "next/navigation";
 import { MlLogo } from "@/components/MlLogo";
 
 type Turn = { role: "user" | "model"; text: string };
@@ -36,6 +37,7 @@ function Text({ text }: { text: string }) {
 
 /** Floating chat that answers questions about the classes, prices, courses and services through /api/asistente. */
 export function Asistente() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [turns, setTurns] = useState<Turn[]>([GREETING]);
   const [draft, setDraft] = useState("");
@@ -87,6 +89,8 @@ export function Asistente() {
     }
   }
 
+  // En las demos ya hay un chat en pantalla: dos a la vez confunden.
+  if (pathname?.startsWith("/demo")) return null;
   return (
     <div className="assistant" onKeyDown={onKey}>
       {open ? (
